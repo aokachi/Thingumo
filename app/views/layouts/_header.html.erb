@@ -1,0 +1,34 @@
+	<!-- THE HEADER -->
+	<header>
+		<div class="container-fluid custom-container">
+			<div class="row no_row row-header">
+				<div class="brand-be">
+					<a href="index.html">
+						<!--アプリケーションのアイコンを表示-->
+						<!--<img class="logo-c active be_logo"  src="/assets/logo.png" alt="logo">-->
+						<img class="logo-c be_logo" src="/assets/logo-green.png" alt="logo2">
+						<img class="logo-c be_logo" src="/assets/logo-orang.png" alt="logo3">
+						<img class="logo-c be_logo" src="/assets/logo-red.png" alt="logo4">
+					</a>
+				</div>
+				<div class="header-menu-block">
+					<button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
+					<ul class="header-menu" id="one">
+						<% if logged_in? %>
+							<li><%= link_to "マイページ", user_path(current_user) %></li>
+						<% end %>
+						<% if logged_in? %>
+							<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+						<% end %>
+						<li id="ad-work-li"><%= link_to "質問する", new_post_path, class: "btn color-1", id: "add-work-btn" %></li>
+					</ul>
+				</div>
+				<div class="login-header-block">
+					<div class="login_block">
+						<a class="btn-login btn color-1 size-2 hover-2" href="" ><i class="fa fa-user"></i>
+						ログイン</a>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</header>
