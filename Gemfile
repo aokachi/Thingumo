@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # kaminari
 gem 'kaminari'
@@ -33,6 +33,12 @@ gem 'kaminari'
 # bootstrap
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+# carrierwave
+gem 'carrierwave'
+
+# rails consoleで日本語入力
+gem 'rb-readline'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
