@@ -2312,6 +2312,7 @@ min-height: 0;}
   content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
+
 .large-popup-text .be-popup-terms{text-decoration: underline;}
 @media screen and (min-width: 120px){
 .be-large-post .be-largepost-iframe{margin: 0 -66px;}}

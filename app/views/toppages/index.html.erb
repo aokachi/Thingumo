@@ -151,33 +151,31 @@
 					<div class="col-md-6">
 						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
 					</div>
-					<!--<div class="col-md-6">
-								<input class="input-signtype">
-									<%= f.email_field :email, placeholder: "Eメール" %>
-								</input>
-							</div>
-							<div class="col-md-6">
-								<input class="input-signtype">
-									<%= f.password_field :password, placeholder: "パスワード" %>
-								</input>
-							</div>
-							<div class="col-md-6">
-								<input class="input-signtype">
-									<%= f.password_field :password_confirmation, placeholder: "パスワードをもう一度入力してください" %>
-								</input>
-							</div>
-							<div class="col-md-6">
-								<div class="be-custom-select-block">
-									<%= f.label :sex, '性別'%>
-									<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別'}, { class: 'be-custom-select', required: true } %>
-								</div>
-							</div>
-							<div class="col-md-12 be-date-block">
-								<div class="be-custom-select-block">
-									<%= f.label :birth, '生年月日' %>
-									<%= f.date_select :birth, {}, { class: 'be-custom-select', required: true } %>
-								</div>
-							</div>-->
+					<div class="col-md-6">
+						<%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+					</div>
+					<div class=" col-md-6">
+						<%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<%= f.label :sex, '性別'%>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別'}, { class: 'be-custom-select', required: true } %>
+						</div>
+					</div>
+					<div class="col-md-6 be-date-block">
+						<div class="form-group">
+							<%= f.label :birth, '生年月日' %>
+							<%= f.date_field :created_at, class: 'form-control' %>
+						</div>
+						<!--生年月日入力フォームその2-->
+						<%# <div class="input-date">
+							<input name="date" type="date" />
+						</div> %>
+					</div>
 					<div class="col-md-6 for-signin">
 						<%= f.submit '登録する', class: 'be-popup-sign-button' %>
 					</div>
