@@ -1,0 +1,155 @@
+<div class="be-loader">
+	<div class="spinner">
+		<img src="/assets/logo-loader.png" alt="">
+		<p class="circle">
+			<span class="ouro">
+				<span class="left"><span class="anim"></span></span>
+				<span class="right"><span class="anim"></span></span>
+			</span>
+		</p>
+	</div>
+</div>
+
+<!-- ヘッダー -->
+
+<!-- MAIN CONTENT -->
+<div id="content-block">
+	<div class="container be-detail-container">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 left-feild">
+				<div class="be-user-block style-3">
+					<div class="be-user-detail">
+						<div class="be-ava-user style-2">
+							<!--プロフィール画像-->
+							<% if @user.avatar? %>
+							<div>
+								<%= image_tag user.avatar.url, alt: "AVATAR", class: "be-img-block" %>
+							</div>
+							<% else %>
+							<div>
+								<%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-img-block" %>
+							</div>
+							<% end %>
+							<%# <img src="/assets/ava_10.jpg" alt="">  %>
+						</div>
+						<!--ユーザーのニックネームを表示-->
+						<p><span class="be-use-name"><%= @user.name %></span></p>
+						<div class="be-user-info">
+							<!--アカウント設定ページに飛ぶボタンを設置(自分のアカウントの場合のみ表示)-->
+							<%= link_to edit_user_path, class: "be-ava-left btn color-1 size-2 hover-1", id: "add-work-btn" do %>
+							<i class="fa fa-pencil"></i>編集する
+							<% end %>
+						</div>
+						<!--ユーザーが得意なカテゴリを表示(余裕があれば)-->
+						<!--<div class="be-text-tags style-2">
+								<a href="page1.html">UI/UX</a>,
+								<a href="page1.html">Web Design</a>,
+								<a href="page1.html">Art Direction</a>
+							</div>-->
+					</div>
+					<!--閲覧数と高評価数を表示(余裕があれば)-->
+					<!--<div class="be-user-statistic">
+							<div class="stat-row clearfix"><i class="stat-icon icon-views-b"></i> Projects views<span class="stat-counter">218098</span></div>
+							<div class="stat-row clearfix"><i class="stat-icon icon-like-b"></i>Appreciations<span class="stat-counter">14335</span></div>
+						</div>-->
+				</div>
+				<div class="be-desc-block">
+					<div class="be-desc-author">
+						<div class="be-desc-label">About Me</div>
+						<div class="clearfix"></div>
+						<!--プロフィール文を表示-->
+						<div class="be-desc-text">
+							<%= @user.self_introduction %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="tab-wrapper style-1">
+					<div class="tab-nav-wrapper">
+						<div class="nav-tab  clearfix">
+							<!--投稿一覧の上のタグ-->
+							<div class="nav-tab-item active">
+								<span>投稿一覧</span>
+							</div>
+						</div>
+					</div>
+					<div class="tabs-content clearfix">
+						<div class="tab-info active">
+							<!--投稿一覧のパネル-->
+							<div class="row">
+								<% @user.posts.each do |post| %>
+								<div class="col-ml-12 col-xs-6 col-sm-4">
+									<div class="be-post">
+										<!--投稿画像を呼び出して表示(リンク付き)-->
+										<% if post.image? %>
+										<li>
+											<%= link_to image_tag(post.image.url, alt: "IMAGE"), post_path(post), class: "be-img-block" %>
+										</li>
+										<% else %>
+										<a>
+											<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+										</a>
+										<% end %>
+										<!--投稿のタイトルを表示-->
+										<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
+										<span>
+											<!--投稿のカテゴリを表示-->
+											<a class="be-post-tag"><%= post.category.name %></a>
+										</span>
+										<div class="author-post">
+											<!--プロフィール画像を呼び出して表示-->
+											<% if post.user.avatar? %>
+											<p>
+												<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+											</p>
+											<% end %>
+											<!--投稿したユーザのニックネームを呼び出して表示-->
+											<span>by <a><%= post.user.name %></a></span>
+										</div>
+										<div class="info-block">
+											<!--投稿数-->
+											<span><i class="fa fa-eye"></i> 789</span>
+											<!--リプライ数-->
+											<span><i class="fa fa-comment-o"></i> 20</span>
+										</div>
+									</div>
+								</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- フッター -->
+
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="style/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="style/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="style/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="style/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="style/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="style/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="style/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="style/style-reds.css"></div>
+
+		</div>
+	</div>
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/global.js"></script>

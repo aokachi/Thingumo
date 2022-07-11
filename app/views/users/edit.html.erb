@@ -1,0 +1,341 @@
+<% if logged_in? %>
+
+<div class="be-loader">
+	<div class="spinner">
+		<img src="/assets/logo-loader.png" alt="">
+		<p class="circle">
+			<span class="ouro">
+				<span class="left"><span class="anim"></span></span>
+				<span class="right"><span class="anim"></span></span>
+			</span>
+		</p>
+	</div>
+</div>
+
+<!-- ヘッダー -->
+
+<!-- MAIN CONTENT -->
+<div id="content-block">
+	<div class="container be-detail-container">
+		<div class="row">
+			<div class="col-xs-12 col-md-3 left-feild">
+				<div class="be-vidget back-block">
+					<!--マイページに戻るボタン-->
+					<a class="btn full color-1 size-1 hover-1" href="author.html"><i class="fa fa-chevron-left"></i>マイページに戻る</a>
+				</div>
+
+			</div>
+			<div class="col-xs-12 col-md-9 _editor-content_">
+				<div class="sec" data-sec="basic-information">
+					<div class="be-large-post">
+						<div class="info-block style-2">
+							<div class="be-large-post-align ">
+								<h3 class="info-block-label">プロフィールを編集</h3>
+							</div>
+						</div>
+						<div class="be-large-post-align">
+							<!--プロフィール画像を小さく表示し、右のボタンから画像ファイルを選択して新しいプロフィール画像を設定する-->
+							<div class="be-change-ava">
+								<a class="be-ava-user style-2" href="blog-detail-2.html">
+									<img src="/assets/ava_10.jpg" alt="">
+								</a>
+								<a class="btn color-4 size-2 hover-7">画像を変更する</a>
+							</div>
+						</div>
+						<div class="be-large-post-align">
+							<div class="row">
+								<div class="input-col col-xs-12 col-sm-6">
+									<div class="form-group fg_icon focus-2">
+										<div class="form-label">ニックネーム</div>
+										<input class="form-input" type="text" value="">
+									</div>
+								</div>
+								<div class="input-col col-xs-12 col-sm-6">
+									<div class="form-label">地域</div>
+									<div class="be-drop-down icon-none">
+										<span class="be-dropdown-content"> 関東 </span>
+										<ul class="drop-down-list">
+											<li><a>北海道</a></li>
+											<li><a>東北</a></li>
+											<li><a>中部</a></li>
+											<li><a>近畿</a></a></li>
+											<li><a>中国・四国</a></li>
+											<li><a>九州</a></li>
+											<li><a>沖縄</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sec" data-sec="edit-password">
+					<!--ここでパスワードを変更する-->
+					<div class="be-large-post">
+						<div class="info-block style-2">
+							<div class="be-large-post-align">
+								<h3 class="info-block-label">パスワード</h3>
+							</div>
+						</div>
+						<div class="be-large-post-align">
+							<div class="row">
+								<div class="input-col col-xs-12 col-sm-4">
+									<div class="form-group focus-2">
+										<div class="form-label">現在のパスワード</div>
+										<input class="form-input" type="password" placeholder="">
+									</div>
+								</div>
+								<div class="input-col col-xs-12 col-sm-4">
+									<div class="form-group focus-2">
+										<div class="form-label">新しいパスワード</div>
+										<input class="form-input" type="password" placeholder="">
+									</div>
+								</div>
+								<div class="input-col col-xs-12 col-sm-4">
+									<div class="form-group focus-2">
+										<div class="form-label">新しいパスワードを再度入力</div>
+										<input class="form-input" type="password" placeholder="">
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn color-1 size-2 hover-1 btn-right">パスワードを変更する</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sec" data-sec="about-me">
+					<div class="be-large-post">
+						<div class="info-block style-2">
+							<div class="be-large-post-align">
+								<h3 class="info-block-label">About Me</h3>
+							</div>
+						</div>
+						<div class="be-large-post-align">
+							<div class="row">
+								<div class="input-col col-xs-12">
+									<div class="form-group focus-2">
+										<div class="form-label">自己紹介</div>
+										<!--自己紹介文をここに入力-->
+										<textarea class="form-input" required="" placeholder="Something about you"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--変更を保存するボタンを設置-->
+				<a class="btn full color-1 size-1 hover-1 add_section"><i class="fa fa-plus"></i>変更を保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- フッター -->
+
+<div class="be-fixed-filter"></div>
+
+<div class="large-popup login">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">Log in</h5>
+					</div>
+					<form action="./" class="popup-input-search">
+						<div class="col-md-6">
+							<input class="input-signtype" type="email" required="" placeholder="Your email">
+						</div>
+						<div class="col-md-6">
+							<input class="input-signtype" type="password" required="" placeholder="Password">
+						</div>
+						<div class="col-xs-6">
+							<div class="be-checkbox">
+								<label class="check-box">
+									<input class="checkbox-input" type="checkbox" /> <span class="check-box-sign"></span>
+								</label>
+								<span class="large-popup-text">
+									Stay signed in
+								</span>
+							</div>
+
+							<a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
+						</div>
+						<div class="col-xs-6 for-signin">
+							<input type="submit" class="be-popup-sign-button" value="SIGN IN">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="large-popup register">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">Register</h5>
+					</div>
+					<form action="./" class="popup-input-search">
+						<div class="col-md-6">
+							<input class="input-signtype" type="text" required="" placeholder="First Name">
+						</div>
+						<div class="col-md-6">
+							<input class="input-signtype" type="text" required="" placeholder="Last Name">
+						</div>
+						<div class="col-md-6">
+							<div class="be-custom-select-block">
+								<select class="be-custom-select">
+									<option value="" disabled selected>
+										Country
+									</option>
+									<option value="">USA</option>
+									<option value="">Canada</option>
+									<option value="">England</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<input class="input-signtype" type="text" required="" placeholder="Email">
+						</div>
+						<div class="col-md-6">
+							<input class="input-signtype" type="text" required="" placeholder="Password">
+						</div>
+						<div class="col-md-6">
+							<input class="input-signtype" type="text" required="" placeholder="Repeat Password">
+						</div>
+						<div class="col-md-12 be-date-block">
+							<span class="large-popup-text">
+								Date of birth
+							</span>
+							<div class="be-custom-select-block mounth">
+								<select class="be-custom-select">
+									<option value="" disabled selected>
+										Mounth
+									</option>
+									<option value="">January</option>
+									<option value="">February</option>
+									<option value="">March</option>
+									<option value="">April</option>
+									<option value="">May</option>
+									<option value="">June</option>
+									<option value="">July</option>
+									<option value="">August</option>
+									<option value="">September</option>
+									<option value="">October</option>
+									<option value="">November</option>
+									<option value="">December</option>
+								</select>
+							</div>
+							<div class="be-custom-select-block">
+								<select class="be-custom-select">
+									<option value="" disabled selected>
+										Day
+									</option>
+									<option value="">1</option>
+									<option value="">2</option>
+									<option value="">3</option>
+									<option value="">4</option>
+									<option value="">5</option>
+									<option value="">6</option>
+									<option value="">7</option>
+									<option value="">8</option>
+									<option value="">9</option>
+									<option value="">10</option>
+									<option value="">11</option>
+									<option value="">12</option>
+									<option value="">13</option>
+									<option value="">14</option>
+									<option value="">15</option>
+									<option value="">16</option>
+									<option value="">17</option>
+									<option value="">18</option>
+									<option value="">19</option>
+									<option value="">20</option>
+									<option value="">21</option>
+									<option value="">22</option>
+									<option value="">23</option>
+									<option value="">24</option>
+									<option value="">25</option>
+									<option value="">26</option>
+									<option value="">27</option>
+									<option value="">28</option>
+									<option value="">29</option>
+									<option value="">30</option>
+								</select>
+							</div>
+							<div class="be-custom-select-block">
+								<select class="be-custom-select">
+									<option value="" disabled selected>
+										Year
+									</option>
+									<option value="">1996</option>
+									<option value="">1997</option>
+									<option value="">1998</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="be-checkbox">
+								<label class="check-box">
+									<input class="checkbox-input" type="checkbox" required /> <span class="check-box-sign"></span>
+								</label>
+								<span class="large-popup-text">
+									I have read and agree to the <a class="be-popup-terms" href="blog-detail-2.html">Terms of Use</a> and
+									<a class="be-popup-terms" href="blog-detail-2.html">Privacy Policy</a>.
+								</span>
+							</div>
+							<div class="be-checkbox">
+								<label class="check-box">
+									<input class="checkbox-input" type="checkbox" /> <span class="check-box-sign"></span>
+								</label>
+								<span class="large-popup-text">
+									Send me notifications
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 for-signin">
+							<input type="submit" class="be-popup-sign-button" value="SIGN IN">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="style/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="style/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="style/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="style/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="style/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="style/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="style/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="style/style-reds.css"></div>
+
+		</div>
+	</div>
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/global.js"></script>
+
+<% end %>
