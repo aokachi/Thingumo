@@ -29,7 +29,7 @@
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */ color: inherit !important; }
 
-#content-block *:last-child { margin-bottom: 0; }
+#content-block *:last-child { margin-bottom: 20px; }
 
 body { margin: 0; padding: 0; font-family: 'Conv_helveticaneuecyr-roman', sans-serif; }
 
@@ -1165,7 +1165,7 @@ span.right { float: right; }
 
 .be-ava-user > img:hover { transform: scale(1.09); -webkit-transform: scale(1.09); -moz-transform: scale(1.09); -ms-transform: scale(1.09); }
 
-.be-ava-left { position: absolute; top: 70px; left: 15px; width: 100px; text-align: center; }
+.be-ava-left { position: absolute; top: 70px; left: 0; width: 100px; text-align: center; }
 
 .be-ava-right { position: absolute; top: 70px; right: 15px; width: 100px; text-align: center; }
 
