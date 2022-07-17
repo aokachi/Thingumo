@@ -11,14 +11,10 @@ span.choose {
   padding: 5px 0 10px;
   display: inherit
 }
-.container {
-  width: 500px;
-  margin: 50px auto 0;
-  text-align: center
-}
+
 
 /*Styling Selectbox*/
-.dropdown {
+.dropdown2 {
   width: 300px;
   display: inline-block;
   background-color: #fff;
@@ -31,12 +27,12 @@ span.choose {
   height: 100%;
   text-align: left
 }
-.dropdown .select {
+.dropdown2 .select {
     cursor: pointer;
     display: block;
     padding: 10px
 }
-.dropdown .select > i {
+.dropdown2 .select > i {
     font-size: 13px;
     color: #888;
     cursor: pointer;
@@ -44,22 +40,22 @@ span.choose {
     float: right;
     line-height: 20px
 }
-.dropdown:hover {
+.dropdown2:hover {
     box-shadow: 0 0 4px rgb(204, 204, 204)
 }
-.dropdown:active {
+.dropdown2:active {
     background-color: #f8f8f8
 }
-.dropdown.active:hover,
-.dropdown.active {
+.dropdown2.active:hover,
+.dropdown2.active {
     box-shadow: 0 0 4px rgb(204, 204, 204);
     border-radius: 2px 2px 0 0;
     background-color: #f8f8f8
 }
-.dropdown.active .select > i {
+.dropdown2.active .select > i {
     transform: rotate(-90deg)
 }
-.dropdown .dropdown-menu {
+.dropdown2 .dropdown-menu2 {
     position: absolute;
     background-color: #fff;
     width: 100%;
@@ -73,18 +69,18 @@ span.choose {
     overflow-y: auto;
     z-index: 9
 }
-.dropdown .dropdown-menu li {
+.dropdown2 .dropdown-menu2 li {
     padding: 10px;
     transition: all .2s ease-in-out;
     cursor: pointer
 } 
-.dropdown .dropdown-menu {
+.dropdown2 .dropdown-menu2 {
     padding: 0;
     list-style: none
 }
-.dropdown .dropdown-menu li:hover {
+.dropdown2 .dropdown-menu2 li:hover {
     background-color: #f2f2f2
 }
-.dropdown .dropdown-menu li:active {
+.dropdown2 .dropdown-menu2 li:active {
     background-color: #e2e2e2
 }
