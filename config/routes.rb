@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, except: [:index]
-  resources :posts, except: [:index]
-  resources :categories, only: [:index]
+  resources :users, except: [:index]#アカウント操作に関するアクションを設定
+  resources :posts, except: [:index]#投稿に関するアクションを設定
 end
