@@ -40,40 +40,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="be-vidget">
-					<h3 class="letf-menu-article">
-						人気のカテゴリ
-					</h3>
-					<div class="tags_block clearfix">
-						<ul>
-							<li><a data-filter=".category-6" class="filter">photoshop</a></li>
-							<li><a data-filter=".category-1" class="filter">graphic</a></li>
-							<li><a data-filter=".category-2" class="filter">art</a></li>
-							<li><a data-filter=".category-3" class="filter">website</a></li>
-							<li><a data-filter=".category-4" class="filter">logo</a></li>
-							<li><a data-filter=".category-5" class="filter">identity</a></li>
-							<li><a data-filter=".category-6" class="filter">logo design</a></li>
-							<li><a data-filter=".category-1" class="filter">interactive</a></li>
-							<li><a data-filter=".category-2" class="filter">blue</a></li>
-							<li><a data-filter=".category-3" class="filter">branding</a></li>
-						</ul>
-					</div>
-				</div>
 			</div>
 
 			<!--投稿の一覧を表示-->
 			<div class="col-md-10">
 				<div id="container-mix" class="row _post-container_">
 					<% @posts.each do |post| %>
+					<% post.post_files.each do |post_file| %>
 					<div class="category-1 mix custom-column-5">
 						<div class="be-post">
 							<!--投稿画像を呼び出して表示(リンク付き)-->
-							<% if post.image? %>
+							<% if post_file.image? %>
 							<li>
 								<%= link_to image_tag(post.image.url, alt: "IMAGE"), post_path(post), class: "be-img-block" %>
 							</li>
 							<% else %>
-							<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+							<li>
+								<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+							</li>
 							<% end %>
 							<!--投稿のタイトルを表示-->
 							<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
@@ -99,6 +83,7 @@
 							</div>
 						</div>
 					</div>
+					<% end %>
 					<% end %>
 					<%= paginate @posts %>
 				</div>
