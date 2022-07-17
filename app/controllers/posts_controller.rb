@@ -2,6 +2,15 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
 
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def new
+    @categories = Category.all
+    @post = current_user.posts.build #投稿フォームのform_with用
+  end
+
   def create
     @post = current_user.posts.build(post_params)
     @post_file = @post.post_files.build

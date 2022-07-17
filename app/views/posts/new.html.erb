@@ -73,8 +73,11 @@
 										</div>
 										<input type="hidden" name="category">
 										<ul class="post-dropdown-menu">
-											<li id="１">１</li>
-											<li id="２">２</li>
+											<% @categories.each do |category| %>
+											<li>
+												<%= category.name %>
+											</li>
+											<% end %>
 										</ul>
 									</div>
 								</div>
