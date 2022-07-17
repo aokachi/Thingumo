@@ -1,0 +1,469 @@
+<% if logged_in? %>
+
+<div class="be-loader">
+  <div class="spinner">
+    <img src="/assets/logo-loader.png" alt="">
+    <p class="circle">
+      <span class="ouro">
+        <span class="left"><span class="anim"></span></span>
+        <span class="right"><span class="anim"></span></span>
+      </span>
+    </p>
+  </div>
+</div>
+
+<!-- ヘッダー -->
+
+<!-- 投稿内容を表示 -->
+<div id="content-block">
+  <div class="container custom-container be-detail-container">
+    <div class="row">
+      <div class="col-md-9 col-md-push-3">
+        <div class="be-large-post">
+          <div class="info-block">
+            <div class="be-large-post-align">
+              <span><i class="fa fa-eye"></i> 753</span>
+              <span><i class="fa fa-comment-o"></i> 50</span>
+            </div>
+          </div>
+          <div class="blog-content popup-gallery be-large-post-align">
+            <%# <h1 class="be-post-title to"> %>
+            <div class="be-post-title">
+              <!--投稿のタイトルを表示-->
+              <%= link_to(@post.title, post_path(@post), {class: "be-post-title"}) %></a>
+            </div>
+            <%# </h1> %>
+
+            <%# <span class="be-text-tags">
+								<a href="blog-detail-2.html" class="be-post-tag">Interactiob design</a>, 
+								<a href="blog-detail-2.html" class="be-post-tag">UI/UX</a>,  
+								<a href="blog-detail-2.html" class="be-post-tag">Web Design</a>
+							</span> %>
+            <div class="clear"></div>
+            <div class="post-text">
+              <!--投稿したテキストを表示(段落・改行を反映)-->
+              <%= safe_join(@post.text.split("\n"),tag(:br)) %>
+              <!--投稿画像を呼び出して表示(ある場合は)-->
+              <div class="image-block">
+                <% if @post.image? %>
+                <%= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
+                <% else %>
+                <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
+                <% end %>
+              </div>
+              <div class="image-text">
+                <!--画像について説明する文章があれば表示-->
+              </div>
+            </div>
+          </div>
+          <!--カテゴリを表示-->
+          <div class="be-large-post-align">
+            <h3 class="letf-menu-article">
+              カテゴリ
+            </h3>
+            <div class="tags_block clearfix">
+              <ul>
+                <li><a><%= @post.category.name %></a></li>
+                <!--カテゴリを表示-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <%# <% @posts.each do |post| %>
+          <div class="col-md-4">
+            <div class="be-post">
+              <div>
+                <%= link_to(post_path(@post), {class: "be-img-block"}) %>
+              </div>
+              <div>
+                <!--投稿画像を呼び出して表示(ある場合は)-->
+                <div class="image-block">
+                  <% if @post.image? %>
+                  <%= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
+                  <% else %>
+                  <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
+                  <% end %>
+                </div>
+              </div>
+              <div>
+                <!--投稿のタイトルを表示-->
+                <%= link_to(@post.title, post_path(@post), {class: "be-post-title"}) %>
+              </div>
+              <span>
+                <!--投稿のカテゴリを表示-->
+                <a class="be-post-tag"><%= @post.category.name %></a>
+              </span>
+              <div class="author-post">
+                <!--プロフィール画像があったら表示-->
+                <% if @post.user.avatar? %>
+                <p>
+                  <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+                </p>
+                <% end %>
+                <!--投稿したユーザのニックネームを呼び出して表示-->
+                <span>by
+                  <a><%= @post.user.name %></a>
+                </span>
+              </div>
+              <div class="info-block">
+                <span><i class="fa fa-eye"></i> 789</span>
+                <!--閲覧数-->
+                <span><i class="fa fa-comment-o"></i> 20</span>
+                <!--リプライ数-->
+              </div>
+            </div>
+          </div>
+          <%# <% end %>
+        </div>
+        <div class="be-comment-block">
+          <h1 class="comments-title">リプライ</h1>
+          <p class="about-comment-block">
+            参加するには <a href="blog-detail-2.html" class="be-signup-link">ログイン</a>
+            する必要があります。
+          </p>
+          <div class="be-comment">
+            <div class="be-img-comment">
+              <a href="blog-detail-2.html">
+                <img src="/assets/c1.png" alt="" class="be-ava-comment">
+              </a>
+            </div>
+            <div class="be-comment-content">
+
+              <span class="be-comment-name">
+                <a href="blog-detail-2.html">Ravi Sah</a>
+              </span>
+              <span class="be-comment-time">
+                <i class="fa fa-clock-o"></i>
+                May 27, 2015 at 3:14am
+              </span>
+
+              <p class="be-comment-text">
+                Pellentesque gravida tristique ultrices.
+                Sed blandit varius mauris, vel volutpat urna hendrerit id.
+                Curabitur rutrum dolor gravida turpis tristique efficitur.
+              </p>
+            </div>
+
+          </div>
+          <div class="be-comment">
+            <div class="be-img-comment">
+              <a href="blog-detail-2.html">
+                <img src="/assets/c2.png" alt="" class="be-ava-comment">
+              </a>
+            </div>
+            <div class="be-comment-content">
+
+              <span class="be-comment-name">
+                <a href="blog-detail-2.html">Phoenix, the Creative Studio</a>
+              </span>
+              <span class="be-comment-time">
+                <i class="fa fa-clock-o"></i>
+                May 27, 2015 at 3:14am
+              </span>
+
+              <p class="be-comment-text">
+                Nunc ornare sed dolor sed mattis. In scelerisque dui a arcu mattis, at maximus eros commodo. Cras magna
+                nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant. Proin ut ornare
+                lectus, vel eleifend est. Fusce hendrerit dui in turpis tristique blandit.
+              </p>
+            </div>
+
+          </div>
+          <div class="be-comment">
+            <div class="be-img-comment">
+              <a href="blog-detail-2.html">
+                <img src="/assets/c3.png" alt="" class="be-ava-comment">
+              </a>
+            </div>
+            <div class="be-comment-content">
+              <span class="be-comment-name">
+                <a href="blog-detail-2.html">Dorian Camp</a>
+              </span>
+              <span class="be-comment-time">
+                <i class="fa fa-clock-o"></i>
+                May 27, 2015 at 3:14am
+              </span>
+              <p class="be-comment-text">
+                Cras magna nunc, cursus lobortis luctus at, sollicitudin vel neque. Duis eleifend lorem non ant
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-md-pull-9 left-feild">
+        <div class="be-user-block">
+          <div class="be-user-detail">
+            <a class="be-ava-user" href="blog-detail-2.html">
+              <img src="/assets/ava.png" alt="">
+            </a>
+            <p class="be-use-name"><%= @post.user.name %></p>
+            <!--投稿したユーザのニックネームを呼び出して表示-->
+            <span class="be-user-info">
+              Singapore, Singapore
+            </span>
+          </div>
+          <p class="be-text-userblock">
+            Fusce dolor libero, efficitur et lobortis at, faucibus nec nunc. Proin fermentum turpis eget nisi facilisis
+            lobortis. Praesent malesuada facilisis maximus. Donec sed lobortis tortor. Ut nec lacinia sapien, sit amet
+            dapibus magna.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+
+<div class="be-fixed-filter"></div>
+
+<div class="large-popup login">
+  <div class="large-popup-fixed"></div>
+  <div class="container large-popup-container">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+        <div class="row">
+          <div class="col-md-12">
+            <i class="fa fa-times close-button"></i>
+            <h5 class="large-popup-title">Log in</h5>
+          </div>
+          <form action="./" class="popup-input-search">
+            <div class="col-md-6">
+              <input class="input-signtype" type="email" required="" placeholder="Your email">
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="password" required="" placeholder="Password">
+            </div>
+            <div class="col-xs-6">
+              <div class="be-checkbox">
+                <label class="check-box">
+                  <input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
+                </label>
+                <span class="large-popup-text">
+                  Stay signed in
+                </span>
+              </div>
+
+              <a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
+            </div>
+            <div class="col-xs-6 for-signin">
+              <input type="submit" class="be-popup-sign-button" value="SIGN IN">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="large-popup register">
+  <div class="large-popup-fixed"></div>
+  <div class="container large-popup-container">
+    <div class="row">
+      <div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+        <div class="row">
+          <div class="col-md-12">
+            <i class="fa fa-times close-button"></i>
+            <h5 class="large-popup-title">Register</h5>
+          </div>
+          <form action="./" class="popup-input-search">
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="Last Name">
+            </div>
+            <div class="col-md-6">
+              <div class="be-custom-select-block">
+                <select class="be-custom-select">
+                  <option value="" disabled selected>
+                    Country
+                  </option>
+                  <option value="">USA</option>
+                  <option value="">Canada</option>
+                  <option value="">England</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="Email">
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="Password">
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="Repeat Password">
+            </div>
+            <div class="col-md-12 be-date-block">
+              <span class="large-popup-text">
+                Date of birth
+              </span>
+              <div class="be-custom-select-block mounth">
+                <select class="be-custom-select">
+                  <option value="" disabled selected>
+                    Mounth
+                  </option>
+                  <option value="">January</option>
+                  <option value="">February</option>
+                  <option value="">March</option>
+                  <option value="">April</option>
+                  <option value="">May</option>
+                  <option value="">June</option>
+                  <option value="">July</option>
+                  <option value="">August</option>
+                  <option value="">September</option>
+                  <option value="">October</option>
+                  <option value="">November</option>
+                  <option value="">December</option>
+                </select>
+              </div>
+              <div class="be-custom-select-block">
+                <select class="be-custom-select">
+                  <option value="" disabled selected>
+                    Day
+                  </option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                  <option value="">6</option>
+                  <option value="">7</option>
+                  <option value="">8</option>
+                  <option value="">9</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
+                  <option value="">23</option>
+                  <option value="">24</option>
+                  <option value="">25</option>
+                  <option value="">26</option>
+                  <option value="">27</option>
+                  <option value="">28</option>
+                  <option value="">29</option>
+                  <option value="">30</option>
+                </select>
+              </div>
+              <div class="be-custom-select-block">
+                <select class="be-custom-select">
+                  <option value="" disabled selected>
+                    Year
+                  </option>
+                  <option value="">1996</option>
+                  <option value="">1997</option>
+                  <option value="">1998</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="be-checkbox">
+                <label class="check-box">
+                  <input class="checkbox-input" type="checkbox" required="" value="" /> <span
+                    class="check-box-sign"></span>
+                </label>
+                <span class="large-popup-text">
+                  I have read and agree to the <a class="be-popup-terms" href="blog-detail-2.html">Terms of Use</a> and
+                  <a class="be-popup-terms" href="blog-detail-2.html">Privacy Policy</a>.
+                </span>
+              </div>
+              <div class="be-checkbox">
+                <label class="check-box">
+                  <input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
+                </label>
+                <span class="large-popup-text">
+                  Send me notifications
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 for-signin">
+              <input type="submit" class="be-popup-sign-button" value="SIGN IN">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="large-popup send-m">
+  <div class="large-popup-fixed"></div>
+  <div class="container large-popup-container">
+    <div class="row">
+      <div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+        <div class="row">
+          <div class="col-md-12">
+            <i class="fa fa-times close-m close-button"></i>
+            <h5 class="large-popup-title">Send message</h5>
+          </div>
+          <form action="./" class="popup-input-search">
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="First Name">
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="text" required="" placeholder="Last Name">
+            </div>
+            <div class="col-md-6">
+              <div class="be-custom-select-block">
+                <select class="be-custom-select">
+                  <option value="" disabled selected>
+                    Country
+                  </option>
+                  <option value="">USA</option>
+                  <option value="">Canada</option>
+                  <option value="">England</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input class="input-signtype" type="email" required="" placeholder="Email">
+            </div>
+            <div class="col-md-12">
+              <textarea class="message-area" placeholder="Message"></textarea>
+            </div>
+            <div class="col-md-12 for-signin">
+              <input type="submit" class="be-popup-sign-button" value="SEND">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="theme-config">
+  <div class="main-color">
+    <div class="title">Main Color:</div>
+    <div class="colours-wrapper">
+      <div class="entry color1 m-color active" data-colour="style/stylesheet.css"></div>
+      <div class="entry color3 m-color" data-colour="style/style-green.css"></div>
+      <div class="entry color6 m-color" data-colour="style/style-orange.css"></div>
+      <div class="entry color8 m-color" data-colour="style/style-red.css"></div>
+      <div class="title">Second Color:</div>
+      <div class="entry s-color  active color10" data-colour="style/stylesheet.css"></div>
+      <div class="entry s-color color11" data-colour="style/style-oranges.css"></div>
+      <div class="entry s-color color12" data-colour="style/style-greens.css"></div>
+      <div class="entry s-color color13" data-colour="style/style-reds.css"></div>
+
+    </div>
+  </div>
+  <div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPTS	 -->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/magnific.js"></script>
+<script src="/assets/global.js"></script>
+
+<% end %>
