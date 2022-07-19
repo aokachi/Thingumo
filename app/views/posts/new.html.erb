@@ -34,7 +34,8 @@
 	<div class="work-area">
 		<div class="container be-detail-container">
 			<div class="row">
-				<div class="col-xs-12 col-md-9 _editor-content_">
+				<!--<div class="col-xs-12 col-md-9 _editor-content_">-->
+				<div class="_editor-content_ justify-content-center">
 					<div class="sec" data-sec="basic-information">
 						<div class="be-large-post large-area">
 							<div class="info-block style-2">
@@ -54,12 +55,8 @@
 								</div>
 								<div class="upload-zone">
 									<!--画像投稿フォーム-->
-									<div>
-										<%= f.label :image %>
-									</div>
-									<div>
-										<%= f.file_field :image, id: :post_image%>
-									</div>
+									<i class="fa center-i fa-cloud-upload"></i>
+									<%= f.file_field :image, id: :post_image %>
 									<!--<i class="fa center-i fa-cloud-upload"></i>
 											<input class="file" type="file"/>-->
 								</div>

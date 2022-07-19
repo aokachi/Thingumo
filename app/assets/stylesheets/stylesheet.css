@@ -33,7 +33,7 @@
 
 body { margin: 0; padding: 0; font-family: 'Conv_helveticaneuecyr-roman', sans-serif; }
 
-h1, h2, h3, h4, h5, p { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, p { padding: 0; }
 
 textarea{   resize: none;}
 
@@ -631,7 +631,7 @@ a.be-post-title:hover { color: #0D58C8; }
 
 .info-block { background: #F6F6F6; padding: 20px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
-.info-block-label { font-size: 14px; line-height: 18px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
+.info-block-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
 .info-block .be-large-post-align { margin: 0px 50px; }
 
