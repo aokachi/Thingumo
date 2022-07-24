@@ -47,18 +47,23 @@
 								<%= form_with(model: @post) do |f| %>
 								<div>
 									<!--タイトル入力フォーム-->
+									<%= f.label :l_title, 'タイトル'%>
 									<%= f.text_area :title, class: 'form-control', rows: 1 %>
 								</div>
 								<div>
 									<!--文章入力フォーム-->
+									<%= f.label :l_text, '本文'%>
 									<%= f.text_area :text, class: 'form-control', rows: 8 %>
 								</div>
-								<div class="upload-zone">
-									<!--画像投稿フォーム-->
-									<i class="fa center-i fa-cloud-upload"></i>
-									<%= f.file_field :image, id: :post_image %>
-									<!--<i class="fa center-i fa-cloud-upload"></i>
+								<div>
+									<%= f.label :l_image, 'イメージ'%>
+									<div class="upload-zone">
+										<!--画像投稿フォーム-->
+										<i class="fa center-i fa-cloud-upload"></i>
+										<%= f.file_field :image, id: :post_image %>
+										<!--<i class="fa center-i fa-cloud-upload"></i>
 											<input class="file" type="file"/>-->
+									</div>
 								</div>
 								<!--カテゴリ選択フォーム-->
 								<div class="container-fluid cd-main-content custom-container">
