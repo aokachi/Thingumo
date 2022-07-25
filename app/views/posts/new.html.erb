@@ -21,12 +21,6 @@
 				<!--投稿を保存するボタン-->
 				<%# <%= f.submit '投稿する', class: 'btn btn-primary' %>
 				<!--</div>-->
-				<div>
-					<!--キャンセルボタン-->
-					<%= link_to :back do %>
-					<button type="button" class="btn btn-default">戻る</button>
-					<% end %>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -84,7 +78,15 @@
 									</div>
 								</div>
 								<!--投稿を保存するボタン-->
-								<%= f.submit '投稿する', class: 'button-26' %>
+								<div>
+									<%= f.submit '投稿する', class: 'button-26' %>
+									<% end %>
+								</div>
+								<!--キャンセルボタン-->
+								<div>
+									<%= link_to :back do %>
+									<button type="button" class="button-4">戻る</button>
+								</div>
 								<% end %>
 							</div>
 						</div>
@@ -93,146 +95,147 @@
 			</div>
 		</div>
 	</div>
+</div>
 
-	<!-- フッター -->
+<!-- フッター -->
 
-	<div class="be-fixed-filter"></div>
-	<div class="mini-popup-wrapper brand-popup">
+<div class="be-fixed-filter"></div>
+<div class="mini-popup-wrapper brand-popup">
 
 
-		<div class="mini-popup ">
-			<i class="fa close-mini fa-times"></i>
-			<h3>Add Brand</h3>
-			<form action="./">
-				<input type="text"><br>
-				<button type="button" class="btn btn-primary">DONE</button>
-			</form>
-		</div>
+	<div class="mini-popup ">
+		<i class="fa close-mini fa-times"></i>
+		<h3>Add Brand</h3>
+		<form action="./">
+			<input type="text"><br>
+			<button type="button" class="btn btn-primary">DONE</button>
+		</form>
 	</div>
-	<div class="mini-popup-wrapper school-popup">
-		<div class="mini-popup ">
-			<i class="fa close-mini fa-times"></i>
-			<h3>Add School</h3>
-			<form action="./">
-				<input type="text"><br>
-				<button type="button" class="btn btn-primary">DONE</button>
-			</form>
-		</div>
+</div>
+<div class="mini-popup-wrapper school-popup">
+	<div class="mini-popup ">
+		<i class="fa close-mini fa-times"></i>
+		<h3>Add School</h3>
+		<form action="./">
+			<input type="text"><br>
+			<button type="button" class="btn btn-primary">DONE</button>
+		</form>
 	</div>
-	<div class="mini-popup-wrapper tools-popup">
-		<div class="mini-popup ">
-			<i class="fa close-mini fa-times"></i>
-			<h3>Add Tools</h3>
-			<form action="./">
-				<input type="text"><br>
-				<button type="button" class="btn btn-primary">DONE</button>
-			</form>
-		</div>
+</div>
+<div class="mini-popup-wrapper tools-popup">
+	<div class="mini-popup ">
+		<i class="fa close-mini fa-times"></i>
+		<h3>Add Tools</h3>
+		<form action="./">
+			<input type="text"><br>
+			<button type="button" class="btn btn-primary">DONE</button>
+		</form>
 	</div>
-	<div class="mini-popup-wrapper team-popup">
-		<div class="mini-popup ">
-			<i class="fa close-mini fa-times"></i>
-			<h3>Add Team</h3>
-			<form action="./">
-				<input type="text"><br>
-				<button type="button" class="btn btn-primary">DONE</button>
-			</form>
-		</div>
+</div>
+<div class="mini-popup-wrapper team-popup">
+	<div class="mini-popup ">
+		<i class="fa close-mini fa-times"></i>
+		<h3>Add Team</h3>
+		<form action="./">
+			<input type="text"><br>
+			<button type="button" class="btn btn-primary">DONE</button>
+		</form>
 	</div>
-	<div class="mini-popup-wrapper agencies-popup">
-		<div class="mini-popup ">
-			<i class="fa close-mini fa-times"></i>
-			<h3>Add Agencies</h3>
-			<form action="./">
-				<input type="text"><br>
-				<button type="button" class="btn btn-primary">DONE</button>
-			</form>
-		</div>
+</div>
+<div class="mini-popup-wrapper agencies-popup">
+	<div class="mini-popup ">
+		<i class="fa close-mini fa-times"></i>
+		<h3>Add Agencies</h3>
+		<form action="./">
+			<input type="text"><br>
+			<button type="button" class="btn btn-primary">DONE</button>
+		</form>
 	</div>
-	<div class="large-popup login">
-		<div class="large-popup-fixed"></div>
-		<div class="container large-popup-container">
-			<div class="row">
-				<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
-					<div class="row">
-						<div class="col-md-12">
-							<i class="fa fa-times close-button"></i>
-							<h5 class="large-popup-title">Log in</h5>
+</div>
+<div class="large-popup login">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">Log in</h5>
+					</div>
+					<form action="./" class="popup-input-search">
+						<div class="col-md-6">
+							<input class="input-signtype" type="email" required="" placeholder="Your email">
 						</div>
-						<form action="./" class="popup-input-search">
-							<div class="col-md-6">
-								<input class="input-signtype" type="email" required="" placeholder="Your email">
+						<div class="col-md-6">
+							<input class="input-signtype" type="password" required="" placeholder="Password">
+						</div>
+						<div class="col-xs-6">
+							<div class="be-checkbox">
+								<label class="check-box">
+									<input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
+								</label>
+								<span class="large-popup-text">
+									Stay signed in
+								</span>
 							</div>
-							<div class="col-md-6">
-								<input class="input-signtype" type="password" required="" placeholder="Password">
-							</div>
-							<div class="col-xs-6">
-								<div class="be-checkbox">
-									<label class="check-box">
-										<input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
-									</label>
-									<span class="large-popup-text">
-										Stay signed in
-									</span>
-								</div>
 
-								<a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
-							</div>
-							<div class="col-xs-6 for-signin">
-								<input type="submit" class="be-popup-sign-button" value="SIGN IN">
-							</div>
+							<a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
+						</div>
+						<div class="col-xs-6 for-signin">
+							<input type="submit" class="be-popup-sign-button" value="SIGN IN">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="large-popup embed">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button close-media"></i>
+						<h5 class="large-popup-title">Embed Media</h5>
+					</div>
+					<div class="col-md-12">
+						<form action="./">
+							<textarea class="main-textarea"></textarea>
+							<input type="submit" class="be-popup-sign-button" value="Embed" />
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="large-popup embed">
-		<div class="large-popup-fixed"></div>
-		<div class="container large-popup-container">
-			<div class="row">
-				<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
-					<div class="row">
-						<div class="col-md-12">
-							<i class="fa fa-times close-button close-media"></i>
-							<h5 class="large-popup-title">Embed Media</h5>
-						</div>
-						<div class="col-md-12">
-							<form action="./">
-								<textarea class="main-textarea"></textarea>
-								<input type="submit" class="be-popup-sign-button" value="Embed" />
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+</div>
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
 		</div>
 	</div>
-	<div class="theme-config">
-		<div class="main-color">
-			<div class="title">Main Color:</div>
-			<div class="colours-wrapper">
-				<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
-				<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
-				<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
-				<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
-				<div class="title">Second Color:</div>
-				<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
-				<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
-				<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
-				<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
-			</div>
-		</div>
-		<div class="open"><img src="/assets/icon-134.png" alt=""></div>
-	</div>
-	<!-- SCRIPT	-->
-	<script src="/assets/jquery-2.1.4.min.js"></script>
-	<script src="/assets/jquery-ui.min.js"></script>
-	<script src="/assets/bootstrap.min.js"></script>
-	<script src="/assets/idangerous.swiper.min.js"></script>
-	<script src="/assets/isotope.pkgd.min.js"></script>
-	<script src="/assets/jquery.viewportchecker.min.js"></script>
-	<script src="/assets/colors.js"></script>
-	<script src="/assets/jqColorPicker.js"></script>
-	<script src="/assets/my-style.js"></script>
-	<!--<script src="/assets/global.js"></script>-->
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/jquery-ui.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/colors.js"></script>
+<script src="/assets/jqColorPicker.js"></script>
+<script src="/assets/my-style.js"></script>
+<!--<script src="/assets/global.js"></script>-->
