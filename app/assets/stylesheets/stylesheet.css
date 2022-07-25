@@ -411,7 +411,7 @@ form.input-search { position: relative; margin-bottom: 50px; }
 
 .creative_filds_block .nav { width: 262.5px; }
 
-.creative_filds_block a, .creative_filds_block .nav > li > a { display: block; position: relative; font-size: 13px; padding: 11px 15px 11px 20px; color: #bdbfc8 !important; cursor: pointer; border: 1px solid #E6E6E6; }
+.creative_filds_block a, .creative_filds_block .nav > li > a { display: block; position: relative; font-size: 13px; padding: 11px 15px 11px 20px; color: #0d0116 !important; cursor: pointer; border: 1px solid #E6E6E6; }
 
 .creative_filds_block a:not(:first-child), .creative_filds_block .nav > li:not(:first-child) > a { border-top: none !important; }
 

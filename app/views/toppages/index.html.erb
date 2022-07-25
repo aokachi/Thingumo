@@ -33,9 +33,7 @@
 					<div class="creative_filds_block">
 						<div class="ul">
 							<% @categories.each do |category| %>
-							<div>
-								<%= link_to category.name, posts_path(category_id: category.id), class: "filter" %>
-							</div>
+							<%= link_to category.name, posts_path(category_id: category.id), class: "filter" %>
 							<% end %>
 						</div>
 					</div>
