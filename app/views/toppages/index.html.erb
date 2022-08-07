@@ -44,18 +44,15 @@
 			<div class="col-md-10">
 				<div id="container-mix" class="row _post-container_">
 					<% @posts.each do |post| %>
-					<% post.post_files.each do |post_file| %>
 					<div class="category-1 mix custom-column-5">
 						<div class="be-post">
 							<!--投稿画像を呼び出して表示(リンク付き)-->
-							<% if post_file.image? %>
+							<% if post.image? %>
 							<li>
 								<%= link_to image_tag(post.image.url, alt: "IMAGE"), post_path(post), class: "be-img-block" %>
 							</li>
 							<% else %>
-							<li>
-								<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
-							</li>
+							<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
 							<% end %>
 							<!--投稿のタイトルを表示-->
 							<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
@@ -82,11 +79,9 @@
 						</div>
 					</div>
 					<% end %>
-					<% end %>
 					<%= paginate @posts %>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
