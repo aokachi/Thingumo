@@ -7,4 +7,8 @@ class Post < ApplicationRecord
   # accepts_nested_attributes_for :post_files
 
   validates :text, presence: true, length: { maximum: 300 }
+
+  def user
+    return User.find_by(id: self.user_id)
+  end
 end

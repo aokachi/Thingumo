@@ -48,9 +48,7 @@
 						<div class="be-post">
 							<!--投稿画像を呼び出して表示(リンク付き)-->
 							<% if post.image? %>
-							<li>
-								<%= link_to image_tag(post.image.url, alt: "IMAGE"), post_path(post), class: "be-img-block" %>
-							</li>
+							<%= link_to image_tag(post.image.url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
 							<% else %>
 							<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
 							<% end %>
@@ -63,9 +61,9 @@
 							<div class="author-post">
 								<!--プロフィール画像を呼び出して表示-->
 								<% if post.user.avatar? %>
-								<p>
-									<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
-								</p>
+								<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+								<% else %>
+								<%= image_tag "/default02.png", alt: "NO IMAGE", class: "ava-author" %>
 								<% end %>
 								<!--投稿したユーザのニックネームを呼び出して表示-->
 								<span>by <a><%= post.user.name %></a></span>
