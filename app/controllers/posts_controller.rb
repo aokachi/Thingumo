@@ -13,8 +13,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post_file = @post.post_files.build
-    if @post.save && @post_file.save
+    # @post_file = @post.post_files.build
+    if @post.save
       flash[:success] = '送信しました'
       redirect_to root_url    
     else
