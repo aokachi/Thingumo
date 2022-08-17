@@ -122,7 +122,7 @@
 						<i class="fa fa-times close-button"></i>
 						<h5 class="large-popup-title">アカウント作成</h5>
 					</div>
-					<%= form_with(model: @user, local: true) do |f| %>
+					<%= form_with model: User.new, url: signup_path, local: true do |f| %>
 					<div class="col-md-6">
 						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
 					</div>
