@@ -138,13 +138,13 @@
 					<div class="col-md-6">
 						<div class="be-custom-select-block">
 							<%= f.label :sex, '性別'%>
-							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別'}, { class: 'be-custom-select', required: true } %>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
 						</div>
 					</div>
 					<div class="col-md-6 be-date-block">
 						<div class="form-group">
-							<%= f.label :birth, '生年月日' %>
-							<%= f.date_field :created_at, class: 'form-control' %>
+							<%= f.label :birthday, '生年月日' %>
+							<%= f.date_field :birthday, class: 'form-control' %>
 						</div>
 						<!--生年月日入力フォームその2-->
 						<%# <div class="input-date">

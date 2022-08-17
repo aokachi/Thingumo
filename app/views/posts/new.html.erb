@@ -61,27 +61,29 @@
 								</div>
 								<!--カテゴリ選択フォーム-->
 								<div class="container-fluid cd-main-content custom-container">
-									<span class="choose">カテゴリを選択</span>
-									<div class="post-dropdown">
+									<!--<span class="choose">カテゴリを選択</span>-->
+									<%= f.label :category, 'カテゴリー' %>
+									<%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: '性別' }, { class: 'post-dropdown' } %>
+									<!--<div class="post-dropdown">
 										<div class="select">
 											<span>選択してください</span>
 											<i class="fa fa-chevron-left"></i>
 										</div>
 										<input type="hidden" name="category">
 										<ul class="post-dropdown-menu">
-											<% @categories.each do |category| %>
+											<%# @categories.each do |category| %>
 											<li>
-												<%= category.name %>
+												<%#= category.name %>
 											</li>
-											<% end %>
+											<%# end %>
 										</ul>
-									</div>
+									</div>-->
 								</div>
 								<!--投稿を保存するボタン-->
 								<div>
 									<%= f.submit '投稿する', class: 'button-26' %>
-									<% end %>
 								</div>
+								<% end %>
 								<!--キャンセルボタン-->
 								<div>
 									<%= link_to :back do %>
