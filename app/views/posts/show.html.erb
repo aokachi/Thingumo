@@ -20,19 +20,13 @@
     <div class="row">
       <div class="col-md-9 col-md-push-3">
         <div class="be-large-post">
-          <div class="info-block">
-            <div class="be-large-post-align">
-              <span><i class="fa fa-eye"></i> 753</span>
-              <span><i class="fa fa-comment-o"></i> 50</span>
-            </div>
-          </div>
           <div class="blog-content popup-gallery be-large-post-align">
-            <%# <h1 class="be-post-title to"> %>
-            <div class="be-post-title">
-              <!--投稿のタイトルを表示-->
-              <%= link_to(@post.title, post_path(@post), {class: "be-post-title"}) %></a>
-            </div>
-            <%# </h1> %>
+            <h1 class="be-post-title to">
+              <div class="be-post-title">
+                <!--投稿のタイトルを表示-->
+                <%= link_to(@post.title, post_path(@post)) %>
+              </div>
+            </h1>
 
             <%# <span class="be-text-tags">
 								<a href="blog-detail-2.html" class="be-post-tag">Interactiob design</a>, 
@@ -66,6 +60,12 @@
                 <li><a><%= @post.category.name %></a></li>
                 <!--カテゴリを表示-->
               </ul>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="be-large-post-align">
+              <span><i class="fa fa-eye"></i> 753</span>
+              <span><i class="fa fa-comment-o"></i> 50</span>
             </div>
           </div>
         </div>
@@ -200,14 +200,12 @@
             <p class="be-use-name"><%= @post.user.name %></p>
             <!--投稿したユーザのニックネームを呼び出して表示-->
             <span class="be-user-info">
-              Singapore, Singapore
+              ここにも何か入れる
             </span>
           </div>
-          <p class="be-text-userblock">
-            Fusce dolor libero, efficitur et lobortis at, faucibus nec nunc. Proin fermentum turpis eget nisi facilisis
-            lobortis. Praesent malesuada facilisis maximus. Donec sed lobortis tortor. Ut nec lacinia sapien, sit amet
-            dapibus magna.
-          </p>
+          <div class="be-text-userblock">
+            <%= @post.user.self_introduction %>
+          </div>
         </div>
 
       </div>
