@@ -137,3 +137,31 @@ span.choose {
   content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
+
+
+/* 投稿詳細ページのいいね/コメント数の欄 */
+.number-of-likes-and-comments { background: #F6F6F6; padding: 20px 15px; font-size: 10px; color: #b4b7c1 !important; }
+
+.number-of-likes-and-comments-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
+
+.number-of-likes-and-comments .be-large-post-align { margin: 0px 50px; }
+
+.number-of-likes-and-comments .fa { font-size: 13px; }
+
+.number-of-likes-and-comments-right { float: right; font-size: 10px; line-height: 18px; font-weight: 400; color: #7a8192; text-transform: uppercase; }
+
+.number-of-likes-and-comments i { padding-right: 5px; }
+
+.number-of-likes-and-comments span { cursor: pointer; white-space: nowrap; }
+
+.number-of-likes-and-comments span:not(:last-child) { margin-right: 25px; }
+
+.be-large-post .number-of-likes-and-comments.style-2 { margin-bottom: 50px; position: relative;}
+
+.be-large-post .number-of-likes-and-comments { margin-bottom: 25px; }
+
+@media (max-width: 767px) {
+   .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
+  .be-large-post-align, .number-of-likes-and-comments .be-large-post-align { margin: 0 15px; }
+}
+
