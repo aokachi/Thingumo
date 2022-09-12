@@ -122,9 +122,12 @@
             参加するには <a href="blog-detail-2.html" class="be-signup-link">ログイン</a>
             する必要があります。
           </p>
+          <% @comments.each do |comment| %>
           <div class="be-comment">
             <div class="be-img-comment">
+              <!--プロフィール画像かニックネームをクリックするとプロフィールページに飛ぶ-->
               <a href="blog-detail-2.html">
+                <!--ここでプロフィール画像を呼び出す-->
                 <img src="/assets/c1.png" alt="" class="be-ava-comment">
               </a>
             </div>
@@ -142,8 +145,8 @@
                 リプライ内容
               </p>
             </div>
-
           </div>
+          <% end %>
         </div>
       </div>
       <div class="col-md-3 col-md-pull-9 left-feild">
