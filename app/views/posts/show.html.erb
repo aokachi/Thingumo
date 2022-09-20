@@ -126,23 +126,29 @@
           <div class="be-comment">
             <div class="be-img-comment">
               <!--プロフィール画像かニックネームをクリックするとプロフィールページに飛ぶ-->
-              <a href="blog-detail-2.html">
-                <!--ここでプロフィール画像を呼び出す-->
+              <% if comment.user.avatar? %>
+              <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+              <% else %>
+              <%= image_tag "/default02.png", alt: "NO IMAGE", class: "ava-author" %>
+              <% end %>
+              <!--<a href="blog-detail-2.html">
+                ここでプロフィール画像を呼び出す
                 <img src="/assets/c1.png" alt="" class="be-ava-comment">
-              </a>
+              </a>-->
             </div>
             <div class="be-comment-content">
-
               <span class="be-comment-name">
-                <a href="blog-detail-2.html">ユーザー名</a>
+                <!--ニックネームを呼び出す　クリックするとプロフィールページに飛ぶ-->
+                <%= link_to(comment.user.name, user_path(comment)) %>
+                <!--<a href="blog-detail-2.html">ユーザー名</a>-->
               </span>
               <span class="be-comment-time">
                 <i class="fa fa-clock-o"></i>
                 投稿日時
               </span>
-
               <p class="be-comment-text">
                 リプライ内容
+                <%= safe_join(comment.comments.split("\n"),tag(:br)) %>
               </p>
             </div>
           </div>
