@@ -3,10 +3,9 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def show
-    @post = Post.find_by(id: params[:id])
-    @comments = @post.comments
-    @comment = @post.comments.build #投稿全体へのコメント投稿用の変数
-    @comment_reply = @post.comments.build #コメントに対する返信用の変数 
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(10).reverse_order
   end
 
   def new

@@ -15,7 +15,7 @@ class AvaterUploader < CarrierWave::Uploader::Base
 
     # デフォルト画像の設定
     def default_url
-      "default02.png"
+      "default01.png"
     end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
