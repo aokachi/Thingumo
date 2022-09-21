@@ -127,9 +127,9 @@
             <div class="be-img-comment">
               <!--プロフィール画像かニックネームをクリックするとプロフィールページに飛ぶ-->
               <% if comment.user.avatar? %>
-              <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+              <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "rounded-circle", size: "40x40" %>
               <% else %>
-              <%= image_tag "/default01.png", alt: "NO IMAGE", class: "ava-author" %>
+              <%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "40x40" %>
               <% end %>
               <!--<a href="blog-detail-2.html">
                 ここでプロフィール画像を呼び出す
@@ -144,11 +144,12 @@
               </span>
               <span class="be-comment-time">
                 <i class="fa fa-clock-o"></i>
-                投稿日時
+                <!--コメントした日時を表示-->
+                <%= comment.created_at %>
               </span>
               <p class="be-comment-text">
-                リプライ内容
-                <%= safe_join(comment.comments.split("\n"),tag(:br)) %>
+                <!--コメント内容を表示-->
+                <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
               </p>
             </div>
           </div>
