@@ -165,3 +165,6 @@ span.choose {
   .be-large-post-align, .number-of-likes-and-comments .be-large-post-align { margin: 0 15px; }
 }
 
+
+/* コメントに対するコメントの表示スペース */
+.be-reply-comment-box { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }

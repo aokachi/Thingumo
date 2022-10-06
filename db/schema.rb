@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_20_085258) do
+ActiveRecord::Schema.define(version: 2022_10_04_173708) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_09_20_085258) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "parent_comment_id"
+    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
   end
 
   create_table "post_files", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_09_20_085258) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "comments", column: "parent_comment_id"
   add_foreign_key "post_files", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"

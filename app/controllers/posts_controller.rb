@@ -4,8 +4,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(10).reverse_order
+    @comment = @post.comments.build #投稿全体へのコメント投稿用の変数
+    @comment_reply = @post.comments.build #コメントに対する返信用の変数
   end
 
   def new
