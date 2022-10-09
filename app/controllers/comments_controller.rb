@@ -4,7 +4,14 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.comments.build(comment_params)
     @comment.post_id = post.id
-    @comment.save
+    # 入力されたコメントでWikipediaを検索し、一致するものがあるか確認する
+    @word = Wikipedia.find(params[:post_id])
+    @word_result = @word.title
+    # @word_resultがnilでなければコメントを送信する
+    # nillだったらコメントを送信しない
+    unless @word_result.nil?
+      @comment.save
+    end
     redirect_to post_path(post)
   end
 
