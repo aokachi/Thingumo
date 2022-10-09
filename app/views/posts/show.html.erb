@@ -151,6 +151,22 @@
                 <!--コメント内容を表示-->
                 <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
               </p>
+              <div class="be-reply-comment-content">
+                <span class="be-comment-name">
+                  <!--ニックネームを呼び出す　クリックするとプロフィールページに飛ぶ-->
+                  <%= link_to(comment.user.name, user_path(comment)) %>
+                  <!--<a href="blog-detail-2.html">ユーザー名</a>-->
+                </span>
+                <span class="be-comment-time">
+                  <i class="fa fa-clock-o"></i>
+                  <!--コメントした日時を表示-->
+                  <%= comment.created_at %>
+                </span>
+                <p class="be-comment-text">
+                  <!--コメント内容を表示-->
+                  <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
+                </p>
+              </div>
             </div>
           </div>
           <% end %>

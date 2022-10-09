@@ -167,4 +167,30 @@ span.choose {
 
 
 /* コメントに対するコメントの表示スペース */
-.be-reply-comment-box { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+.be-reply-comment-content { margin-left: 80px; }
+
+.be-reply-comment-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
+
+.be-reply-comment-time { font-size: 11px; color: #b4b7c1; }
+
+.be-reply-comment-text { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+
+.be-reply-comment-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
+
+.be-reply-comment-content a { color: #383b43; }
+
+.be-reply-comment-content a:hover { color: #0D58C8; }
+
+.be-reply-comment-time { text-align: right; }
+
+.be-reply-comment-info { margin-bottom: 15px; }
+
+.be-reply-ava-comment { width: 60px; height: 60px; border-radius: 50%; }
+
+@media screen and (max-width: 767px) { .be-reply-comment-content { margin: 0; }
+  .be-reply-comment-content span { width: 100%; text-align: center; display: block; }
+  .be-img-comment { width: 100%; text-align: center; } }
+
+.be-reply-comment-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
+
+.be-reply-comment:not(:last-child) { margin-bottom: 30px; }
