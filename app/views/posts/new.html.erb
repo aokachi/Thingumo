@@ -54,9 +54,11 @@
 									<div class="upload-zone">
 										<!--画像投稿フォーム-->
 										<i class="fa center-i fa-cloud-upload"></i>
-										<%= f.file_field :image, id: :post_image %>
-										<!--<i class="fa center-i fa-cloud-upload"></i>
-											<input class="file" type="file"/>-->
+										<%= f.fields_for :post_images do |i| %>
+										<%= i.file_field :image, id: :post_image %>
+										<% end %>
+										<%#= f.attachment_field :post_images_images, multiple: true %>
+										<%#= f.file_field :image, id: :post_image %>
 									</div>
 								</div>
 								<!--カテゴリ選択フォーム-->
@@ -104,58 +106,7 @@
 <!-- フッター -->
 
 <div class="be-fixed-filter"></div>
-<div class="mini-popup-wrapper brand-popup">
 
-
-	<div class="mini-popup ">
-		<i class="fa close-mini fa-times"></i>
-		<h3>Add Brand</h3>
-		<form action="./">
-			<input type="text"><br>
-			<button type="button" class="btn btn-primary">DONE</button>
-		</form>
-	</div>
-</div>
-<div class="mini-popup-wrapper school-popup">
-	<div class="mini-popup ">
-		<i class="fa close-mini fa-times"></i>
-		<h3>Add School</h3>
-		<form action="./">
-			<input type="text"><br>
-			<button type="button" class="btn btn-primary">DONE</button>
-		</form>
-	</div>
-</div>
-<div class="mini-popup-wrapper tools-popup">
-	<div class="mini-popup ">
-		<i class="fa close-mini fa-times"></i>
-		<h3>Add Tools</h3>
-		<form action="./">
-			<input type="text"><br>
-			<button type="button" class="btn btn-primary">DONE</button>
-		</form>
-	</div>
-</div>
-<div class="mini-popup-wrapper team-popup">
-	<div class="mini-popup ">
-		<i class="fa close-mini fa-times"></i>
-		<h3>Add Team</h3>
-		<form action="./">
-			<input type="text"><br>
-			<button type="button" class="btn btn-primary">DONE</button>
-		</form>
-	</div>
-</div>
-<div class="mini-popup-wrapper agencies-popup">
-	<div class="mini-popup ">
-		<i class="fa close-mini fa-times"></i>
-		<h3>Add Agencies</h3>
-		<form action="./">
-			<input type="text"><br>
-			<button type="button" class="btn btn-primary">DONE</button>
-		</form>
-	</div>
-</div>
 <div class="large-popup login">
 	<div class="large-popup-fixed"></div>
 	<div class="container large-popup-container">
@@ -164,52 +115,65 @@
 				<div class="row">
 					<div class="col-md-12">
 						<i class="fa fa-times close-button"></i>
-						<h5 class="large-popup-title">Log in</h5>
+						<h5 class="large-popup-title">ログイン</h5>
 					</div>
-					<form action="./" class="popup-input-search">
-						<div class="col-md-6">
-							<input class="input-signtype" type="email" required="" placeholder="Your email">
-						</div>
-						<div class="col-md-6">
-							<input class="input-signtype" type="password" required="" placeholder="Password">
-						</div>
-						<div class="col-xs-6">
-							<div class="be-checkbox">
-								<label class="check-box">
-									<input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
-								</label>
-								<span class="large-popup-text">
-									Stay signed in
-								</span>
-							</div>
-
-							<a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
-						</div>
-						<div class="col-xs-6 for-signin">
-							<input type="submit" class="be-popup-sign-button" value="SIGN IN">
-						</div>
-					</form>
+					<%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+					<div class="col-md-6">
+						<%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
+						<%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
+					</div>
+					<div class="col-xs-6 for-signin">
+						<%= f.submit 'ログイン', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="large-popup embed">
+<div class="large-popup register">
 	<div class="large-popup-fixed"></div>
 	<div class="container large-popup-container">
 		<div class="row">
 			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
 				<div class="row">
 					<div class="col-md-12">
-						<i class="fa fa-times close-button close-media"></i>
-						<h5 class="large-popup-title">Embed Media</h5>
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">アカウント作成</h5>
 					</div>
-					<div class="col-md-12">
-						<form action="./">
-							<textarea class="main-textarea"></textarea>
-							<input type="submit" class="be-popup-sign-button" value="Embed" />
-						</form>
+					<%= form_with model: User.new, url: signup_path, local: true do |f| %>
+					<div class="col-md-6">
+						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
 					</div>
+					<div class="col-md-6">
+						<%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+					</div>
+					<div class=" col-md-6">
+						<%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<%= f.label :sex, '性別'%>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
+						</div>
+					</div>
+					<div class="col-md-6 be-date-block">
+						<div class="form-group">
+							<%= f.label :birthday, '生年月日' %>
+							<%= f.date_field :birthday, class: 'form-control' %>
+						</div>
+						<!--生年月日入力フォームその2-->
+						<%# <div class="input-date">
+							<input name="date" type="date" />
+						</div> %>
+					</div>
+					<div class="col-md-6 for-signin">
+						<%= f.submit '登録する', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>

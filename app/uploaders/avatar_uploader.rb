@@ -1,7 +1,8 @@
-class AvaterUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  process resize_to_fit: [200, 200]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -9,14 +10,16 @@ class AvaterUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+
+  # アップロードした画像の表示
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-    # デフォルト画像の設定
-    def default_url
-      "default01.png"
-    end
+  # デフォルト画像の設定
+  def default_url
+    "default01.png"
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
@@ -47,7 +50,7 @@ class AvaterUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    "something.jpg" if original_filename
-  end
+  # def filename
+    # "something.jpg" if original_filename
+  # end
 end

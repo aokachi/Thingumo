@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_04_173708) do
+ActiveRecord::Schema.define(version: 2022_10_18_175226) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 2022_10_04_173708) do
     t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
   end
 
-  create_table "post_files", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "image"
-    t.bigint "post_id"
+  create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_files_on_post_id"
+    t.integer "post_id"
+    t.string "image_id"
+    t.index ["post_id"], name: "index_post_images_on_post_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2022_10_04_173708) do
   end
 
   add_foreign_key "comments", "comments", column: "parent_comment_id"
-  add_foreign_key "post_files", "posts"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end

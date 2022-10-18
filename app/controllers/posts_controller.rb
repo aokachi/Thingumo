@@ -5,13 +5,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.page(params[:page]).per(10).reverse_order
-    @comment = @post.comments.build #投稿全体へのコメント投稿用の変数
-    @comment_reply = @post.comments.build #コメントに対する返信用の変数
+    @comment = @post.comments.build # 投稿全体へのコメント投稿用の変数
+    @comment_reply = @post.comments.build # コメントに対する返信用の変数
   end
 
   def new
     @categories = Category.all
-    @post = current_user.posts.build #投稿フォームのform_with用
+    @post = current_user.posts.build # 投稿フォームのform_with用
   end
 
   def create
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :category_id)
+    params.require(:post).permit(:title, :text, :category_id, post_images_images: [])
   end
 
   def correct_user

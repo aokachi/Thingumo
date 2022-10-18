@@ -37,11 +37,18 @@ gem 'jquery-rails'
 # carrierwave
 gem 'carrierwave'
 
-# rails consoleで日本語入力
-gem 'rb-readline'
+# RMagick(ImageMagick)
+gem 'rmagick'
+
+# refile
+gem 'refile', github: 'refile/refile', require: 'refile/rails'
+gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+
+# rails consoleで日本語入力
+gem 'rb-readline'
 
 # WikipediaのAPI(コメント制限用)
 gem 'wikipedia-client'

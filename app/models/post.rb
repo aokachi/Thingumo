@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
+  
   belongs_to :user
   belongs_to :category
+
+  has_many :post_images, dependent: :destroy
+  accepts_nested_attributes_for :post_images, allow_destroy: true
 
   has_many :comments, dependent: :destroy
 

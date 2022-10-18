@@ -79,8 +79,11 @@
               <div>
                 <!--投稿画像を呼び出して表示(ある場合は)-->
                 <div class="image-block">
-                  <% if @post.image? %>
-                  <%= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
+                  <% if @post.post_images.present? %>
+                  <% @post.post_images.each do |image| %>
+                  <%= attachment_image_tag image, :image, :fill, 1000, 800, alt: "投稿画像", class: "popup-a" %>
+                  <% end %>
+                  <%#= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
                   <% else %>
                   <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
                   <% end %>
@@ -98,7 +101,7 @@
                 <!--プロフィール画像があったら表示-->
                 <% if @post.user.avatar? %>
                 <p>
-                  <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+                  <%= image_tag @post.user.avatar.url, alt: "プロフィール画像", class: "ava-author" %>
                 </p>
                 <% end %>
                 <!--投稿したユーザのニックネームを呼び出して表示-->
@@ -206,31 +209,17 @@
         <div class="row">
           <div class="col-md-12">
             <i class="fa fa-times close-button"></i>
-            <h5 class="large-popup-title">Log in</h5>
+            <h5 class="large-popup-title">ログイン</h5>
           </div>
-          <form action="./" class="popup-input-search">
-            <div class="col-md-6">
-              <input class="input-signtype" type="email" required="" placeholder="Your email">
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="password" required="" placeholder="Password">
-            </div>
-            <div class="col-xs-6">
-              <div class="be-checkbox">
-                <label class="check-box">
-                  <input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
-                </label>
-                <span class="large-popup-text">
-                  Stay signed in
-                </span>
-              </div>
-
-              <a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
-            </div>
-            <div class="col-xs-6 for-signin">
-              <input type="submit" class="be-popup-sign-button" value="SIGN IN">
-            </div>
-          </form>
+          <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+          <div class="col-md-6">
+            <%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
+            <%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
+          </div>
+          <div class="col-xs-6 for-signin">
+            <%= f.submit 'ログイン', class: 'be-popup-sign-button' %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -244,176 +233,41 @@
         <div class="row">
           <div class="col-md-12">
             <i class="fa fa-times close-button"></i>
-            <h5 class="large-popup-title">Register</h5>
+            <h5 class="large-popup-title">アカウント作成</h5>
           </div>
-          <form action="./" class="popup-input-search">
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="First Name">
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="Last Name">
-            </div>
-            <div class="col-md-6">
-              <div class="be-custom-select-block">
-                <select class="be-custom-select">
-                  <option value="" disabled selected>
-                    Country
-                  </option>
-                  <option value="">USA</option>
-                  <option value="">Canada</option>
-                  <option value="">England</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="Email">
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="Password">
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="Repeat Password">
-            </div>
-            <div class="col-md-12 be-date-block">
-              <span class="large-popup-text">
-                Date of birth
-              </span>
-              <div class="be-custom-select-block mounth">
-                <select class="be-custom-select">
-                  <option value="" disabled selected>
-                    Mounth
-                  </option>
-                  <option value="">January</option>
-                  <option value="">February</option>
-                  <option value="">March</option>
-                  <option value="">April</option>
-                  <option value="">May</option>
-                  <option value="">June</option>
-                  <option value="">July</option>
-                  <option value="">August</option>
-                  <option value="">September</option>
-                  <option value="">October</option>
-                  <option value="">November</option>
-                  <option value="">December</option>
-                </select>
-              </div>
-              <div class="be-custom-select-block">
-                <select class="be-custom-select">
-                  <option value="" disabled selected>
-                    Day
-                  </option>
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                  <option value="">6</option>
-                  <option value="">7</option>
-                  <option value="">8</option>
-                  <option value="">9</option>
-                  <option value="">10</option>
-                  <option value="">11</option>
-                  <option value="">12</option>
-                  <option value="">13</option>
-                  <option value="">14</option>
-                  <option value="">15</option>
-                  <option value="">16</option>
-                  <option value="">17</option>
-                  <option value="">18</option>
-                  <option value="">19</option>
-                  <option value="">20</option>
-                  <option value="">21</option>
-                  <option value="">22</option>
-                  <option value="">23</option>
-                  <option value="">24</option>
-                  <option value="">25</option>
-                  <option value="">26</option>
-                  <option value="">27</option>
-                  <option value="">28</option>
-                  <option value="">29</option>
-                  <option value="">30</option>
-                </select>
-              </div>
-              <div class="be-custom-select-block">
-                <select class="be-custom-select">
-                  <option value="" disabled selected>
-                    Year
-                  </option>
-                  <option value="">1996</option>
-                  <option value="">1997</option>
-                  <option value="">1998</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="be-checkbox">
-                <label class="check-box">
-                  <input class="checkbox-input" type="checkbox" required="" value="" /> <span
-                    class="check-box-sign"></span>
-                </label>
-                <span class="large-popup-text">
-                  I have read and agree to the <a class="be-popup-terms" href="blog-detail-2.html">Terms of Use</a>
-                  and
-                  <a class="be-popup-terms" href="blog-detail-2.html">Privacy Policy</a>.
-                </span>
-              </div>
-              <div class="be-checkbox">
-                <label class="check-box">
-                  <input class="checkbox-input" type="checkbox" value="" /> <span class="check-box-sign"></span>
-                </label>
-                <span class="large-popup-text">
-                  Send me notifications
-                </span>
-              </div>
-            </div>
-            <div class="col-md-6 for-signin">
-              <input type="submit" class="be-popup-sign-button" value="SIGN IN">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="large-popup send-m">
-  <div class="large-popup-fixed"></div>
-  <div class="container large-popup-container">
-    <div class="row">
-      <div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
-        <div class="row">
-          <div class="col-md-12">
-            <i class="fa fa-times close-m close-button"></i>
-            <h5 class="large-popup-title">Send message</h5>
+          <%= form_with model: User.new, url: signup_path, local: true do |f| %>
+          <div class="col-md-6">
+            <%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
           </div>
-          <form action="./" class="popup-input-search">
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="First Name">
+          <div class="col-md-6">
+            <%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+          </div>
+          <div class=" col-md-6">
+            <%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+          </div>
+          <div class="col-md-6">
+            <div class="be-custom-select-block">
+              <%= f.label :sex, '性別'%>
+              <%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
             </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="text" required="" placeholder="Last Name">
+          </div>
+          <div class="col-md-6 be-date-block">
+            <div class="form-group">
+              <%= f.label :birthday, '生年月日' %>
+              <%= f.date_field :birthday, class: 'form-control' %>
             </div>
-            <div class="col-md-6">
-              <div class="be-custom-select-block">
-                <select class="be-custom-select">
-                  <option value="" disabled selected>
-                    Country
-                  </option>
-                  <option value="">USA</option>
-                  <option value="">Canada</option>
-                  <option value="">England</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <input class="input-signtype" type="email" required="" placeholder="Email">
-            </div>
-            <div class="col-md-12">
-              <textarea class="message-area" placeholder="Message"></textarea>
-            </div>
-            <div class="col-md-12 for-signin">
-              <input type="submit" class="be-popup-sign-button" value="SEND">
-            </div>
-          </form>
+            <!--生年月日入力フォームその2-->
+            <%# <div class="input-date">
+							<input name="date" type="date" />
+						</div> %>
+          </div>
+          <div class="col-md-6 for-signin">
+            <%= f.submit '登録する', class: 'be-popup-sign-button' %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -423,16 +277,15 @@
   <div class="main-color">
     <div class="title">Main Color:</div>
     <div class="colours-wrapper">
-      <div class="entry color1 m-color active" data-colour="style/stylesheet.css"></div>
-      <div class="entry color3 m-color" data-colour="style/style-green.css"></div>
-      <div class="entry color6 m-color" data-colour="style/style-orange.css"></div>
-      <div class="entry color8 m-color" data-colour="style/style-red.css"></div>
+      <div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
+      <div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
+      <div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
+      <div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
       <div class="title">Second Color:</div>
-      <div class="entry s-color  active color10" data-colour="style/stylesheet.css"></div>
-      <div class="entry s-color color11" data-colour="style/style-oranges.css"></div>
-      <div class="entry s-color color12" data-colour="style/style-greens.css"></div>
-      <div class="entry s-color color13" data-colour="style/style-reds.css"></div>
-
+      <div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
+      <div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
+      <div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
+      <div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
     </div>
   </div>
   <div class="open"><img src="/assets/icon-134.png" alt=""></div>
