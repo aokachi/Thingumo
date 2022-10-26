@@ -12,11 +12,11 @@ class PostsController < ApplicationController
   def new
     @categories = Category.all
     @post = current_user.posts.build # 投稿フォームのform_with用
+    @post.post_images.build
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    # @post_file = @post.post_files.build
     if @post.save
       flash[:success] = '送信しました'
       redirect_to root_url    
