@@ -37,6 +37,9 @@ gem 'jquery-rails'
 # carrierwave
 gem 'carrierwave'
 
+# fog
+gem 'fog-aws'
+
 # RMagick(ImageMagick)
 gem 'rmagick'
 

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def new
     @categories = Category.all
     @post = current_user.posts.build # 投稿フォームのform_with用
-    @post.post_images.build
+    # @post.post_images.build
   end
 
   def create
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :category_id, post_images_images: [])
+    params.require(:post).permit(:title, :text, :category_id, { images: [] })
   end
 
   def correct_user

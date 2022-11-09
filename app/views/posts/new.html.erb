@@ -54,9 +54,9 @@
 									<div class="upload-zone">
 										<!--画像投稿フォーム-->
 										<i class="fa center-i fa-cloud-upload"></i>
-										<%= f.fields_for :post_images do |i| %>
-										<%= i.file_field :image, :multiple => true, id: :post_image %>
-										<% end %>
+										<%#= f.fields_for :post_images do |i| %>
+										<%= f.file_field :images, :multiple => true, id: :post_image %>
+										<%# end %>
 										<%#= f.attachment_field :post_images_images, multiple: true %>
 										<%#= f.file_field :image, id: :post_image %>
 									</div>

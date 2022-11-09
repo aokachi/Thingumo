@@ -47,8 +47,8 @@
 					<div class="category-1 mix custom-column-5">
 						<div class="be-post">
 							<!--投稿画像を呼び出して表示(リンク付き)-->
-							<% if post.image? %>
-							<%= link_to image_tag(post.image.url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
+							<% if post.images? %>
+							<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
 							<% else %>
 							<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
 							<% end %>

@@ -39,8 +39,8 @@
               <%= safe_join(@post.text.split("\n"),tag(:br)) %>
               <!--投稿画像を呼び出して表示(ある場合は)-->
               <div class="image-block">
-                <% if @post.image? %>
-                <%= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
+                <% if @post.images? %>
+                <%= image_tag @post.images[0].url, alt: "投稿画像", class: "popup-a" %>
                 <% else %>
                 <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
                 <% end %>
@@ -79,9 +79,9 @@
               <div>
                 <!--投稿画像を呼び出して表示(ある場合は)-->
                 <div class="image-block">
-                  <% if @post.post_images.present? %>
-                  <% @post.post_images.each do |image| %>
-                  <%= attachment_image_tag image, :image, :fill, 1000, 800, alt: "投稿画像", class: "popup-a" %>
+                  <% if @post.images.present? %>
+                  <% @post.images.each do |image| %>
+                  <%= attachment_image_tag image, :images, :fill, 1000, 800, alt: "投稿画像", class: "popup-a" %>
                   <% end %>
                   <%#= image_tag @post.image.url, alt: "投稿画像", class: "popup-a" %>
                   <% else %>
