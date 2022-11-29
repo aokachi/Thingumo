@@ -85,7 +85,7 @@
                 <!--投稿イメージの1枚目をサムネイルとして表示(ある場合は)-->
                 <div class="image-block">
                   <% if post.images? %>
-                  <%= image_tag post.images[0].url, alt: "投稿画像", class: "popup-a" %>
+                  <%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
                   <% else %>
                   <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
                   <% end %>
