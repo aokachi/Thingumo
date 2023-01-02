@@ -15,10 +15,16 @@
 					<button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
 					<ul class="header-menu" id="one">
 						<% if logged_in? %>
-						<li><%= link_to "マイページ", user_path(current_user) %></li>
+							<li><%= link_to "マイページ", user_path(current_user) %></li>
 						<% end %>
 						<% if logged_in? %>
-						<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+							<li><%= link_to "マイページ2", user_path(current_user) %></li>
+						<% end %>
+						<% if logged_in? %>
+							<li><%= link_to "マイページ3", user_path(current_user) %></li>
+						<% end %>
+						<% if logged_in? %>
+							<li><%= link_to "お問合せ", user_path(current_user) %></li>
 						<% end %>
 						<li id="ad-work-li"><%= link_to "質問する", new_post_path, class: "btn color-1", id: "add-work-btn" %></li>
 					</ul>
