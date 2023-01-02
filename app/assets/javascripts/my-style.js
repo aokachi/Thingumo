@@ -1,4 +1,4 @@
-/*Dropdown Menu*/
+/*カテゴリ用ドロップダウンメニュー*/
 $('.post-dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
@@ -12,7 +12,6 @@ $('.post-dropdown .post-dropdown-menu li').click(function () {
   $(this).parents('.post-dropdown').find('span').text($(this).text());
   $(this).parents('.post-dropdown').find('input').attr('value', $(this).attr('id'));
 });
-/*End Dropdown Menu*/
 
 
 $('.post-dropdown-menu li').click(function () {
