@@ -103,7 +103,11 @@
                 <!--プロフィール画像があったら表示-->
                 <% if post.user.avatar? %>
                 <p>
-                  <%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "ava-author" %>
+                  <%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "ava-author", size: "70x70" %>
+                </p>
+                <% else %>
+                <p>
+                  <%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "ava-author", size: "70x70" %>
                 </p>
                 <% end %>
                 <!--投稿したユーザのニックネームを呼び出して表示-->
@@ -180,9 +184,15 @@
       <div class="col-md-3 col-md-pull-9 left-feild">
         <div class="be-user-block">
           <div class="be-user-detail">
-            <a class="be-ava-user" href="blog-detail-2.html">
-              <img src="/assets/ava.png" alt="">
-            </a>
+            <% if @post.user.avatar? %>
+            <p>
+              <%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "be-ava-user", size: "70x70" %>
+            </p>
+            <% else %>
+            <p>
+              <%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-ava-user", size: "70x70" %>
+            </p>
+            <% end %>
             <p class="be-use-name"><%= @post.user.name %></p>
             <!--投稿したユーザのニックネームを呼び出して表示-->
             <span class="be-user-info">

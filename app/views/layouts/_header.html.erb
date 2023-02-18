@@ -18,12 +18,6 @@
 							<li><%= link_to "マイページ", user_path(current_user) %></li>
 						<% end %>
 						<% if logged_in? %>
-							<li><%= link_to "マイページ2", user_path(current_user) %></li>
-						<% end %>
-						<% if logged_in? %>
-							<li><%= link_to "マイページ3", user_path(current_user) %></li>
-						<% end %>
-						<% if logged_in? %>
 							<li><%= link_to "お問合せ", user_path(current_user) %></li>
 						<% end %>
 						<li id="ad-work-li"><%= link_to "質問する", new_post_path, class: "btn color-1", id: "add-work-btn" %></li>

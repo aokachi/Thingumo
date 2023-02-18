@@ -23,11 +23,12 @@
 							<!--プロフィール画像-->
 							<% if @user.avatar? %>
 							<div>
-								<%= image_tag user.avatar.url, alt: "AVATAR", class: "be-img-block" %>
+								<%= image_tag user.avatar.url, alt: "AVATAR", class: "be-img-block", size: "115x115" %>
 							</div>
 							<% else %>
 							<div>
-								<%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-img-block" %>
+							<%#= image_tag( '/default03.jpg', size: '115x115' ) %>
+							<%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-img-block", size: "115x115" %>
 							</div>
 							<% end %>
 							<%# <img src="/assets/ava_10.jpg" alt="">  %>
@@ -82,14 +83,10 @@
 								<div class="col-ml-12 col-xs-6 col-sm-4">
 									<div class="be-post">
 										<!--投稿画像を呼び出して表示(リンク付き)-->
-										<% if post.image? %>
-										<li>
-											<%= link_to image_tag(post.image.url, alt: "IMAGE"), post_path(post), class: "be-img-block" %>
-										</li>
+										<% if post.images? %>
+										<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
 										<% else %>
-										<a>
-											<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
-										</a>
+										<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
 										<% end %>
 										<!--投稿のタイトルを表示-->
 										<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
