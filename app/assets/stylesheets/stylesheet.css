@@ -1178,7 +1178,7 @@ span.right { float: right; }
 
 .be-use-name { color: #262626; font-size: 16px; font-family: 'Conv_helveticaneuecyr-bold'; margin-bottom: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;}
 
-.be-user-info { color: #a1a5b1; font-size: 12px; }
+.be-user-info { color: #262626; font-size: 12px; }
 
 .be-user-activity-button { border-radius: 2px; line-height: 15px; display: block; line-height: 30px; font-size: 10px; position: relative; width: 100%; display: block; padding: 5px 5px 5px 30px; margin-bottom: 25px !important; }
 
@@ -1329,7 +1329,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-desc-label { font-size: 16px; line-height: 21px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; margin-bottom: 20px; }
 
-.be-desc-text { font-size: 13px; line-height: 22px; font-weight: 400; color: #a1a5b1; }
+.be-desc-text { font-size: 13px; line-height: 22px; font-weight: 400; color: #262626; }
 
 .be-desc-author + .be-desc-author { border-top: none; }
 
@@ -1345,7 +1345,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-title { margin-bottom: 15px; color: #383b43; font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.be-text-userblock { color: #a1a5b1; }
+.be-text-userblock { color: #262626; }
 
 .be-button-vidget { display: block; border-radius: 2px; text-align: center; margin-bottom: 20px; padding: 15px 0; }
 
@@ -1812,7 +1812,7 @@ blockquote:after { content: ''; position: absolute; bottom: 80px; right: 70px; d
 
 .blog-content { margin-bottom: 45px; }
 
-.blog-content .post-text { font-size: 13px; line-height: 22px; font-weight: 400; color: #a1a5b1; }
+.blog-content .post-text { font-size: 13px; line-height: 22px; font-weight: 400; color: #262626; }
 
 .blog-content p { margin-bottom: 25px; }
 
