@@ -15,25 +15,28 @@
 					<button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
 					<ul class="header-menu" id="one">
 						<% if logged_in? %>
+							<li><%= link_to "質問する", new_post_path %></li>
+						<% end %>
+						<% if logged_in? %>
 							<li><%= link_to "マイページ", user_path(current_user) %></li>
 						<% end %>
 						<% if logged_in? %>
 							<li><%= link_to "お問合せ", user_path(current_user) %></li>
 						<% end %>
-						<li id="ad-work-li"><%= link_to "質問する", new_post_path, class: "btn color-1", id: "add-work-btn" %></li>
+						<% if logged_in? %>
+							<li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+						<% else %>
+							<li>
+								<div class="login_block">
+									<a href="">ログイン</a>
+								</div>
+							</li>
+						<% end %>
+								<!--<div class="login_block">
+									<a href="">ログイン</a>
+								</div>-->
+							<%# end %>
 					</ul>
-				</div>
-				<div class="login-header-block">
-					<% if logged_in? %>
-						<div class="logout_block">
-							<%= link_to logout_path, method: :delete do %>
-								<span class="btn color-1 size-2 hover-2" href=""><i class="fa fa-user"></i>ログアウト</span>
-							<% end %>
-					<% else %>
-						<div class="login_block">
-							<a class="btn-login btn color-1 size-2 hover-2" href=""><i class="fa fa-user"></i>  ログイン </a>
-						</div>
-					<% end %>
 				</div>
 			</div>
 		</div>

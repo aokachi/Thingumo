@@ -61,9 +61,9 @@
 							<div class="author-post">
 								<!--プロフィール画像を呼び出して表示-->
 								<% if post.user.avatar? %>
-								<%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "rounded-circle", size: "150x150" %>
+									<%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "rounded-circle", size: "150x150" %>
 								<% else %>
-								<%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "150x150" %>
+									<%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "150x150" %>
 								<% end %>
 								<!--投稿したユーザのニックネームを呼び出して表示-->
 								<span>by <a><%= post.user.name %></a></span>

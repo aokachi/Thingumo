@@ -45,7 +45,7 @@ input, input:focus { outline: none !important; }
 
 ul, li, ol { list-style: none; margin: 0; padding: 0; }
 
-.custom-container { max-width: 1800px; }
+.custom-container { max-width: 6000px; }
 
 .custom-column-5 { width: 20%; padding: 0 15px; float: left; }
 
@@ -99,8 +99,7 @@ header .custom-container { position: relative; }
 header .row-header .brand-be { margin-top: 16.5px; float: left; }
 
 header .row-header .header-menu-block { position: absolute;
-    top: 0px; left: 50%; -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%); transform: translateX(-50%);
+    top: 0px; right: 30px;
 }
 
 @media screen and (min-width: 1200px) {
@@ -118,24 +117,20 @@ img.be_logo { text-align: left; }
 
 .header-menu > li:hover > a, .header-menu > li.active-header > a { color: #0d58c8; }
 
-.header-menu { text-align: center; }
+.header-menu { text-align: right; }
 
 .fa-angle-down { display: none; }
 
 /*login-block*/
 .login-header-block { margin-top: 17.5px; float: right; }
 
-.login_block { text-align: right; }
+.login_block { text-align: center; }
 
-.login_block .btn-login { margin-right: 0px; margin-bottom: 0px; }
+.login_block a:hover { color: #0d58c8; }
 
-.login_block a:hover { color: #262626; }
+.logout_block { text-align: center; }
 
-.logout_block { text-align: right; }
-
-.logout_block .btn-login { margin-right: 0px; margin-bottom: 0px; }
-
-.logout_block a:hover { color: #262626; }
+.logout_block a:hover { color: #0d58c8; }
 
 /*login user page*/
 .page-login .login-header-block { margin-top: 15px; }
@@ -268,7 +263,7 @@ a.settings>i{font-size: 16px !important;}
 .be-drop-down.login-user-down ul { font-size: 10px; }
 
 .be-drop-down .login-user { border-radius: 40px; }
-header .header-menu > #ad-work-li {position: static; float: right;margin-top: 20px; padding: 0px;}
+header .header-menu > #ad-work-li {position: static; float: right; margin-top: 20px; padding: 0px;}
 @media screen and (min-width: 992px) and (max-width: 1400px) { .login_block .be-drop-down { margin-right: 5px; } }
 
 @media screen and (min-width: 1200px) { header .header-menu { display: block !important; }
@@ -1487,7 +1482,7 @@ display: inline-block; float: none; margin: 0 10px;}
 .subblock .type-2:after{color:#fff !important;}
 .subblock .pagination{text-align: left; margin: 0;}
 /*buttons*/
-.btn { display: inline-block; width: 110px; height: 35px; font-size: 12px; line-height: 12px; font-weight: 400; color: #fff; text-transform: uppercase; margin-bottom: 10px; margin-right: 0px; border-radius: 3px; }
+.btn { display: inline-block; width: 110px; height: 35px; font-size: 12px; line-height: 12px; font-weight: 400; color: #fff; text-transform: uppercase; position: fixed; right: 10px; top: 19px; border-radius: 3px; }
 
 .btn2 { display: inline-block; width: 180px; height: 45px; font-size: 12px; line-height: 12px; font-weight: 400; color: #fff; text-transform: uppercase; margin-bottom: 10px; margin-right: 0px; border-radius: 3px; }
 
@@ -3638,10 +3633,9 @@ body .behance-style .creative_filds_block a:hover {
 
 #add-work-btn {
     color: #fff !important;
-    position: relative;
-    margin-right: 0;
-    margin-bottom: 0;
-    top:-1px
+    position: fixed;
+    right: 130px;
+    top: 19px;
 }
 
 @media screen and (max-width:1200px) {
