@@ -53,8 +53,8 @@ gem 'mini_magick', '~> 4.8'
 # rails consoleで日本語入力
 gem 'rb-readline'
 
-# WikipediaのAPI(コメント制限用)
-gem 'wikipedia-client'
+# プッシュ通知
+gem 'webpush'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
