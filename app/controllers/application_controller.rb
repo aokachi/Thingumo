@@ -1,16 +1,24 @@
 class ApplicationController < ActionController::Base
+  include Devise::Controllers::Helpers
+  protect_from_forgery with: :exception
 
-  include SessionsHelper
-
-  private
-
-  def require_user_logged_in
-    unless logged_in?
-      redirect_to root_url
-    end
+  def after_sign_in_path_for(resource)
+    root_path
   end
 
   def counts(user)
     @count_posts = user.posts.count
-  end  
+  end
+  
+  def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end

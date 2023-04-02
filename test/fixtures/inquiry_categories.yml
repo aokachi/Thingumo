@@ -2,14 +2,6 @@
 
 one:
   name: MyString
-  email: MyString
-  text: MyText
-  category: one
-  user: one
 
 two:
   name: MyString
-  email: MyString
-  text: MyText
-  category: two
-  user: two

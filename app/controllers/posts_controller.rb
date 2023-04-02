@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def show
     @post = Post.find(params[:id])
@@ -31,8 +30,8 @@ class PostsController < ApplicationController
   end
     
   def destroy
+    @post = current_user.posts.find(params[:id])
     @post.destroy
-    @post_file.destroy
     flash[:success] = 'メッセージを削除しました'
     redirect_back(fallback_location: root_path)
   end
@@ -41,12 +40,5 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text, :category_id, { images: [] })
-  end
-
-  def correct_user
-    @post = current_user.posts.find_by(id: params[:id])
-    unless @post
-      redirect_to root_url
-    end
   end
 end

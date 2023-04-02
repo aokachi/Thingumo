@@ -56,6 +56,9 @@ gem 'rb-readline'
 # プッシュ通知
 gem 'webpush'
 
+# Devise
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

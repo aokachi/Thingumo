@@ -27,11 +27,18 @@
   <%= csp_meta_tag %>
 
   <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <body>
+  <!--ポップアップ用（保留）-->
+  <!--<div id="flash-popup" data-message="<%= flash[:notice] || flash[:alert] %>" data-message-type="<%= flash[:notice] ? 'notice' : 'alert' %>">
+    <span id="flash-popup-message"></span>
+    <span id="flash-popup-close">&times;</span>
+  </div>-->
+
   <%= render 'layouts/header' %>
 
   <%= yield %>

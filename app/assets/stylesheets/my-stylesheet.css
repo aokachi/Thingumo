@@ -194,3 +194,51 @@ span.choose {
 .be-reply-comment-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
 
 .be-reply-comment:not(:last-child) { margin-bottom: 30px; }
+
+
+/* 問い合わせの種類のセレクトボックス */
+.new-inquiry-select { width: 52%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #000000; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
+
+.new-inquiry-select-block { position: relative; margin-bottom: 20px; }
+
+.new-inquiry-select-block::after { content: "\f0d7"; font-family: FontAwesome; position: absolute; top: 50%; right: 15px; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); color: #b4b7c1; }
+
+.new-inquiry-select-block:hover::after { color: #0d58c8; }
+
+.be-date-block .new-inquiry-select-block { display: inline-block; }
+
+.be-date-block .new-inquiry-select-block { width: 130px; margin-right: 20px; }
+
+.new-inquiry-select-block .mounth { width: 225px; }
+
+@media screen and (max-width: 991px) { .be-date-block .new-inquiry-select-block { width: 100%; }
+  .large-popup.register .be-popup-sign-button { float: left; } }
+
+.new-inquiry-select-block{position: relative;}
+.new-inquiry-select-block:after{
+  content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
+  position: absolute; right: 14px; cursor: pointer;
+}
+
+
+/* フラッシュメッセージ用 */
+.flash-popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: none; /* 最初は非表示にしておく */
+}
+.flash-popup.alert {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.flash-popup.notice {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}

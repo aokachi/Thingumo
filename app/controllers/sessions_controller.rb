@@ -1,36 +1,12 @@
-class SessionsController < ApplicationController
-  def new
-  end
-
+class SessionsController < Devise::SessionsController
   def create
-    email = params[:session][:email].downcase
-    password = params[:session][:password]
-    if login(email, password)
-      flash[:success] = 'ログインに成功しました。'
+    self.resource = warden.authenticate(auth_options)
+    if resource && resource.active_for_authentication?
+      sign_in(resource_name, resource)
+      respond_with resource, location: after_sign_in_path_for(resource)
+    else
+      flash.keep[:alert] = 'メールアドレスまたはパスワードが正しくありません。'
       redirect_to root_url
-    else
-      flash.now[:danger] = 'ログインに失敗しました。'
-    end
-  end
-
-  def destroy
-    session[:user_id] = nil
-    flash[:success] = 'ログアウトしました。'
-    redirect_to root_url
-  end
-
-
-  private
-
-  def login (email, password)
-    @user = User.find_by(email: email)
-    if @user && @user.authenticate(password)
-      # ログインに成功
-      session[:user_id] = @user.id
-      return true
-    else
-      # ログイン失敗
-      return false
     end
   end
 end

@@ -117,7 +117,7 @@
 						<i class="fa fa-times close-button"></i>
 						<h5 class="large-popup-title">ログイン</h5>
 					</div>
-					<%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
 					<div class="col-md-6">
 						<%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
 						<%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
@@ -141,7 +141,7 @@
 						<i class="fa fa-times close-button"></i>
 						<h5 class="large-popup-title">アカウント作成</h5>
 					</div>
-					<%= form_with model: User.new, url: signup_path, local: true do |f| %>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'new_user' }) do |f| %>
 					<div class="col-md-6">
 						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
 					</div>

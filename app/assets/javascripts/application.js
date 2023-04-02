@@ -10,6 +10,33 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
 //= require rails-ujs
+//= require canvasjs.min
 //= require activestorage
 //= require_tree .
+
+// フラッシュメッセージ
+$(document).on('turbolinks:load', function() {
+  const showMessage = (message, type) => {
+    $("#flash-popup-message").text(message);
+    $("#flash-popup").addClass(type).fadeIn("slow");
+  };
+
+  const closeMessage = () => {
+    $("#flash-popup").fadeOut("slow", function() {
+      $(this).removeClass("alert notice");
+    });
+  };
+
+  const message = $("#flash-popup").data("message");
+  const messageType = $("#flash-popup").data("message-type");
+
+  if (message && messageType) {
+    showMessage(message, messageType);
+    setTimeout(closeMessage, 3000); // 3秒後に自動的に消える
+  }
+
+  $("#flash-popup-close").on("click", closeMessage);
+});
+
