@@ -242,3 +242,13 @@ span.choose {
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+
+
+/* アカウント作成フォーム用 */
+.label-white {
+  color: #FFF;
+}
+
+.label-thin {
+  font-weight: 200;
+}
