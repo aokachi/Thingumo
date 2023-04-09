@@ -1,4 +1,5 @@
-<% if logged_in? %>
+<% resource ||= User.new %>
+<% resource_name ||= :user %>
 
 <div class="be-loader">
   <div class="spinner">
@@ -26,13 +27,6 @@
               <!--投稿のタイトルを表示-->
               <p><%= @post.title %></p>
             </div>
-            <!--</h1>-->
-
-            <%# <span class="be-text-tags">
-								<a href="blog-detail-2.html" class="be-post-tag">Interactiob design</a>, 
-								<a href="blog-detail-2.html" class="be-post-tag">UI/UX</a>,  
-								<a href="blog-detail-2.html" class="be-post-tag">Web Design</a>
-							</span> %>
             <div class="clear"></div>
             <div class="post-text">
               <!--投稿したテキストを表示(段落・改行を反映)-->
@@ -42,8 +36,6 @@
                 <% if @post.images.present? %>
                 <% @post.images.each do |image| %>
                 <%= image_tag (image.url) %>
-                <!--以下だと表示できない-->
-                <%#= attachment_image_tag image, :images, :fill, 1000, 800, alt: "投稿画像", class: "popup-a" %>
                 <% end %>
                 <% else %>
                 <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
@@ -126,59 +118,15 @@
           <% end %>
         </div>
         <div class="be-comment-block">
-          <h1 class="comments-title">リプライ</h1>
+          <h1 class="comments-title">コメント (<%= @comments.count %>)</h1>
           <p class="about-comment-block">
-            参加するには <a href="blog-detail-2.html" class="be-signup-link">ログイン</a>
-            する必要があります。
+            投稿するには<%= link_to "サインイン", new_user_registration_path %>してください。
           </p>
-          <% @comments.each do |comment| %>
-          <div class="be-comment">
-            <div class="be-img-comment">
-              <!--プロフィール画像かニックネームをクリックするとプロフィールページに飛ぶ-->
-              <% if comment.user.avatar? %>
-              <%= image_tag post.user.avatar, alt: "プロフィール画像", class: "rounded-circle", size: "40x40" %>
-              <% else %>
-              <%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "40x40" %>
-              <% end %>
-              <!--<a href="blog-detail-2.html">
-                ここでプロフィール画像を呼び出す
-                <img src="/assets/c1.png" alt="" class="be-ava-comment">
-              </a>-->
-            </div>
-            <div class="be-comment-content">
-              <span class="be-comment-name">
-                <!--ニックネームを呼び出す　クリックするとプロフィールページに飛ぶ-->
-                <%= link_to(comment.user.name, user_path(comment)) %>
-                <!--<a href="blog-detail-2.html">ユーザー名</a>-->
-              </span>
-              <span class="be-comment-time">
-                <i class="fa fa-clock-o"></i>
-                <!--コメントした日時を表示-->
-                <%= comment.created_at %>
-              </span>
-              <p class="be-comment-text">
-                <!--コメント内容を表示-->
-                <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
-              </p>
-              <div class="be-reply-comment-content">
-                <span class="be-comment-name">
-                  <!--ニックネームを呼び出す　クリックするとプロフィールページに飛ぶ-->
-                  <%= link_to(comment.user.name, user_path(comment)) %>
-                  <!--<a href="blog-detail-2.html">ユーザー名</a>-->
-                </span>
-                <span class="be-comment-time">
-                  <i class="fa fa-clock-o"></i>
-                  <!--コメントした日時を表示-->
-                  <%= comment.created_at %>
-                </span>
-                <p class="be-comment-text">
-                  <!--コメント内容を表示-->
-                  <%= safe_join(comment.comment.split("\n"),tag(:br)) %>
-                </p>
-              </div>
-            </div>
-          </div>
+          <%= form_with model: [ @post, @post.comments.build ], local: true do |form| %>
+            <%= form.text_area :content, class: 'form-control', placeholder: "Write your comment here", rows: 4 %>
+            <%= form.submit "Post Comment" %>
           <% end %>
+          <%= render 'comments/comments', comments: @comments %>
         </div>
       </div>
       <div class="col-md-3 col-md-pull-9 left-feild">
@@ -310,5 +258,3 @@
 <script src="/assets/jquery.viewportchecker.min.js"></script>
 <script src="/assets/magnific.js"></script>
 <script src="/assets/global.js"></script>
-
-<% end %>

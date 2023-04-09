@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_26_140322) do
+ActiveRecord::Schema.define(version: 2023_04_05_133241) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -19,13 +19,16 @@ ActiveRecord::Schema.define(version: 2023_03_26_140322) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "post_id"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_comment_id"
-    t.index ["parent_comment_id"], name: "index_comments_on_parent_comment_id"
+    t.integer "post_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -90,7 +93,7 @@ ActiveRecord::Schema.define(version: 2023_03_26_140322) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "comments", column: "parent_comment_id"
+  add_foreign_key "comments", "users"
   add_foreign_key "inquiries", "inquiry_categories", column: "category_id"
   add_foreign_key "inquiries", "users"
   add_foreign_key "posts", "categories"

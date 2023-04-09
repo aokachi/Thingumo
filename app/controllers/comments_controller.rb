@@ -1,29 +1,45 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = current_user.comments.build(comment_params)
-    @comment.post_id = post.id
-    # 入力されたコメントでWikipediaを検索し、一致するものがあるか確認する
-    @word = Wikipedia.find(params[:post_id])
-    @word_result = @word.title
-    # @word_resultがnilでなければコメントを送信する
-    # nillだったらコメントを送信しない
-    unless @word_result.nil?
-      @comment.save
-    end
-    redirect_to post_path(post)
-  end
+    @comment = Comment.new(comment_params)
+    @commentable = find_commentable
+    @comment.post = @post
+    @comment.commentable = @commentable
+    @comment.user = current_user
 
-  def destroy
-    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-    redirect_to post_path(params[:post_id])
+    puts "********** ここに@commentオブジェクトを表示します **********"
+    puts @comment.inspect
+    puts "*********************************************************"
+
+    if @comment.save
+      redirect_to @commentable, notice: 'コメントを送信しました'
+    else
+      flash[:alert] = "コメントを送信できませんでした: " + @comment.errors.full_messages.join(', ')
+      puts "********** ここにエラーメッセージを表示します **********"
+      puts @comment.errors.inspect
+      puts "*********************************************************"
+      redirect_to @commentable
+    end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:comment, :post_id, :user_id, :parent_comment_id)
+    params.require(:comment).permit(:content)
   end
 
+  def find_commentable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        commentable = $1.classify.constantize.find(value)
+        puts "********** ここにcommentableオブジェクトを表示します **********"
+        puts commentable.inspect
+        puts "*********************************************************"
+        return commentable
+      end
+    end
+    nil
+  end
 end
