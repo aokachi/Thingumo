@@ -2,9 +2,22 @@
   outline: 0;
   font-family: sans-serif
 }
+
 body {
-  background-color: #fafafa
+  background-color: #fafafa;
+  height: 100%;
 }
+
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content-block {
+  flex-grow: 1;
+}
+
 span.msg,
 span.choose {
   color: #555;
