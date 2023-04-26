@@ -19,3 +19,11 @@ var input = '<strong>' + $(this).parents('.post-dropdown').find('input').val() +
 msg = '<span class="msg">Hidden input value: ';
 $('.msg').html(msg + input + '</span>');
 }); 
+
+
+/* ファイルアップロードフォーム用 */
+$(document).ready(function() {
+  $('.upload-zone').on('click', function() {
+    $('#post_image').trigger('click');
+  });
+});
