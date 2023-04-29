@@ -29,8 +29,6 @@
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */ color: inherit !important; }
 
-#content-block *:last-child { margin-bottom: 5px; }
-
 body { margin: 0; padding: 0; font-family: 'Conv_helveticaneuecyr-roman', sans-serif; }
 
 h1, h2, h3, h4, h5, p { padding: 0; }
@@ -631,7 +629,7 @@ a.be-post-title:hover { color: #0D58C8; }
 
 .be-post > span { color: #b4b7c1; display: block; font-size: 11px; line-height: 20px; padding: 0 15px; margin-bottom: 15px; }
 
-.info-block { background: #F6F6F6; padding: 20px 15px; font-size: 10px; color: #b4b7c1 !important; }
+.info-block { background: #F6F6F6; padding: 25px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
 .info-block-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
@@ -1369,7 +1367,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-large-post-img { width: 100%; }
 
-.be-large-post-align { margin: 0 65px; }
+.be-large-post-align { margin: 20px 65px 70px; }
 
 .be-large-post > img { padding-left: 0; }
 
