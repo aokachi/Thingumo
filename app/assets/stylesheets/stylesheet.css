@@ -1393,7 +1393,11 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .comments-title { font-size: 16px; color: #262626; margin-bottom: 15px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.about-comment-block { font-size: 12px; color: #b4b7c1; margin-bottom: 50px; }
+.about-comment-block a { font-size: 12px; color: #262626; margin-bottom: 50px; }
+
+.about-comment-block a:hover { color: #0d58c8; }
+
+.form-spacing { margin-top: 20px; margin-bottom: 50px; display: flex; flex-direction: column; justify-content: space-between;}
 
 .be-signup-link { color: #0d58c8 !important; margin: 0 2px; font-family: 'Conv_helveticaneuecyr-bold'; font-size: 10px; }
 
@@ -1401,9 +1405,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-comment-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.be-comment-time { font-size: 11px; color: #b4b7c1; }
+.be-comment-time { font-size: 11px; color: #262626; }
 
-.be-comment-text { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+.be-comment-text { font-size: 13px; line-height: 18px; color: #262626; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
 
 .be-comment-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
 
