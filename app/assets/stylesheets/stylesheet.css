@@ -1165,13 +1165,15 @@ span.right { float: right; }
 
 .be-ava-user > img:hover { transform: scale(1.09); -webkit-transform: scale(1.09); -moz-transform: scale(1.09); -ms-transform: scale(1.09); }
 
-.be-ava-left { position: absolute; top: 70px; left: 0; width: 100px; text-align: center; }
+.be-ava-left { position: absolute; top: 70px; left: 50%; width: 100px; text-align: center; transform: translateX(-50%); }
+
+.be-ava-left:hover { background-color: rgba(255,255,255, 0.1); }
 
 .be-ava-right { position: absolute; top: 70px; right: 15px; width: 100px; text-align: center; }
 
 .be-use-name { color: #262626; font-size: 16px; font-family: 'Conv_helveticaneuecyr-bold'; margin-bottom: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;}
 
-.be-user-info { color: #262626; font-size: 12px; }
+.be-user-info { color: #262626; font-size: 12px; position: relative; height: 50px; }
 
 .be-user-activity-button { border-radius: 2px; line-height: 15px; display: block; line-height: 30px; font-size: 10px; position: relative; width: 100%; display: block; padding: 5px 5px 5px 30px; margin-bottom: 25px !important; }
 
@@ -3637,7 +3639,7 @@ body .behance-style .creative_filds_block a:hover {
 
 #add-work-btn {
     color: #fff !important;
-    position: fixed;
+    position: absolute;
     right: 130px;
     top: 19px;
 }
