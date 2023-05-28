@@ -357,3 +357,12 @@ span.choose {
   height: 100%;
   cursor: pointer;
 }
+
+/* トップページ カテゴリ表示欄用 */
+.category-list:hover {
+  background-color: #F000;
+}
+
+.category-name:hover {
+  color: #F333;
+}

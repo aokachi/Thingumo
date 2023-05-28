@@ -415,9 +415,9 @@ form.input-search { position: relative; margin-bottom: 50px; }
 
 .creative_filds_block a:not(:first-child), .creative_filds_block .nav > li:not(:first-child) > a { border-top: none !important; }
 
-.creative_filds_block a:hover, .creative_filds_block .nav > li > a:hover, .creative_filds_block .nav > li.active > a { background: #0d58c8; color: #FFF !important; }
+.creative_filds_block a:hover, .creative_filds_block .nav > li > a:hover, .creative_filds_block .nav > li.active > a { background: #000; color: #000 !important; }
 
-.creative_filds_block a:hover:after { content: "\f105"; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; color: rgba(255, 255, 255, 0.6); font-size: 18px; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); right: 20px; }
+.creative_filds_block a:hover:after { content: "\f105"; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; color: #000; font-size: 18px; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); right: 20px; }
 
 .be-vidget { margin-bottom: 45px; }
 
