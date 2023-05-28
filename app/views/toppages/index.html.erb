@@ -35,15 +35,11 @@
 					</h3>
 					<div class="creative_filds_block">
 						<li class="category-item">
-							<div class="ul">
-								<ul class="category-list">
-									<% @categories.each do |category| %>
-										<li class="category-name">
-											<%= link_to category.name, root_path(category_id: category.id), class: "filter" %>
-										</li>
-									<% end %>
-								</ul>
-							</div>
+							<ul class="category-list">
+								<% @categories.each do |category| %>
+									<%= link_to category.name, root_path(category_id: category.id), class: "filter" %>
+								<% end %>
+							</ul>
 						</li>
 					</div>
 				</div>

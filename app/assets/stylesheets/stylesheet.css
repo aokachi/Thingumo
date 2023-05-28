@@ -1498,7 +1498,7 @@ display: inline-block; float: none; margin: 0 10px;}
 
 .btn.color-2 .fa { color: #7a8192; }
 
-.btn2.color-3 { background: #fff; color: #7a8192; border: 1px solid #7a8192; }
+.btn2.color-3 { background: #fff; color: #383b43; border: 1px solid #383b43; }
 
 .btn.color-3 .fa { color: #7a8192; }
 
@@ -1542,7 +1542,7 @@ display: inline-block; float: none; margin: 0 10px;}
 
 .btn.hover-5:hover, .btn.hover-5.active { background: #7a8192; border: 1px solid #7a8192; color: #fff; }
 
-.btn2.hover-6:hover, .btn.hover-6.active { background: transparent; border: 1px solid #7a8192; color: #fff; }
+.btn2.hover-6:hover, .btn.hover-6.active { background: #d1d1d1; border: 1px solid #7a8192; color: #383b43; }
 
 .btn.hover-7:hover, .btn.hover-7.active { background: transparent; border: 1px solid #edeff2; color: #7a8192; }
 
