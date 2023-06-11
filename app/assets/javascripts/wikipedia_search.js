@@ -18,14 +18,17 @@ $(document).ready(function() {
               results.push(data[1][i]);
             }
             $('#search-results').html(results.join('<br>'));
+            $('#search-results').css('display', 'block');
           } else {
             console.log('No results found');
             $('#search-results').html('');
+            $('#search-results').css('display', 'none');
           }
         }
       });
     } else {
       $('#search-results').html('');
+      $('#search-results').css('display', 'none');
     }
   });
 });
