@@ -375,3 +375,11 @@ a.be-register {
   position: absolute;
   top: 100%;
 }
+
+#search-results li {
+  margin-bottom: 10px;
+}
+
+#search-results {
+  font-family: sans-serif;
+}
