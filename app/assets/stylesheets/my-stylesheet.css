@@ -363,3 +363,13 @@ span.choose {
 a.be-register {
   cursor: pointer;
 }
+
+
+/* 入力候補の表示 */
+#search-results {
+  list-style-type: none;
+  background-color: #0b0b0b;
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: none;
+}

@@ -59,6 +59,12 @@ gem 'webpush'
 # Devise
 gem 'devise'
 
+# wikipedia-client
+gem 'wikipedia-client'
+
+#jQuery
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

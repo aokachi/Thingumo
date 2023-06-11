@@ -121,7 +121,11 @@
             投稿するには<%= link_to "サインイン", new_user_registration_path %>してください。
           </p>
           <%= form_with model: [ @post, @post.comments.build ], local: true, html: { class: 'form-spacing' } do |form| %>
-            <%= form.text_area :content, class: 'form-control', placeholder: "コメントを入力してください。", rows: 4 %>
+            <div class="form-group">
+              <%= form.label :content, "コメント", class: 'control-label' %>
+              <%= form.text_area :content, class: 'form-control', placeholder: "コメントを入力してください。", rows: 4 %>
+              <ul id="search-results">
+            </div>
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>
           <%= render 'comments/comments', comments: @comments %>
