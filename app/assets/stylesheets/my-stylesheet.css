@@ -368,8 +368,10 @@ a.be-register {
 /* 入力候補の表示 */
 #search-results {
   list-style-type: none;
-  background-color: #0b0b0b;
+  background-color: #fff;
   border: 1px solid #ddd;
   padding: 10px;
   display: none;
+  position: absolute;
+  top: 100%;
 }

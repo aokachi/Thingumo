@@ -1,27 +1,31 @@
 $(document).ready(function() {
-  console.log("Document is ready")
-  $('#comment_content').on('input', function() {
+  var textArea = $('#comment_content');
+  textArea.on('input', function() {
     var input = $(this).val();
-    if (input.length > 2) {
+    if (input) {
       $.ajax({
         url: 'https://en.wikipedia.org/w/api.php',
-        data: { action: 'opensearch', search: input, format: 'json', limit: 5 },
+        data: {
+          action: 'opensearch',
+          search: input,
+          format: 'json'
+        },
         dataType: 'jsonp',
         success: function(data) {
-          $('#search-results').empty();
-          var results = data[1];
-          results.forEach(function(result) {
-            $('#search-results').append('<li>' + result + '</li>');
-          });
-          if (results.length > 0) {
-            $('#search-results').show();
+          if (data[1]) {
+            var results = [];
+            for (var i = 0; i < data[1].length; i++) {
+              results.push(data[1][i]);
+            }
+            $('#search-results').html(results.join('<br>'));
           } else {
-            $('#search-results').hide();
+            console.log('No results found');
+            $('#search-results').html('');
           }
         }
       });
     } else {
-      $('#search-results').hide();
+      $('#search-results').html('');
     }
   });
 });
