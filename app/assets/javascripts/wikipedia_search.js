@@ -4,7 +4,7 @@ $(document).ready(function() {
     var input = $(this).val();
     if (input) {
       $.ajax({
-        url: 'https://en.wikipedia.org/w/api.php',
+        url: 'https://ja.wikipedia.org/w/api.php',
         data: {
           action: 'opensearch',
           search: input,

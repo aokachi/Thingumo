@@ -374,6 +374,7 @@ a.be-register {
   display: none;
   position: absolute;
   top: 100%;
+  font-size: 13px;
 }
 
 #search-results li {
