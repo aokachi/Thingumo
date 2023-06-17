@@ -124,7 +124,9 @@
             <div class="form-group">
               <%= form.label :content, "コメント", class: 'control-label' %>
               <%= form.text_area :content, id: 'comment_content', class: 'form-control', placeholder: "コメントを入力してください。", rows: 4 %>
-              <ul id="search-results"></ul>
+              <div id="suggestion-container">
+                <ul id="search-results"></ul>
+              </div>
             </div>
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>

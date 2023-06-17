@@ -33,7 +33,8 @@ $(document).ready(function() {
   });
 });
 
+
 $(document).on('click', '#search-results li', function() {
-  $('#comment_content').val($(this).text());
-  $('#search-results').hide();
+  var text = $(this).text();
+  $('#comment_content').val(text);
 });
