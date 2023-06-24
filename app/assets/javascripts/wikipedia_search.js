@@ -15,9 +15,9 @@ $(document).ready(function() {
           if (data[1]) {
             var results = [];
             for (var i = 0; i < data[1].length; i++) {
-              results.push(data[1][i]);
+              results.push('<li class="search-result-item">' + data[1][i] + '</li>');
             }
-            $('#search-results').html(results.join('<br>'));
+            $('#search-results').html(results.join(''));
             $('#search-results').css('display', 'block');
           } else {
             console.log('No results found');
@@ -33,8 +33,8 @@ $(document).ready(function() {
   });
 });
 
-
-$(document).on('click', '#search-results li', function() {
+$(document).on('click', '.search-result-item', function() {
   var text = $(this).text();
   $('#comment_content').val(text);
+  $('#search-results').hide();
 });

@@ -367,32 +367,23 @@ a.be-register {
 
 /* 入力候補の表示 */
 #search-results {
-  #suggestion-container {
-    position: relative;
-  }
-  
-  #search-results {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px;
-    box-sizing: border-box;
-    list-style-type: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
-  
-  #search-results li {
-    width: calc(50% - 10px);
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #ddd;
-    text-align: center;
-    cursor: pointer;
-  }
+  display: none;
+  position: absolute;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.search-result-item {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #e9ecef;
 }
