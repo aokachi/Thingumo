@@ -124,22 +124,33 @@
             <div class="form-group">
               <%= form.label :content, "コメント", class: 'control-label' %>
               <%= form.text_area :content, id: 'comment_content', class: 'form-control', placeholder: "コメントを入力してください。", rows: 1 %>
-              <button type="button" id="popup-button">入力候補の中に回答が見つからない場合はこちら</button>
+              <button type="button" id="modal-button">入力候補の中に回答が見つからない場合はこちら</button>
               <ul id="search-results"></ul>
             </div>
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>
-          <div id="popup" style="display: none;">
-            <p>回答の内容によっては、送信できない旨の注意書き</p>
-            <button type="button" id="agree-button">同意する</button>
-            <button type="button" id="disagree-button">同意しない</button>
-            <%= form_with model: [ @post, SpecialAnswer.new ], id: 'special-answer-form', style: 'display: none;' do |form| %>
-              <%= form.text_area :content %>
-              <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.hidden_field :post_id, value: @post.id %>
-              <%= form.submit "送信する" %>
-              <%= link_to 'キャンセル', post_path(@post), id: 'cancel-button' %>
-            <% end %>
+          <div id="modal-special-answer" style="display: none;" class="modal">
+            <div class="modal-content">
+              <h4>同意</h4>
+              <p>Do you agree to our terms and conditions?</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close agree-button">Agree</a>
+              <a href="#!" class="modal-close disagree-button">Disagree</a>
+            </div>
+          </div>
+          <div id="modal-form" class="modal">
+            <div class="modal-content">
+              <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
+                <div class="field">
+                  <%= form.label :content %>
+                  <%= form.text_area :content %>
+                </div>
+                <div class="actions">
+                  <%= form.submit %>
+                </div>
+              <% end %>
+            </div>
           </div>
           <%= render 'comments/comments', comments: @comments %>
         </div>

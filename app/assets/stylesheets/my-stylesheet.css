@@ -390,15 +390,15 @@ a.be-register {
 
 
 /* モーダルウインドウ */
-#popup, #special-answer-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border: 1px solid black;
-  z-index: 100;
+.modal {
+  width: 70%;
+  max-height: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 100%;
+  }
 }
 
 #overlay {

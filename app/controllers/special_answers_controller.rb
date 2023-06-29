@@ -5,9 +5,9 @@ class SpecialAnswersController < ApplicationController
   end
 
   def create
-    @special_answer = SpecialAnswer.new(special_comment_params)
-    existing_answer = SpecialAnswer.find_by(content: @special_comment.content)
-    if existing_Answer
+    @special_answer = SpecialAnswer.new(special_answer_params)
+    existing_answer = SpecialAnswer.find_by(content: @special_answer.content)
+    if existing_answer
       @special_answer.approval = existing_answer.approval
     end
     if @special_answer.save

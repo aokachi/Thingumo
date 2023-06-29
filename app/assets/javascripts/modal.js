@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-  let popupButton = document.getElementById('popup-button');
+  let popupButton = document.getElementById('modal-button');
   popupButton.addEventListener('click', function(){
     let popup = document.getElementById('popup');
     let disclaimer = document.getElementById('disclaimer');
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function(){
   
   // ページが読み込まれたときに実行する関数を定義
   $(document).ready(function() {
-    // "popup-button"がクリックされたときの処理
-    $('#popup-button').click(function() {
+    // "modal-button"がクリックされたときの処理
+    $('#modal-button').click(function() {
       // ポップアップを表示
       $('#popup').show();
     });
