@@ -124,16 +124,23 @@
             <div class="form-group">
               <%= form.label :content, "コメント", class: 'control-label' %>
               <%= form.text_area :content, id: 'comment_content', class: 'form-control', placeholder: "コメントを入力してください。", rows: 1 %>
-              <button id="popup-button">入力候補の中に回答が見つからない場合はこちら</button>
-              <div id="popup" style="display: none;">
-                <p>回答の内容によっては、送信できない旨の注意書き</p>
-                <button id="agree-button">同意する</button>
-                <button id="disagree-button">同意しない</button>
-              </div>
+              <button type="button" id="popup-button">入力候補の中に回答が見つからない場合はこちら</button>
               <ul id="search-results"></ul>
             </div>
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>
+          <div id="popup" style="display: none;">
+            <p>回答の内容によっては、送信できない旨の注意書き</p>
+            <button type="button" id="agree-button">同意する</button>
+            <button type="button" id="disagree-button">同意しない</button>
+            <%= form_with model: [ @post, SpecialAnswer.new ], id: 'special-answer-form', style: 'display: none;' do |form| %>
+              <%= form.text_area :content %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.hidden_field :post_id, value: @post.id %>
+              <%= form.submit "送信する" %>
+              <%= link_to 'キャンセル', post_path(@post), id: 'cancel-button' %>
+            <% end %>
+          </div>
           <%= render 'comments/comments', comments: @comments %>
         </div>
       </div>

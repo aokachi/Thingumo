@@ -1,5 +1,6 @@
 class SpecialAnswersController < ApplicationController
   def new
+    @post = Post.find(params[:post_id])
     @special_answer = SpecialAnswer.new
   end
 

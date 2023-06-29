@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   end
 
   # 回答機能
-  resources :special_answers, only: [:new, :create]
+  resources :posts do
+    resources :special_answers, only: [:new, :create]
+  end  
 end
