@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', function(){
-  let popupButton = document.getElementById('modal-button');
-  popupButton.addEventListener('click', function(){
-    let popup = document.getElementById('popup');
+  let modalButton = document.getElementById('modal-button');
+  modalButton.addEventListener('click', function(){
+    let modal = document.getElementById('modal');
     let disclaimer = document.getElementById('disclaimer');
-    let specialAnswerForm = document.getElementById('special-answer-form');
-    popup.style.display = 'block';
+    let specialAnswerForm = document.getElementById('modal-form');
+    modal.style.display = 'block';
     disclaimer.style.display = 'block';
     specialAnswerForm.style.display = 'none';
   });
 
   let disagreeButton = document.getElementById('disagree-button');
   disagreeButton.addEventListener('click', function(){
-    let popup = document.getElementById('popup');
-    popup.style.display = 'none';
+    let modal = document.getElementById('modal');
+    modal.style.display = 'none';
   });
 
   let agreeButton = document.getElementById('agree-button');
   agreeButton.addEventListener('click', function(){
     let disclaimer = document.getElementById('disclaimer');
-    let specialAnswerForm = document.getElementById('special-answer-form');
+    let specialAnswerForm = document.getElementById('modal-form');
     disclaimer.style.display = 'none';
     specialAnswerForm.style.display = 'block';
   });
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', function(){
     // "modal-button"がクリックされたときの処理
     $('#modal-button').click(function() {
       // ポップアップを表示
-      $('#popup').show();
+      $('#modal').show();
     });
 
     // "disagree-button"がクリックされたときの処理
     $('#disagree-button').click(function() {
       // ポップアップを非表示
-      $('#popup').hide();
+      $('#modal').hide();
     });
   });
 
