@@ -134,9 +134,9 @@
               <h4>回答にあたっての注意事項</h4>
               <p>注意事項</p>
             </div>
-            <div class="modal-footer">
-              <a href="#!" class="agree-button">同意する</a>
-              <a href="#!" class="disagree-button">同意しない</a>
+            <div class="modal-select" class="modal-footer">
+              <a href="#!" class="agree-button waves-effect waves-green btn-flat">同意する</a>
+              <a href="#!" class="disagree-button waves-effect waves-green btn-flat">同意しない</a>
             </div>
           </div>
           <div id="modal-form" class="modal">
@@ -148,6 +148,7 @@
                 </div>
                 <div class="actions">
                   <%= form.submit %>
+                  <button id="cancel-button" type="button">キャンセル</button>
                 </div>
               <% end %>
             </div>

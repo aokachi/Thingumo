@@ -1,33 +1,24 @@
-document.addEventListener('DOMContentLoaded', function(){
-  let modalButton = document.getElementById('modal-button');
-  let modal = document.getElementById('modal');
-  let disclaimer = document.getElementById('disclaimer');
-  let specialAnswerForm = document.getElementById('modal-form');
-  let disagreeButton = document.getElementById('disagree-button');
-  let agreeButton = document.getElementById('agree-button');
-
-  modalButton.addEventListener('click', function(){
-    modal.style.display = 'block';
-    disclaimer.style.display = 'block';
-    specialAnswerForm.style.display = 'none';
+$(document).ready(function() {
+  $('#modal-button').click(function() {
+    $('#modal-notes').show();
+    $('#modal-form').hide();
   });
 
-  disagreeButton.addEventListener('click', function(){
-    modal.style.display = 'none';
+  $('#disagree-button').click(function() {
+    $('#modal-notes').hide();
   });
 
-  agreeButton.addEventListener('click', function(){
-    disclaimer.style.display = 'none';
-    specialAnswerForm.style.display = 'block';
+  $('#agree-button').click(function() {
+    $('#modal-notes').hide();
+    $('#modal-form').show();
   });
 
-  $(document).ready(function() {
-    $('#modal-button').click(function() {
-      $('#modal').show();
-    });
+  $('#cancel-button').click(function() {
+    $('#modal-form').hide();
+  });
 
-    $('#disagree-button').click(function() {
-      $('#modal').hide();
-    });
+  $('#form-submit-button').click(function() {
+    // ここにフォーム送信のロジックを追加
+    $('#modal-form').hide();
   });
 });
