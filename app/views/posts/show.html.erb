@@ -129,28 +129,32 @@
             </div>
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>
-          <div id="modal-notes" style="display: none;" class="modal">
-            <div class="modal-content">
-              <h4>回答にあたっての注意事項</h4>
-              <p>注意事項</p>
-            </div>
-            <div class="modal-select" class="modal-footer">
-              <a href="#!" class="agree-button waves-effect waves-green btn-flat">同意する</a>
-              <a href="#!" class="disagree-button waves-effect waves-green btn-flat">同意しない</a>
-            </div>
-          </div>
-          <div id="modal-form" class="modal">
-            <div class="modal-content">
-              <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
-                <div class="field">
-                  <%= form.label :content %>
-                  <%= form.text_area :content %>
+          <div id="modal" class="modal">
+            <div id="modal-inner" class="modal-inner">
+              <div id="modal-notes" style="display: none;">
+                <div class="modal-content">
+                  <h4>回答にあたっての注意事項</h4>
+                  <p>注意事項</p>
                 </div>
-                <div class="actions">
-                  <%= form.submit %>
-                  <button id="cancel-button" type="button">キャンセル</button>
+                <div class="modal-select">
+                  <button id="agree-button" class="waves-effect waves-green btn-flat">同意する</button>
+                  <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
                 </div>
-              <% end %>
+              </div>
+              <div id="modal-form" style="display: none;">
+                <div class="modal-content">
+                  <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
+                    <div class="field">
+                      <%= form.label :content %>
+                      <%= form.text_area :content %>
+                    </div>
+                    <div class="actions">
+                      <%= form.submit %>
+                      <button id="cancel-button" type="button">キャンセル</button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
           <%= render 'comments/comments', comments: @comments %>
