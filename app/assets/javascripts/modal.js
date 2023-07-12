@@ -7,11 +7,10 @@ document.addEventListener('DOMContentLoaded', function(){
   let agreeButton = document.getElementById('agree-button');
   let cancelButton = document.getElementById('cancel-button');
   
-  modal.style.display = 'none'; // ページが読み込まれた時にモーダルを非表示にする
+  modal.style.display = 'none';
   
   modalButton.addEventListener('click', function(){
     modal.style.display = 'flex';
-    modal.style.marginTop = window.innerHeight / 4 + 'px'; // モーダルを垂直方向に再配置
     modalInner.style.display = 'block';
     modalForm.style.display = 'none';
   });
