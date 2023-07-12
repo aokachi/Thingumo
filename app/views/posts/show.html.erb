@@ -130,16 +130,12 @@
             <%= form.submit "送信する", class: "comment-submit-button" %>
           <% end %>
           <div id="modal" class="modal">
-            <div id="modal-inner" class="modal-inner">
-              <div id="modal-notes" style="display: none;">
-                <div class="modal-content">
-                  <h4>回答にあたっての注意事項</h4>
-                  <p>注意事項</p>
-                </div>
-                <div class="modal-select">
-                  <button id="agree-button" class="waves-effect waves-green btn-flat">同意する</button>
-                  <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
-                </div>
+            <div class="modal-inner">
+              <div id="modal-notes">
+                <h4>回答にあたっての注意事項</h4>
+                <p>注意事項</p>
+                <button id="agree-button" class="waves-effect waves-green btn-flat">同意する</button>
+                <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
               </div>
               <div id="modal-form" style="display: none;">
                 <div class="modal-content">
@@ -147,8 +143,6 @@
                     <div class="field">
                       <%= form.label :content %>
                       <%= form.text_area :content %>
-                    </div>
-                    <div class="actions">
                       <%= form.submit %>
                       <button id="cancel-button" type="button">キャンセル</button>
                     </div>

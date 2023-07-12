@@ -2,15 +2,17 @@ document.addEventListener('DOMContentLoaded', function(){
   let modalButton = document.getElementById('modal-button');
   let modal = document.getElementById('modal');
   let modalInner = document.getElementById('modal-inner');
-  let modalNotes = document.getElementById('modal-notes');
   let modalForm = document.getElementById('modal-form');
-  let disagreeButton = document.getElementsByClassName('disagree-button')[0];
-  let agreeButton = document.getElementsByClassName('agree-button')[0];
+  let disagreeButton = document.getElementById('disagree-button');
+  let agreeButton = document.getElementById('agree-button');
   let cancelButton = document.getElementById('cancel-button');
   
+  modal.style.display = 'none'; // ページが読み込まれた時にモーダルを非表示にする
+  
   modalButton.addEventListener('click', function(){
-    modal.style.display = 'block';
-    modalNotes.style.display = 'block';
+    modal.style.display = 'flex';
+    modal.style.marginTop = window.innerHeight / 4 + 'px'; // モーダルを垂直方向に再配置
+    modalInner.style.display = 'block';
     modalForm.style.display = 'none';
   });
   
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
   
   agreeButton.addEventListener('click', function(){
-    modalNotes.style.display = 'none';
+    modalInner.style.display = 'none';
     modalForm.style.display = 'block';
   });
   
