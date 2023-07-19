@@ -26,5 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
   
   cancelButton.addEventListener('click', function(){
     modal.style.display = 'none';
+    modalInner.style.display = 'block'; // この行を追加して、キャンセルボタンを押したときにmodalInnerを再表示します
+    modalForm.style.display = 'none'; // この行を追加して、キャンセルボタンを押したときにmodalFormを非表示にします
   });
 });
