@@ -138,16 +138,14 @@
                 <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
               </div>
               <div id="modal-form" style="display: none;">
-                <div class="modal-content">
-                  <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
-                    <div class="field">
-                      <%= form.label :content %>
-                      <%= form.text_area :content %>
-                      <%= form.submit %>
-                      <button id="cancel-button" type="button">キャンセル</button>
-                    </div>
-                  <% end %>
-                </div>
+                <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
+                  <div class="field">
+                    <%= form.label :content %>
+                    <%= form.text_area :content %>
+                    <%= form.submit %>
+                    <button id="cancel-button" type="button">キャンセル</button>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

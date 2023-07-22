@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
   let disagreeButton = document.getElementById('disagree-button');
   let agreeButton = document.getElementById('agree-button');
   let cancelButton = document.getElementById('cancel-button');
+  let modalNotes = document.getElementById('modal-notes');
   
   modal.style.display = 'none';
   
@@ -13,20 +14,25 @@ document.addEventListener('DOMContentLoaded', function(){
     modal.style.display = 'flex';
     modalInner.style.display = 'block';
     modalForm.style.display = 'none';
+    modalNotes.style.display = 'block';
   });
   
   disagreeButton.addEventListener('click', function(){
     modal.style.display = 'none';
+    modalInner.style.display = 'none';
+    modalForm.style.display = 'none';
+    modalNotes.style.display = 'none';
   });
   
   agreeButton.addEventListener('click', function(){
-    modalInner.style.display = 'none';
+    modalNotes.style.display = 'none';
     modalForm.style.display = 'block';
   });
   
   cancelButton.addEventListener('click', function(){
     modal.style.display = 'none';
-    modalInner.style.display = 'block'; // この行を追加して、キャンセルボタンを押したときにmodalInnerを再表示します
-    modalForm.style.display = 'none'; // この行を追加して、キャンセルボタンを押したときにmodalFormを非表示にします
+    modalInner.style.display = 'block';
+    modalForm.style.display = 'none';
+    modalNotes.style.display = 'block';
   });
 });

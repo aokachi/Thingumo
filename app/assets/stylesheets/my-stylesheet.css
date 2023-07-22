@@ -413,6 +413,14 @@ a.be-register {
   border-radius: 10px;
 }
 
+#modal-notes {
+  display: block;
+}
+
+#modal-form {
+  display: none;
+}
+
 .close {
   color: #aaa;
   float: right;
