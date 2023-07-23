@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
-
+  
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
@@ -8,10 +8,6 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.commentable = @commentable
     @comment.user = current_user
-
-    puts "********** ここに@commentオブジェクトを表示します **********"
-    puts @comment.inspect
-    puts "*********************************************************"
 
     if @comment.save
       redirect_to @commentable, notice: 'コメントを送信しました'
@@ -34,9 +30,6 @@ class CommentsController < ApplicationController
     params.each do |name, value|
       if name =~ /(.+)_id$/
         commentable = $1.classify.constantize.find(value)
-        puts "********** ここにcommentableオブジェクトを表示します **********"
-        puts commentable.inspect
-        puts "*********************************************************"
         return commentable
       end
     end

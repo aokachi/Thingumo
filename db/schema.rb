@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_29_091421) do
+ActiveRecord::Schema.define(version: 2023_06_25_070900) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
@@ -77,6 +77,20 @@ ActiveRecord::Schema.define(version: 2023_04_29_091421) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "special_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "post_id"
+    t.boolean "approval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_special_answers_on_commentable_type_and_commentable_id"
+    t.index ["post_id"], name: "index_special_answers_on_post_id"
+    t.index ["user_id"], name: "index_special_answers_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -99,4 +113,6 @@ ActiveRecord::Schema.define(version: 2023_04_29_091421) do
   add_foreign_key "inquiries", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "special_answers", "posts"
+  add_foreign_key "special_answers", "users"
 end
