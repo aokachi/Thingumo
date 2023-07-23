@@ -409,8 +409,17 @@ a.be-register {
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
+  max-width: 600px;
+  height: 30%;
+  overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1199px) {
+  .modal-inner {
+    width: 100%;
+  }
 }
 
 #modal-notes {

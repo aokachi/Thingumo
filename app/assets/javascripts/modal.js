@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
   let modalForm = document.getElementById('modal-form');
   let disagreeButton = document.getElementById('disagree-button');
   let agreeButton = document.getElementById('agree-button');
-  let cancelButton = document.getElementById('cancel-button');
+  let returnButton = document.getElementById('return-button');
   let modalNotes = document.getElementById('modal-notes');
   
   modal.style.display = 'none';
@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
     modalForm.style.display = 'block';
   });
   
-  cancelButton.addEventListener('click', function(){
-    modal.style.display = 'none';
-    modalInner.style.display = 'block';
+  returnButton.addEventListener('click', function(){
     modalForm.style.display = 'none';
     modalNotes.style.display = 'block';
   });
