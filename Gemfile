@@ -59,6 +59,12 @@ gem 'webpush'
 # Devise
 gem 'devise'
 
+# dotenv
+gem 'dotenv-rails', groups: [:development, :test]
+
+# webpacker
+gem 'webpacker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
