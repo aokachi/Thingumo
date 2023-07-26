@@ -41,7 +41,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 
 # RMagick(ImageMagick)
-gem 'rmagick'
+gem 'rmagick', '5.0.0'
 
 # refile
 gem 'refile', github: 'refile/refile', require: 'refile/rails'
