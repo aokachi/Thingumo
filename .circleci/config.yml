@@ -20,6 +20,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y curl
+            sudo apt-get install -y imagemagick libmagickwand-dev
             sudo rm -f /usr/local/bin/dockerize
             curl -L https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz | sudo tar -C /usr/local/bin -xzv
             bundle install --jobs=4 --retry=3 --path vendor/bundle
@@ -28,9 +29,6 @@ jobs:
           command: |
             curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
             sudo apt-get install -y nodejs
-      - run:
-          name: Install ImageMagick
-          command: sudo apt-get install -y imagemagick libmagickwand-dev
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
