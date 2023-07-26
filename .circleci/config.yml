@@ -29,6 +29,9 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
             sudo apt-get install -y nodejs
       - run:
+          name: Install ImageMagick
+          command: sudo apt-get install -y imagemagick libmagickwand-dev
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
