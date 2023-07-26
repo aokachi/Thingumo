@@ -41,7 +41,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 
 # RMagick(ImageMagick)
-gem 'rmagick'
+gem 'rmagick', '5.0.0'
 
 # refile
 gem 'refile', github: 'refile/refile', require: 'refile/rails'
@@ -59,11 +59,22 @@ gem 'webpush'
 # Devise
 gem 'devise'
 
+# dotenv
+gem 'dotenv-rails', groups: [:development, :test]
+
+# webpacker
+gem 'webpacker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

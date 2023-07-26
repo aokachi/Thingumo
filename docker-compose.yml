@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root001
+      MYSQL_DATABASE: Thingumo_development
+      MYSQL_DATABASE_TEST: Thingumo_test
+      MYSQL_DATABASE_PRODUCTION: Thingumo_production
+      MYSQL_USER: strohynis
+      MYSQL_PASSWORD: strohynis001
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/thingumo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_USER: strohynis
+      DATABASE_PASSWORD: strohynis001
+      DATABASE_HOST: db
+      MYSQL_DATABASE: Thingumo_development
+      MYSQL_DATABASE_TEST: Thingumo_test
+      MYSQL_DATABASE_PRODUCTION: Thingumo_production
+volumes:
+  db_data:
