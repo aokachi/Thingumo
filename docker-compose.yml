@@ -12,9 +12,10 @@ services:
       MYSQL_PASSWORD: strohynis001
     volumes:
       - db_data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
     restart: always
   web:
-    build: .
+    build: https://github.com/strohynis/Thingumo.git#insert-category-data
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/thingumo
