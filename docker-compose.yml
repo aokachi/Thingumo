@@ -12,6 +12,7 @@ services:
       MYSQL_PASSWORD: strohynis001
     volumes:
       - db_data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
     restart: always
   web:
     build: https://github.com/strohynis/Thingumo.git#insert-category-data
