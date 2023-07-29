@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_29_091421) do
+ActiveRecord::Schema.define(version: 2023_07_29_152012) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.text "content"
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.text "content", limit: 16777215
     t.bigint "user_id", null: false
     t.string "commentable_type", null: false
     t.bigint "commentable_id", null: false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2023_04_29_091421) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.text "text", null: false
+    t.text "text", limit: 16777215, null: false
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -43,29 +43,29 @@ ActiveRecord::Schema.define(version: 2023_04_29_091421) do
     t.index ["user_id"], name: "index_inquiries_on_user_id"
   end
 
-  create_table "inquiry_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "inquiry_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "inquiry_replies", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "inquiry_replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "inquiry_id"
-    t.text "content"
+    t.text "content", limit: 16777215
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
     t.index ["post_id"], name: "index_post_images_on_post_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
-    t.text "text"
+    t.text "text", limit: 16777215
     t.boolean "resolved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,13 +77,13 @@ ActiveRecord::Schema.define(version: 2023_04_29_091421) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.integer "sex"
     t.date "birthday"
     t.string "avatar"
-    t.text "self_introduction"
+    t.text "self_introduction", limit: 16777215
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
