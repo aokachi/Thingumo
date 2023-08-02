@@ -16,4 +16,17 @@ window.onload = function() {
       modal.style.display = "none";
     }
   }
+
+  var canvas = new fabric.Canvas('handwrite-image-canvas');
+  canvas.isDrawingMode = true;
+  canvas.freeDrawingBrush.width = 5;
+  canvas.freeDrawingBrush.color = "black";
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+    canvas.setWidth(modal.clientWidth * 0.9);
+    canvas.setHeight(modal.clientHeight * 0.9);
+    canvas.calcOffset();
+  }
+
 }
