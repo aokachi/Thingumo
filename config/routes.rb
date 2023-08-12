@@ -22,8 +22,13 @@ Rails.application.routes.draw do
   # 問い合わせ機能
   resources :inquiries, only: [:new, :create]
 
-  # コメント機能
+  # 回答機能
   resources :comments, only: [] do
     resources :comments, only: [:create, :destroy], module: :comments
   end
+
+  # 回答機能
+  resources :posts do
+    resources :special_answers, only: [:new, :create]
+  end  
 end
