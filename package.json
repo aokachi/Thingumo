@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "fabric": "^4.6.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3"
