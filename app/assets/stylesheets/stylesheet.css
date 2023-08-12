@@ -3028,7 +3028,7 @@ transition: all ease-out 0.3s;}
     padding-bottom: 20px;
 }
 
-.popup-buttons {
+.modal-buttons {
     float: left;
     width: 100%;
 }
@@ -3037,7 +3037,7 @@ transition: all ease-out 0.3s;}
     padding-bottom: 90px;
 }
 
-.popup-buttons {
+.modal-buttons {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -3045,11 +3045,11 @@ transition: all ease-out 0.3s;}
     border-top: 1px solid #ccc;
 }
 
-.popup-buttons {
+.modal-buttons {
     text-align: right;
 }
 
-.popup-buttons button {
+.modal-buttons button {
     display: inline-block;
     margin-top: 10px !important;
     margin-bottom: 10px !important;

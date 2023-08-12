@@ -1,20 +1,12 @@
-class Comment < ApplicationRecord
+class SpecialAnswer < ApplicationRecord
   belongs_to :user
   belongs_to :post
   validates :content, presence: true
   belongs_to :commentable, polymorphic: true
   has_many :comments, as: :commentable
   
-  validate :is_wikipedia_title
   validate :does_not_contain_inappropriate_words
   validates :content, presence: true, length: { maximum: 30 }
-
-  def is_wikipedia_title
-    page = Wikipedia.find(content)
-    if page.text.nil?
-      errors.add(:content, "送信できません")
-    end
-  end
 
   def does_not_contain_inappropriate_words
     inappropriate_words = []
