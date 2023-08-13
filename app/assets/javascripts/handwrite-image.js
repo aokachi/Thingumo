@@ -1,4 +1,5 @@
 import { fabric } from 'fabric';
+window.fabric = fabric;
 
 window.onload = function() {
   var modal = document.getElementById('handwrite-image-modal');
