@@ -1,3 +1,5 @@
+import { fabric } from 'fabric';
+
 window.onload = function() {
   var modal = document.getElementById('handwrite-image-modal');
   var btn = document.getElementById('handwrite-image-button');
