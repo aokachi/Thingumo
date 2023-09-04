@@ -507,7 +507,7 @@ function checkSection() {
 
 $('.to').on('click', function (e) {
   e.preventDefault();
-  $('html,body').stop().animate({ scrollTop: $('.be-comment-block').offset().top - 50 }, 800);
+  $('html,body').stop().animate({ scrollTop: $('.be-answer-block').offset().top - 50 }, 800);
 });
 
 

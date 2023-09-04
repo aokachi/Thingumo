@@ -1256,7 +1256,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .icon-load { display: inline-block; background: url("../img/icon-load.png") no-repeat; text-indent: -9999px; text-align: left; width: 16px; height: 15px; }
 
-.icon-comment { display: inline-block; background: url("../img/icon-comment.png") no-repeat; text-indent: -9999px; text-align: left; width: 16px; height: 15px; }
+.icon-answer { display: inline-block; background: url("../img/icon-answer.png") no-repeat; text-indent: -9999px; text-align: left; width: 16px; height: 15px; }
 
 .icon-projects { display: inline-block; background: url("../img/icon-projects.png") no-repeat; text-indent: -9999px; text-align: left; width: 16px; height: 16px; }
 
@@ -1381,23 +1381,23 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-largepost-iframe { margin-bottom: 50px !important; padding-left: 0; }
 
-.be-comment-block { margin-bottom: 50px !important; border: 1px solid #edeff2; border-radius: 2px; padding: 50px 70px; }
+.be-answer-block { margin-bottom: 50px !important; border: 1px solid #edeff2; border-radius: 2px; padding: 50px 70px; }
 
 .image-block { position: relative; }
 
 .image-block .image-text { position: absolute; bottom: 45px; left: 50px; right: 50px; color: #fff; opacity: 0.8; }
 
-@media screen and (max-width: 767px) { .be-comment-block { padding: 15px; padding-bottom: 30px; } }
+@media screen and (max-width: 767px) { .be-answer-block { padding: 15px; padding-bottom: 30px; } }
 
-.be-img-comment { width: 60px; height: 60px; float: left; margin-bottom: 15px; }
+.be-img-answer { width: 60px; height: 60px; float: left; margin-bottom: 15px; }
 
-.be-comment-content { margin-left: 80px; }
+.be-answer-content { margin-left: 80px; }
 
-.comments-title { font-size: 16px; color: #262626; margin-bottom: 15px; font-family: 'Conv_helveticaneuecyr-bold'; }
+.answers-title { font-size: 16px; color: #262626; margin-bottom: 15px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.about-comment-block a { font-size: 12px; color: #262626; margin-bottom: 50px; }
+.about-answer-block a { font-size: 12px; color: #262626; margin-bottom: 50px; }
 
-.about-comment-block a:hover { color: #0d58c8; }
+.about-answer-block a:hover { color: #0d58c8; }
 
 .form-spacing { margin-top: 20px; margin-bottom: 50px; display: flex; flex-direction: column; justify-content: space-between;}
 
@@ -1405,31 +1405,31 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-signup-link:hover { color: #0d58c8 !important; }
 
-.be-comment-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
+.be-answer-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.be-comment-time { font-size: 11px; color: #262626; }
+.be-answer-time { font-size: 11px; color: #262626; }
 
-.be-comment-text { font-size: 13px; line-height: 18px; color: #262626; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+.be-answer-text { font-size: 13px; line-height: 18px; color: #262626; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
 
-.be-comment-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
+.be-answer-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
 
-.be-comment-content a { color: #383b43; }
+.be-answer-content a { color: #383b43; }
 
-.be-comment-content a:hover { color: #0D58C8; }
+.be-answer-content a:hover { color: #0D58C8; }
 
-.be-comment-time { text-align: right; }
+.be-answer-time { text-align: right; }
 
-.be-comment-info { margin-bottom: 15px; }
+.be-answer-info { margin-bottom: 15px; }
 
-.be-ava-comment { width: 60px; height: 60px; border-radius: 50%; }
+.be-ava-answer { width: 60px; height: 60px; border-radius: 50%; }
 
-@media screen and (max-width: 767px) { .be-comment-content { margin: 0; }
-  .be-comment-content span { width: 100%; text-align: center; display: block; }
-  .be-img-comment { width: 100%; text-align: center; } }
+@media screen and (max-width: 767px) { .be-answer-content { margin: 0; }
+  .be-answer-content span { width: 100%; text-align: center; display: block; }
+  .be-img-answer { width: 100%; text-align: center; } }
 
-.be-comment-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
+.be-answer-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
 
-.be-comment:not(:last-child) { margin-bottom: 30px; }
+.be-answer:not(:last-child) { margin-bottom: 30px; }
 
 .be-hh { text-align: center; }
 
@@ -2338,7 +2338,7 @@ color: #fff;
 .swiper-arrow-left.type-2:hover:after, .swiper-arrow-right.type-2:hover:after{
   color: rgba(38,38,38,0.5);
 }
-.about-comment-block .be-signup-link{text-decoration: underline;}
+.about-answer-block .be-signup-link{text-decoration: underline;}
 .s_keywords a{text-transform: none; font-size: 12px !important; }
 blockquote{text-transform: none;}
 blockquote cite{font-style: normal;}
@@ -3402,7 +3402,7 @@ input:focus {
 .body-color2 .header-menu > li > ul li:hover > a, .body-color2 .filter-block > ul > li:hover, .body-color2 a.be-post-title:hover,
 .body-color2 .author-post a:hover, .body-color2 .be-post-tag:hover, .body-color2 footer p a, .body-color2 a.account, .body-color2 a.heshtag, .body-color2 span.white a:hover, .body-color2 .check-box > .checkbox-input:checked + .check-box-sign:after,
 .body-color2 .link-large-popup:hover, .body-color2 .be-custom-select-block:hover::after, .body-color2 .be-user-site:hover, .body-color2 .be-user-block.style-2 .be-text-tags a:hover, .body-color2 .be-user-block.style-3 .be-text-tags a:hover,
-.body-color2 .be-signup-link, .body-color2 .be-signup-link:hover, .body-color2 .be-comment-content a:hover, .body-color2 .swiper-active-switch, .body-color2 .btn.hover-1:hover, .body-color2 .btn.hover-1.active,
+.body-color2 .be-signup-link, .body-color2 .be-signup-link:hover, .body-color2 .be-answer-content a:hover, .body-color2 .swiper-active-switch, .body-color2 .btn.hover-1:hover, .body-color2 .btn.hover-1.active,
 .body-color2 .form-checkbox > input + .check, .body-color2 .alert.style-2, .body-color2 .accordion.style-1 .acc-body a:hover, .body-color2 .accordion.style-2 .acc-title.active .acc-icon,
 .body-color2 .collection a:hover, .body-color2 .blog-post a.post-label:hover, .body-color2 .blog-content ul.style-2 li:before, .body-color2 ul.styled.style-2 li:before,
 .body-color2 .contact-label .fa, .body-color2 .contact-text a:hover, .body-color2 .team-social a:hover, .body-color2 .t_project-title:hover, .body-color2 .nav-post .be-post-date a:hover, .body-color2 .be-focus-input,
@@ -3440,7 +3440,7 @@ input:focus {
 .body-color3 .header-menu > li > ul li:hover > a, .body-color3 .filter-block > ul > li:hover, .body-color3 a.be-post-title:hover,
 .body-color3 .author-post a:hover, .body-color3 .be-post-tag:hover, .body-color3 footer p a, .body-color3 a.account, .body-color3 a.heshtag, .body-color3 span.white a:hover, .body-color3 .check-box > .checkbox-input:checked + .check-box-sign:after,
 .body-color3 .link-large-popup:hover, .body-color3 .be-custom-select-block:hover::after, .body-color3 .be-user-site:hover, .body-color3 .be-user-block.style-2 .be-text-tags a:hover, .body-color3 .be-user-block.style-3 .be-text-tags a:hover,
-.body-color3 .be-signup-link, .body-color3 .be-signup-link:hover, .body-color3 .be-comment-content a:hover, .body-color3 .swiper-active-switch, .body-color3 .btn.hover-1:hover, .body-color3 .btn.hover-1.active,
+.body-color3 .be-signup-link, .body-color3 .be-signup-link:hover, .body-color3 .be-answer-content a:hover, .body-color3 .swiper-active-switch, .body-color3 .btn.hover-1:hover, .body-color3 .btn.hover-1.active,
 .body-color3 .form-checkbox > input + .check, .body-color3 .alert.style-2, .body-color3 .accordion.style-1 .acc-body a:hover, .body-color3 .accordion.style-2 .acc-title.active .acc-icon,
 .body-color3 .collection a:hover, .body-color3 .blog-post a.post-label:hover, .body-color3 .blog-content ul.style-2 li:before, .body-color3 ul.styled.style-2 li:before,
 .body-color3 .contact-label .fa, .body-color3 .contact-text a:hover, .body-color3 .team-social a:hover, .body-color3 .t_project-title:hover, .body-color3 .nav-post .be-post-date a:hover, .body-color3 .be-focus-input,
@@ -3485,7 +3485,7 @@ input:focus {
 .body-color4 .header-menu > li > ul li:hover > a, .body-color4 .filter-block > ul > li:hover, .body-color4 a.be-post-title:hover,
 .body-color4 .author-post a:hover, .body-color4 .be-post-tag:hover, .body-color4 footer p a, .body-color4 a.account, .body-color4 a.heshtag, .body-color4 span.white a:hover, .body-color4 .check-box > .checkbox-input:checked + .check-box-sign:after,
 .body-color4 .link-large-popup:hover, .body-color4 .be-custom-select-block:hover::after, .body-color4 .be-user-site:hover, .body-color4 .be-user-block.style-2 .be-text-tags a:hover, .body-color4 .be-user-block.style-3 .be-text-tags a:hover,
-.body-color4 .be-signup-link, .body-color4 .be-signup-link:hover, .body-color4 .be-comment-content a:hover, .body-color4 .swiper-active-switch, .body-color4 .btn.hover-1:hover, .body-color4 .btn.hover-1.active,
+.body-color4 .be-signup-link, .body-color4 .be-signup-link:hover, .body-color4 .be-answer-content a:hover, .body-color4 .swiper-active-switch, .body-color4 .btn.hover-1:hover, .body-color4 .btn.hover-1.active,
 .body-color4 .form-checkbox > input + .check, .body-color4 .alert.style-2, .body-color4 .accordion.style-1 .acc-body a:hover, .body-color4 .accordion.style-2 .acc-title.active .acc-icon,
 .body-color4 .collection a:hover, .body-color4 .blog-post a.post-label:hover, .body-color4 .blog-content ul.style-2 li:before, .body-color4 ul.styled.style-2 li:before,
 .body-color4 .contact-label .fa, .body-color4 .contact-text a:hover, .body-color4 .team-social a:hover, .body-color4 .t_project-title:hover, .body-color4 .nav-post .be-post-date a:hover, .body-color4 .be-focus-input,

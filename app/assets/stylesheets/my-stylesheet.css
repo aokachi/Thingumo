@@ -127,7 +127,7 @@ span.choose {
   border-color: #0039D7;
 }
 
-.comment-submit-button {
+.answer-submit-button {
   margin-top: 20px;
   align-self: flex-end;
   appearance: none;
@@ -155,34 +155,34 @@ span.choose {
   word-wrap: break-word;
 }
 
-.comment-submit-button:hover {
+.answer-submit-button:hover {
   background-color: #F3F4F6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.comment-submit-button:disabled {
+.answer-submit-button:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
 }
 
-.comment-submit-button:active {
+.answer-submit-button:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.comment-submit-button:focus {
+.answer-submit-button:focus {
   outline: 1px transparent;
 }
 
-.comment-submit-button:before {
+.answer-submit-button:before {
   display: none;
 }
 
-.comment-submit-button:-webkit-details-marker {
+.answer-submit-button:-webkit-details-marker {
   display: none;
 }
 
@@ -213,81 +213,81 @@ span.choose {
 
 
 /* 投稿詳細ページのいいね/コメント数の欄 */
-.number-of-views-and-comments { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
+.number-of-views-and-answers { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
-.number-of-views-and-comments-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
+.number-of-views-and-answers-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
-.number-of-views-and-comments .be-large-post-align { margin: 0px 50px; }
+.number-of-views-and-answers .be-large-post-align { margin: 0px 50px; }
 
-.number-of-views-and-comments .fa { font-size: 13px; }
+.number-of-views-and-answers .fa { font-size: 13px; }
 
-.number-of-views-and-comments-right { float: right; font-size: 10px; line-height: 18px; font-weight: 400; color: #7a8192; text-transform: uppercase; }
+.number-of-views-and-answers-right { float: right; font-size: 10px; line-height: 18px; font-weight: 400; color: #7a8192; text-transform: uppercase; }
 
-.number-of-views-and-comments i { padding-right: 5px; }
+.number-of-views-and-answers i { padding-right: 5px; }
 
-.number-of-views-and-comments span { cursor: pointer; white-space: nowrap; }
+.number-of-views-and-answers span { cursor: pointer; white-space: nowrap; }
 
-.number-of-views-and-comments span:not(:last-child) { margin-right: 25px; }
+.number-of-views-and-answers span:not(:last-child) { margin-right: 25px; }
 
-.be-large-post .number-of-views-and-comments.style-2 { margin-bottom: 50px; position: relative;}
+.be-large-post .number-of-views-and-answers.style-2 { margin-bottom: 50px; position: relative;}
 
 @media (max-width: 767px) {
    .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
-  .be-large-post-align, .number-of-views-and-comments .be-large-post-align { margin: 0 15px; }
+  .be-large-post-align, .number-of-views-and-answers .be-large-post-align { margin: 0 15px; }
 }
 
-.number-of-views-and-comments2 { background: #F6F6F6; padding: 25px 15px; font-size: 10px; color: #b4b7c1 !important; }
+.number-of-views-and-answers2 { background: #F6F6F6; padding: 25px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
-.number-of-views-and-comments2-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
+.number-of-views-and-answers2-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
-.number-of-views-and-comments2 .be-large-post-align { margin: 0px 50px; }
+.number-of-views-and-answers2 .be-large-post-align { margin: 0px 50px; }
 
-.number-of-views-and-comments2 .fa { font-size: 13px; }
+.number-of-views-and-answers2 .fa { font-size: 13px; }
 
-.number-of-views-and-comments2-right { float: right; font-size: 10px; line-height: 18px; font-weight: 400; color: #7a8192; text-transform: uppercase; }
+.number-of-views-and-answers2-right { float: right; font-size: 10px; line-height: 18px; font-weight: 400; color: #7a8192; text-transform: uppercase; }
 
-.number-of-views-and-comments2 i { padding-right: 5px; }
+.number-of-views-and-answers2 i { padding-right: 5px; }
 
-.number-of-views-and-comments2 span { cursor: pointer; white-space: nowrap; }
+.number-of-views-and-answers2 span { cursor: pointer; white-space: nowrap; }
 
-.number-of-views-and-comments2 span:not(:last-child) { margin-right: 25px; }
+.number-of-views-and-answers2 span:not(:last-child) { margin-right: 25px; }
 
-.be-large-post .number-of-views-and-comments2.style-2 { margin-bottom: 50px; position: relative;}
+.be-large-post .number-of-views-and-answers2.style-2 { margin-bottom: 50px; position: relative;}
 
 @media (max-width: 767px) {
    .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
-  .be-large-post-align, .number-of-views-and-comments2 .be-large-post-align { margin: 0 15px; }
+  .be-large-post-align, .number-of-views-and-answers2 .be-large-post-align { margin: 0 15px; }
 }
 
 
 /* コメントに対するコメントの表示スペース */
-.be-reply-comment-content { margin-left: 80px; }
+.be-reply-answer-content { margin-left: 80px; }
 
-.be-reply-comment-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
+.be-reply-answer-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
-.be-reply-comment-time { font-size: 11px; color: #b4b7c1; }
+.be-reply-answer-time { font-size: 11px; color: #b4b7c1; }
 
-.be-reply-comment-text { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+.be-reply-answer-text { font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
 
-.be-reply-comment-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
+.be-reply-answer-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
 
-.be-reply-comment-content a { color: #383b43; }
+.be-reply-answer-content a { color: #383b43; }
 
-.be-reply-comment-content a:hover { color: #0D58C8; }
+.be-reply-answer-content a:hover { color: #0D58C8; }
 
-.be-reply-comment-time { text-align: right; }
+.be-reply-answer-time { text-align: right; }
 
-.be-reply-comment-info { margin-bottom: 15px; }
+.be-reply-answer-info { margin-bottom: 15px; }
 
-.be-reply-ava-comment { width: 60px; height: 60px; border-radius: 50%; }
+.be-reply-ava-answer { width: 60px; height: 60px; border-radius: 50%; }
 
-@media screen and (max-width: 767px) { .be-reply-comment-content { margin: 0; }
-  .be-reply-comment-content span { width: 100%; text-align: center; display: block; }
-  .be-img-comment { width: 100%; text-align: center; } }
+@media screen and (max-width: 767px) { .be-reply-answer-content { margin: 0; }
+  .be-reply-answer-content span { width: 100%; text-align: center; display: block; }
+  .be-img-answer { width: 100%; text-align: center; } }
 
-.be-reply-comment-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
+.be-reply-answer-time .fa { font-size: 18px; transform: translateY(2px); -webkit-transform: translateY(2px); -moz-transform: translateY(2px); -ms-transform: translateY(2px); margin-right: 8px; }
 
-.be-reply-comment:not(:last-child) { margin-bottom: 30px; }
+.be-reply-answer:not(:last-child) { margin-bottom: 30px; }
 
 
 /* 問い合わせの種類のセレクトボックス */

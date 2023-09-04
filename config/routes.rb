@@ -16,15 +16,15 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
 
   resources :posts do
-    resources :comments, only:[:create, :destroy]
+    resources :answers, only:[:create, :destroy]
   end
 
   # 問い合わせ機能
   resources :inquiries, only: [:new, :create]
 
   # 回答機能
-  resources :comments, only: [] do
-    resources :comments, only: [:create, :destroy], module: :comments
+  resources :answers, only: [] do
+    resources :answers, only: [:create, :destroy], module: :answers
   end
 
   # 回答機能

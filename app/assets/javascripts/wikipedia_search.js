@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var textArea = $('#comment_content');
+  var textArea = $('#answer_content');
   textArea.on('input', function() {
     var input = $(this).val();
     if (input) {
@@ -35,6 +35,6 @@ $(document).ready(function() {
 
 $(document).on('click', '.search-result-item', function() {
   var text = $(this).text();
-  $('#comment_content').val(text);
+  $('#answer_content').val(text);
   $('#search-results').hide();
 });

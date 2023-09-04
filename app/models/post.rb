@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   # has_many :post_images, dependent: :destroy
   # accepts_nested_attributes_for :post_images, allow_destroy: true
 
-  has_many :comments, dependent: :destroy
+  has_many :answers, dependent: :destroy
   has_many :special_answers
 
   #has_many :post_files, dependent: :destroy
