@@ -1381,9 +1381,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-largepost-iframe { margin-bottom: 50px !important; padding-left: 0; }
 
-.be-answer-block { padding: 50px 70px; }
+.be-answer-block { padding: 50px 70px; border: 1px solid #edeff2; }
 
-.be-answer-block-inner { margin-bottom: 50px !important; border: 1px solid #edeff2; border-radius: 2px; }
+.be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
 
 .image-block { position: relative; }
 
