@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_03_145204) do
+ActiveRecord::Schema.define(version: 2023_09_10_114735) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "content", limit: 16777215
@@ -82,13 +82,13 @@ ActiveRecord::Schema.define(version: 2023_09_03_145204) do
   create_table "special_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id"
-    t.string "answerable_type"
-    t.bigint "answerable_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
     t.bigint "post_id"
     t.boolean "approval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["answerable_type", "answerable_id"], name: "index_special_answers_on_answerable_type_and_answerable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_special_answers_on_commentable_type_and_commentable_id"
     t.index ["post_id"], name: "index_special_answers_on_post_id"
     t.index ["user_id"], name: "index_special_answers_on_user_id"
   end

@@ -116,39 +116,41 @@
           <% end %>
         </div>
         <div class="be-answer-block">
-          <h1 class="answers-title">回答 （ <%= @answers.count %> ）</h1>
-          <p class="about-answer-block">
-            回答するには<%= link_to "サインイン", new_user_registration_path %>してください。
-          </p>
-          <%= form_with model: [ @post, @post.answers.build ], local: true, html: { class: 'form-spacing' } do |form| %>
-            <div class="form-group">
-              <%= form.label :content, "コメント", class: 'control-label' %>
-              <%= form.text_area :content, id: 'answer_content', class: 'form-control', placeholder: "コメントを入力してください。", rows: 1 %>
-              <button type="button" id="modal-button">入力候補の中に回答が見つからない場合はこちら</button>
-              <ul id="search-results"></ul>
-            </div>
-            <%= form.submit "送信する", class: "answer-submit-button" %>
-          <% end %>
-          <div id="modal" class="modal">
-            <div class="modal-inner">
-              <div id="modal-notes">
-                <h4>回答にあたっての注意事項</h4>
-                <p>注意事項</p>
-                <button id="agree-button" class="waves-effect waves-green btn-flat">同意する</button>
-                <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
-              </div>
-              <div id="modal-form" style="display: none;">
-                <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
-                  <div class="field">
-                    <%= form.text_area :content, placeholder: "回答を入力して下さい。" %>
-                    <%= form.submit "送信する" %>
-                    <button id="return-button" type="button">戻る</button>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <%= render 'answers/answers', answers: @answers %>
+          <div class="be-answer-block-inner">
+	          <h1 class="answers-title">回答 （ <%= @answers.count %> ）</h1>
+	          <p class="about-answer-block">
+	            回答するには<%= link_to "サインイン", new_user_registration_path %>してください。
+	          </p>
+	          <%= form_with model: [ @post, @post.answers.build ], local: true, html: { class: 'form-spacing' } do |form| %>
+	            <div class="form-group">
+	              <%= form.label :content, "回答", class: 'control-label' %>
+	              <%= form.text_area :content, id: 'answer_content', class: 'form-control', placeholder: "回答を入力してください。", rows: 1 %>
+	              <button type="button" id="modal-button">入力候補の中に回答が見つからない場合はこちら</button>
+	              <ul id="search-results"></ul>
+	            </div>
+	            <%= form.submit "送信する", class: "answer-submit-button" %>
+	          <% end %>
+	          <div id="modal" class="modal">
+	            <div class="modal-inner">
+	              <div id="modal-notes">
+	                <h4>回答にあたっての注意事項</h4>
+	                <p>注意事項</p>
+	                <button id="agree-button" class="waves-effect waves-green btn-flat">同意する</button>
+	                <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
+	              </div>
+	              <div id="modal-form" style="display: none;">
+	                <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
+	                  <div class="field">
+	                    <%= form.text_area :content, placeholder: "回答を入力して下さい。" %>
+	                    <%= form.submit "送信する" %>
+	                    <button id="return-button" type="button">戻る</button>
+	                  </div>
+	                <% end %>
+	              </div>
+	            </div>
+	          </div>
+	          <%= render 'answers/answers', answers: @answers %>
+	        </div>
         </div>
       </div>
       <div class="col-md-3 col-md-pull-9 left-feild">
