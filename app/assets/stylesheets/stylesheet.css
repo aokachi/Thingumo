@@ -1381,7 +1381,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-largepost-iframe { margin-bottom: 50px !important; padding-left: 0; }
 
-.be-answer-block { padding: 50px 70px; border: 1px solid #edeff2; }
+.be-answer-block { position: relative; padding: 50px 70px; border: 1px solid #edeff2; }
+
+.be-answer-stamp-area { position: absolute; width: 70px; height: 100%; left: 0px; top: 0; }
 
 .be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
 
