@@ -1385,6 +1385,8 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-stamp-area { position: absolute; width: 70px; height: 100%; left: 0px; top: 0; }
 
+.be-answer-stamp { position: absolute; width: 60px; height: 60px; left: -65px; top: 0; }
+
 .be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
 
 .image-block { position: relative; }
