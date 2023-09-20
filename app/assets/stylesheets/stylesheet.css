@@ -1390,9 +1390,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; }
 
-.be-answer { margin: 0px 70px }
+.be-answer { width: 100%; margin: 0px 70px }
 
-.be-answer-content { margin-left: 80px; }
+.be-answer-content { width: 100%; margin-left: 80px; }
 
 .be-answer-stamp { width: 60px; height: 60px; }
 
