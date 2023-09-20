@@ -1387,7 +1387,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; }
 
-.be-answer-content { padding: 50px 70px;  margin-left: 80px; }
+.be-answer { margin: 0px 70px }
+
+.be-answer-content { margin-left: 80px; }
 
 .be-answer-stamp-area { position: absolute; width: 70px; height: 100%; left: 0px; top: 0; }
 
