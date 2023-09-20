@@ -1,24 +1,23 @@
 <% @answers.each do |answer| %>
   <div class="be-answer-list">
-    <div class="be-answer-stamp">
-      <div class="be-answer">
-        <div class="be-img-answer">
-          <%= link_to user_path(answer.user) do %>
-            <%= image_tag answer.user.avatar_url, alt: "", class: "be-ava-answer" %>
-          <% end %>
-        </div>
-        <div class="be-answer-content">
-          <span class="be-answer-name">
-            <%= link_to answer.user.name, user_path(answer.user) %>
-          </span>
-          <span class="be-answer-time">
-            <i class="fa fa-clock-o"></i>
-            <%= answer.created_at.strftime( "%Y年%m月%d日 %H:%M" ) %>
-          </span>
-          <p class="be-answer-text">
-            <%= answer.content %>
-          </p>
-        </div>
+    <div class="be-answer-stamp"></div>
+    <div class="be-answer">
+      <div class="be-img-answer">
+        <%= link_to user_path(answer.user) do %>
+          <%= image_tag answer.user.avatar_url, alt: "", class: "be-ava-answer" %>
+        <% end %>
+      </div>
+      <div class="be-answer-content">
+        <span class="be-answer-name">
+          <%= link_to answer.user.name, user_path(answer.user) %>
+        </span>
+        <span class="be-answer-time">
+          <i class="fa fa-clock-o"></i>
+          <%= answer.created_at.strftime( "%Y年%m月%d日 %H:%M" ) %>
+        </span>
+        <p class="be-answer-text">
+          <%= answer.content %>
+        </p>
       </div>
     </div>
   </div>
