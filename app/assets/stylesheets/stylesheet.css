@@ -1388,9 +1388,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
 
-.be-answer-list { width: 100%; margin-left: -70px; position: relative; align-items: flex-start; }
+.be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; align-items: flex-start; }
 
-.be-answer { width: calc(100% - 140px); }
+.be-answer { width: 100px; }
 
 .be-answer-content { margin-left: 80px; }
 
