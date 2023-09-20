@@ -15,7 +15,7 @@ services:
       - ./my.cnf:/etc/mysql/my.cnf
     restart: always
   web:
-    build: https://github.com/strohynis/Thingumo.git#develop
+    build: https://github.com/strohynis/Thingumo.git#feature/reward_function
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/thingumo
