@@ -1390,7 +1390,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; align-items: flex-start; }
 
-.be-answer { width: 100%; }
+.be-answer { margin: 0px 70px; }
 
 .be-answer-content { margin-left: 80px; }
 
