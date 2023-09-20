@@ -1381,6 +1381,9 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-largepost-iframe { margin-bottom: 50px !important; padding-left: 0; }
 
+/*=========================================
+	回答欄用
+==========================================*/
 .be-answer-block { position: relative; padding: 50px 70px; border: 1px solid #edeff2; }
 
 .be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
@@ -1391,9 +1394,25 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-content { margin-left: 80px; }
 
-.be-answer-stamp-area { position: absolute; width: 70px; height: 100%; left: 0px; top: 0; }
+.be-answer-stamp { width: 60px; height: 60px; }
 
-.be-answer-stamp { position: relative;  width: 60px; height: 60px; left: 5px; top: 0; vertical-align: middle; transform: translateY(-50%); }
+.be-ava-answer { width: 60px; height: 60px; border-radius: 50%; }
+
+.be-answer-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
+
+.be-answer-time { font-size: 11px; color: #262626; }
+
+.be-answer-text { font-size: 13px; line-height: 18px; color: #262626; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
+
+.be-answer-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
+
+.be-answer-content a { color: #383b43; }
+
+.be-answer-content a:hover { color: #0D58C8; }
+
+.be-answer-time { text-align: right; }
+
+.be-answer-info { margin-bottom: 15px; }
 
 .image-block { position: relative; }
 
@@ -1414,24 +1433,6 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 .be-signup-link { color: #0d58c8 !important; margin: 0 2px; font-family: 'Conv_helveticaneuecyr-bold'; font-size: 10px; }
 
 .be-signup-link:hover { color: #0d58c8 !important; }
-
-.be-answer-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
-
-.be-answer-time { font-size: 11px; color: #262626; }
-
-.be-answer-text { font-size: 13px; line-height: 18px; color: #262626; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px; }
-
-.be-answer-content span { display: inline-block; width: 49%; margin-bottom: 15px; }
-
-.be-answer-content a { color: #383b43; }
-
-.be-answer-content a:hover { color: #0D58C8; }
-
-.be-answer-time { text-align: right; }
-
-.be-answer-info { margin-bottom: 15px; }
-
-.be-ava-answer { width: 60px; height: 60px; border-radius: 50%; }
 
 @media screen and (max-width: 767px) { .be-answer-content { margin: 0; }
   .be-answer-content span { width: 100%; text-align: center; display: block; }
