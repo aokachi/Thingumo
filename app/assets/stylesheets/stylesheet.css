@@ -1381,15 +1381,17 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-largepost-iframe { margin-bottom: 50px !important; padding-left: 0; }
 
+.be-answer-block { position: relative; padding: 50px 70px; border: 1px solid #edeff2; }
+
+.be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
+
 .be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; }
 
-.be-answer-block { position: relative; padding: 50px 70px; border: 1px solid #edeff2; }
+.be-answer-content { width: 100%; margin-left: 80px; }
 
 .be-answer-stamp-area { position: absolute; width: 70px; height: 100%; left: 0px; top: 0; }
 
 .be-answer-stamp { position: relative;  width: 60px; height: 60px; left: 5px; top: 0; vertical-align: middle; transform: translateY(-50%); }
-
-.be-answer-block-inner { margin-bottom: 50px !important; border-radius: 2px; }
 
 .image-block { position: relative; }
 
@@ -1398,8 +1400,6 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 @media screen and (max-width: 767px) { .be-answer-block-inner { padding: 15px; padding-bottom: 30px; } }
 
 .be-img-answer { width: 60px; height: 60px; float: left; margin-bottom: 15px; }
-
-.be-answer-content { margin-left: 80px; }
 
 .answers-title { font-size: 16px; color: #262626; margin-bottom: 15px; font-family: 'Conv_helveticaneuecyr-bold'; }
 
