@@ -1,9 +1,9 @@
 <% @answers.each do |answer| %>
   <div class="be-answer-list">
+    <div class="be-answer-stamp">
+    <!--スタンプの内容-->
+    </div>
     <div class="be-answer">
-      <div class="be-answer-stamp">
-      <!--スタンプの内容-->
-      </div>
       <div class="be-img-answer">
         <%= link_to user_path(answer.user) do %>
           <%= image_tag answer.user.avatar_url, alt: "", class: "be-ava-answer" %>
