@@ -453,7 +453,7 @@ a.be-register {
   justify-content: flex-end;
 }
 
-.confirm-correct-answer-btn {
+#confirm-correct-answer-btn {
   width: 80px;
   height: 30px;
 }
