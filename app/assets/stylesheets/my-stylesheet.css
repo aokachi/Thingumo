@@ -389,7 +389,7 @@ a.be-register {
 }
 
 
-/* モーダル */
+/* 回答入力用モーダル */
 .modal {
   display: none;
   position: fixed;
@@ -442,4 +442,17 @@ a.be-register {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+/* 正解選択用モーダル */
+.confirm-correct-answer-btn-container-outer {
+  width: 100%;
+  display: flex;
+}
+
+.confirm-correct-answer-btn-container-inner {
+  width: calc(100% - 140px);
+  display: flex;
+  justify-content: flex-end;
 }
