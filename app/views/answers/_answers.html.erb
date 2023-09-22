@@ -23,4 +23,12 @@
       </div>
     </div>
   </div>
+  <% if current_user.id == @post.user_id %>
+    <button id ="confirm-correct-answer-btn">これが正解</button>
+  <% end %>
+  <div id="correct-answer-confirmation-modal" style="display: none;">
+    <p>この回答を正解としてよろしいですか。</p>
+    <button id="confirm-answer-btn">はい</button>
+    <button id="cancel-answer-btn">いいえ</button>
+  </div>
 <% end %>

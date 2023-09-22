@@ -21,7 +21,7 @@ $('.msg').html(msg + input + '</span>');
 }); 
 
 
-/* ファイルアップロードフォーム用 */
+/* ファイルアップロードフォーム */
 $(document).ready(function() {
   $('.upload-zone').on('click', function() {
     $('#post_image').trigger('click');
