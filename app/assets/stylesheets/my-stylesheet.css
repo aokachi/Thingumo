@@ -446,13 +446,8 @@ a.be-register {
 
 
 /* 正解選択用モーダル */
-.confirm-correct-answer-btn-container-outer {
+.confirm-correct-answer-btn-container {
   width: 100%;
-  display: flex;
-}
-
-.confirm-correct-answer-btn-container-inner {
-  width: calc(100% - 140px);
-  display: flex;
+  height: 50px;
   justify-content: flex-end;
 }
