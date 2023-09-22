@@ -1390,11 +1390,11 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-answer-list { width: calc(100% + 140px); margin-left: -70px; position: relative; align-items: flex-start; }
 
-.be-answer { display: flex; margin: 0px 70px; }
+.be-answer { margin: 0px 70px; }
 
 .be-answer-content { margin-left: 80px; }
 
-.be-answer-stamp { margin-right: 5px; width: 60px; height: 60px; }
+.be-answer-stamp { margin-top: 60px; margin-right: 5px; width: 60px; height: 60px; }
 
 .be-ava-answer { width: 60px; height: 60px; border-radius: 50%; }
 
