@@ -454,6 +454,7 @@ a.be-register {
 }
 
 #confirm-correct-answer-btn {
+  font-size: 12px;
   width: 80px;
   height: 30px;
 }
