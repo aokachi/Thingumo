@@ -28,9 +28,13 @@
       <button id ="confirm-correct-answer-btn">これが正解</button>
     <% end %>
   </div>
-  <div id="correct-answer-confirmation-modal" style="display: none;">
-    <p>この回答を正解としてよろしいですか。</p>
-    <button id="confirm-answer-btn">はい</button>
-    <button id="cancel-answer-btn">いいえ</button>
+  <div id="correct-answer-confirmation-modal" class="modal">
+    <div class="modal-content">
+      <p>この回答を正解としてよろしいですか。</p>
+    </div>
+    <div class="modal-footer">
+      <button id="confirm-answer-btn">はい</button>
+      <button id="cancel-answer-btn">いいえ</button>
+    </div>
   </div>
 <% end %>

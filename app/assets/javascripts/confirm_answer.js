@@ -7,5 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmBtn.addEventListener('click', function() {
       modal.style.display = 'block';
     });
+
+    // モーダルの外側をクリックした場合にモーダルを閉じる処理
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
   }
 });
+
