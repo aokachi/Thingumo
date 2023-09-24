@@ -428,11 +428,10 @@ a.be-register {
 
 .agree-btn-container {
   display: block;
-  width: 600px;
+  width: 560px;
   height: 60px;
   position: absolute;
   top: 150px;
-  left: 0;
 }
 
 #agree-button {
@@ -522,17 +521,16 @@ a.be-register {
 
 .answer-btn-container {
   display: block;
-  width: 600px;
+  width: 560px;
   height: 60px;
   position: absolute;
   top: 150px;
-  left: 0;
 }
 
 #confirm-answer-btn {
   position: relative;
   top: 16px;
-  left: 300px;
+  left: 350px;
 }
 
 #cancel-answer-btn {
