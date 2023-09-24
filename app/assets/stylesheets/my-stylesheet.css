@@ -431,19 +431,19 @@ a.be-register {
   width: 560px;
   height: 60px;
   position: absolute;
-  top: 150px;
+  top: 125px;
 }
 
 #agree-button {
   position: relative;
   top: 16px;
-  left: 350px;
+  left: 400px;
 }
 
 #disagree-button {
   position: relative;
   top: 16px;
-  left: 400px;
+  left: 450px;
 }
 
 #modal-form {
@@ -524,19 +524,19 @@ a.be-register {
   width: 560px;
   height: 60px;
   position: absolute;
-  top: 150px;
+  top: 125px;
 }
 
 #confirm-answer-btn {
   position: relative;
   top: 16px;
-  left: 350px;
+  left: 400px;
 }
 
 #cancel-answer-btn {
   position: relative;
   top: 16px;
-  left: 400px;
+  left: 450px;
 }
 
 .close {
