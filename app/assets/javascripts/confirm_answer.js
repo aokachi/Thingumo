@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (confirmBtn) {
     confirmBtn.addEventListener('click', function() {
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
     });
 
     // モーダルの外側をクリックした場合にモーダルを閉じる処理
@@ -16,4 +16,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
-
