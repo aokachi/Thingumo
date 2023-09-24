@@ -427,24 +427,27 @@ a.be-register {
 
 .agree-btn-container {
   display: block;
-  width: 600px;
+  width: 100%;
   height: 60px;
   position: absolute;
   top: 150px;
-}
-
-#modal-form {
-  display: none;
+  left: 0;
 }
 
 #agree-button {
   position: relative;
   top: 16px;
+  left: 450px;
 }
 
 #disagree-button {
   position: relative;
   top: 16px;
+  left: 500px;
+}
+
+#modal-form {
+  display: none;
 }
 
 .close {
@@ -511,24 +514,29 @@ a.be-register {
 .modal-content {
   display: block;
   position: static;
+  border: none;
+  box-shadow: none;
 }
 
 .answer-btn-container {
   display: block;
-  width: 600px;
+  width: 100%;
   height: 60px;
   position: absolute;
   top: 150px;
+  left: 0;
 }
 
 #confirm-answer-btn {
   position: relative;
   top: 16px;
+  left: 450px;
 }
 
 #cancel-answer-btn {
   position: relative;
   top: 16px;
+  left: 500px;
 }
 
 .close {
