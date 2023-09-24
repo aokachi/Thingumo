@@ -428,6 +428,7 @@ a.be-register {
 
 .agree-btn-container {
   display: block;
+  width: 600px;
   height: 60px;
   position: absolute;
   top: 150px;
@@ -437,7 +438,7 @@ a.be-register {
 #agree-button {
   position: relative;
   top: 16px;
-  left: 300px;
+  left: 350px;
 }
 
 #disagree-button {
@@ -521,6 +522,7 @@ a.be-register {
 
 .answer-btn-container {
   display: block;
+  width: 600px;
   height: 60px;
   position: absolute;
   top: 150px;
