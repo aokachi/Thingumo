@@ -409,7 +409,7 @@ a.be-register {
   border: 1px solid #888;
   width: 50%;
   max-width: 600px;
-  height: 30%;
+  height: 225px;
   overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
@@ -425,8 +425,26 @@ a.be-register {
   display: block;
 }
 
+.agree-btn-container {
+  display: block;
+  width: 600px;
+  height: 60px;
+  position: absolute;
+  top: 150px;
+}
+
 #modal-form {
   display: none;
+}
+
+#agree-button {
+  position: relative;
+  top: 16px;
+}
+
+#disagree-button {
+  position: relative;
+  top: 16px;
 }
 
 .close {
@@ -476,9 +494,9 @@ a.be-register {
   background-color: #fefefe;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 600px;
   max-width: 600px;
-  height: 30%;
+  height: 225px;
   overflow: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
@@ -492,10 +510,25 @@ a.be-register {
 
 .modal-content {
   display: block;
+  position: static;
 }
 
 .answer-btn-container {
   display: block;
+  width: 600px;
+  height: 60px;
+  position: absolute;
+  top: 150px;
+}
+
+#confirm-answer-btn {
+  position: relative;
+  top: 16px;
+}
+
+#cancel-answer-btn {
+  position: relative;
+  top: 16px;
 }
 
 .close {
