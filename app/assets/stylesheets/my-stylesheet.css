@@ -428,7 +428,6 @@ a.be-register {
 
 .agree-btn-container {
   display: block;
-  width: 100%;
   height: 60px;
   position: absolute;
   top: 150px;
@@ -438,13 +437,13 @@ a.be-register {
 #agree-button {
   position: relative;
   top: 16px;
-  left: 450px;
+  left: 300px;
 }
 
 #disagree-button {
   position: relative;
   top: 16px;
-  left: 500px;
+  left: 400px;
 }
 
 #modal-form {
@@ -522,7 +521,6 @@ a.be-register {
 
 .answer-btn-container {
   display: block;
-  width: 100%;
   height: 60px;
   position: absolute;
   top: 150px;
@@ -532,13 +530,13 @@ a.be-register {
 #confirm-answer-btn {
   position: relative;
   top: 16px;
-  left: 450px;
+  left: 300px;
 }
 
 #cancel-answer-btn {
   position: relative;
   top: 16px;
-  left: 500px;
+  left: 400px;
 }
 
 .close {
