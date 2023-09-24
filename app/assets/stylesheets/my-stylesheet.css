@@ -404,6 +404,7 @@ a.be-register {
 }
 
 .modal-inner {
+  position: relative;
   background-color: #fefefe;
   padding: 20px;
   border: 1px solid #888;
@@ -494,6 +495,7 @@ a.be-register {
 }
 
 .correct-answer-confirmation-modal-inner {
+  position: relative;
   background-color: #fefefe;
   padding: 20px;
   border: 1px solid #888;
