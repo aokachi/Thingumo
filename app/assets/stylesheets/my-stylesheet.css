@@ -437,13 +437,13 @@ a.be-register {
 #agree-button {
   position: relative;
   top: 16px;
-  left: 310px;
+  left: 360px;
 }
 
 #disagree-button {
   position: relative;
   top: 16px;
-  left: 360px;
+  left: 390px;
 }
 
 #modal-form {
