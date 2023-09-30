@@ -533,13 +533,13 @@ a.be-register {
 
 #confirm-answer-btn {
   position: relative;
-  top: 16px;
-  left: 320px;
+  top: 18px;
+  left: 330px;
 }
 
 #cancel-answer-btn {
   position: relative;
-  top: 16px;
+  top: 18px;
   left: 340px;
 }
 
