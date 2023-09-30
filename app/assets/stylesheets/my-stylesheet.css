@@ -494,6 +494,9 @@ a.be-register {
 }
 
 .correct-answer-confirmation-modal-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   background-color: #fefefe;
   padding: 20px;
@@ -512,10 +515,12 @@ a.be-register {
 }
 
 .modal-content {
+  top: 78px;
   display: block;
   position: static;
   border: none;
   box-shadow: none;
+  text-align: center;
 }
 
 .answer-btn-container {
