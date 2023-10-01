@@ -443,7 +443,7 @@ a.be-register {
 #disagree-button {
   position: relative;
   top: 16px;
-  left: 390px;
+  margin-right: 0px;
 }
 
 #modal-form {
@@ -540,7 +540,7 @@ a.be-register {
 #cancel-answer-btn {
   position: relative;
   top: 18px;
-  left: 340px;
+  margin-right: 0px;
 }
 
 .close {
