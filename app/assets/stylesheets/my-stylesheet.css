@@ -437,7 +437,7 @@ a.be-register {
 #agree-button {
   position: relative;
   top: 16px;
-  left: 360px;
+  margin-right: 10px;
 }
 
 #disagree-button {
@@ -534,7 +534,7 @@ a.be-register {
 #confirm-answer-btn {
   position: relative;
   top: 18px;
-  left: 330px;
+  margin-right: 10px;
 }
 
 #cancel-answer-btn {
