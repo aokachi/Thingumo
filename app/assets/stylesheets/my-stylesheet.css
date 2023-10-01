@@ -435,12 +435,15 @@ a.be-register {
 }
 
 #agree-button {
+  display: inline-block;
   position: relative;
   top: 16px;
   margin-right: 10px;
+  margin-left: auto;
 }
 
 #disagree-button {
+  display: inline-block;
   position: relative;
   top: 16px;
   left: 390px;
@@ -532,12 +535,15 @@ a.be-register {
 }
 
 #confirm-answer-btn {
+  display: inline-block;
   position: relative;
   top: 18px;
   margin-right: 10px;
+  margin-left: auto;
 }
 
 #cancel-answer-btn {
+  display: inline-block;
   position: relative;
   top: 18px;
   left: 340px;
