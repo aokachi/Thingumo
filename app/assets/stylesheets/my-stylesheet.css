@@ -439,12 +439,14 @@ a.be-register {
   position: relative;
   top: 16px;
   margin-right: 10px;
+  height: 14px;
 }
 
 #disagree-button {
   position: relative;
   top: 16px;
   margin-right: 0px;
+  height: 14px;
 }
 
 #modal-form {
@@ -537,12 +539,14 @@ a.be-register {
   position: relative;
   top: 18px;
   margin-right: 10px;
+  height: 14px;
 }
 
 #cancel-answer-btn {
   position: relative;
   top: 18px;
   margin-right: 0px;
+  height: 14px;
 }
 
 .close {
