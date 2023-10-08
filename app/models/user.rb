@@ -13,4 +13,9 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :answers, dependent: :destroy
+
+  def award_points(points)
+    self.total_points += points
+    self.save
+  end  
 end

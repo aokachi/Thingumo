@@ -15,7 +15,9 @@ class Post < ApplicationRecord
 
   validates :text, presence: true, length: { maximum: 300 }
 
-  # def user
-    # return User.find_by(id: self.user_id)
-  # end
+  def mark_as_resolved(user_id)
+    self.is_resolved = 1
+    self.resolved_user_id = user_id
+    self.save
+  end  
 end

@@ -30,5 +30,8 @@ Rails.application.routes.draw do
   # 回答機能
   resources :posts do
     resources :special_answers, only: [:new, :create]
-  end  
+  end
+
+  # 正解を選択
+  post '/answers/confirm', to: 'answers#confirm'
 end

@@ -15,7 +15,7 @@
 
 <!-- ヘッダー -->
 
-<!-- 投稿内容を表示 -->
+<!-- 質問内容を表示 -->
 <div id="content-block">
   <div class="container custom-container be-detail-container">
     <div class="row">
@@ -24,14 +24,14 @@
           <div class="blog-content popup-gallery be-large-post-align">
             <!--<h1 class="be-post-title to">-->
             <div class="be-post-title">
-              <!--投稿のタイトルを表示-->
+              <!--質問のタイトルを表示-->
               <p><%= @post.title %></p>
             </div>
             <div class="clear"></div>
             <div class="post-text">
-              <!--投稿したテキストを表示(段落・改行を反映)-->
+              <!--質問したテキストを表示(段落・改行を反映)-->
               <%= safe_join(@post.text.split("\n"),tag(:br)) %>
-              <!--投稿イメージがある場合は全て表示　　　ない場合はデフォルトイメージを表示-->
+              <!--質問イメージがある場合は全て表示　　　ない場合はデフォルトイメージを表示-->
               <div class="image-block">
                 <% if @post.images.present? %>
                 <% @post.images.each do |image| %>
@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <!--投稿したユーザの投稿一覧-->
+        <!--質問したユーザの質問一覧-->
         <div class="row">
           <% @posts.each do |post| %>
           <div class="col-md-4">
@@ -74,21 +74,21 @@
                 <%= link_to(post_path(post), {class: "be-img-block"}) %>
               </div>
               <div>
-                <!--投稿イメージの1枚目をサムネイルとして表示(ある場合は)-->
+                <!--質問イメージの1枚目をサムネイルとして表示(ある場合は)-->
                 <div class="image-block">
                   <% if post.images? %>
-                  <%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
+                  <%= link_to image_tag(post.images[0].url, alt: "質問したイメージ"), post_path(post), class: "be-img-block" %>
                   <% else %>
                   <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
                   <% end %>
                 </div>
               </div>
               <div>
-                <!--投稿のタイトルを表示-->
+                <!--質問のタイトルを表示-->
                 <%= link_to(post.title, post_path(post), {class: "be-post-title"}) %>
               </div>
               <span>
-                <!--投稿のカテゴリを表示-->
+                <!--質問のカテゴリを表示-->
                 <a class="be-post-tag"><%= post.category.name %></a>
               </span>
               <div class="author-post">
@@ -102,10 +102,12 @@
                   <%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "ava-author", size: "70x70" %>
                 </p>
                 <% end %>
-                <!--投稿したユーザのニックネームを呼び出して表示-->
+                <!--質問したユーザのニックネームを呼び出して表示-->
                 <span>by
                   <a><%= post.user.name %></a>
                 </span>
+                <!--質問のIDを保持する（Ajaxでanswers_controllerへ渡す）-->
+                <input type="hidden" id="current-post-id" value="<%= @post.id %>">
               </div>
               <div class="number-of-views-and-answers2">
                 <span><i class="fa fa-eye"></i><%= @post.view_count %></span>
@@ -168,7 +170,7 @@
             </p>
             <% end %>
             <p class="be-use-name"><%= @post.user.name %></p>
-            <!--投稿したユーザのニックネームを呼び出して表示-->
+            <!--質問したユーザのニックネームを呼び出して表示-->
             <span class="be-user-info">
               ここにも何か入れる
             </span>
@@ -244,10 +246,6 @@
               <%= f.label :birthday, '生年月日' %>
               <%= f.date_field :birthday, class: 'form-control' %>
             </div>
-            <!--生年月日入力フォームその2-->
-            <%# <div class="input-date">
-							<input name="date" type="date" />
-						</div> %>
           </div>
           <div class="col-md-6 for-signin">
             <%= f.submit '登録する', class: 'be-popup-sign-button' %>

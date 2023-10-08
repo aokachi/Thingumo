@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_10_114735) do
+ActiveRecord::Schema.define(version: 2023_10_08_101039) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "content"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2023_09_10_114735) do
     t.integer "view_count", default: 0
     t.boolean "is_resolved"
     t.bigint "resolved_user_id"
+    t.datetime "confirmed_at"
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
