@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :post
-  validates :content, presence: true
+  validates :text, presence: true
   belongs_to :answerable, polymorphic: true
   has_many :answers, as: :answerable
   
