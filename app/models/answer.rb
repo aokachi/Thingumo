@@ -7,19 +7,19 @@ class Answer < ApplicationRecord
   
   validate :is_wikipedia_title
   validate :does_not_contain_inappropriate_words
-  validates :content, presence: true, length: { maximum: 30 }
+  validates :text, presence: true, length: { maximum: 30 }
 
   def is_wikipedia_title
-    page = Wikipedia.find(content)
+    page = Wikipedia.find(text)
     if page.text.nil?
-      errors.add(:content, "送信できません")
+      errors.add(:text, "送信できません")
     end
   end
 
   def does_not_contain_inappropriate_words
     inappropriate_words = []
-    if inappropriate_words.any? { |word| content.include?(word) }
-      errors.add(:content, "送信できません")
+    if inappropriate_words.any? { |word| text.include?(word) }
+      errors.add(:text, "送信できません")
     end
   end
 end
