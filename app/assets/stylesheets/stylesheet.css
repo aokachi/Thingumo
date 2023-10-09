@@ -839,7 +839,7 @@ span.right { float: right; }
 
 .large-popup-content { position: relative; }
 
-.large-popup .input-signtype { width: 100%; line-height: 45px; border-radius: 2px; border: none; color: #333333; padding-left: 15px; margin-bottom: 20px; }
+.large-popup .input-signtype { width: 100%; line-height: 45px; border-radius: 2px; border: none; color: #000000; padding-left: 15px; margin-bottom: 20px; }
 
 .large-popup span { line-height: 20px; }
 
@@ -874,7 +874,7 @@ span.right { float: right; }
 
 .large-popup span { color: #727785; }
 
-.be-custom-select { width: 100%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #333333; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
+.be-custom-select { width: 100%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #000000; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
 
 .be-date-block .large-popup-text { display: block; margin-bottom: 20px; }
 
