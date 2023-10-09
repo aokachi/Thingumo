@@ -125,8 +125,8 @@
 	          </p>
 	          <%= form_with model: [ @post, @post.answers.build ], local: true, html: { class: 'form-spacing' } do |form| %>
 	            <div class="form-group">
-	              <%= form.label :content, "回答", class: 'control-label' %>
-	              <%= form.text_area :content, id: 'answer_content', class: 'form-control-placeholder', placeholder: "回答を入力してください。", rows: 1 %>
+	              <%= form.label :text, "回答", class: 'control-label' %>
+	              <%= form.text_area :text, id: 'answer_content', class: 'form-control-placeholder', placeholder: "回答を入力してください。", rows: 1 %>
 	              <button type="button" id="modal-button">入力候補の中に回答が見つからない場合はこちら</button>
 	              <ul id="search-results"></ul>
 	            </div>
