@@ -145,8 +145,8 @@
 	              <div id="modal-form" style="display: none;">
 	                <%#= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
 	                  <div class="field">
-	                    <%= form.text_area :content, placeholder: "回答を入力して下さい。" %>
-	                    <%= form.submit "送信する" %>
+	                    <%#= form.text_area :content, placeholder: "回答を入力して下さい。" %>
+	                    <%#= form.submit "送信する" %>
 	                    <button id="return-button" type="button">戻る</button>
 	                  </div>
 	                <%# end %>
