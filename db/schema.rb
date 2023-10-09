@@ -10,48 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_08_101039) do
+ActiveRecord::Schema.define(version: 2023_10_09_102627) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.string "answerable_type", null: false
-    t.bigint "answerable_id", null: false
+    t.text "text"
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.boolean "is_selected_correct_answer", default: false
+    t.boolean "points_awarded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_id"
-    t.index ["answerable_type", "answerable_id"], name: "index_answers_on_answerable_type_and_answerable_id"
-    t.index ["post_id"], name: "index_answers_on_post_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.text "text", null: false
-    t.bigint "category_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_inquiries_on_category_id"
-    t.index ["user_id"], name: "index_inquiries_on_user_id"
-  end
-
-  create_table "inquiry_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inquiry_replies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.integer "inquiry_id"
-    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,32 +38,15 @@ ActiveRecord::Schema.define(version: 2023_10_08_101039) do
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.boolean "resolved"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id", null: false
-    t.bigint "user_id", null: false
     t.json "images"
-    t.integer "view_count", default: 0
-    t.boolean "is_resolved"
-    t.bigint "resolved_user_id"
-    t.datetime "confirmed_at"
-    t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "special_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "content"
     t.bigint "user_id"
-    t.string "commentable_type"
-    t.bigint "commentable_id"
-    t.bigint "post_id"
-    t.boolean "approval"
+    t.bigint "category_id"
+    t.bigint "view_count", default: 0
+    t.boolean "is_resolved"
+    t.datetime "confirmed_at"
+    t.bigint "resolved_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_special_answers_on_commentable_type_and_commentable_id"
-    t.index ["post_id"], name: "index_special_answers_on_post_id"
-    t.index ["user_id"], name: "index_special_answers_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
@@ -101,22 +56,13 @@ ActiveRecord::Schema.define(version: 2023_10_08_101039) do
     t.date "birthday"
     t.string "avatar"
     t.text "self_introduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.bigint "total_points"
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "total_points"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "answers", "users"
-  add_foreign_key "inquiries", "inquiry_categories", column: "category_id"
-  add_foreign_key "inquiries", "users"
-  add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "users"
-  add_foreign_key "special_answers", "posts"
-  add_foreign_key "special_answers", "users"
 end
