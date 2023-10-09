@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:text)
   end
 
   def confirm
