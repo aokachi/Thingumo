@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     @answers = @post.answers.page(params[:page]).per(10).reverse_order
     @answer = @post.answers.build # 投稿全体へのコメント投稿用の変数
     @answer_reply = @post.answers.build # コメントに対する返信用の変数
-    @special_answer = @post.special_answers.find_by(approval: true)
     if current_user != @post.user
       @post.increment!(:view_count)
     end

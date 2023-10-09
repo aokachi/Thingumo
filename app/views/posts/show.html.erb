@@ -143,13 +143,13 @@
 	                <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
 	              </div>
 	              <div id="modal-form" style="display: none;">
-	                <%= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
+	                <%#= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
 	                  <div class="field">
 	                    <%= form.text_area :content, placeholder: "回答を入力して下さい。" %>
 	                    <%= form.submit "送信する" %>
 	                    <button id="return-button" type="button">戻る</button>
 	                  </div>
-	                <% end %>
+	                <%# end %>
 	              </div>
 	            </div>
 	          </div>

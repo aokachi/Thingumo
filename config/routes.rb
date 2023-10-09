@@ -27,11 +27,6 @@ Rails.application.routes.draw do
     resources :answers, only: [:create, :destroy], module: :answers
   end
 
-  # 回答機能
-  resources :posts do
-    resources :special_answers, only: [:new, :create]
-  end
-
   # 正解を選択
   post '/answers/confirm', to: 'answers#confirm'
 end
