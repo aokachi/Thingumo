@@ -18,12 +18,6 @@ class AnswersController < ApplicationController
     end
   end
 
-  private
-
-  def answer_params
-    params.require(:answer).permit(:text)
-  end
-
   def confirm
     # どの質問か
     post_id = params[:post_id]
@@ -53,5 +47,11 @@ class AnswersController < ApplicationController
   
     # ⑦Answersテーブルの"points_awarded"カラムに"1"の値を入れる。
     @answer.update(points_awarded: 1)
-  end  
+  end 
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:text)
+  end 
 end
