@@ -5,8 +5,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @posts = Post.where(user_id: @post.user.id) # 投稿詳細ページの関連投稿の欄用
     @answers = @post.answers.page(params[:page]).per(10).reverse_order
-    @answer = @post.answers.build # 投稿全体へのコメント投稿用の変数
-    @answer_reply = @post.answers.build # コメントに対する返信用の変数
+    @answer = @post.answers.build # 投稿全体への回答投稿用の変数
+    @answer_reply = @post.answers.build # 回答に対する返信用の変数
     if current_user != @post.user
       @post.increment!(:view_count)
     end

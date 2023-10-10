@@ -8,9 +8,9 @@ class AnswersController < ApplicationController
     @answer.user = current_user
 
     if @answer.save
-      redirect_to @post, notice: 'コメントを送信しました'
+      redirect_to @post, notice: '回答を送信しました'
     else
-      flash[:alert] = "コメントを送信できませんでした: " + @answer.errors.full_messages.join(', ')
+      flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(', ')
       puts "********** ここにエラーメッセージを表示します **********"
       puts @answer.errors.inspect
       puts "*********************************************************"

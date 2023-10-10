@@ -211,7 +211,7 @@ span.choose {
 }
 
 
-/* 投稿詳細ページのいいね/コメント数の欄 */
+/* 投稿詳細ページのいいね/回答数の欄 */
 .number-of-views-and-answers { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
 .number-of-views-and-answers-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
@@ -259,7 +259,7 @@ span.choose {
 }
 
 
-/* コメントに対するコメントの表示スペース */
+/* 回答に対する回答の表示スペース */
 .be-reply-answer-content { margin-left: 80px; }
 
 .be-reply-answer-name { font-size: 13px; font-family: 'Conv_helveticaneuecyr-bold'; }
