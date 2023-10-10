@@ -2,8 +2,6 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :post
   validates :text, presence: true
-  belongs_to :answerable, polymorphic: true
-  has_many :answers, as: :answerable
   
   validate :is_wikipedia_title
   validate :does_not_contain_inappropriate_words
