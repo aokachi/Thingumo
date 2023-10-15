@@ -29,12 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Ajaxリクエストを使ってサーバーサイドの処理を呼び出す
       $.ajax({
-        url: '/answers/confirm', // 新しく作成するルート
+        url: '/answers/confirm',
         method: 'POST',
         data: {
           post_id: postId,
           answer_id: answerId,
-          user_id: userId
+          user_id: userId,
+          // CSRFトークン
+          authenticity_token: $('[name="csrf-token"]').attr('content')
         },
         success: function(response) {
           // モーダルを閉じる
