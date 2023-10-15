@@ -47,9 +47,6 @@ class AnswersController < ApplicationController
   
     # ⑦Answersテーブルの"points_awarded"カラムに"true"の値を入れる。
     @answer.update(points_awarded: true)
-    
-    # 上の処理が全て完了したら、"be-answer-stamp"にスタンプを表示する。
-    @post.update(stamp_image: "/app/assets/images/medal.png")
   end 
 
   private
