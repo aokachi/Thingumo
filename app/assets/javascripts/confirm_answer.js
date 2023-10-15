@@ -7,19 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmBtn.addEventListener('click', function() {
       modal.style.display = 'flex';
     });
-    
-    // モーダルの外側をクリックした場合にモーダルを閉じる処理
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    }
   }
 
-  // "confirm-answer-btn"を押下した場合
+  // "confirm-answer-btn"を押下した場合の処理
   const confirmAnswerBtn = document.getElementById('confirm-answer-btn');
+  const modalContent = document.querySelector('.modal-content');
+  const answerBtnContainer = document.querySelector('.answer-btn-container');
+  const processingIndicator = document.getElementById('correct-answer-processing-indicator');
+
   if (confirmAnswerBtn) {
     confirmAnswerBtn.addEventListener('click', function() {
+      // "modal-content"と"answer-btn-container"を非表示にする
+      modalContent.style.display = 'none';
+      answerBtnContainer.style.display = 'none';
+      // "correct-answer-processing-indicator"を表示する
+      processingIndicator.style.display = 'block';
       // 質問のIDを取得
       const postId = document.getElementById('current-post-id').value;
       // 選択された回答のIDを取得
