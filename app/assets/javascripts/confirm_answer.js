@@ -41,12 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
           authenticity_token: $('[name="csrf-token"]').attr('content')
         },
         success: function(response) {
-          // モーダルを閉じる
-          $("#correct-answer-confirmation-modal").modal('hide');
-          // 5秒間だけメッセージを表示する
-          setTimeout(function() {
-            alert('正解として登録しました。10分間は、正解を変更することができます。');
-          }, 5000);
+          $('#alert-content').text(response.message);
+          $('#alert-content').show();
+          $('#correct-answer-processing-indicator').hide();
         }
       });
     });

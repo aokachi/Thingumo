@@ -47,6 +47,9 @@ class AnswersController < ApplicationController
   
     # ⑦Answersテーブルの"points_awarded"カラムに"true"の値を入れる。
     @answer.update(points_awarded: true)
+  
+    # ⑧処理が終了したらモーダルにメッセージを表示する。
+    render json: { message: '回答が正解として確認されました。' }
   end 
 
   private

@@ -511,21 +511,6 @@ a.be-register {
   border-radius: 10px;
 }
 
-#correct-answer-processing-indicator {
-  display: none;
-  flex-shrink: 0;
-  width: 118px;
-  height: 118px;
-  background: url("/assets/processing.gif") no-repeat center center;
-  background-size: 118px 118px;
-}
-
-@media screen and (max-width: 1199px) {
-  .correct-answer-confirmation-modal-inner {
-    width: 100%;
-  }
-}
-
 .modal-content {
   top: 78px;
   display: block;
@@ -556,6 +541,30 @@ a.be-register {
   top: 18px;
   margin-right: 0px;
   height: 32px;
+}
+
+#correct-answer-processing-indicator {
+  display: none;
+  flex-shrink: 0;
+  width: 118px;
+  height: 118px;
+  background: url("/assets/processing.gif") no-repeat center center;
+  background-size: 118px 118px;
+}
+
+.alert-content {
+  top: 78px;
+  display: none;
+  position: static;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+@media screen and (max-width: 1199px) {
+  .correct-answer-confirmation-modal-inner {
+    width: 100%;
+  }
 }
 
 .close {
