@@ -512,8 +512,7 @@ a.be-register {
 }
 
 .correct-answer-processing-indicator {
-  display: none;
-  flex-shrink: 0;
+  display: block;
   width: 118px;
   height: 118px;
   background: url("/assets/processing.gif") no-repeat center center;
