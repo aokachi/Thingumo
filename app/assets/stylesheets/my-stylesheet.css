@@ -513,10 +513,10 @@ a.be-register {
 
 .correct-answer-processing-indicator {
   display: none;
-  width: 120px;
-  height: 120px;
+  width: 118px;
+  height: 118px;
   background: url("/assets/processing.gif") no-repeat center center;
-  background-size: 120px 120px;
+  background-size: 118px 118px;
 }
 
 @media screen and (max-width: 1199px) {
