@@ -502,13 +502,21 @@ a.be-register {
   align-items: center;
   position: relative;
   background-color: #fefefe;
-  padding: 20px;
+  padding: 40px 20px;
   border: 1px solid #888;
   width: 500px;
   height: 200px;
-  overflow: auto;
+  overflow-y: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
+}
+
+.correct-answer-processing-indicator {
+  display: none;
+  width: 120px;
+  height: 120px;
+  background: url("/assets/processing.gif") no-repeat center center;
+  background-size: 120px 120px;
 }
 
 @media screen and (max-width: 1199px) {
