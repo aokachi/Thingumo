@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // "alert-close-btn"を押下した場合の処理を追加
+  const closeBtn = document.getElementById('alert-close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  }
+
   // "confirm-answer-btn"を押下した場合の処理
   const confirmAnswerBtn = document.getElementById('confirm-answer-btn');
   const modalContent = document.querySelector('.modal-content');
