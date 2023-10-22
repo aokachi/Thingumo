@@ -561,6 +561,19 @@ a.be-register {
   text-align: center;
 }
 
+.alert-close-btn-container {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1199px) {
   .correct-answer-confirmation-modal-inner {
     width: 100%;
