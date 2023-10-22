@@ -570,14 +570,6 @@ a.be-register {
   top: 118px;
 }
 
-#alert-close-btn {
-  position: relative;
-  display: flex;
-  top: 18px;
-  justify-content: center;
-  height: 32px;
-}
-
 @media screen and (max-width: 1199px) {
   .correct-answer-confirmation-modal-inner {
     width: 100%;
