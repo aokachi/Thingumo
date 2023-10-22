@@ -561,15 +561,6 @@ a.be-register {
   text-align: center;
 }
 
-.alert-close-btn-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 460px;
-  height: 60px;
-  position: absolute;
-  top: 118px;
-}
-
 @media screen and (max-width: 1199px) {
   .correct-answer-confirmation-modal-inner {
     width: 100%;
