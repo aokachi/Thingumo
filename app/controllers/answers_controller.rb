@@ -49,6 +49,7 @@ class AnswersController < ApplicationController
     @answer.update(points_awarded: true)
   
     # ⑧処理が終了したらモーダルにメッセージを表示する。
+    @show_alert_close_btn = true
     render json: { message: '回答が正解として確認されました。' }
   end 
 

@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
-  document.querySelector(".alert-close-btn").addEventListener("click", function() {
-    document.getElementById("correct-answer-confirmation-modal").style.display = "none";
-  });
   
+  document.getElementById('alert-close-btn').addEventListener('click', function() {
+    document.getElementById('correct-answer-confirmation-modal').style.display = 'none';
+    document.getElementById('correct-answer-confirmation-modal-inner').style.display = 'none';
+  });  
 });
