@@ -44,13 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
           $('#alert-content').text(response.message);
           $('#alert-content').show();
           $('#correct-answer-processing-indicator').hide();
+          $('#alert-close-btn-container').show();
         }
       });
     });
   }
   
+  // "alert-close-btn"を押したら全て非表示にする
   document.getElementById('alert-close-btn').addEventListener('click', function() {
     document.getElementById('correct-answer-confirmation-modal').style.display = 'none';
     document.getElementById('correct-answer-confirmation-modal-inner').style.display = 'none';
-  });  
+    document.getElementById('alert-close-btn-container').style.display = 'none';
+  }); 
 });
