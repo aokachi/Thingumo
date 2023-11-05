@@ -68,16 +68,60 @@
 			<div class="col-xs-12 col-md-8">
 				<div class="tab-wrapper style-1">
 					<div class="tab-nav-wrapper">
-						<div class="nav-tab  clearfix">
+						<div class="nav-tab clearfix">
 							<!--投稿一覧の上のタグ-->
-							<div class="nav-tab-item active">
+							<div class="nav-tab-item active" data-tab="tab-posts">
 								<span>投稿一覧</span>
+							</div>
+							<div class="nav-tab-item" data-tab="tab-answers">
+								<span>回答一覧</span>
 							</div>
 						</div>
 					</div>
-					<div class="tabs-content clearfix">
-						<div class="tab-info active">
+					<div class="tabs-content posts-list">
+						<div class="tab-info active" id="tab-posts">
 							<!--投稿一覧のパネル-->
+							<div class="row">
+								<% @user.posts.each do |post| %>
+								<div class="col-ml-12 col-xs-6 col-sm-4">
+									<div class="be-post">
+										<!--投稿画像を呼び出して表示(リンク付き)-->
+										<% if post.images? %>
+										<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
+										<% else %>
+										<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+										<% end %>
+										<!--投稿のタイトルを表示-->
+										<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
+										<span>
+											<!--投稿のカテゴリを表示-->
+											<a class="be-post-tag"><%= post.category.name %></a>
+										</span>
+										<div class="author-post">
+											<!--プロフィール画像を呼び出して表示-->
+											<% if post.user.avatar? %>
+											<p>
+												<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+											</p>
+											<% end %>
+											<!--投稿したユーザのニックネームを呼び出して表示-->
+											<span>by <a><%= post.user.name %></a></span>
+										</div>
+										<div class="info-block">
+											<!--投稿数-->
+											<span><i class="fa fa-eye"></i> 789</span>
+											<!--リプライ数-->
+											<span><i class="fa fa-answer-o"></i> 20</span>
+										</div>
+									</div>
+								</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<div class="tabs-content answers-list">
+						<div class="tab-info" id="tab-answers">
+							<!--回答一覧のパネル-->
 							<div class="row">
 								<% @user.posts.each do |post| %>
 								<div class="col-ml-12 col-xs-6 col-sm-4">
@@ -150,3 +194,4 @@
 <script src="/assets/isotope.pkgd.min.js"></script>
 <script src="/assets/jquery.viewportchecker.min.js"></script>
 <script src="/assets/global.js"></script>
+<script src="/assets/script.js"></script>

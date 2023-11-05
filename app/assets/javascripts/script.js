@@ -168,6 +168,25 @@ $(function(){
 		});
 	});
 
+	/*=============================
+		08 - プロフィールページのタブ機能
+	=============================*/
+	// タブの切り替え機能
+	$(document).ready(function() {
+		$('.nav-tab-item').click(function() {
+			// クリックされたタブのdata-tab値を取得
+			var tab_id = $(this).attr('data-tab');
+	
+			// すべてのタブとタブの内容を非アクティブにする
+			$('.nav-tab-item').removeClass('active');
+			$('.tab-info').removeClass('active');
+	
+			// クリックされたタブとタブの内容をアクティブにする
+			$(this).addClass('active');
+			$("#" + tab_id).addClass('active');
+		});
+	});	
+
 })
 
 
