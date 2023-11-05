@@ -27,10 +27,10 @@
   </div>
   <div class="confirm-correct-answer-btn-container">
     <% if current_user.id == @post.user_id %>
-      <button id ="confirm-correct-answer-btn">これが正解</button>
+      <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
     <% end %>
   </div>
-  <div id="correct-answer-confirmation-modal" class="modal">
+  <div id="correct-answer-confirmation-modal-<%= answer.id %>" class="modal">
     <div class="correct-answer-confirmation-modal-inner">
       <div class="modal-content">
         <p>この回答を正解としてよろしいですか。</p>
