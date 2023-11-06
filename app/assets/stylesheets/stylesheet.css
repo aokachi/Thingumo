@@ -3647,15 +3647,19 @@ body .behance-style .creative_filds_block a:hover {
     border-radius: 4px !important;
 }
 
-#edit-page-btn {
+.edit-page-btn {
     color: #fff !important;
     position: absolute;
     right: 130px;
     top: 19px;
 }
 
+.be-ava-left { position: absolute; top: 70px; left: 50%; width: 100px; text-align: center; transform: translateX(-50%); }
+
+.edit-page-btn:hover { background-color: #0040b0; }
+
 @media screen and (max-width:1200px) {
-    #edit-page-btn {
+    .edit-page-btn {
         border: none;
         background: none;
     }
