@@ -3565,7 +3565,7 @@ body .btn.color-1:hover {
 }
 
 .header .hover-1 {
-    color: #fff;
+    color: #0040b0;
 }
 
 .ui-autocomplete {
@@ -3647,7 +3647,7 @@ body .behance-style .creative_filds_block a:hover {
     border-radius: 4px !important;
 }
 
-#add-work-btn {
+#edit-page-btn {
     color: #22c4ea !important;
     position: absolute;
     right: 130px;
@@ -3655,7 +3655,7 @@ body .behance-style .creative_filds_block a:hover {
 }
 
 @media screen and (max-width:1200px) {
-    #add-work-btn {
+    #edit-page-btn {
         border: none;
         background: none;
     }
