@@ -1173,7 +1173,7 @@ span.right { float: right; }
 
 .be-use-name { color: #262626; font-size: 16px; font-family: 'Conv_helveticaneuecyr-bold'; margin-bottom: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block;}
 
-.be-user-info { color: #262626; font-size: 12px; position: relative; height: 50px; }
+.be-user-info { color: #ffffff; font-size: 12px; position: relative; height: 50px; }
 
 .be-user-activity-button { border-radius: 2px; line-height: 15px; display: block; line-height: 30px; font-size: 10px; position: relative; width: 100%; display: block; padding: 5px 5px 5px 30px; margin-bottom: 25px !important; }
 
