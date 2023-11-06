@@ -1167,7 +1167,7 @@ span.right { float: right; }
 
 .be-ava-left { position: absolute; top: 70px; left: 50%; width: 100px; text-align: center; transform: translateX(-50%); }
 
-.be-ava-left:hover { background-color: #0040b0; }
+.be-ava-left:hover { background-color: rgba(255,255,255, 0.1); }
 
 .be-ava-right { position: absolute; top: 70px; right: 15px; width: 100px; text-align: center; }
 
@@ -3565,7 +3565,7 @@ body .btn.color-1:hover {
 }
 
 .header .hover-1 {
-    color: #0040b0;
+    color: #fff;
 }
 
 .ui-autocomplete {
@@ -3648,7 +3648,7 @@ body .behance-style .creative_filds_block a:hover {
 }
 
 #add-work-btn {
-    color: #fff !important;
+    color: #22c4ea !important;
     position: absolute;
     right: 130px;
     top: 19px;
@@ -3703,4 +3703,3 @@ body .behance-style .creative_filds_block a:hover {
 body .login-user-down:hover {
     background: transparent !important;
 }
-
