@@ -1167,7 +1167,7 @@ span.right { float: right; }
 
 .be-ava-left { position: absolute; top: 70px; left: 50%; width: 100px; text-align: center; transform: translateX(-50%); }
 
-.be-ava-left:hover { background-color: rgba(255,255,255, 0.1); }
+.be-ava-left:hover { background-color: #0040b0; }
 
 .be-ava-right { position: absolute; top: 70px; right: 15px; width: 100px; text-align: center; }
 
@@ -3648,7 +3648,7 @@ body .behance-style .creative_filds_block a:hover {
 }
 
 #edit-page-btn {
-    color: #22c4ea !important;
+    color: #fff !important;
     position: absolute;
     right: 130px;
     top: 19px;
