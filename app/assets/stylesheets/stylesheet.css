@@ -1503,7 +1503,7 @@ display: inline-block; float: none; margin: 0 10px;}
 
 .btn.color-1 { background: #0d58c8; border: 1px solid #0d58c8; }
 
-.btn.color-1 .fa { color: #8ba1dd; }
+.btn.color-1 .fa { color: #fff; }
 
 .btn.color-2 { background: #383b43; color: #fff; }
 
