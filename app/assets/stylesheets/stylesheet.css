@@ -3546,7 +3546,7 @@ input:focus {
 }
 
 body .btn.color-1:hover {
-    background: transparent!important;
+    background-color: #0040b0;
 }
 
 
