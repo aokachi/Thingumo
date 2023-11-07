@@ -1505,6 +1505,8 @@ display: inline-block; float: none; margin: 0 10px;}
 
 .btn.color-1 .fa { color: #fff; }
 
+.btn.color-1:hover .fa { color: #fff !important; }
+
 .btn.color-2 { background: #383b43; color: #fff; }
 
 .btn.color-2 .fa { color: #7a8192; }
