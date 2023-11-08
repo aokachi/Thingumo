@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @answers = @user.answers.includes(:post) # ユーザーが回答した投稿の一覧
   end
 
   private

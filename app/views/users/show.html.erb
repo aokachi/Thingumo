@@ -85,7 +85,7 @@
 								<% @user.posts.each do |post| %>
 								<div class="col-ml-12 col-xs-6 col-sm-4">
 									<div class="be-post">
-										<!--投稿画像を呼び出して表示(リンク付き)-->
+										<!--投稿の画像を表示(リンク付き)-->
 										<% if post.images? %>
 										<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
 										<% else %>
@@ -104,13 +104,13 @@
 												<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
 											</p>
 											<% end %>
-											<!--投稿したユーザのニックネームを呼び出して表示-->
+											<!--ユーザーのニックネームを呼び出して表示-->
 											<span>by <a><%= post.user.name %></a></span>
 										</div>
 										<div class="info-block">
-											<!--投稿数-->
+											<!--閲覧数-->
 											<span><i class="fa fa-eye"></i> 789</span>
-											<!--リプライ数-->
+											<!--回答数-->
 											<span><i class="fa fa-answer-o"></i> 20</span>
 										</div>
 									</div>
@@ -121,38 +121,38 @@
 					</div>
 					<div class="tabs-content answers-list">
 						<div class="tab-info" id="tab-answers">
-							<!--回答一覧のパネル-->
+							<!--回答した投稿の一覧のパネル-->
 							<div class="row">
-								<% @user.posts.each do |post| %>
+								<% @answers.each do |answer| %>
 								<div class="col-ml-12 col-xs-6 col-sm-4">
 									<div class="be-post">
-										<!--投稿画像を呼び出して表示(リンク付き)-->
-										<% if post.images? %>
-										<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
+										<!--回答した投稿の画像を表示(リンク付き)-->
+										<% if answer.post.images? %>
+										<%= link_to image_tag(answer.post.images[0].url, alt: "投稿したイメージ"), post_path(answer.post), class: "be-img-block" %>
 										<% else %>
-										<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+										<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(answer.post), class: "be-img-block" %>
 										<% end %>
-										<!--投稿のタイトルを表示-->
-										<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
+										<!--回答した投稿のタイトルを表示-->
+										<a><%= link_to(answer.post.title, post_path(answer.post), class: "be-post-title") %></a>
 										<span>
-											<!--投稿のカテゴリを表示-->
-											<a class="be-post-tag"><%= post.category.name %></a>
+											<!--回答した投稿のカテゴリを表示-->
+											<a class="be-post-tag"><%= answer.post.category.name %></a>
 										</span>
 										<div class="author-post">
-											<!--プロフィール画像を呼び出して表示-->
-											<% if post.user.avatar? %>
+											<!--回答した投稿をしたユーザーのプロフィール画像を呼び出して表示-->
+											<% if answer.post.user.avatar? %>
 											<p>
-												<%= image_tag post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
+												<%= image_tag answer.post.user.avatar, alt: "プロフィール画像", class: "ava-author" %>
 											</p>
 											<% end %>
-											<!--投稿したユーザのニックネームを呼び出して表示-->
-											<span>by <a><%= post.user.name %></a></span>
+											<!--回答した投稿をしたユーザーのニックネームを呼び出して表示-->
+											<span>by <a><%= answer.post.user.name %></a></span>
 										</div>
 										<div class="info-block">
-											<!--投稿数-->
-											<span><i class="fa fa-eye"></i> 789</span>
-											<!--リプライ数-->
-											<span><i class="fa fa-answer-o"></i> 20</span>
+											<!--回答した投稿の閲覧数-->
+											<span><i class="fa fa-eye"></i><%= answer.post.view_count %></span>
+											<!--回答した投稿への回答数-->
+											<span><i class="fa fa-answer-o"></i><%= answer.post.answers.count %></span>
 										</div>
 									</div>
 								</div>
