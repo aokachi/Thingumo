@@ -58,11 +58,12 @@
 										</div>
 									</div>
 									<!--イメージ手書き入力フォーム呼び出しボタン-->
-									<button id="handwrite-image-button">イメージを手書きする場合はこちら</button>
+									<button id="handwrite-image-button" type="button">イメージを手書きする場合はこちら</button>
 										<div id="handwrite-image-modal" class="handwrite-image-modal">
 											<div class="handwrite-image-modal-content">
-												<span id="handwrite-image-modal-close" class="handwrite-image-modal-close">&times;</span>
 												<canvas id="handwrite-image-canvas" width="90%" height="90%"></canvas>
+												<button id="handwrite-image-modal-send">送信する</button>
+												<button id="handwrite-image-modal-close">&times;</button>
 											</div>
 										</div>
 									<!--カテゴリ選択ボックス-->
@@ -192,5 +193,6 @@
 <script src="/assets/colors.js"></script>
 <script src="/assets/jqColorPicker.js"></script>
 <script src="/assets/my-style.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.1/fabric.min.js"></script>
 <script type="module" src="/assets/handwrite-image.js"></script>
 <!--<script src="/assets/global.js"></script>-->
