@@ -39,64 +39,51 @@
 							</div>
 							<div class="be-large-post-align">
 								<%= form_with(model: @post) do |f| %>
-								<div>
 									<!--タイトル入力フォーム-->
-									<%= f.label :l_title, 'タイトル'%>
-									<%= f.text_area :title, class: 'form-control', rows: 1 %>
-								</div>
-								<div>
+									<div class="form-group-post-new-title-input">
+										<%= f.label :l_title, 'タイトル'%>
+										<%= f.text_area :title, class: 'form-control', rows: 1 %>
+									</div>
 									<!--文章入力フォーム-->
-									<%= f.label :l_text, '本文'%>
-									<%= f.text_area :text, class: 'form-control', rows: 8 %>
-								</div>
-								<div>
-									<%= f.label :l_image, 'イメージ'%>
-									<div class="upload-zone" for="post_image">
-										<!--画像投稿フォーム-->
-										<i class="fa center-i fa-cloud-upload"></i>
-										<%= f.file_field :images, multiple: true, id: :post_image, class: 'custom-file-input' %>
+									<div class="form-group-post-new-text-input">
+										<%= f.label :l_text, '本文'%>
+										<%= f.text_area :text, class: 'form-control', rows: 8 %>
 									</div>
-								</div>
-								<button id="handwrite-image-button" class="handwrite-image-button">イメージを手書きする場合はこちら</button>
-									<div id="handwrite-image-modal" class="handwrite-image-modal">
-  									<div class="handwrite-image-modal-content">
-    									<span id="handwrite-image-modal-close" class="handwrite-image-modal-close">&times;</span>
-											<canvas id="handwrite-image-canvas" width="90%" height="90%"></canvas>
-  									</div>
-									</div>
-								<!--カテゴリ選択フォーム-->
-								<div class="container-fluid cd-main-content custom-container">
-									<!--<span class="choose">カテゴリを選択</span>-->
-									<%= f.label :category, 'カテゴリー' %>
-									<div>
-										<%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: '選択してください' }, { class: 'new-post-select' } %>
-									</div>
-									<!--<div class="post-dropdown">
-										<div class="select">
-											<span>選択してください</span>
-											<i class="fa fa-chevron-left"></i>
+									<!--画像投稿フォーム-->
+									<div class="form-group-post-new-image-upload">
+										<%= f.label :l_image, 'イメージ'%>
+										<div class="upload-zone" for="post_image">
+											<i class="fa center-i fa-cloud-upload"></i>
+											<%= f.file_field :images, multiple: true, id: :post_image, class: 'custom-file-input' %>
 										</div>
-										<input type="hidden" name="category">
-										<ul class="post-dropdown-menu">
-											<%# @categories.each do |category| %>
-											<li>
-												<%#= category.name %>
-											</li>
-											<%# end %>
-										</ul>
-									</div>-->
-								</div>
-								<!--投稿を保存するボタン-->
-								<div>
-									<%= f.submit '投稿する', class: 'button-26' %>
-								</div>
+									</div>
+									<!--イメージ手書き入力フォーム呼び出しボタン-->
+									<button id="handwrite-image-button">イメージを手書きする場合はこちら</button>
+										<div id="handwrite-image-modal" class="handwrite-image-modal">
+											<div class="handwrite-image-modal-content">
+												<span id="handwrite-image-modal-close" class="handwrite-image-modal-close">&times;</span>
+												<canvas id="handwrite-image-canvas" width="90%" height="90%"></canvas>
+											</div>
+										</div>
+									<!--カテゴリ選択ボックス-->
+									<div class="form-group-post-new-category-select">
+									<!--<div class="container-fluid cd-main-content custom-container">-->
+										<%= f.label :category, 'カテゴリー' %>
+										<div>
+										<%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: '選択してください' }, { class: 'new-post-select' } %>
+										</div>
+									</div>
+									<!--投稿ボタン-->
+									<div class="form-group-post-new-submit-button">
+										<%= f.submit '投稿する', class: 'button-26' %>
+									</div>
 								<% end %>
 								<!--キャンセルボタン-->
-								<div>
+								<div class="form-group-post-new-back-button">
 									<%= link_to :back do %>
-									<button type="button" class="button-4">戻る</button>
+										<button type="button" class="button-4">戻る</button>
+									<% end %>
 								</div>
-								<% end %>
 							</div>
 						</div>
 					</div>
@@ -168,10 +155,6 @@
 							<%= f.label :birthday, '生年月日' %>
 							<%= f.date_field :birthday, class: 'form-control' %>
 						</div>
-						<!--生年月日入力フォームその2-->
-						<%# <div class="input-date">
-							<input name="date" type="date" />
-						</div> %>
 					</div>
 					<div class="col-md-6 for-signin">
 						<%= f.submit '登録する', class: 'be-popup-sign-button' %>

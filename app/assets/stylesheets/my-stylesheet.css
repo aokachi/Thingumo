@@ -655,3 +655,36 @@ a.be-register {
   line-height: 20px;
   font-weight: 400;
 }
+
+/*
+投稿作成ページ
+*/
+.form-group-post-new-title-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-text-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-image-upload {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.form-group-post-new-category-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-submit-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-back-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
