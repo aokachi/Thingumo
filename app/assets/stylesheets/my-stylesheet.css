@@ -466,7 +466,9 @@ a.be-register {
   cursor: pointer;
 }
 
-/* イメージ手書き用のモーダルウィンドウ */
+/*
+イメージ手書き入力フォーム用
+*/
 .handwrite-image-modal {
   display: none;
   position: fixed;
@@ -481,6 +483,7 @@ a.be-register {
 }
 
 .handwrite-image-modal-content {
+  position: relative;
   background-color: #fefefe;
   margin: 5% auto;
   padding: 20px;
@@ -489,18 +492,26 @@ a.be-register {
   height: 90%;
 }
 
-.handwrite-image-modal-close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#handwrite-image-canvas {
+  width: 80%;
+  height: 80%;
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.handwrite-image-modal-close:hover,
-.handwrite-image-modal-close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+#handwrite-image-modal-send {
+  position: absolute;
+  bottom: 20px;
+  right: 160px;
+}
+
+#handwrite-image-modal-close {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
 }
 
 /* 正解選択用モーダル&ボタン */
