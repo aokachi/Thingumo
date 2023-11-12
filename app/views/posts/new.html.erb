@@ -57,6 +57,13 @@
 										<%= f.file_field :images, multiple: true, id: :post_image, class: 'custom-file-input' %>
 									</div>
 								</div>
+								<button id="handwrite-image-button" class="handwrite-image-button">イメージを手書きする場合はこちら</button>
+									<div id="handwrite-image-modal" class="handwrite-image-modal">
+  									<div class="handwrite-image-modal-content">
+    									<span id="handwrite-image-modal-close" class="handwrite-image-modal-close">&times;</span>
+											<canvas id="handwrite-image-canvas" width="90%" height="90%"></canvas>
+  									</div>
+									</div>
 								<!--カテゴリ選択フォーム-->
 								<div class="container-fluid cd-main-content custom-container">
 									<!--<span class="choose">カテゴリを選択</span>-->
@@ -202,4 +209,5 @@
 <script src="/assets/colors.js"></script>
 <script src="/assets/jqColorPicker.js"></script>
 <script src="/assets/my-style.js"></script>
+<script type="module" src="/assets/handwrite-image.js"></script>
 <!--<script src="/assets/global.js"></script>-->
