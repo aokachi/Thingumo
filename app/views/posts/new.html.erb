@@ -62,6 +62,33 @@
 										<div id="handwrite-image-modal" class="handwrite-image-modal">
 											<div class="handwrite-image-modal-content">
 												<canvas id="handwrite-image-canvas"></canvas>
+												<div class="drawing-tools">
+													<div class="toolbar">
+														<!-- 絵画ツールの選択ボタン -->
+														<button class="tool-icon" id="drawing-tool-select"></button>
+														<!-- 色の選択パレット -->
+														<div class="color-palette">
+															<div class="color-box" style="background-color: #000000;"></div> <!-- 黒 -->
+															<div class="color-box" style="background-color: #FF0000;"></div> <!-- 赤 -->
+															<div class="color-box" style="background-color: #00FF00;"></div> <!-- 緑 -->
+															<div class="color-box" style="background-color: #0000FF;"></div> <!-- 青 -->
+														</div>
+														<!-- 線の太さの調整エリア -->
+														<div class="line-width-adjuster-container">
+															<button id="decrease-line-width">-</button>
+															<input type="text" id="line-width-input" value="5">
+															<button id="increase-line-width">+</button>
+														</div>
+														<!-- 消しゴムボタン -->
+														<button class="tool-icon" id="eraser-tool"></button>
+														<!-- アンドゥボタン -->
+														<button class="tool-icon" id="undo-button"></button>
+														<!-- リドゥボタン -->
+														<button class="tool-icon" id="redo-button"></button>
+														<!-- クリアボタン -->
+														<button class="tool-icon" id="clear-canvas"></button>
+													</div>	
+												</div>
 												<button id="handwrite-image-modal-send">送信する</button>
 												<button id="handwrite-image-modal-close">キャンセル</button>
 											</div>
@@ -194,5 +221,5 @@
 <script src="/assets/jqColorPicker.js"></script>
 <script src="/assets/my-style.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.1/fabric.min.js"></script>
-<script type="module" src="/assets/handwrite-image.js"></script>
+<script src="/assets/handwrite-image.js"></script>
 <!--<script src="/assets/global.js"></script>-->

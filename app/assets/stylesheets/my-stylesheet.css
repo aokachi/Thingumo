@@ -502,6 +502,90 @@ a.be-register {
   transform: translate(-50%, -50%);
 }
 
+/* ツールバーのコンテナ */
+.toolbar {
+  display: flex;
+  flex-direction: column; /* 縦方向に並べる */
+  align-items: flex-start;
+  padding: 10px;
+  background-color: #fefefe;
+  border-right: 1px solid #ccc;
+  gap: 10px; /* コンポーネント間の隙間 */
+}
+
+/* 線の太さの調整エリア */
+.line-width-adjuster-container {
+  display: flex;
+  flex-direction: row; /* 横方向に並べる */
+  align-items: center;
+  gap: 5px; /* コンポーネント間の隙間 */
+}
+
+/* テキストボックスとボタンのスタイル */
+#line-width-input {
+  width: 40px;
+  height: 20px;
+  text-align: center;
+}
+
+#decrease-line-width, #increase-line-width {
+  width: 20px;
+  height: 20px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* ツールアイコンの共通スタイル */
+.tool-icon {
+  width: 42px; /* ボタンの幅を42pxに設定 */
+  height: 42px; /* ボタンの高さを42pxに設定 */
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  background-size: 40px 40px; /* アイコンのサイズを40px×40pxに設定 */
+  background-repeat: no-repeat; /* 画像の繰り返しを防止 */
+  background-position: center; /* 画像を中央に配置 */
+  padding: 0; /* パディングを0に設定 */
+}
+
+/* 色選択パレットのスタイル */
+.color-palette {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+/* 色選択ボックスの共通スタイル */
+.color-box {
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* 特定のツールアイコンに画像を設定 */
+#drawing-tool-select {
+  background-image: url("/finger.png");
+}
+
+#eraser-tool {
+  background-image: url("/eraser.png");
+}
+
+#undo-button {
+  background-image: url("/undo.png");
+}
+
+#redo-button {
+  background-image: url("/redo.png");
+}
+
+#clear-canvas {
+  background-image: url("/clear.png");
+}
+
 #handwrite-image-modal-send {
   position: absolute;
   bottom: 20px;
