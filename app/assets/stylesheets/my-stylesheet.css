@@ -502,15 +502,45 @@ a.be-register {
   transform: translate(-50%, -50%);
 }
 
-/* ツールバーのコンテナ */
 .toolbar {
   display: flex;
-  flex-direction: column; /* 縦方向に並べる */
-  align-items: flex-start;
+  /* 要素を垂直に整列 */
+  flex-direction: column;
+  /* 要素を水平方向に中央配置 */
+  align-items: center;
   padding: 10px;
   background-color: #fefefe;
-  border-right: 1px solid #ccc;
-  gap: 10px; /* コンポーネント間の隙間 */
+  gap: 10px;
+  /* コンテナに対して相対的に配置 */
+  position: absolute;
+  /*
+  left: calc(50% - 400px);  実際のレイアウトに基づいてこの値を調整 
+  top: 50%;
+  transform: translateY(-50%);
+  */
+  top: 70px;
+  left: 25px;
+}
+
+/* toolbar内のボタン押下時のスタイル */
+.toolbar button:active {
+  /* 押下時に少し小さくなる効果 */
+  transform: scale(0.95);
+  /* 内側に影を追加 */
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.handwrite-toolbar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.handwrite-toolbar-container #handwrite-image-canvas {
+  position: absolute;
+  left: 200px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* 線の太さの調整エリア */
@@ -518,7 +548,7 @@ a.be-register {
   display: flex;
   flex-direction: row; /* 横方向に並べる */
   align-items: center;
-  gap: 5px; /* コンポーネント間の隙間 */
+  gap: 5px;
 }
 
 /* テキストボックスとボタンのスタイル */
@@ -538,15 +568,15 @@ a.be-register {
 
 /* ツールアイコンの共通スタイル */
 .tool-icon {
-  width: 42px; /* ボタンの幅を42pxに設定 */
-  height: 42px; /* ボタンの高さを42pxに設定 */
+  width: 42px;
+  height: 42px;
   border: 1px solid #ddd;
   background-color: #fff;
   cursor: pointer;
-  background-size: 40px 40px; /* アイコンのサイズを40px×40pxに設定 */
+  background-size: 40px 40px;
   background-repeat: no-repeat; /* 画像の繰り返しを防止 */
   background-position: center; /* 画像を中央に配置 */
-  padding: 0; /* パディングを0に設定 */
+  padding: 0;
 }
 
 /* 色選択パレットのスタイル */
