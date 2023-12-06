@@ -492,16 +492,6 @@ a.be-register {
   height: 90%;
 }
 
-#handwrite-image-canvas {
-  width: 80%;
-  height: 80%;
-  border: 1px solid #888;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .toolbar {
   display: flex;
   /* 要素を垂直に整列 */
@@ -536,11 +526,13 @@ a.be-register {
   height: 100%;
 }
 
-.handwrite-toolbar-container #handwrite-image-canvas {
+.canvas-wrapper {
   position: absolute;
-  left: 200px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 60px;
+  left: 180px;
+  right: 100px;
+  bottom: 60px;
+  border: 1px solid #000000;
 }
 
 /* 線の太さの調整エリア */
@@ -614,6 +606,12 @@ a.be-register {
 
 #clear-canvas {
   background-image: url("/clear.png");
+}
+
+.upper-canvas, .lower-canvas {
+  position: absolute; /* 絶対位置指定 */
+  top: 75px; /* 上から75pxの位置 */
+  left: 200px; /* 左から200pxの位置 */
 }
 
 #handwrite-image-modal-send {

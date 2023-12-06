@@ -3,22 +3,23 @@ window.onload = function() {
   var btn = document.getElementById('handwrite-image-button');
   var span = document.getElementById('handwrite-image-modal-close');
   var sendBtn = document.getElementById('handwrite-image-modal-send');
-
-  // モーダルを表示するイベントリスナー
-  btn.addEventListener('click', function() {
-    modal.style.display = "block";
-    canvas.setWidth(modal.clientWidth * 0.9);
-    canvas.setHeight(modal.clientHeight * 0.9);
-    canvas.calcOffset();
-  });
-
-  // モーダルを閉じるイベントリスナー
-  span.addEventListener('click', function() {
-    modal.style.display = "none";
-  });
-
-  // キャンバスの設定
+  // キャンバスの初期化
   var canvas = new fabric.Canvas('handwrite-image-canvas');
+
+  // キャンバスのリサイズ関数
+  function resizeCanvas() {
+    var wrapper = document.querySelector('.canvas-wrapper');
+    canvas.setWidth(wrapper.clientWidth);
+    canvas.setHeight(wrapper.clientHeight);
+    canvas.renderAll();
+  }
+
+  // ウィンドウリサイズイベントにリサイズ関数をバインド
+  window.addEventListener('resize', resizeCanvas);
+
+  // 初期リサイズ
+  resizeCanvas();
+
   // 最初は描画モードを無効にする
   canvas.isDrawingMode = false;
 
@@ -27,10 +28,29 @@ window.onload = function() {
   var lineWidthInput = document.getElementById('line-width-input');
   var increaseLineWidthButton = document.getElementById('increase-line-width');
   var decreaseLineWidthButton = document.getElementById('decrease-line-width');
-
   var undoButton = document.getElementById('undo-button');
   var redoButton = document.getElementById('redo-button');
   var clearButton = document.getElementById('clear-canvas');
+
+  // モーダルを表示するイベントリスナー
+  // "canvas-container"と子要素を"canvas-wrapper"のサイズに合わせて設定する
+  btn.addEventListener('click', function() {
+    modal.style.display = "block";
+    setTimeout(function() {
+      var wrapper = document.querySelector('.canvas-wrapper');
+      var wrapperWidth = wrapper.clientWidth;
+      var wrapperHeight = wrapper.clientHeight;
+
+      canvas.setWidth(wrapperWidth);
+      canvas.setHeight(wrapperHeight);
+      canvas.calcOffset();
+    }, 0);
+  });
+
+  // モーダルを閉じるイベントリスナー
+  span.addEventListener('click', function() {
+    modal.style.display = "none";
+  });
 
   // 色の選択機能
   colorPalette.forEach(function(colorBox) {
@@ -60,7 +80,6 @@ window.onload = function() {
   // テキストボックスの値が変更されたときのイベントハンドラ
   lineWidthInput.addEventListener('change', setLineWidth);
 
-
   // アンドゥ機能
   undoButton.addEventListener('click', function() {
     var history = canvas.historyUndo.pop();
@@ -82,21 +101,6 @@ window.onload = function() {
     canvas.clear();
   });
 
-  // 保存機能
-  saveButton.addEventListener('click', function() {
-    var dataURL = canvas.toDataURL({
-      format: 'png',
-      quality: 1.0
-    });
-    window.open(dataURL);
-  });
-
-  // ロード機能
-  loadButton.addEventListener('click', function() {
-    // ロード処理の実装
-    // 例えばinput[type='file']を使ってローカルファイルを読み込むことができる
-  });
-
   // 描画ツール選択機能（ペンツールと消しゴムツールのトグル）
   document.getElementById('drawing-tool-select').addEventListener('click', function() {
     canvas.isDrawingMode = !canvas.isDrawingMode;
@@ -109,7 +113,7 @@ window.onload = function() {
       // 既存のブラシを一時的に保存し、消しゴムブラシに切り替える
       canvas.previousFreeDrawingBrush = canvas.freeDrawingBrush;
       canvas.freeDrawingBrush = new fabric.EraserBrush(canvas);
-      canvas.freeDrawingBrush.width = parseInt(lineWidthAdjuster.value, 10);
+      canvas.freeDrawingBrush.width = parseInt(lineWidthInput.value, 10);
     } else {
       // 描画モードが無効ならば、元のブラシに戻す
       canvas.freeDrawingBrush = canvas.previousFreeDrawingBrush;
