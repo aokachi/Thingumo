@@ -323,7 +323,8 @@ span.choose {
   z-index: 9999;
   padding: 10px 20px;
   border-radius: 4px;
-  display: none; /* 最初は非表示にしておく */
+  /* 最初は非表示にしておく */
+  display: none;
 }
 .flash-popup.alert {
   color: #721c24;
@@ -503,11 +504,6 @@ a.be-register {
   gap: 10px;
   /* コンテナに対して相対的に配置 */
   position: absolute;
-  /*
-  left: calc(50% - 400px);  実際のレイアウトに基づいてこの値を調整 
-  top: 50%;
-  transform: translateY(-50%);
-  */
   top: 70px;
   left: 25px;
 }
@@ -538,7 +534,8 @@ a.be-register {
 /* 線の太さの調整エリア */
 .line-width-adjuster-container {
   display: flex;
-  flex-direction: row; /* 横方向に並べる */
+  /* 横方向に並べる */
+  flex-direction: row;
   align-items: center;
   gap: 5px;
 }
@@ -566,8 +563,10 @@ a.be-register {
   background-color: #fff;
   cursor: pointer;
   background-size: 40px 40px;
-  background-repeat: no-repeat; /* 画像の繰り返しを防止 */
-  background-position: center; /* 画像を中央に配置 */
+  /* 画像の繰り返しを防止 */
+  background-repeat: no-repeat;
+  /* 画像を中央に配置 */
+  background-position: center;
   padding: 0;
 }
 
@@ -609,9 +608,12 @@ a.be-register {
 }
 
 .upper-canvas, .lower-canvas {
-  position: absolute; /* 絶対位置指定 */
-  top: 75px; /* 上から75pxの位置 */
-  left: 200px; /* 左から200pxの位置 */
+  /* 絶対位置指定 */
+  position: absolute;
+  /* 上から75pxの位置 */
+  top: 75px;
+  /* 左から200pxの位置 */
+  left: 200px;
 }
 
 #handwrite-image-modal-send {

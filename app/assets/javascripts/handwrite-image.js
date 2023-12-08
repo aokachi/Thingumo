@@ -32,10 +32,18 @@ window.onload = function() {
   var redoButton = document.getElementById('redo-button');
   var clearButton = document.getElementById('clear-canvas');
 
-  // モーダルを表示するイベントリスナー
-  // "canvas-container"と子要素を"canvas-wrapper"のサイズに合わせて設定する
-  btn.addEventListener('click', function() {
+  // モーダルを表示する関数
+  function showModal() {
+    var modal = document.getElementById('handwrite-image-modal');
     modal.style.display = "block";
+
+    // 背後の要素のpointer-eventsをnoneに設定
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-post-select, .button-26, .button-4');
+    elementsToDisable.forEach(function(el) {
+      el.style.pointerEvents = 'none';
+    });
+
+    // キャンバスサイズを動的に調整
     setTimeout(function() {
       var wrapper = document.querySelector('.canvas-wrapper');
       var wrapperWidth = wrapper.clientWidth;
@@ -45,12 +53,26 @@ window.onload = function() {
       canvas.setHeight(wrapperHeight);
       canvas.calcOffset();
     }, 0);
-  });
+  }
 
-  // モーダルを閉じるイベントリスナー
-  span.addEventListener('click', function() {
+  // モーダルを閉じる関数
+  function closeModal() {
+    var modal = document.getElementById('handwrite-image-modal');
     modal.style.display = "none";
-  });
+
+    // 背後の要素のpointer-eventsを元に戻す
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-post-select, .button-26, .button-4');
+    elementsToDisable.forEach(function(el) {
+      el.style.pointerEvents = 'auto';
+    });
+  }
+
+  // モーダルの表示・非表示のイベントリスナー
+  var btn = document.getElementById('handwrite-image-button');
+  btn.addEventListener('click', showModal);
+
+  var span = document.getElementById('handwrite-image-modal-close');
+  span.addEventListener('click', closeModal);
 
   // 色の選択機能
   colorPalette.forEach(function(colorBox) {
