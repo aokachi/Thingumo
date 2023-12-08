@@ -595,14 +595,6 @@ a.be-register {
   background-image: url("/eraser.png");
 }
 
-#undo-button {
-  background-image: url("/undo.png");
-}
-
-#redo-button {
-  background-image: url("/redo.png");
-}
-
 #clear-canvas {
   background-image: url("/clear.png");
 }

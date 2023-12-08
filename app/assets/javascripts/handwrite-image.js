@@ -28,8 +28,6 @@ window.onload = function() {
   var lineWidthInput = document.getElementById('line-width-input');
   var increaseLineWidthButton = document.getElementById('increase-line-width');
   var decreaseLineWidthButton = document.getElementById('decrease-line-width');
-  var undoButton = document.getElementById('undo-button');
-  var redoButton = document.getElementById('redo-button');
   var clearButton = document.getElementById('clear-canvas');
 
   // モーダルを表示する関数
@@ -101,22 +99,6 @@ window.onload = function() {
 
   // テキストボックスの値が変更されたときのイベントハンドラ
   lineWidthInput.addEventListener('change', setLineWidth);
-
-  // アンドゥ機能
-  undoButton.addEventListener('click', function() {
-    var history = canvas.historyUndo.pop();
-    if(history) {
-      canvas.loadFromJSON(history, canvas.renderAll.bind(canvas));
-    }
-  });
-
-  // リドゥ機能
-  redoButton.addEventListener('click', function() {
-    var history = canvas.historyRedo.pop();
-    if(history) {
-      canvas.loadFromJSON(history, canvas.renderAll.bind(canvas));
-    }
-  });
 
   // クリア機能
   clearButton.addEventListener('click', function() {
