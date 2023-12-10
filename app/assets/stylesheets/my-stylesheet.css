@@ -555,6 +555,30 @@ a.be-register {
   cursor: pointer;
 }
 
+/* 消しゴムのサイズの調整エリア */
+.eraser-width-adjuster-container {
+  display: flex;
+  /* 横方向に並べる */
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+/* テキストボックスとボタンのスタイル */
+#eraser-width-input {
+  width: 40px;
+  height: 20px;
+  text-align: center;
+}
+
+#decrease-eraser-width, #increase-eraser-width {
+  width: 20px;
+  height: 20px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
 /* ツールアイコンの共通スタイル */
 .tool-icon {
   width: 42px;
@@ -587,16 +611,20 @@ a.be-register {
 }
 
 /* 特定のツールアイコンに画像を設定 */
-#drawing-tool-select {
-  background-image: url("/finger.png");
+#pen-tool {
+  background-image: url("/pen-tool.png");
 }
 
 #eraser-tool {
-  background-image: url("/eraser.png");
+  background-image: url("/eraser-tool.png");
 }
 
-#clear-canvas {
-  background-image: url("/clear.png");
+#select-move-tool {
+  background-image: url("/select-move-tool.png");
+}
+
+#clear-canvas-tool {
+  background-image: url("/clear-canvas-tool.png");
 }
 
 .upper-canvas, .lower-canvas {

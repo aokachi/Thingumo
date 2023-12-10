@@ -63,8 +63,8 @@
 											<div class="handwrite-image-modal-content">
 												<div class="handwrite-toolbar-container">
 													<div class="toolbar">
-														<!-- 絵画ツールの選択ボタン -->
-														<button class="tool-icon" id="drawing-tool-select"></button>
+														<!-- ペンツールボタン -->
+														<button class="tool-icon" id="pen-tool"></button>
 														<!-- 色の選択パレット -->
 														<div class="color-palette">
 															<div class="color-box" style="background-color: #000000;"></div> <!-- 黒 -->
@@ -80,8 +80,16 @@
 														</div>
 														<!-- 消しゴムボタン -->
 														<button class="tool-icon" id="eraser-tool"></button>
+														<!-- 消しゴムのサイズの調整エリア -->
+														<div class="eraser-width-adjuster-container">
+															<button id="decrease-eraser-width">-</button>
+															<input type="text" id="eraser-width-input" value="5">
+															<button id="increase-eraser-width">+</button>
+														</div>
+														<!-- 選択ツールボタン -->
+														<button class="tool-icon" id="select-move-tool"></button>
 														<!-- クリアボタン -->
-														<button class="tool-icon" id="clear-canvas"></button>
+														<button class="tool-icon" id="clear-canvas-tool"></button>
 													</div>
 													<div class="canvas-wrapper">	
 														<canvas id="handwrite-image-canvas"></canvas>
@@ -218,6 +226,6 @@
 <script src="/assets/colors.js"></script>
 <script src="/assets/jqColorPicker.js"></script>
 <script src="/assets/my-style.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.js"></script>
+<script src="/assets/fabric.js"></script>
 <script src="/assets/handwrite-image.js"></script>
 <!--<script src="/assets/global.js"></script>-->

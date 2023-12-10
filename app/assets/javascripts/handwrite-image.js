@@ -28,7 +28,11 @@ window.onload = function() {
   var lineWidthInput = document.getElementById('line-width-input');
   var increaseLineWidthButton = document.getElementById('increase-line-width');
   var decreaseLineWidthButton = document.getElementById('decrease-line-width');
-  var clearButton = document.getElementById('clear-canvas');
+  // 消しゴムのサイズの調整テキストボックスとボタン
+  var eraserWidthInput = document.getElementById('eraser-width-input');
+  var increaseEraserWidthButton = document.getElementById('increase-eraser-width');
+  var decreaseEraserWidthButton = document.getElementById('decrease-eraser-width');
+  var clearButton = document.getElementById('clear-canvas-tool');
 
   // モーダルを表示する関数
   function showModal() {
@@ -51,6 +55,9 @@ window.onload = function() {
       canvas.setHeight(wrapperHeight);
       canvas.calcOffset();
     }, 0);
+
+    // 初期表示時にペンツールを有効にする
+    canvas.isDrawingMode = true;
   }
 
   // モーダルを閉じる関数
@@ -79,6 +86,18 @@ window.onload = function() {
     });
   });
 
+  // "color-box"のボタンに対するスタイル
+  document.querySelectorAll('.color-box').forEach(function(btn) {
+    btn.addEventListener('mousedown', function() {
+      this.style.transform = 'scale(0.95)';
+      this.style.boxShadow = 'inset 0 3px 5px rgba(0, 0, 0, 0.125)';
+    });
+    btn.addEventListener('mouseup', function() {
+      this.style.transform = '';
+      this.style.boxShadow = '';
+    });
+  });
+
   // 線の太さをテキストボックスの値に基づいて設定する関数
   function setLineWidth() {
     var lineWidth = parseInt(lineWidthInput.value, 10);
@@ -100,28 +119,50 @@ window.onload = function() {
   // テキストボックスの値が変更されたときのイベントハンドラ
   lineWidthInput.addEventListener('change', setLineWidth);
 
-  // クリア機能
-  clearButton.addEventListener('click', function() {
-    canvas.clear();
+  // 消しゴムの太さをテキストボックスの値に基づいて設定する関数
+  function setEraserWidth() {
+    var eraserWidth = parseInt(document.getElementById('eraser-width-input').value, 10);
+    canvas.freeDrawingBrush.width = eraserWidth;
+  }
+
+  // 消しゴムの太さを増やすボタンのイベントハンドラ
+  increaseEraserWidthButton.addEventListener('click', function() {
+    eraserWidthInput.value = parseInt(eraserWidthInput.value, 10) + 1;
+    setEraserWidth();
   });
 
-  // 描画ツール選択機能（ペンツールと消しゴムツールのトグル）
-  document.getElementById('drawing-tool-select').addEventListener('click', function() {
-    canvas.isDrawingMode = !canvas.isDrawingMode;
+  // 消しゴムの太さを減らすボタンのイベントハンドラ
+  decreaseEraserWidthButton.addEventListener('click', function() {
+    eraserWidthInput.value = Math.max(parseInt(eraserWidthInput.value, 10) - 1, 1);
+    setEraserWidth();
+  });
+
+  // テキストボックスの値が変更されたときのイベントハンドラ
+  eraserWidthInput.addEventListener('change', setEraserWidth);
+
+  // ペンツールへ切り替え
+  document.getElementById('pen-tool').addEventListener('click', function() {
+    canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+    canvas.isDrawingMode = true;
+  });
+
+  // 範囲選択ツールへ切り替え
+  document.getElementById('select-move-tool').addEventListener('click', function() {
+    canvas.isDrawingMode = false;
+    canvas.selection = true;
   });
 
   // 消しゴムツールの設定
   document.getElementById('eraser-tool').addEventListener('click', function() {
-    // 消しゴムモードへの切り替え
-    if (canvas.isDrawingMode) {
-      // 既存のブラシを一時的に保存し、消しゴムブラシに切り替える
-      canvas.previousFreeDrawingBrush = canvas.freeDrawingBrush;
-      canvas.freeDrawingBrush = new fabric.EraserBrush(canvas);
-      canvas.freeDrawingBrush.width = parseInt(lineWidthInput.value, 10);
-    } else {
-      // 描画モードが無効ならば、元のブラシに戻す
-      canvas.freeDrawingBrush = canvas.previousFreeDrawingBrush;
-    }
+    canvas.freeDrawingBrush = new fabric.EraserBrush(canvas);
+    canvas.isDrawingMode = true;
+    // その他の必要な設定（例：消しゴムの幅設定）
+    canvas.freeDrawingBrush.width = parseInt(document.getElementById('eraser-width-input').value, 10);
+  });
+
+  // クリア機能
+  clearButton.addEventListener('click', function() {
+    canvas.clear();
   });
 
   // 送信ボタンの機能
