@@ -1,7 +1,4 @@
 window.onload = function() {
-  var modal = document.getElementById('handwrite-image-modal');
-  var btn = document.getElementById('handwrite-image-button');
-  var span = document.getElementById('handwrite-image-modal-close');
   var sendBtn = document.getElementById('handwrite-image-modal-send');
   // キャンバスの初期化
   var canvas = new fabric.Canvas('handwrite-image-canvas');
@@ -73,11 +70,11 @@ window.onload = function() {
   }
 
   // モーダルの表示・非表示のイベントリスナー
-  var btn = document.getElementById('handwrite-image-button');
-  btn.addEventListener('click', showModal);
+  var openBtn = document.getElementById('handwrite-image-button');
+  openBtn.addEventListener('click', showModal);
 
-  var span = document.getElementById('handwrite-image-modal-close');
-  span.addEventListener('click', closeModal);
+  var closeBtn = document.getElementById('handwrite-image-modal-close');
+  closeBtn.addEventListener('click', closeModal);
 
   // 色の選択機能
   colorPalette.forEach(function(colorBox) {
