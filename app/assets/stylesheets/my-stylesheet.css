@@ -133,7 +133,6 @@ span.choose {
   background-color: #1652F0;
   border: 1px solid #1652F0;
   border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -168,7 +167,6 @@ span.choose {
 .button-3:active {
   background-color: #0039D7;
   border-color: #0039D7;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
