@@ -53,8 +53,13 @@
 									<div class="form-group-post-new-image-upload">
 										<%= f.label :l_image, 'イメージ'%>
 										<div class="upload-zone" for="post_image">
+											<!-- ナビゲーション矢印 -->
+											<span class="arrow left-arrow">＜</span>
+											<span class="arrow right-arrow">＞</span>
 											<i class="fa center-i fa-cloud-upload"></i>
 											<%= f.file_field :images, multiple: true, id: :post_image, class: 'custom-file-input' %>
+											<!-- 画像サムネイル表示領域 -->
+											<div class="image-thumbnails"></div>
 										</div>
 									</div>
 									<!--イメージ手書き入力フォーム呼び出しボタン-->

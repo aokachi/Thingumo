@@ -53,6 +53,7 @@ span.choose {
   width: fit-content;
 }
 
+/* キャンバスのデータ取り込み中は送信ボタンを無効 */
 .button-1:disabled {
   opacity: .5;
 }
@@ -129,6 +130,8 @@ span.choose {
 }
 
 .button-3 {
+  width: 103px;
+  height: 34px;
   appearance: none;
   background-color: #1652F0;
   border: 1px solid #1652F0;
@@ -183,6 +186,8 @@ span.choose {
 }
 
 .button-4 {
+  width: 103px;
+  height: 34px;
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -504,7 +509,7 @@ a.be-register {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   width: 100%;
@@ -585,7 +590,7 @@ a.be-register {
 .handwrite-image-modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -759,6 +764,7 @@ a.be-register {
   bottom: 20px;
   right: 50px;
 }
+
 
 /* 正解選択用モーダル&ボタン */
 .confirm-correct-answer-btn-container {
@@ -944,4 +950,9 @@ a.be-register {
 .form-group-post-new-back-button {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.fa-cloud-upload {
+  z-index: 1; /* サムネイル画像より低い値に設定 */
+  cursor: pointer; /* マウスカーソルをポインタに変更 */
 }

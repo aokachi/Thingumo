@@ -1,5 +1,4 @@
 window.onload = function() {
-  var sendBtn = document.getElementById('handwrite-image-modal-send');
   // キャンバスの初期化
   var canvas = new fabric.Canvas('handwrite-image-canvas');
 
@@ -163,9 +162,19 @@ window.onload = function() {
   });
 
   // 送信ボタンの機能
-  sendBtn.addEventListener('click', function() {
-    // 送信処理の実装
-    var dataURL = canvas.toDataURL();
-    // dataURLを送信するためのコードをここに実装
+  document.getElementById('handwrite-image-modal-send').addEventListener('click', function() {
+    var canvas = document.getElementById('handwrite-image-canvas');
+    canvas.toBlob(function(blob) {
+      var newFile = new File([blob], "canvas-image.png", {type: "image/png", lastModified: new Date().getTime()});
+      var container = new DataTransfer();
+      container.items.add(newFile);
+
+      var fileInput = document.getElementById('post_image');
+      fileInput.files = container.files;
+      $('#post_image').trigger('change'); // 画像追加後にchangeイベントをトリガーする
+
+      // closeModal() 関数を呼び出してモーダルを閉じる
+      closeModal();
+    }, 'image/png');
   });
 };
