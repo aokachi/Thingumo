@@ -523,8 +523,7 @@ $('.theme-config .open').on('click', function(){
 $('.m-color').on('click', function() {
 	var colour = $(this).data('colour');
 	var index =  $(this).index();
-	    $('.logo-c').hide();
-	    $('.logo-c').eq(index).show();
+	    $('.logo').eq(index).show();
 		$('.m-color').removeClass('active');
 		$(this).addClass('active');
 		$('#color-link').attr('href', colour);

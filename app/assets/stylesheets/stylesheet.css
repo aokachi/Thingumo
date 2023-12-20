@@ -94,7 +94,7 @@ header { height: 70px; width: 100%; color: #fff; font-size: 14px; background: #2
 
 header .custom-container { position: relative; }
 
-header .row-header .brand-be { margin-top: 16.5px; float: left; }
+header .row-header .brand-be { margin-top: 25px; float: left; }
 
 header .row-header .header-menu-block { position: absolute;
     top: 0px; right: 30px;
@@ -2639,10 +2639,7 @@ transition: all ease-out 0.3s;}
   background-color: #6c4242;
 }
 
-.logo-c {
-  display: none;
-}
-.logo-c.active {
+.logo {
   display: block;
 }
 
