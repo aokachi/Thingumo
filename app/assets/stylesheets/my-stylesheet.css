@@ -939,3 +939,31 @@ a.be-register {
   z-index: 1; /* サムネイル画像より低い値に設定 */
   cursor: pointer; /* マウスカーソルをポインタに変更 */
 }
+
+/*
+フッター
+*/
+.centered-content {
+  text-align: center; /* 親要素を中央揃えにする */
+}
+
+.centered-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px; /* コンテンツ1の下の間隔 */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0; /* コンテンツ2の上下の間隔 */
+  margin-bottom: 30px; /* コンテンツ2の下の間隔 */
+}
+
+@media (min-width: 768px) {
+  .col-md-4.col-md-offset-4 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
