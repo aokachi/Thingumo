@@ -727,23 +727,6 @@ a.be-register {
   cursor: pointer;
 }
 
-/* 特定のツールアイコンに画像を設定 */
-#pen-tool {
-  background-image: url("/pen-tool.png");
-}
-
-#eraser-tool {
-  background-image: url("/eraser-tool.png");
-}
-
-#select-move-tool {
-  background-image: url("/select-move-tool.png");
-}
-
-#clear-canvas-tool {
-  background-image: url("/clear-canvas-tool.png");
-}
-
 .upper-canvas, .lower-canvas {
   /* 絶対位置指定 */
   position: absolute;
