@@ -1,4 +1,17 @@
-/*カテゴリ用ドロップダウンメニュー*/
+// トップページのカテゴリ別投稿表示
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.creative_filds_block .category-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      if (this.classList.contains('active')) {
+        e.preventDefault();
+        window.location.href = '/toppages'; // 全投稿表示に戻る
+      }
+    });
+  });
+});
+
+
+// カテゴリ用ドロップダウンメニュー
 $('.post-dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
@@ -21,7 +34,7 @@ $('.msg').html(msg + input + '</span>');
 }); 
 
 
-/* ファイルアップロードフォーム */
+// ファイルアップロードフォーム
 $(document).ready(function() {
   var currentImageIndex = 0;
   var images = [];

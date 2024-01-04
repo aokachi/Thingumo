@@ -289,7 +289,6 @@ $(function() {
 	});
 
 	$('.creative_filds_block').on('click','a', function (e) {
-		e.preventDefault();
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
 
@@ -651,7 +650,6 @@ $('.s-color').on('click', function() {
 				}
 			}
 		);};
-
 
 	if($('#slider-range-max').length) {
 		$('.color-i').length && $('.color-i').colorPicker();
