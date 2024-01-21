@@ -7,13 +7,15 @@ class AnswersController < ApplicationController
     @answer.post = @post
     @answer.user = current_user
 
-    if @answer.save
-      redirect_to @post, notice: '回答を送信しました'
+    if check_answer(@answer.text)
+      if @answer.save
+        redirect_to @post, notice: '回答を送信しました'
+      else
+        flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(', ')
+        redirect_to @post
+      end
     else
-      flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(', ')
-      puts "********** ここにエラーメッセージを表示します **********"
-      puts @answer.errors.inspect
-      puts "*********************************************************"
+      flash[:alert] = "回答内容が適切ではありません"
       redirect_to @post
     end
   end
@@ -56,5 +58,16 @@ class AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer).permit(:text)
-  end 
+  end
+
+  def check_answer(text)
+    checker1 = AnswersChecker_1.new
+    return true if checker1.included?(text)
+  
+    checker2 = AnswersChecker_2.new(text)
+    return true if checker2.included?
+  
+    checker3 = AnswersChecker_3.new(text)
+    checker3.included?
+  end  
 end
