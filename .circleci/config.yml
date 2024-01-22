@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: cimg/ruby:2.6.10
         environment:
+          MECAB_PATH: /usr/lib/x86_64-linux-gnu/libmecab.so
           RAILS_ENV: test
           DATABASE_HOST: 127.0.0.1
           DATABASE_USER: root
