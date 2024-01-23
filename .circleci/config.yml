@@ -31,14 +31,16 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
             sudo apt-get install -y nodejs
       - run:
+          name: Install Mecab and Neologd
+          command: |
+            sudo apt-get install -y mecab libmecab-dev mecab-ipadic-utf8
+            git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
+            mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y && \
+            rm -rf mecab-ipadic-neologd
+            sudo sed -i 's|^dicdir.*|dicdir = /usr/lib/mecab/dic/mecab-ipadic-neologd|' /etc/mecabrc
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
-      - run:
-          name: Find Mecab Library
-          command: sudo find / -name libmecab.so
-      - run:
-          name: Check Mecab Library Path
-          command: ls -l /usr/lib/x86_64-linux-gnu/libmecab.so
       - run:
           name: Database setup
           command: |
