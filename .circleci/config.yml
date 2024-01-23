@@ -35,7 +35,7 @@ jobs:
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: Find Mecab Library
-          command: find / -name libmecab.so 2>/dev/null
+          command: find / -name libmecab.so
       - run:
           name: Check Mecab Library Path
           command: ls -l /usr/lib/x86_64-linux-gnu/libmecab.so
