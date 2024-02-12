@@ -838,9 +838,7 @@ span.right { float: right; }
 
 .large-popup-content { position: relative; }
 
-.large-popup .input-signtype { width: 100%; line-height: 45px; border-radius: 2px; border: none; color: #000; padding-left: 15px; margin-bottom: 20px; }
-
-.large-popup .input-signtype::placeholder { color: #adababde !important; }
+.large-popup .input-signtype { width: 100%; line-height: 45px; border-radius: 2px; border: none; color: #000000; padding-left: 15px; margin-bottom: 20px; }
 
 .large-popup span { line-height: 20px; }
 
@@ -895,13 +893,6 @@ span.right { float: right; }
 
 @media screen and (max-width: 991px) { .be-date-block .be-custom-select-block { width: 100%; }
   .large-popup.register .be-popup-sign-button { float: left; } }
-
-@media (max-width: 1199px) {
-  .for-signin {
-    width: 50%;
-    float: right;
-  }
-}
 
 /*=========================================
 	10 - COLOR PICKER
