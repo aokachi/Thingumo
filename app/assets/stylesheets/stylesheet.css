@@ -862,6 +862,13 @@ span.right { float: right; }
 
 .large-popup .input-signtype::placeholder { color: #adababde !important; }
 
+@media screen and (max-width: 767px) {
+    .large-popup .input-signtype {
+      /* モバイル表示時のフォントサイズ（フォームフィールドの自動ズーム対策） */
+      font-size: 16px;
+    }
+  }
+
 .large-popup span { line-height: 20px; }
 
 .large-popup-title { color: #FFF; font-size: 20px; line-height: 18px; padding-left: 35px; margin-bottom: 20px; }
