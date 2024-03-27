@@ -63,11 +63,8 @@ class AnswersController < ApplicationController
   def check_answer(text)
     checker1 = AnswersChecker_1.new
     return true if checker1.included?(text)
-  
+    
     checker2 = AnswersChecker_2.new(text)
-    return true if checker2.included?
-  
-    checker3 = AnswersChecker_3.new(text)
-    checker3.included?
+    checker2.included?
   end  
 end

@@ -80,9 +80,14 @@ gem 'webpacker'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# rspec
+# RSpec
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
+end
+
+# FactoryBot
+group :development, :test do
+  gem 'factory_bot_rails', '~> 5.2.0'
 end
 
 group :development, :test do

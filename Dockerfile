@@ -17,11 +17,11 @@ RUN apt-get update && apt-get install -y mecab libmecab-dev mecab-ipadic-utf8
 
 # Neologdのインストール
 RUN git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
-    mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y && \
+    mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y | tee  neologd-install.log && \
     rm -rf mecab-ipadic-neologd
 
-# Mecabの設定をNeologd辞書に変更
-RUN sed -i 's|^dicdir.*|dicdir = /usr/lib/mecab/dic/mecab-ipadic-neologd|' /etc/mecabrc
+# Mecabの辞書をNeologdに指定
+RUN sed -i 's|^dicdir.*|dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd|' /etc/mecabrc
 
 WORKDIR /thingumo
 
