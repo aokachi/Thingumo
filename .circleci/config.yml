@@ -10,6 +10,7 @@ jobs:
           DATABASE_USER: root
           DATABASE_PASSWORD: circleci
           MYSQL_DATABASE: Thingumo_test
+          MYSQL_DATABASE_TEST: Thingumo_test
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: circleci
