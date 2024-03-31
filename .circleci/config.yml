@@ -4,11 +4,13 @@ jobs:
     docker:
       - image: cimg/ruby:2.6.10
         environment:
+          MECAB_PATH: /usr/lib/x86_64-linux-gnu/libmecab.so
           RAILS_ENV: test
           DATABASE_HOST: 127.0.0.1
           DATABASE_USER: root
           DATABASE_PASSWORD: circleci
           MYSQL_DATABASE: Thingumo_test
+          MYSQL_DATABASE_TEST: Thingumo_test
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: circleci
@@ -30,13 +32,22 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
             sudo apt-get install -y nodejs
       - run:
+          name: Install Mecab and Neologd
+          command: |
+            sudo apt-get install -y mecab libmecab-dev mecab-ipadic-utf8
+            git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git && \
+            mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -n -y && \
+            rm -rf mecab-ipadic-neologd
+            sudo sed -i 's|^dicdir.*|dicdir = /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd|' /etc/mecabrc
+      - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
       - run:
           name: Database setup
           command: |
-            bundle exec rake db:create
-            bundle exec rake db:schema:load
+            bundle exec rake db:create RAILS_ENV=test --trace
+            bundle exec rake db:schema:load RAILS_ENV=test --trace
+            bundle exec rake db:migrate RAILS_ENV=test --trace
       - run:
           name: Run tests
-          command: bundle exec rspec
+          command: bundle exec rspec --format documentation --color

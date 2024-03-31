@@ -127,29 +127,27 @@
 	            <div class="form-group">
 	              <%= form.label :text, "回答", class: 'control-label' %>
 	              <%= form.text_area :text, id: 'answer_content', class: 'form-control-placeholder', placeholder: "回答を入力してください。", rows: 1 %>
-	              <button type="button" id="modal-button">入力候補の中に回答が見つからない場合はこちら</button>
 	              <ul id="search-results"></ul>
 	            </div>
 	            <%= form.submit "送信する", class: "answer-submit-button" %>
 	          <% end %>
-	          <div id="modal" class="modal">
-	            <div class="modal-inner">
-	              <div id="modal-notes">
-	                <h4>回答にあたっての注意事項</h4>
-	                <p>注意事項</p>
+	          <div id="answer-submission-error-modal" class="answer-submission-error-modal">
+	            <div class="answer-submission-error-modal-inner">
+	              <div id="answer-submission-error-modal-notes">
+	                <p>送信に失敗しました。</p>
                 </div>
-                <div class="agree-btn-container">
-	                <button id="agree-button" class="waves-effect waves-green btn-flat btn-spacing">同意する</button>
-	                <button id="disagree-button" class="waves-effect waves-green btn-flat">同意しない</button>
+                <div class="answer-submission-error-modal-return-btn-container">
+	                <button id="answer-submission-error-modal-return-button" class="waves-effect waves-green btn-flat">戻る</button>
 	              </div>
-	              <div id="modal-form" style="display: none;">
-	                <%#= form_with(model: [ @post, @post.special_answers.build ], local: true) do |form| %>
-	                  <div class="field">
-	                    <%#= form.text_area :content, placeholder: "回答を入力して下さい。" %>
-	                    <%#= form.submit "送信する" %>
-	                    <button id="return-button" type="button">戻る</button>
-	                  </div>
-	                <%# end %>
+	            </div>
+	          </div>
+	          <div id="answer-requirements-failed-modal" class="answer-requirements-failed-modal">
+	            <div class="answer-requirements-failed-modal-inner">
+	              <div id="answer-requirements-failed-modal-notes">
+	                <p>入力した内容は送信できません。</p>
+                </div>
+                <div class="answer-requirements-failed-modal-return-btn-container">
+	                <button id="answer-requirements-failed-modal-return-button" class="waves-effect waves-green btn-flat">戻る</button>
 	              </div>
 	            </div>
 	          </div>

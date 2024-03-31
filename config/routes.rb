@@ -29,4 +29,7 @@ Rails.application.routes.draw do
 
   # 正解を選択
   post '/answers/confirm', to: 'answers#confirm'
+
+  # 回答の入力チェック機能
+  post '/answers/check', to: 'answers#check_answer'
 end

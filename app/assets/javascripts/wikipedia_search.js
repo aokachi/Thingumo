@@ -1,3 +1,4 @@
+/* 入力サジェスト機能にWikipediaのAPIを使用する場合に使用 */
 $(document).ready(function() {
   var textArea = $('#answer_content');
   textArea.on('input', function() {
