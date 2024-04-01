@@ -14,6 +14,14 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :answers, dependent: :destroy
 
+  # 管理者かどうか返すメソッド
+  class User < ApplicationRecord
+    def admin?
+      self.admin
+    end
+  end
+
+  # ユーザーの持ち点数を返すメソッド
   def award_points(points)
     self.total_points += points
     self.save
