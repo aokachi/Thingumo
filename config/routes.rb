@@ -32,4 +32,7 @@ Rails.application.routes.draw do
 
   # 回答の入力チェック機能
   post '/answers/check', to: 'answers#check_answer'
+
+  # 保留中回答一覧確認画面
+  get 'pending_answers', to: 'answers#pending', as: 'pending_answers'
 end
