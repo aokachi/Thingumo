@@ -26,6 +26,10 @@
             <div class="be-post-title">
               <!--質問のタイトルを表示-->
               <p><%= @post.title %></p>
+              <!--管理者アカウントでログインしている場合は、削除ボタンを表示する-->
+              <% if admin? %>
+                <%= link_to '削除', post_path(@post), method: delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-post-button' %>
+              <% end %>
             </div>
             <div class="clear"></div>
             <div class="post-text">
