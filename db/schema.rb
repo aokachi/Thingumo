@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_31_180317) do
+ActiveRecord::Schema.define(version: 2024_04_03_062908) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "text"
@@ -50,20 +50,20 @@ ActiveRecord::Schema.define(version: 2024_03_31_180317) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.integer "sex"
-    t.date "birthday"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.integer "sex", null: false
+    t.date "birthday", null: false
     t.string "avatar"
     t.text "self_introduction"
-    t.bigint "total_points"
+    t.bigint "total_points", null: false
     t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
+    t.boolean "admin", null: false
   end
 
 end
