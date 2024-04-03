@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_03_062908) do
+ActiveRecord::Schema.define(version: 2024_04_03_074127) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.text "text"
-    t.bigint "user_id"
-    t.bigint "post_id"
-    t.boolean "is_selected_correct_answer", default: false
-    t.boolean "points_awarded"
+    t.text "text", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.boolean "is_selected_correct_answer", default: false, null: false
+    t.boolean "points_awarded", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "pending", default: false, null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
