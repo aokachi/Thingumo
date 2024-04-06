@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :pending]
+  before_action :authenticate_admin!, only: [:pending]
   
   def create
     @post = Post.find(params[:post_id])
@@ -52,12 +53,24 @@ class AnswersController < ApplicationController
   
     # ⑧処理が終了したらモーダルにメッセージを表示する。
     render json: { message: '回答が正解として確認されました。' }
-  end 
+  end
+
+  def pending
+    # 保留中の回答を含む投稿を取得する
+    @posts_with_pending_answers = Post.joins(:answers).where(answers: {pending: true}).distinct
+    render :pending_answers
+  end
 
   private
 
   def answer_params
     params.require(:answer).permit(:text)
+  end
+
+  def authenticate_admin!
+    unless current_user&.admin?
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def check_answer(text)
