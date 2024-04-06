@@ -1,6 +1,7 @@
 class AnswersChecker_2
-  def initialize(text)
+  def initialize(text, answer)
     @text = text
+    @answer = answer
     begin
       # Neologd辞書を用いてNatto::MeCabのインスタンスを生成
       @nm = Natto::MeCab.new('-d /usr/lib/x86_64-linux-gnu/mecab/dic/mecab-ipadic-neologd')
@@ -48,6 +49,11 @@ class AnswersChecker_2
 
       # 最終的な解析結果をログに出力
       Rails.logger.info "形態素解析の最終結果、#{@text}は#{noun_found ? '名詞を含む' : '名詞を含まない'}"
+
+      unless noun_found
+        @answer.update(pending: true)
+        Rails.logger.info "回答が名詞を含まないため、pendingカラムをtrueに更新しました。"
+      end
 
       # 名詞が見つかったかどうかの結果を返す
       noun_found

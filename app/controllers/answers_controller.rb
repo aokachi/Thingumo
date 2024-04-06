@@ -64,7 +64,7 @@ class AnswersController < ApplicationController
     checker1 = AnswersChecker_1.new
     return true if checker1.included?(text)
     
-    checker2 = AnswersChecker_2.new(text)
+    checker2 = AnswersChecker_2.new(text, @answer)
     checker2.included?
   end  
 end
