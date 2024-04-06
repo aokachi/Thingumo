@@ -1,4 +1,4 @@
-<% @answers.each do |answer| %>
+<% @answers.where(pending: false).each do |answer| %>
   <div class="be-answer-list">
     <div class="be-answer-stamp">
       <% if answer.points_awarded %>
