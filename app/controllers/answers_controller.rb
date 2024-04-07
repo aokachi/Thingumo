@@ -57,7 +57,12 @@ class AnswersController < ApplicationController
 
   def pending
     # 保留中の回答を含む投稿を取得する
-    @posts_with_pending_answers = Post.joins(:answers).where(answers: {pending: true}).distinct
+    @posts_with_pending_answers = Post.joins(:answers)
+                                  .where(answers: {pending: true})
+                                  .select('posts.*, MAX(answers.created_at) AS latest_answer_created_at')
+                                  .group('posts.id')
+                                  .order('latest_answer_created_at DESC')
+                                  .page(params[:page])
     render :pending_answers
   end
 
