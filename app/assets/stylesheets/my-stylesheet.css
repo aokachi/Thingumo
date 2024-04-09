@@ -998,3 +998,19 @@ a.be-register {
   z-index: 1; /* サムネイル画像より低い値に設定 */
   cursor: pointer; /* マウスカーソルをポインタに変更 */
 }
+
+/* 保留中回答一覧確認画面 */
+.container-pending-answers {
+  display: flex;
+  justify-content:center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.pending_answers_page_title {
+  margin-top: 20px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
