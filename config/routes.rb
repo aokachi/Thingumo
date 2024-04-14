@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
 
   resources :posts do
-    resources :answers, only:[:create, :destroy]
+    resources :answers
   end
 
   # 問い合わせ機能

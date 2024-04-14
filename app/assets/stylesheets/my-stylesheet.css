@@ -328,6 +328,19 @@ span.choose {
 }
 
 
+/* 投稿詳細ページの保留中回答の削除ボタン（管理者ユーザーのみ） */
+.delete-answer-btn {
+  font-size: 12px;
+  width: 80px;
+  height: 30px;
+  background-color: red;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
 /* 投稿詳細ページのいいね/回答数の欄 */
 .number-of-views-and-answers { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
@@ -816,10 +829,15 @@ a.be-register {
   justify-content: flex-end;
 }
 
-#confirm-correct-answer-btn {
+.confirm-correct-answer-btn {
   font-size: 12px;
   width: 80px;
   height: 30px;
+  background-color: blue;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 #correct-answer-confirmation-modal {

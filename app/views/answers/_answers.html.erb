@@ -1,4 +1,5 @@
-<% @answers.where(pending: false).each do |answer| %>
+<% scope = admin? ? @answers : @answers.where(pending: false) %>
+<% scope.each do |answer| %>
   <div class="be-answer-list">
     <div class="be-answer-stamp">
       <% if answer.points_awarded %>
@@ -26,8 +27,14 @@
     </div>
   </div>
   <div class="confirm-correct-answer-btn-container">
-    <% if current_user.id == @post.user_id %>
+    <% if current_user.id == @post.user_id && !answer.pending %>
       <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
+    <% end %>
+    <% if admin? && answer.pending %>
+      <%= button_to '削除', post_answer_path(post_id: answer.post_id, id: answer.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-answer-btn', id: "delete-answer-btn-#{answer.id}" %>
+    <% end %>
+    <% if admin? && current_user.id == @post.user_id && answer.pending %>
+      <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn" style="margin-left: 30px;">これが正解</button>
     <% end %>
   </div>
   <div id="correct-answer-confirmation-modal-<%= answer.id %>" class="modal">
