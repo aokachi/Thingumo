@@ -328,19 +328,6 @@ span.choose {
 }
 
 
-/* 投稿詳細ページの保留中回答の削除ボタン（管理者ユーザーのみ） */
-.delete-answer-btn {
-  font-size: 12px;
-  width: 80px;
-  height: 30px;
-  background-color: red;
-  border-radius: 15px;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-
 /* 投稿詳細ページのいいね/回答数の欄 */
 .number-of-views-and-answers { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
@@ -821,6 +808,75 @@ a.be-register {
 }
 
 
+/*
+  プロフィールページのポイント数表示部
+*/
+.be-user-points {
+  position: relative;
+  padding: 20px 30px;
+  border: 1px solid #edeff2;
+  /* be-user-pointsとbe-desc-blockの間のスペース */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.be-user-points .be-desc-label {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.be-user-points .be-desc-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/*
+投稿作成ページ
+*/
+.form-group-post-new-title-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-text-input {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-image-upload {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.form-group-post-new-category-select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-submit-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-post-new-back-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.fa-cloud-upload {
+  z-index: 1; /* サムネイル画像より低い値に設定 */
+  cursor: pointer; /* マウスカーソルをポインタに変更 */
+}
+
+
+/* 
+==================================
+	XX - 投稿詳細ページ
+==================================
+*/
 /* 正解選択用モーダル&ボタン */
 .confirm-correct-answer-btn-container {
   width: 100%;
@@ -829,14 +885,29 @@ a.be-register {
   justify-content: flex-end;
 }
 
+/* 「これが正解」ボタン */
 .confirm-correct-answer-btn {
+  background-color: green;
+}
+
+/* 保留中回答の削除ボタン（管理者ユーザーのみ） */
+.delete-answer-btn {
+  background-color: red;
+}
+
+/* 保留中回答の承認ボタン（管理者ユーザーのみ） */
+.approve-answer-btn {
+  background-color: blue;
+}
+
+/* 「これが正解」ボタン、承認ボタン、削除ボタンの共通スタイル */
+.confirm-correct-answer-btn, .delete-answer-btn, .approve-answer-btn {
   font-size: 12px;
   width: 80px;
   height: 30px;
-  background-color: blue;
-  border-radius: 15px;
   color: white;
   border: none;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -954,70 +1025,12 @@ a.be-register {
   cursor: pointer;
 }
 
-/*
-  プロフィールページのポイント数表示部
+
+/* 
+==================================
+	XX - 保留中回答一覧確認画面
+==================================
 */
-.be-user-points {
-  position: relative;
-  padding: 20px 30px;
-  border: 1px solid #edeff2;
-  /* be-user-pointsとbe-desc-blockの間のスペース */
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.be-user-points .be-desc-label {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.be-user-points .be-desc-text {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-}
-
-/*
-投稿作成ページ
-*/
-.form-group-post-new-title-input {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group-post-new-text-input {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group-post-new-image-upload {
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-.form-group-post-new-category-select {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group-post-new-submit-button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group-post-new-back-button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.fa-cloud-upload {
-  z-index: 1; /* サムネイル画像より低い値に設定 */
-  cursor: pointer; /* マウスカーソルをポインタに変更 */
-}
-
-/* 保留中回答一覧確認画面 */
 .container-pending-answers {
   display: flex;
   justify-content:center;

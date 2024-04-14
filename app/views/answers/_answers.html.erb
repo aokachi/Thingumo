@@ -31,10 +31,13 @@
       <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
     <% end %>
     <% if admin? && answer.pending %>
+      <% if current_user.id == @post.user_id %>
+        <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
+        <span style="width: 30px; display: inline-block;"></span>
+      <% end %>
+      <%= button_to '承認', approve_answer_path(answer), method: :patch, class: 'approve-answer-btn', id: "approve-answer-btn-#{answer.id}" %>
+      <span style="width: 30px; display: inline-block;"></span>
       <%= button_to '削除', post_answer_path(post_id: answer.post_id, id: answer.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-answer-btn', id: "delete-answer-btn-#{answer.id}" %>
-    <% end %>
-    <% if admin? && current_user.id == @post.user_id && answer.pending %>
-      <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn" style="margin-left: 30px;">これが正解</button>
     <% end %>
   </div>
   <div id="correct-answer-confirmation-modal-<%= answer.id %>" class="modal">
