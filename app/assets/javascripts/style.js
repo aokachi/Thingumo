@@ -110,3 +110,51 @@ $(document).ready(function() {
     navigator.sendBeacon('/posts/cleanup_temp_files');
   });  
 });
+
+/*===================*/
+/* XX - 投稿詳細ページ  */
+/*===================*/
+/* 「これが正解」ボタンを押下した際の非同期リクエスト */
+document.addEventListener("DOMContentLoaded", function() {
+  const confirmButtons = document.querySelectorAll('.confirm-correct-answer-btn');
+  confirmButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const answerId = this.id.split('-')[4];
+      const modal = document.getElementById(`correct-answer-confirmation-modal-${answerId}`);
+      const confirmBtn = modal.querySelector('.confirm-answer-btn');
+      const cancelBtn = modal.querySelector('.cancel-answer-btn');
+
+      modal.style.display = "flex";
+
+      confirmBtn.addEventListener('click', function confirmAction() {
+        fetch(`/posts/${modal.dataset.postId}/answers/${answerId}/confirm`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
+          }
+        }).then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("選択した回答を正解として登録しました。");
+            const stampElement = button.closest('.be-answer-list').querySelector('.be-answer-stamp');
+            const medalImage = document.createElement('img');
+            medalImage.src = "medal.png";
+            stampElement.appendChild(medalImage);
+            modal.style.display = "none";
+          } else {
+            alert(data.error || '登録に失敗しました。');
+          }
+        }).catch(error => {
+          console.error('Error:', error);
+          alert('登録に失敗しました。');
+        });
+      }, {once: true});
+
+      cancelBtn.addEventListener('click', function() {
+        modal.style.display = "none";
+      }, {once: true});
+    });
+  });
+});

@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :pending]
-  before_action :authenticate_admin!, only: [:pending]
+  before_action :authenticate_admin!, only: [:pending, :destroy, :approve]
   
   def create
     @post = Post.find(params[:post_id])
@@ -10,9 +10,9 @@ class AnswersController < ApplicationController
 
     if check_answer(@answer.text)
       if @answer.save
-        redirect_to @post, notice: '回答を送信しました'
+        redirect_to @post, notice: "回答を送信しました"
       else
-        flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(', ')
+        flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(", ")
         redirect_to @post
       end
     else
@@ -22,48 +22,97 @@ class AnswersController < ApplicationController
   end
 
   def confirm
-    # どの質問か
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    ActiveRecord::Base.transaction do
+      post_id = params[:post_id]
+      @post = Post.find(post_id)
+      answer_id = params[:id]
+      @answer = Answer.find(answer_id)
+      @user = @answer.user
   
-    # どの回答(answer)か
-    answer_id = params[:answer_id]
-    @answer = Answer.find(answer_id)
+      # 処理1: postsテーブルのconfirmed_atカラムに処理を実施した日時を保存する。
+      if @post.update(confirmed_at: Time.now)
+        Rails.logger.info("処理実施日時の保存に成功。")
+      else
+        Rails.logger.error("処理実施日時の保存に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # 当該回答をしたユーザーは誰か
-    @user = @answer.user
+      # 処理2: postsテーブルのis_resolvedカラムに"true"の値を入れる。
+      if @post.update(is_resolved: true)
+        Rails.logger.info("is_resolvedカラムの値の変更に成功。")
+      else
+        Rails.logger.error("is_resolvedカラムの値の変更に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # ①"confirm-answer-btn"を押した日時のタイムスタンプを保存する。
-    @post.update(confirmed_at: Time.now)
+      # 処理3: answersテーブルのis_selected_correct_answerカラムに"true"の値を入れる。
+      if @answer.update(is_selected_correct_answer: true)
+        Rails.logger.info("is_selected_correct_answerカラムの値の変更に成功。")
+      else
+        Rails.logger.error("is_selected_correct_answerカラムの値の変更に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # ②Postsテーブルの"is_resolved"カラムに"true"の値を入れる。
-    @post.update(is_resolved: true)
+      # 処理4: postsテーブルの"resolved_user_id"カラムに、対象のユーザーのusersテーブルのidを入れる。
+      if @post.update(resolved_user_id: @user.id)
+        Rails.logger.info("resolved_user_idカラムの値の変更に成功。")
+      else
+        Rails.logger.error("resolved_user_idカラムの値の変更に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # ③Answersテーブルの"is_selected_correct_answer"カラムに"true"の値を入れる。
-    @answer.update(is_selected_correct_answer: true)
+      # 処理5: "resolved_user_id"カラムに入ったidをもとに、対象のユーザーのusersテーブルの"total_points"カラムに"10"の値を追加する。
+      if @user.increment!(:total_points, 10)
+        Rails.logger.info("得点の追加に成功。")
+      else
+        Rails.logger.error("得点の追加に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # ④Postsテーブルの"resolved_user_id"カラムにUsersテーブルの対象のユーザー（選ばれたanswerをしたユーザー）のidを入れる。
-    @post.update(resolved_user_id: @user.id)
+      # 処理6: answersテーブルの"points_awarded"カラムに"true"の値を入れる。
+      if @answer.update(points_awarded: true)
+        Rails.logger.info("points_awardedカラムの値の変更に成功。")
+      else
+        Rails.logger.error("points_awardedカラムの値の変更に失敗。")
+        raise ActiveRecord::Rollback
+      end
   
-    # ⑤"resolved_user_id"カラムに入ったidをもとに、Usersテーブルの対象のユーザーの"total_points"カラムに"10"の値を追加する。
-    @user.increment!(:total_points, 10)
-  
-    # ⑦Answersテーブルの"points_awarded"カラムに"true"の値を入れる。
-    @answer.update(points_awarded: true)
-  
-    # ⑧処理が終了したらモーダルにメッセージを表示する。
-    render json: { message: '回答が正解として確認されました。' }
+      # 処理が全て成功したら、成功メッセージをクライアントに送信する。
+      render json: { success: true }
+    end
+  rescue ActiveRecord::Rollback
+    # トランザクションのロールバックが発生した場合はエラーメッセージをクライアントに送信する。
+    render json: { success: false, error: "登録に失敗しました。" }, status: :unprocessable_entity
   end
 
   def pending
     # 保留中の回答を含む投稿を取得する
     @posts_with_pending_answers = Post.joins(:answers)
                                   .where(answers: {pending: true})
-                                  .select('posts.*, MAX(answers.created_at) AS latest_answer_created_at')
-                                  .group('posts.id')
-                                  .order('latest_answer_created_at DESC')
+                                  .select("posts.*, MAX(answers.created_at) AS latest_answer_created_at")
+                                  .group("posts.id")
+                                  .order("latest_answer_created_at DESC")
                                   .page(params[:page])
     render :pending_answers
+  end
+
+  # 保留中の回答を承認するアクション
+  def approve
+    answer = Answer.find(params[:id])
+    answer.update(pending: false)
+    redirect_to post_path(answer.post), notice: "回答を承認しました。"
+  end
+  
+  # 保留中の回答を削除するアクション
+  def destroy
+    answer = Answer.find(params[:id])
+    if answer.destroy
+      flash[:notice] = "回答を削除しました。"
+      redirect_to request.referer || post_path
+    else
+      flash[:alert] = "削除に失敗しました。"
+      redirect_to request.referer || post_path
+    end
   end
 
   private
