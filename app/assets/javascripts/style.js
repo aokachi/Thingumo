@@ -120,14 +120,14 @@ document.addEventListener("DOMContentLoaded", function() {
   confirmButtons.forEach(button => {
     button.addEventListener('click', function(e) {
       e.preventDefault();
-      const answerId = this.id.split('-')[4];
+      const answerId = this.dataset.answerId;
       const modal = document.getElementById(`correct-answer-confirmation-modal-${answerId}`);
       const confirmBtn = modal.querySelector('.confirm-answer-btn');
       const cancelBtn = modal.querySelector('.cancel-answer-btn');
 
       modal.style.display = "flex";
 
-      confirmBtn.addEventListener('click', function confirmAction() {
+      confirmBtn.addEventListener('click', function() {
         fetch(`/posts/${modal.dataset.postId}/answers/${answerId}/confirm`, {
           method: 'POST',
           headers: {
@@ -138,17 +138,15 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
           if (data.success) {
             alert("選択した回答を正解として登録しました。");
-            const stampElement = button.closest('.be-answer-list').querySelector('.be-answer-stamp');
-            const medalImage = document.createElement('img');
-            medalImage.src = "medal.png";
-            stampElement.appendChild(medalImage);
-            modal.style.display = "none";
+            location.reload();
           } else {
             alert(data.error || '登録に失敗しました。');
           }
         }).catch(error => {
           console.error('Error:', error);
           alert('登録に失敗しました。');
+        }).finally(() => {
+          modal.style.display = "none";
         });
       }, {once: true});
 

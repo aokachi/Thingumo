@@ -28,7 +28,7 @@
   </div>
   <div class="confirm-correct-answer-btn-container">
     <% if current_user.id == @post.user_id && !answer.pending %>
-      <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
+      <button class="confirm-correct-answer-btn" data-answer-id="<%= answer.id %>" data-post-id="<%= @post.id %>">これが正解</button>
     <% end %>
     <% if admin? && answer.pending %>
       <% if current_user.id == @post.user_id %>

@@ -914,15 +914,16 @@ a.be-register {
 #correct-answer-confirmation-modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1050;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.4);
-  justify-content: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .correct-answer-confirmation-modal-inner {
@@ -933,11 +934,17 @@ a.be-register {
   background-color: #fefefe;
   padding: 40px 20px;
   border: 1px solid #888;
-  width: 500px;
-  height: 200px;
+  width: 35%;
+  height: 25%;
   overflow-y: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-content {
