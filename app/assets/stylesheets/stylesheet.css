@@ -720,11 +720,11 @@ footer p a { color: #0d58c8; text-decoration: underline; }
 
 footer p a:hover { color: #fff; text-decoration: none; }
 
-.footer-main { padding: 46px 0; border-bottom: 1px solid #2e3542; }
+.footer-top { padding: 20px 0; border-bottom: 1px solid #2e3542; display: flex; }
 
 .footer-title { color: #FFF; font-size: 14px; font-family: 'Conv_helveticaneuecyr-bold'; margin-bottom: 20px; }
 
-footer p { line-height: 20px; color: #5d6372; font-size: 13px; margin-bottom: 20px; }
+footer p { line-height: 20px; color: #5d6372; font-size: 13px; margin-top: 5px; margin-bottom: 5px; }
 
 .soc_buttons > li { color: #FFF; background: transparent; font-size: 15px; border-radius: 3px; text-align: center; width: 35px; height: 35px; display: inline-block; cursor: pointer; position: relative; margin-right: 5px; margin-bottom: 5px; border: 1px solid #414856; }
 
@@ -790,17 +790,17 @@ span.left { text-align: left; }
 
 span.right { float: right; }
 
-.footer-end { width: 100%; overflow: hidden; color: #5d6372; font-size: 12px; }
+.footer-end { width: 100%; height: 100%; overflow: hidden; color: #5d6372; font-size: 12px; }
 
 .footer-bottom { font-size: 13px; line-height: 18px; font-weight: 400; }
 
-.footer-bottom .footer-end { padding: 16.5px 0px; }
+.footer-bottom .footer-end { padding: 8px 0px; }
 
 .footer-bottom .left { float: left; }
 
 .footer-bottom .right { float: right; }
 
-.footer-bottom .copy { display: inline-block; margin-top: 8px; margin-right: 18px; }
+.footer-bottom .copy { display: inline-block; margin-top: 10px; margin-right: 18px; }
 
 .footer-bottom .created { display: inline-block; margin-top: 8px; font-size: 12px; }
 
@@ -814,7 +814,7 @@ span.right { float: right; }
   footer .galerry { margin-bottom: 15px; }
   footer .soc-activity { margin-bottom: 20px; }
   .footer-block { margin-bottom: 20px; }
-  .footer-main div[class^="col-"]:last-child .footer-block { margin-bottom: 0px; }
+  .footer-top div[class^="col-"]:last-child .footer-block { margin-bottom: 0px; }
   .footer-bottom .left, .footer-bottom .right { float: none; }
   .footer-end .left { margin-bottom: 15px; }
   .footer-end .right .btn { margin-left: 0px; margin-right: 10px; margin-bottom: 10px; } }

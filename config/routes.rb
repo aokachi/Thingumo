@@ -32,4 +32,10 @@ Rails.application.routes.draw do
 
   # 回答の入力チェック機能
   post '/answers/check', to: 'answers#check_answer'
+
+  # プライバシーポリシーを表示する
+  get 'privacy_policy', to: 'privacy_policies#show'
+
+  # 利用規約を表示する
+  get 'term_of_service', to: 'terms_of_service#show'
 end

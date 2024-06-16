@@ -1,0 +1,163 @@
+<div class="be-loader">
+	<div class="spinner">
+		<img src="/assets/logo-loader.png" alt="">
+		<p class="circle">
+			<span class="ouro">
+				<span class="left"><span class="anim"></span></span>
+				<span class="right"><span class="anim"></span></span>
+			</span>
+		</p>
+	</div>
+</div>
+
+<!-- プライバシーポリシー -->
+<div id="content-block" class="work-box">
+	<div class="editor-menu">
+		<div class="container">
+			<div class="buttons-navbar">
+			</div>
+		</div>
+	</div>
+
+	<div class="work-area">
+		<div class="container be-detail-container">
+			<div class="row">
+				<!--<div class="col-xs-12 col-md-9 _editor-content_">-->
+				<div class="_editor-content_ justify-content-center">
+					<div class="sec" data-sec="basic-information">
+						<div class="be-large-post large-area">
+							<div class="info-block style-2">
+								<div class="be-large-post-align ">
+									<h3 class="info-block-label">プライバシーポリシー</h3>
+								</div>
+							</div>
+							<div class="be-large-post-align">
+								<div class="privacypolicy-textarea">
+									<h2><%= safe_join(@privacy_policy.Chapter1.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter1_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter2.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter2_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter3.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter3_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter4.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter4_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter5.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter5_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter6.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter6_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter7.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter7_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter8.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter8_body.split("\n"), tag(:br)) %></p>
+									<h2><%= safe_join(@privacy_policy.Chapter9.split("\n"), tag(:br)) %></h2>
+										<p><%= safe_join(@privacy_policy.Chapter9_body.split("\n"), tag(:br)) %></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="be-fixed-filter"></div>
+
+<div class="large-popup login">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">ログイン</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+					<div class="col-md-6">
+						<%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
+						<%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
+					</div>
+					<div class="col-xs-6 for-signin">
+						<%= f.submit 'ログイン', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="large-popup register">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">アカウント作成</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'new_user' }) do |f| %>
+					<div class="col-md-6">
+						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+					</div>
+					<div class=" col-md-6">
+						<%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<%= f.label :sex, '性別'%>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
+						</div>
+					</div>
+					<div class="col-md-6 be-date-block">
+						<div class="form-group">
+							<%= f.label :birthday, '生年月日' %>
+							<%= f.date_field :birthday, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="col-md-6 for-signin">
+						<%= f.submit '登録する', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
+		</div>
+	</div>
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/jquery-ui.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/colors.js"></script>
+<script src="/assets/jqColorPicker.js"></script>
+<script src="/assets/my-style.js"></script>
+<script src="/assets/fabric.js"></script>
+<script src="/assets/handwrite-image.js"></script>
+<!--<script src="/assets/global.js"></script>-->
