@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/privacy_policy'
+  get 'static_pages/term_of_service'
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -34,8 +36,8 @@ Rails.application.routes.draw do
   post '/answers/check', to: 'answers#check_answer'
 
   # プライバシーポリシーを表示する
-  get 'privacy_policy', to: 'privacy_policies#show'
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   # 利用規約を表示する
-  get 'term_of_service', to: 'terms_of_service#show'
+  get 'term_of_service', to: 'static_pages#term_of_service'
 end

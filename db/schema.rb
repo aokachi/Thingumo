@@ -50,37 +50,6 @@ ActiveRecord::Schema.define(version: 2024_06_16_161151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "privacy_policies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.text "Chapter1"
-    t.text "Chapter2"
-    t.text "Chapter3"
-    t.text "Chapter4"
-    t.text "Chapter5"
-    t.text "Chapter6"
-    t.text "Chapter7"
-    t.text "Chapter8"
-    t.text "Chapter9"
-    t.text "Chapter10"
-    t.text "Chapter1_body"
-    t.text "Chapter2_body"
-    t.text "Chapter3_body"
-    t.text "Chapter4_body"
-    t.text "Chapter5_body"
-    t.text "Chapter6_body"
-    t.text "Chapter7_body"
-    t.text "Chapter8_body"
-    t.text "Chapter9_body"
-    t.text "Chapter10_body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "term_of_services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false

@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-<!-- プライバシーポリシー -->
+<!-- 利用規約の表示ページ -->
 <div id="content-block" class="work-box">
 	<div class="editor-menu">
 		<div class="container">
@@ -22,35 +22,44 @@
 	<div class="work-area">
 		<div class="container be-detail-container">
 			<div class="row">
-				<!--<div class="col-xs-12 col-md-9 _editor-content_">-->
 				<div class="_editor-content_ justify-content-center">
 					<div class="sec" data-sec="basic-information">
 						<div class="be-large-post large-area">
 							<div class="info-block style-2">
-								<div class="be-large-post-align ">
-									<h3 class="info-block-label">プライバシーポリシー</h3>
+								<div class="be-large-content-align ">
+									<h1 class="info-block-label">利用規約</h1>
 								</div>
 							</div>
-							<div class="be-large-post-align">
-								<div class="privacypolicy-textarea">
-									<h2><%= safe_join(@privacy_policy.Chapter1.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter1_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter2.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter2_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter3.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter3_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter4.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter4_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter5.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter5_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter6.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter6_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter7.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter7_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter8.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter8_body.split("\n"), tag(:br)) %></p>
-									<h2><%= safe_join(@privacy_policy.Chapter9.split("\n"), tag(:br)) %></h2>
-										<p><%= safe_join(@privacy_policy.Chapter9_body.split("\n"), tag(:br)) %></p>
+							<div class="be-large-content-align">
+								<div class="term_of_service-textarea">
+									<p>この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。</p>
+									<h3>第1条（適用）</h3>
+									  <ol class="term_of_service_list">
+											<li>本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。</li>
+											<li>当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。</li>
+											<li>本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。</li>
+										</ol>
+									<h3>第2条（利用登録）</h3>
+									  <ol class="term_of_service_list">
+											<li>本サービスにおいては，登録希望者が本規約に同意の上，当社の定める方法によって利用登録を申請し，当社がこの承認を登録希望者に通知することによって，利用登録が完了するものとします。</li>
+											<li>当社は，利用登録の申請者に以下の事由があると判断した場合，利用登録の申請を承認しないことがあり，その理由については一切の開示義務を負わないものとします。</li>
+										</ol>
+										<ol class="term_of_service_list_2">
+											<li>利用登録の申請に際して虚偽の事項を届け出た場合</li>
+											<li>本規約に違反したことがある者からの申請である場合</li>
+											<li>その他，当社が利用登録を相当でないと判断した場合</li>
+										</ol>
+									<h3>第3条（ユーザーIDおよびパスワードの管理）</h3>
+										<ol class="term_of_service_list">
+											<li>ユーザーは、自己の責任において、本サービスのユーザーIDおよびパスワードを適切に管理するものとします。</li>
+											<li>ユーザーは、いかなる場合にも、ユーザーIDおよびパスワードを第三者に譲渡または貸与し、もしくは第三者と共用することはできません。当社は、ユーザーIDとパスワードの組み合わせが登録情報と一致してログインされた場合には、そのユーザーIDを登録しているユーザー自身による利用とみなします。</li>
+											<li>ユーザーID及びパスワードが第三者によって使用されたことによって生じた損害は、当社に故意又は重大な過失がある場合を除き、当社は一切の責任を負わないものとします。</li>
+										</ol>
+									<h3>第4条（利用料金および支払方法）</h3>
+										<ol class="term_of_service_list">
+											<li>ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。</li>
+											<li>ユーザーが利用料金の支払を遅滞した場合には、ユーザーは年14.6%の割合による遅延損害金を支払うものとします。</li>
+										</ol>
 								</div>
 							</div>
 						</div>

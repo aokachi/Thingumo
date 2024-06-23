@@ -434,7 +434,7 @@ $(function() {
 	$("a.add_section").on("click",function(){
 
 		$(".creative_filds_block ul").append("<li><a href='#"+post_id+"'>New section</a>");
-		$("._editor-content_").append('<div class="affix-block" id="'+post_id+'"><div class="be-large-post"><div class="info-block style-2"><div class="be-large-post-align"><h3 class="info-block-label">New section</h3></div><i class="fa fa-times close-w"></i></div><div class="be-large-post-align"><div class="row"><div class="input-col col-xs-12"><div class="form-group focus-2"><div class="form-label">Section Title</div><input class="form-input" type="text" placeholder="About Me"></div></div><div class="input-col col-xs-12"><div class="form-group focus-2"><div class="form-label">Description</div><textarea class="form-input" required="" placeholder="Something about you"></textarea></div></div></div></div></div></div>');
+		$("._editor-content_").append('<div class="affix-block" id="'+post_id+'"><div class="be-large-post"><div class="info-block style-2"><div class="be-large-content-align"><h3 class="info-block-label">New section</h3></div><i class="fa fa-times close-w"></i></div><div class="be-large-content-align"><div class="row"><div class="input-col col-xs-12"><div class="form-group focus-2"><div class="form-label">Section Title</div><input class="form-input" type="text" placeholder="About Me"></div></div><div class="input-col col-xs-12"><div class="form-group focus-2"><div class="form-label">Description</div><textarea class="form-input" required="" placeholder="Something about you"></textarea></div></div></div></div></div></div>');
 		$("#scrollspy li a[href^='#']").on('click', function(e) {
 		   e.preventDefault();
 		   var hash = this.hash;
