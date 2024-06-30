@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
   # カテゴリ選択時
   get 'toppages', to: 'toppages#index'
@@ -14,24 +13,22 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :users, except: [:index, :new]
-  resources :posts, except: [:index]
   resources :categories, only: [:index]
 
-  resources :posts do
-    resources :answers, only:[:create, :destroy]
+  resources :posts, except: [:index] do
+    resources :answers, only: [:create, :destroy] do
+      member do
+        post 'confirm'
+      end
+    end
   end
 
   # 問い合わせ機能
   resources :inquiries, only: [:new, :create]
 
-  # 回答機能
-  resources :answers, only: [] do
-    resources :answers, only: [:create, :destroy], module: :answers
-  end
+  # 保留中回答一覧確認画面
+  get 'pending_answers', to: 'answers#pending', as: 'pending_answers'
 
-  # 正解を選択
-  post '/answers/confirm', to: 'answers#confirm'
-
-  # 回答の入力チェック機能
-  post '/answers/check', to: 'answers#check_answer'
+  # 保留中の回答を承認する
+  patch '/answers/:id/approve', to: 'answers#approve', as: 'approve_answer'
 end

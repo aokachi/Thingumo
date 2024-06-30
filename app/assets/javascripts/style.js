@@ -1,17 +1,4 @@
-// トップページのカテゴリ別投稿表示
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.creative_filds_block .category-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      if (this.classList.contains('active')) {
-        e.preventDefault();
-        window.location.href = '/toppages'; // 全投稿表示に戻る
-      }
-    });
-  });
-});
-
-
-// カテゴリ用ドロップダウンメニュー
+/*カテゴリ用ドロップダウンメニュー*/
 $('.post-dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
@@ -34,7 +21,7 @@ $('.msg').html(msg + input + '</span>');
 }); 
 
 
-// ファイルアップロードフォーム
+/* ファイルアップロードフォーム */
 $(document).ready(function() {
   var currentImageIndex = 0;
   var images = [];
@@ -124,75 +111,48 @@ $(document).ready(function() {
   });  
 });
 
+/*===================*/
+/* XX - 投稿詳細ページ  */
+/*===================*/
+/* 「これが正解」ボタンを押下した際の非同期リクエスト */
+document.addEventListener("DOMContentLoaded", function() {
+  const confirmButtons = document.querySelectorAll('.confirm-correct-answer-btn');
+  confirmButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const answerId = this.dataset.answerId;
+      const modal = document.getElementById(`correct-answer-confirmation-modal-${answerId}`);
+      const confirmBtn = modal.querySelector('.confirm-answer-btn');
+      const cancelBtn = modal.querySelector('.cancel-answer-btn');
 
-// 「カテゴリから選択」ボタンの動作の設定
-document.addEventListener('DOMContentLoaded', function() {
-  const toggleButton = document.getElementById('category-toggle-button');
-  const categoryList = document.querySelector('.creative_filds_block');
+      modal.style.display = "flex";
 
-  // スライドダウン時の高さの設定
-  function slideDown(target, duration = 500) {
-    target.style.removeProperty('display');
-    let display = window.getComputedStyle(target).display;
+      confirmBtn.addEventListener('click', function() {
+        fetch(`/posts/${modal.dataset.postId}/answers/${answerId}/confirm`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
+          }
+        }).then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("選択した回答を正解として登録しました。");
+            location.reload();
+          } else {
+            alert(data.error || '登録に失敗しました。');
+          }
+        }).catch(error => {
+          console.error('Error:', error);
+          alert('登録に失敗しました。');
+        }).finally(() => {
+          modal.style.display = "none";
+        });
+      }, {once: true});
 
-    if (display === 'none') display = 'block';
-
-    target.style.display = display;
-    let height = target.offsetHeight;
-    target.style.overflow = 'hidden';
-    target.style.height = 0;
-    target.style.paddingTop = 0;
-    target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
-    target.style.marginBottom = 0;
-    target.offsetHeight;
-    target.style.transitionProperty = `height, margin, padding`;
-    target.style.transitionDuration = duration + 'ms';
-    target.style.height = height + 'px';
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
-    window.setTimeout(() => {
-      target.style.removeProperty('height');
-      target.style.removeProperty('overflow');
-      target.style.removeProperty('transition-duration');
-      target.style.removeProperty('transition-property');
-    }, duration);
-  }
-
-  // スライドアップ時の高さの設定
-  function slideUp(target, duration = 500) {
-    target.style.transitionProperty = `height, margin, padding`;
-    target.style.transitionDuration = duration + 'ms';
-    target.style.height = target.offsetHeight + 'px';
-    target.offsetHeight;
-    target.style.overflow = 'hidden';
-    target.style.height = 0;
-    target.style.paddingTop = 0;
-    target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
-    target.style.marginBottom = 0;
-    window.setTimeout(() => {
-      target.style.display = 'none';
-      target.style.removeProperty('height');
-      target.style.removeProperty('overflow');
-      target.style.removeProperty('transition-duration');
-      target.style.removeProperty('transition-property');
-      target.style.removeProperty('padding-top');
-      target.style.removeProperty('padding-bottom');
-      target.style.removeProperty('margin-top');
-      target.style.removeProperty('margin-bottom');
-    }, duration);
-  }
-
-  toggleButton.addEventListener('click', function() {
-    if (categoryList.style.display === 'none' || !categoryList.style.display) {
-      // スライドダウンを実行
-      slideDown(categoryList, 700);
-    } else {
-      // スライドアップを実行
-      slideUp(categoryList, 700);
-    }
+      cancelBtn.addEventListener('click', function() {
+        modal.style.display = "none";
+      }, {once: true});
+    });
   });
 });

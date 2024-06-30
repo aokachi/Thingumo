@@ -11,6 +11,9 @@
         <button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
         <ul class="header-menu" id="one">
           <% if user_signed_in? && current_user.present? %>
+            <% if admin? %>
+              <li><%= link_to "保留中回答一覧", pending_answers_path %></li>
+            <% end %>
             <li><%= link_to "質問する", new_post_path %></li>
             <li><%= link_to "マイページ", user_path(current_user) %></li>
             <li><%= link_to "お問合せ", new_inquiry_path %></li>
