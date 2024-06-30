@@ -69,7 +69,9 @@
 												<div class="handwrite-toolbar-container">
 													<div class="toolbar">
 														<!-- ペンツールボタン -->
-														<button class="tool-icon" id="pen-tool"></button>
+														<button class="tool-icon" id="pen-tool">
+    													<i class="fa-solid fa-pencil"></i>
+														</button>
 														<!-- 色の選択パレット -->
 														<div class="color-palette">
 															<div class="color-box" style="background-color: #000000;"></div> <!-- 黒 -->
@@ -84,7 +86,9 @@
 															<button id="increase-line-width">+</button>
 														</div>
 														<!-- 消しゴムボタン -->
-														<button class="tool-icon" id="eraser-tool"></button>
+														<button class="tool-icon" id="eraser-tool">
+															<i class="fa-solid fa-eraser"></i>
+														</button>
 														<!-- 消しゴムのサイズの調整エリア -->
 														<div class="eraser-width-adjuster-container">
 															<button id="decrease-eraser-width">-</button>
@@ -92,9 +96,13 @@
 															<button id="increase-eraser-width">+</button>
 														</div>
 														<!-- 選択ツールボタン -->
-														<button class="tool-icon" id="select-move-tool"></button>
+														<button class="tool-icon" id="select-move-tool">
+															<i class="fa-solid fa-arrows-up-down-left-right"></i>
+														</button>
 														<!-- クリアボタン -->
-														<button class="tool-icon" id="clear-canvas-tool"></button>
+														<button class="tool-icon" id="clear-canvas-tool">
+															<i class="fa-solid fa-trash-can"></i>
+														</button>
 													</div>
 													<div class="canvas-wrapper">	
 														<canvas id="handwrite-image-canvas"></canvas>
@@ -204,23 +212,6 @@
 		</div>
 	</div>
 </div>
-<div class="theme-config">
-	<div class="main-color">
-		<div class="title">Main Color:</div>
-		<div class="colours-wrapper">
-			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
-			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
-			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
-			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
-			<div class="title">Second Color:</div>
-			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
-			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
-			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
-			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
-		</div>
-	</div>
-	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
-</div>
 <!-- SCRIPT	-->
 <script src="/assets/jquery-2.1.4.min.js"></script>
 <script src="/assets/jquery-ui.min.js"></script>
@@ -233,4 +224,4 @@
 <script src="/assets/my-style.js"></script>
 <script src="/assets/fabric.js"></script>
 <script src="/assets/handwrite-image.js"></script>
-<!--<script src="/assets/global.js"></script>-->
+<script src="/assets/global.js"></script>

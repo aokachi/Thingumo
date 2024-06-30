@@ -20,8 +20,8 @@
 	<div class="head-bg">
 		<div class="head-bg-img"></div>
 		<div class="head-bg-content">
-			<h1>Thingumo</h1>
-			<p>名前がわからない・思い出せない人やモノについて質問できます。</p>
+			<h1>THINGUMO</h1>
+			<p>"名前が思い出せないアレ"について質問できます</p>
 			<a class="be-register btn2 color-3 size-1 hover-6"><i class="fa fa-lock"></i>　アカウントを作成</a>
 		</div>
 	</div>
@@ -30,14 +30,15 @@
 			<!--カテゴリの一覧を表示・選択-->
 			<div class="col-md-2 left-feild">
 				<div class="be-vidget">
-					<h3 class="letf-menu-article">
+					<button id="category-toggle-button" class="mobile-category-toggle">カテゴリから選択</button>
+					<h3 class="left-menu-article">
 						カテゴリから選択
 					</h3>
 					<div class="creative_filds_block">
 						<li class="category-item">
 							<ul class="category-list">
 								<% @categories.each do |category| %>
-									<%= link_to category.name, root_path(category_id: category.id), class: "filter" %>
+									<%= link_to category.name, toppages_path(category_id: category.id), class: "category-link #{'active' if @selected_category_id == category.id.to_s}" %>
 								<% end %>
 							</ul>
 						</li>
@@ -48,41 +49,7 @@
 			<!--投稿の一覧を表示-->
 			<div class="col-md-10">
 				<div id="container-mix" class="row _post-container_">
-					<% @posts.each do |post| %>
-					<div class="category-1 mix custom-column-5">
-						<div class="be-post">
-							<!--投稿画像を呼び出して表示(リンク付き)-->
-							<% if post.images? %>
-							<%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
-							<% else %>
-							<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
-							<% end %>
-							<!--投稿のタイトルを表示-->
-							<a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
-							<span>
-								<!--投稿のカテゴリを表示-->
-								<a class="be-post-tag"><%= post.category.name %></a>
-							</span>
-							<div class="author-post">
-								<!--プロフィール画像を呼び出して表示-->
-								<% if post.user.avatar? %>
-									<%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "rounded-circle", size: "150x150" %>
-								<% else %>
-									<%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "150x150" %>
-								<% end %>
-								<!--投稿したユーザのニックネームを呼び出して表示-->
-								<span>by <a><%= post.user.name %></a></span>
-							</div>
-							<div class="info-block">
-								<!--投稿数-->
-								<span><i class="fa fa-eye"></i><%= post.view_count %></span>
-								<!--リプライ数-->
-								<span><i class="fa fa-answer-o"></i><%= post.answers.count %></span>
-							</div>
-						</div>
-					</div>
-					<% end %>
-					<%= paginate @posts %>
+					<%= render partial: 'posts', locals: { posts: @posts } %>
 				</div>
 			</div>
 		</div>
@@ -165,23 +132,6 @@
 		</div>
 	</div>
 </div>
-<div class="theme-config">
-	<div class="main-color">
-		<div class="title">Main Color:</div>
-		<div class="colours-wrapper">
-			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
-			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
-			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
-			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
-			<div class="title">Second Color:</div>
-			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
-			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
-			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
-			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
-		</div>
-	</div>
-	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
-</div>
 <!-- SCRIPTS	 -->
 <script src="/assets/jquery-2.1.4.min.js"></script>
 <script src="/assets/jquery-ui.min.js"></script>
@@ -190,4 +140,4 @@
 <script src="/assets/jquery.mixitup.js"></script>
 <script src="/assets/jquery.viewportchecker.min.js"></script>
 <script src="/assets/filters.js"></script>
-<!--<script src="/assets/global.js"></script>-->
+<script src="/assets/global.js"></script>

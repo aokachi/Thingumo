@@ -2953,6 +2953,13 @@ output {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
 }
 
+@media screen and (max-width: 767px) {
+    .form-control {
+      /* モバイル表示時のフォントサイズ（フォームフィールドの自動ズーム対策） */
+      font-size: 16px;
+    }
+  }
+
 .form-control-placeholder {
     display: block;
     width: 100%;

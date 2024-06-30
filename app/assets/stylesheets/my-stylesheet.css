@@ -769,23 +769,6 @@ a.be-register {
   cursor: pointer;
 }
 
-/* 特定のツールアイコンに画像を設定 */
-#pen-tool {
-  background-image: url("/pen-tool.png");
-}
-
-#eraser-tool {
-  background-image: url("/eraser-tool.png");
-}
-
-#select-move-tool {
-  background-image: url("/select-move-tool.png");
-}
-
-#clear-canvas-tool {
-  background-image: url("/clear-canvas-tool.png");
-}
-
 .upper-canvas, .lower-canvas {
   /* 絶対位置指定 */
   position: absolute;
@@ -997,4 +980,72 @@ a.be-register {
 .fa-cloud-upload {
   z-index: 1; /* サムネイル画像より低い値に設定 */
   cursor: pointer; /* マウスカーソルをポインタに変更 */
+}
+
+/*
+フッター
+*/
+.centered-content {
+  text-align: center; /* 親要素を中央揃えにする */
+}
+
+.centered-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px; /* コンテンツ1の下の間隔 */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0; /* コンテンツ2の上下の間隔 */
+  margin-bottom: 30px; /* コンテンツ2の下の間隔 */
+}
+
+@media screen and (max-width: 767px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-links div {
+    margin-bottom: 15px;
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-4.col-md-offset-4 {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* モバイル表示時のカテゴリリスト表示制御 */
+.creative_filds_block.is-visible {
+  display: block;
+}
+
+/* モバイル表示時のカテゴリ一覧の非表示設定 */
+@media screen and (max-width: 767px) {
+  .left-menu-article,
+  .creative_filds_block {
+    display: none;
+  }
+
+  .mobile-category-toggle {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* モバイル表示時のカテゴリ一覧のスライドアニメーション用 */
+.creative_filds_block {
+  overflow: hidden;
+  transition: max-height 0.8s ease-out;
+}
+
+/* モバイル表示時のカテゴリ一覧の高さ */
+.creative_filds_block.is-visible {
+  max-height: 1500px;
 }

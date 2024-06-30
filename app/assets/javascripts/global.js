@@ -289,7 +289,6 @@ $(function() {
 	});
 
 	$('.creative_filds_block').on('click','a', function (e) {
-		e.preventDefault();
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
 
@@ -523,8 +522,7 @@ $('.theme-config .open').on('click', function(){
 $('.m-color').on('click', function() {
 	var colour = $(this).data('colour');
 	var index =  $(this).index();
-	    $('.logo-c').hide();
-	    $('.logo-c').eq(index).show();
+	    $('.logo').eq(index).show();
 		$('.m-color').removeClass('active');
 		$(this).addClass('active');
 		$('#color-link').attr('href', colour);
@@ -652,7 +650,6 @@ $('.s-color').on('click', function() {
 				}
 			}
 		);};
-
 
 	if($('#slider-range-max').length) {
 		$('.color-i').length && $('.color-i').colorPicker();
