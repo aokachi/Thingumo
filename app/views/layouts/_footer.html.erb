@@ -1,17 +1,27 @@
-<!-- THE FOOTER -->
+<!-- フッター -->
 <footer>
-  <div class="footer-main">
+  <div class="footer-top">
     <div class="container-fluid custom-container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4 centered-content">
-          <!-- コンテンツ1: ロゴ画像 -->
-          <img src="/assets/logo.png" alt="ロゴ">
-          <!-- コンテンツ2: リンク -->
-          <div class="footer-links">
-            <a href="privacy-policy-url">プライバシーポリシー</a>
-            <a href="terms-of-service-url">サイトご利用規約</a>
-            <a href="contact-details">お問い合わせ</a>
-          </div>
+      <div class="footer-top-container">
+        <div class="footer-top-content_1">
+          <p class="contact">あいうえお</p>
+          <p class="contact">かきくけこ</p>
+          <p class="contact">さしすせそ</p>
+        </div>
+        <div class="footer-top-content_2">
+          <%= link_to "利用規約", term_of_service_path, class: "btn-term_of_service" %>
+        </div>
+        <div class="footer-top-content_2">
+          <%= link_to "プライバシーポリシー", privacy_policy_path, class: "btn-privacy_policy" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-container custom-container">
+      <div class="col-md-12 footer-end clearfix">
+        <div class="footer-bottom-content">
+          <span class="copy">© 2024. All rights reserved. <span class="white"><a href="blog-detail-2.html"> Thingumo</a></span></span>
         </div>
       </div>
     </div>

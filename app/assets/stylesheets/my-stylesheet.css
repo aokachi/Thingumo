@@ -333,7 +333,7 @@ span.choose {
 
 .number-of-views-and-answers-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
-.number-of-views-and-answers .be-large-post-align { margin: 0px 50px; }
+.number-of-views-and-answers .be-large-content-align { margin: 0px 50px; }
 
 .number-of-views-and-answers .fa { font-size: 13px; }
 
@@ -348,15 +348,15 @@ span.choose {
 .be-large-post .number-of-views-and-answers.style-2 { margin-bottom: 50px; position: relative;}
 
 @media (max-width: 767px) {
-   .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
-  .be-large-post-align, .number-of-views-and-answers .be-large-post-align { margin: 0 15px; }
+  .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
+  .be-large-content-align, .number-of-views-and-answers .be-large-content-align { margin: 0 15px; padding-bottom: 30px; }
 }
 
 .number-of-views-and-answers2 { background: #F6F6F6; padding: 25px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
 .number-of-views-and-answers2-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
-.number-of-views-and-answers2 .be-large-post-align { margin: 0px 50px; }
+.number-of-views-and-answers2 .be-large-content-align { margin: 0px 50px; }
 
 .number-of-views-and-answers2 .fa { font-size: 13px; }
 
@@ -372,7 +372,7 @@ span.choose {
 
 @media (max-width: 767px) {
    .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
-  .be-large-post-align, .number-of-views-and-answers2 .be-large-post-align { margin: 0 15px; }
+  .be-large-content-align, .number-of-views-and-answers2 .be-large-content-align { margin: 0 15px; }
 }
 
 
@@ -1119,3 +1119,170 @@ a.be-register {
 .creative_filds_block.is-visible {
   max-height: 1500px;
 }
+
+
+
+/* 
+==================================
+	フッター
+==================================
+*/
+@media (min-width: 1200px) {
+  .footer-top {
+    align-items: center;
+    height: 170px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .footer-top {
+    height: 230px;
+  }
+}
+
+.footer-top-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1199px) {
+  .footer-top-container {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.footer-top-content_1 {
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1199px) {
+  .footer-top-content_1 {
+    flex: 3;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-top-content_2 {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1199px) {
+  .footer-top-content_2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex: 3;
+  }
+}
+
+.footer-bottom-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 70px;
+}
+
+.footer-bottom-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ol.term_of_service_list {
+  margin: 10px 0 0 50px;
+}
+
+ol.term_of_service_list li {
+  position: relative;
+  list-style: outside decimal;
+  padding: 5px 0 0 0;
+}
+
+ol.term_of_service_list li::marker {
+  font-size: 120%;
+  font-weight: 700;
+  color: #0d58c8;
+}
+
+ol.term_of_service_list_2 {
+  margin: 10px 0 0 100px;
+}
+
+ol.term_of_service_list_2 li {
+  position: relative;
+  list-style: outside decimal;
+  padding: 5px 0 0 0;
+}
+
+ol.term_of_service_list_2 li::marker {
+  font-size: 120%;
+  font-weight: 700;
+  color: #0d58c8;
+}
+
+ol.privacy_policy_list {
+  margin: 10px 0 0 50px;
+}
+
+ol.privacy_policy_list li {
+  position: relative;
+  list-style: outside decimal;
+  padding: 5px 0 0 0;
+}
+
+ol.privacy_policy_list li::marker {
+  font-size: 120%;
+  font-weight: 700;
+  color: #0d58c8;
+}
+
+ol.privacy_policy_list_2 {
+  margin: 10px 0 0 100px;
+}
+
+ol.privacy_policy_list_2 li {
+  position: relative;
+  list-style: outside decimal;
+  padding: 5px 0 0 0;
+}
+
+ol.privacy_policy_list_2 li::marker {
+  font-size: 120%;
+  font-weight: 700;
+  color: #0d58c8;
+}
+
+/* 
+==================================
+	プライバシーポリシー
+==================================
+*/
+
+
+/* 
+==================================
+	利用規約
+==================================
+*/

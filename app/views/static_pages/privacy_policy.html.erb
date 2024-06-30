@@ -1,0 +1,166 @@
+<div class="be-loader">
+	<div class="spinner">
+		<img src="/assets/logo-loader.png" alt="">
+		<p class="circle">
+			<span class="ouro">
+				<span class="left"><span class="anim"></span></span>
+				<span class="right"><span class="anim"></span></span>
+			</span>
+		</p>
+	</div>
+</div>
+
+<!-- プライバシーポリシーの表示ページ -->
+<div id="content-block" class="work-box">
+	<div class="editor-menu">
+		<div class="container">
+			<div class="buttons-navbar">
+			</div>
+		</div>
+	</div>
+
+	<div class="work-area">
+		<div class="container be-detail-container">
+			<div class="row">
+				<div class="_editor-content_ justify-content-center">
+					<div class="sec" data-sec="basic-information">
+						<div class="be-large-post large-area">
+							<div class="info-block style-2">
+								<div class="be-large-content-align ">
+									<h1 class="info-block-label">プライバシーポリシー</h1>
+								</div>
+							</div>
+							<div class="be-large-content-align">
+								<div class="privacy_policy-textarea">
+									<p>＿＿＿＿＿＿＿＿（以下，「当社」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
+									<h3>第1条（個人情報）</h3>
+										<p>「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。</p>
+									<h3>第2条（個人情報の収集方法）</h3>
+										<p>当社は，ユーザーが利用登録をする際に氏名，生年月日，住所，電話番号，メールアドレス，銀行口座番号，クレジットカード番号，運転免許証番号などの個人情報をお尋ねすることがあります。また，ユーザーと提携先などとの間でなされたユーザーの個人情報を含む取引記録や決済に関する情報を,当社の提携先（情報提供元，広告主，広告配信先などを含みます。以下，｢提携先｣といいます。）などから収集することがあります。</p>
+									<h3>第3条（個人情報を収集・利用する目的）</h3>
+										<p>当社が個人情報を収集・利用する目的は，以下のとおりです。</p>
+										<ol class="privacy_policy_list">
+											<li>当社サービスの提供・運営のため</li>
+											<li>ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）</li>
+											<li>ユーザーが利用中のサービスの新機能，更新情報，キャンペーン等及び当社が提供する他のサービスの案内のメールを送付するため</li>
+											<li>メンテナンス，重要なお知らせなど必要に応じたご連絡のため</li>
+											<li>利用規約に違反したユーザーや，不正・不当な目的でサービスを利用しようとするユーザーの特定をし，ご利用をお断りするため</li>
+											<li>ユーザーにご自身の登録情報の閲覧や変更，削除，ご利用状況の閲覧を行っていただくため</li>
+											<li>有料サービスにおいて，ユーザーに利用料金を請求するため</li>
+											<li>上記の利用目的に付随する目的
+										</ol>
+									<h3>第4条（利用目的の変更）</h3>
+										<ol class="privacy_policy_list">
+											<li>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。</li>
+											<li>利用目的の変更を行った場合には，変更後の目的について，当社所定の方法により，ユーザーに通知し，または本ウェブサイト上に公表するものとします。</li>
+										</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="be-fixed-filter"></div>
+
+<div class="large-popup login">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">ログイン</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+					<div class="col-md-6">
+						<%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
+						<%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
+					</div>
+					<div class="col-xs-6 for-signin">
+						<%= f.submit 'ログイン', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="large-popup register">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">アカウント作成</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'new_user' }) do |f| %>
+					<div class="col-md-6">
+						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+					</div>
+					<div class=" col-md-6">
+						<%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<%= f.label :sex, '性別'%>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
+						</div>
+					</div>
+					<div class="col-md-6 be-date-block">
+						<div class="form-group">
+							<%= f.label :birthday, '生年月日' %>
+							<%= f.date_field :birthday, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="col-md-6 for-signin">
+						<%= f.submit '登録する', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
+		</div>
+	</div>
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/jquery-ui.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/colors.js"></script>
+<script src="/assets/jqColorPicker.js"></script>
+<script src="/assets/my-style.js"></script>
+<script src="/assets/fabric.js"></script>
+<script src="/assets/handwrite-image.js"></script>
+<!--<script src="/assets/global.js"></script>-->

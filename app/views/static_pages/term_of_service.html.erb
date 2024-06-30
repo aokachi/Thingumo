@@ -1,0 +1,172 @@
+<div class="be-loader">
+	<div class="spinner">
+		<img src="/assets/logo-loader.png" alt="">
+		<p class="circle">
+			<span class="ouro">
+				<span class="left"><span class="anim"></span></span>
+				<span class="right"><span class="anim"></span></span>
+			</span>
+		</p>
+	</div>
+</div>
+
+<!-- 利用規約の表示ページ -->
+<div id="content-block" class="work-box">
+	<div class="editor-menu">
+		<div class="container">
+			<div class="buttons-navbar">
+			</div>
+		</div>
+	</div>
+
+	<div class="work-area">
+		<div class="container be-detail-container">
+			<div class="row">
+				<div class="_editor-content_ justify-content-center">
+					<div class="sec" data-sec="basic-information">
+						<div class="be-large-post large-area">
+							<div class="info-block style-2">
+								<div class="be-large-content-align ">
+									<h1 class="info-block-label">利用規約</h1>
+								</div>
+							</div>
+							<div class="be-large-content-align">
+								<div class="term_of_service-textarea">
+									<p>この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。</p>
+									<h3>第1条（適用）</h3>
+									  <ol class="term_of_service_list">
+											<li>本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。</li>
+											<li>当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。</li>
+											<li>本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。</li>
+										</ol>
+									<h3>第2条（利用登録）</h3>
+									  <ol class="term_of_service_list">
+											<li>本サービスにおいては，登録希望者が本規約に同意の上，当社の定める方法によって利用登録を申請し，当社がこの承認を登録希望者に通知することによって，利用登録が完了するものとします。</li>
+											<li>当社は，利用登録の申請者に以下の事由があると判断した場合，利用登録の申請を承認しないことがあり，その理由については一切の開示義務を負わないものとします。</li>
+										</ol>
+										<ol class="term_of_service_list_2">
+											<li>利用登録の申請に際して虚偽の事項を届け出た場合</li>
+											<li>本規約に違反したことがある者からの申請である場合</li>
+											<li>その他，当社が利用登録を相当でないと判断した場合</li>
+										</ol>
+									<h3>第3条（ユーザーIDおよびパスワードの管理）</h3>
+										<ol class="term_of_service_list">
+											<li>ユーザーは、自己の責任において、本サービスのユーザーIDおよびパスワードを適切に管理するものとします。</li>
+											<li>ユーザーは、いかなる場合にも、ユーザーIDおよびパスワードを第三者に譲渡または貸与し、もしくは第三者と共用することはできません。当社は、ユーザーIDとパスワードの組み合わせが登録情報と一致してログインされた場合には、そのユーザーIDを登録しているユーザー自身による利用とみなします。</li>
+											<li>ユーザーID及びパスワードが第三者によって使用されたことによって生じた損害は、当社に故意又は重大な過失がある場合を除き、当社は一切の責任を負わないものとします。</li>
+										</ol>
+									<h3>第4条（利用料金および支払方法）</h3>
+										<ol class="term_of_service_list">
+											<li>ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。</li>
+											<li>ユーザーが利用料金の支払を遅滞した場合には、ユーザーは年14.6%の割合による遅延損害金を支払うものとします。</li>
+										</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="be-fixed-filter"></div>
+
+<div class="large-popup login">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">ログイン</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+					<div class="col-md-6">
+						<%= f.email_field :email, class: 'input-signtype', placeholder: "メールアドレスを入力してください" %>
+						<%= f.password_field :password, class: 'input-signtype', placeholder: "パスワードを入力してください" %>
+					</div>
+					<div class="col-xs-6 for-signin">
+						<%= f.submit 'ログイン', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="large-popup register">
+	<div class="large-popup-fixed"></div>
+	<div class="container large-popup-container">
+		<div class="row">
+			<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+				<div class="row">
+					<div class="col-md-12">
+						<i class="fa fa-times close-button"></i>
+						<h5 class="large-popup-title">アカウント作成</h5>
+					</div>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'new_user' }) do |f| %>
+					<div class="col-md-6">
+						<%= f.text_field :name, :class => "input-signtype", :placeholder => "ニックネーム" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.email_field :email, :class => "input-signtype", :placeholder => "Eメール" %>
+					</div>
+					<div class=" col-md-6">
+						<%= f.password_field :password, :class => "input-signtype", :placeholder => "パスワード" %>
+					</div>
+					<div class="col-md-6">
+						<%= f.password_field :password_confirmation, :class => "input-signtype", :placeholder => "パスワードをもう一度入力してください" %>
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<%= f.label :sex, '性別'%>
+							<%= f.select :sex, {'男性': 1, '女性': 2, 'その他': 3}, { include_blank: '性別' }, { class: 'be-custom-select', required: true } %>
+						</div>
+					</div>
+					<div class="col-md-6 be-date-block">
+						<div class="form-group">
+							<%= f.label :birthday, '生年月日' %>
+							<%= f.date_field :birthday, class: 'form-control' %>
+						</div>
+					</div>
+					<div class="col-md-6 for-signin">
+						<%= f.submit '登録する', class: 'be-popup-sign-button' %>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="theme-config">
+	<div class="main-color">
+		<div class="title">Main Color:</div>
+		<div class="colours-wrapper">
+			<div class="entry color1 m-color active" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry color3 m-color" data-colour="/assets/style-green.css"></div>
+			<div class="entry color6 m-color" data-colour="/assets/style-orange.css"></div>
+			<div class="entry color8 m-color" data-colour="/assets/style-red.css"></div>
+			<div class="title">Second Color:</div>
+			<div class="entry s-color  active color10" data-colour="/assets/stylesheet.css"></div>
+			<div class="entry s-color color11" data-colour="/assets/style-oranges.css"></div>
+			<div class="entry s-color color12" data-colour="/assets/style-greens.css"></div>
+			<div class="entry s-color color13" data-colour="/assets/style-reds.css"></div>
+		</div>
+	</div>
+	<div class="open"><img src="/assets/icon-134.png" alt=""></div>
+</div>
+<!-- SCRIPT	-->
+<script src="/assets/jquery-2.1.4.min.js"></script>
+<script src="/assets/jquery-ui.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+<script src="/assets/idangerous.swiper.min.js"></script>
+<script src="/assets/isotope.pkgd.min.js"></script>
+<script src="/assets/jquery.viewportchecker.min.js"></script>
+<script src="/assets/colors.js"></script>
+<script src="/assets/jqColorPicker.js"></script>
+<script src="/assets/my-style.js"></script>
+<script src="/assets/fabric.js"></script>
+<script src="/assets/handwrite-image.js"></script>
+<!--<script src="/assets/global.js"></script>-->
