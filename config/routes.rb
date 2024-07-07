@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :questions, except: [:index] do
     resources :answers, only: [:create, :destroy] do
       member do
-        question 'confirm'
+        post 'confirm'
       end
     end
   end
