@@ -1,16 +1,16 @@
 <% posts.each do |post| %>
   <div class="category-1 mix custom-column-5">
     <div class="be-post">
-      <!--投稿画像を呼び出して表示(リンク付き)-->
+      <!--質問画像を呼び出して表示(リンク付き)-->
       <% if post.images? %>
-        <%= link_to image_tag(post.images[0].url, alt: "投稿したイメージ"), post_path(post), class: "be-img-block" %>
+        <%= link_to image_tag(post.images[0].url, alt: "アップロードしたイメージ"), post_path(post), class: "be-img-block" %>
       <% else %>
         <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
       <% end %>
-      <!--投稿のタイトルを表示-->
+      <!--質問のタイトルを表示-->
       <a><%= link_to(post.title, post_path(post), class: "be-post-title") %></a>
       <span>
-        <!--投稿のカテゴリを表示-->
+        <!--質問のカテゴリを表示-->
         <a class="be-post-tag"><%= post.category.name %></a>
       </span>
       <div class="author-post">
@@ -20,11 +20,11 @@
         <% else %>
           <%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "150x150" %>
         <% end %>
-        <!--投稿したユーザのニックネームを呼び出して表示-->
+        <!--質問したユーザのニックネームを呼び出して表示-->
         <span>by <a><%= post.user.name %></a></span>
       </div>
       <div class="info-block">
-        <!--投稿数-->
+        <!--質問数-->
         <span><i class="fa fa-eye"></i><%= post.view_count %></span>
         <!--リプライ数-->
         <span><i class="fa fa-answer-o"></i><%= post.answers.count %></span>

@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 
-/* 投稿が少ない状態でも、フッターが上に上がらないようにする*/
+/* 質問が少ない状態でも、フッターが上に上がらないようにする*/
 #app-container {
   display: flex;
   flex-direction: column;
@@ -303,7 +303,7 @@ span.choose {
 }
 
 
-/* 投稿作成ページのセレクトボックス */
+/* 質問作成ページのセレクトボックス */
 .new-post-select { width: 35%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #000000; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
 
 .new-post-select-block { position: relative; margin-bottom: 20px; }
@@ -328,7 +328,7 @@ span.choose {
 }
 
 
-/* 投稿詳細ページのいいね/回答数の欄 */
+/* 質問詳細ページのいいね/回答数の欄 */
 .number-of-views-and-answers { background: #F6F6F6; padding: 45px 15px; font-size: 10px; color: #b4b7c1 !important; }
 
 .number-of-views-and-answers-label { font-size: 16px; line-height: 16px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
@@ -817,7 +817,7 @@ a.be-register {
 }
 
 /*
-投稿作成ページ
+質問作成ページ
 */
 .form-group-post-new-title-input {
   margin-top: 20px;
@@ -857,7 +857,7 @@ a.be-register {
 
 /* 
 ==================================
-	XX - 投稿詳細ページ
+	XX - 質問詳細ページ
 ==================================
 */
 /* 正解選択用モーダル&ボタン */

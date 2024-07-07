@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.where(user_id: @post.user.id) # 投稿詳細ページの関連投稿の欄用
+    @posts = Post.where(user_id: @post.user.id) # 質問詳細ページの関連質問の欄用
     @answers = @post.answers.page(params[:page]).per(10).reverse_order
-    @answer = @post.answers.build # 投稿全体への回答投稿用の変数
+    @answer = @post.answers.build # 質問全体への回答質問用の変数
     @answer_reply = @post.answers.build # 回答に対する返信用の変数
     if current_user != @post.user
       @post.increment!(:view_count)
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def new
     @categories = Category.all
-    @post = current_user.posts.build # 投稿フォームのform_with用
+    @post = current_user.posts.build # 質問フォームのform_with用
     # @post.post_images.build
   end
 

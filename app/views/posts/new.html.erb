@@ -18,13 +18,13 @@
 		<div class="container">
 			<div class="buttons-navbar">
 				<!--<div>-->
-				<!--投稿を保存するボタン-->
-				<%# <%= f.submit '投稿する', class: 'btn btn-primary' %>
+				<!--質問を保存するボタン-->
+				<%# <%= f.submit '質問する', class: 'btn btn-primary' %>
 				<!--</div>-->
 			</div>
 		</div>
 	</div>
-	<!--ここから投稿作成フォーム-->
+	<!--ここから質問作成フォーム-->
 	<div class="work-area">
 		<div class="container be-detail-container">
 			<div class="row">
@@ -34,7 +34,7 @@
 						<div class="be-large-post large-area">
 							<div class="info-block style-2">
 								<div class="be-large-content-align ">
-									<h3 class="info-block-label">投稿作成フォーム</h3>
+									<h3 class="info-block-label">質問作成フォーム</h3>
 								</div>
 							</div>
 							<div class="be-large-content-align">
@@ -49,7 +49,7 @@
 										<%= f.label :l_text, '本文'%>
 										<%= f.text_area :text, class: 'form-control', rows: 8 %>
 									</div>
-									<!--画像投稿フォーム-->
+									<!--画像質問フォーム-->
 									<div class="form-group-post-new-image-upload">
 										<%= f.label :l_image, 'イメージ'%>
 										<div class="upload-zone" for="post_image">
@@ -120,9 +120,9 @@
 										<%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: '選択してください' }, { class: 'new-post-select' } %>
 										</div>
 									</div>
-									<!--投稿ボタン-->
+									<!--質問ボタン-->
 									<div class="form-group-post-new-submit-button">
-										<%= f.submit '投稿する', class: 'button-1' %>
+										<%= f.submit '質問する', class: 'button-1' %>
 									</div>
 								<% end %>
 								<!--キャンセルボタン-->

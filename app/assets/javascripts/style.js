@@ -112,7 +112,7 @@ $(document).ready(function() {
 });
 
 /*===================*/
-/* XX - 投稿詳細ページ  */
+/* XX - 質問詳細ページ  */
 /*===================*/
 /* 「これが正解」ボタンを押下した際の非同期リクエスト */
 document.addEventListener("DOMContentLoaded", function() {
