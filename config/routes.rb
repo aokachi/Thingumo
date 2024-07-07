@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new]
   resources :categories, only: [:index]
 
-  resources :posts, except: [:index] do
+  resources :questions, except: [:index] do
     resources :answers, only: [:create, :destroy] do
       member do
-        post 'confirm'
+        question 'confirm'
       end
     end
   end

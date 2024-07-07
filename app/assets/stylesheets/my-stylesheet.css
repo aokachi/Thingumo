@@ -304,25 +304,25 @@ span.choose {
 
 
 /* 質問作成ページのセレクトボックス */
-.new-post-select { width: 35%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #000000; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
+.new-question-select { width: 35%; border: none; border-radius: 2px; -moz-appearance: none; -webkit-appearance: none; color: #000000; line-height: 45px; padding-left: 15px; cursor: pointer; height: 46px; }
 
-.new-post-select-block { position: relative; margin-bottom: 20px; }
+.new-question-select-block { position: relative; margin-bottom: 20px; }
 
-.new-post-select-block::after { content: "\f0d7"; font-family: FontAwesome; position: absolute; top: 50%; right: 15px; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); color: #b4b7c1; }
+.new-question-select-block::after { content: "\f0d7"; font-family: FontAwesome; position: absolute; top: 50%; right: 15px; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); color: #b4b7c1; }
 
-.new-post-select-block:hover::after { color: #0d58c8; }
+.new-question-select-block:hover::after { color: #0d58c8; }
 
-.be-date-block .new-post-select-block { display: inline-block; }
+.be-date-block .new-question-select-block { display: inline-block; }
 
-.be-date-block .new-post-select-block { width: 130px; margin-right: 20px; }
+.be-date-block .new-question-select-block { width: 130px; margin-right: 20px; }
 
-.new-post-select-block .mounth { width: 225px; }
+.new-question-select-block .mounth { width: 225px; }
 
-@media screen and (max-width: 991px) { .be-date-block .new-post-select-block { width: 100%; }
+@media screen and (max-width: 991px) { .be-date-block .new-question-select-block { width: 100%; }
   .large-popup.register .be-popup-sign-button { float: left; } }
 
-.new-post-select-block{position: relative;}
-.new-post-select-block:after{
+.new-question-select-block{position: relative;}
+.new-question-select-block:after{
   content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
@@ -345,10 +345,10 @@ span.choose {
 
 .number-of-views-and-answers span:not(:last-child) { margin-right: 25px; }
 
-.be-large-post .number-of-views-and-answers.style-2 { margin-bottom: 50px; position: relative;}
+.be-large-question .number-of-views-and-answers.style-2 { margin-bottom: 50px; position: relative;}
 
 @media (max-width: 767px) {
-  .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
+  .blog-list .question-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
   .be-large-content-align, .number-of-views-and-answers .be-large-content-align { margin: 0 15px; padding-bottom: 30px; }
 }
 
@@ -368,10 +368,10 @@ span.choose {
 
 .number-of-views-and-answers2 span:not(:last-child) { margin-right: 25px; }
 
-.be-large-post .number-of-views-and-answers2.style-2 { margin-bottom: 50px; position: relative;}
+.be-large-question .number-of-views-and-answers2.style-2 { margin-bottom: 50px; position: relative;}
 
 @media (max-width: 767px) {
-   .blog-list .post-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
+   .blog-list .question-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
   .be-large-content-align, .number-of-views-and-answers2 .be-large-content-align { margin: 0 15px; }
 }
 
@@ -819,32 +819,32 @@ a.be-register {
 /*
 質問作成ページ
 */
-.form-group-post-new-title-input {
+.form-group-question-new-title-input {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form-group-post-new-text-input {
+.form-group-question-new-text-input {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form-group-post-new-image-upload {
+.form-group-question-new-image-upload {
   margin-top: 20px;
   margin-bottom: 5px;
 }
 
-.form-group-post-new-category-select {
+.form-group-question-new-category-select {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form-group-post-new-submit-button {
+.form-group-question-new-submit-button {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form-group-post-new-back-button {
+.form-group-question-new-back-button {
   margin-top: 20px;
   margin-bottom: 20px;
 }

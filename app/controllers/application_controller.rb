@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def counts(user)
-    @count_posts = user.posts.count
+    @count_questions = user.questions.count
   end
   
   def resource_name

@@ -11,7 +11,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
 
-  has_many :posts, dependent: :destroy
+  has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
 
   # 管理者かどうか返すメソッド

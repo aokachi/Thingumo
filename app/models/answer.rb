@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :user
-  belongs_to :post
+  belongs_to :question
   validates :text, presence: true
   
   validate :is_wikipedia_title

@@ -20,25 +20,25 @@
   <div class="container custom-container be-detail-container">
     <div class="row">
       <div class="col-md-9 col-md-push-3">
-        <div class="be-large-post">
+        <div class="be-large-question">
           <div class="blog-content popup-gallery be-large-content-align">
-            <!--<h1 class="be-post-title to">-->
-            <div class="be-post-title">
+            <!--<h1 class="be-question-title to">-->
+            <div class="be-question-title">
               <!--質問のタイトルを表示-->
-              <p><%= @post.title %></p>
+              <p><%= @question.title %></p>
             </div>
             <div class="clear"></div>
-            <div class="post-text">
+            <div class="question-text">
               <!--質問したテキストを表示(段落・改行を反映)-->
-              <%= safe_join(@post.text.split("\n"),tag(:br)) %>
+              <%= safe_join(@question.text.split("\n"),tag(:br)) %>
               <!--質問イメージがある場合は全て表示　　　ない場合はデフォルトイメージを表示-->
               <div class="image-block">
-                <% if @post.images.present? %>
-                <% @post.images.each do |image| %>
+                <% if @question.images.present? %>
+                <% @question.images.each do |image| %>
                 <%= image_tag (image.url) %>
                 <% end %>
                 <% else %>
-                <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(@post), class: "be-img-block" %>
+                <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(@question), class: "be-img-block" %>
                 <% end %>
               </div>
               <div class="image-text">
@@ -53,49 +53,49 @@
             </h3>
             <div class="tags_block clearfix">
               <ul>
-                <li><a><%= @post.category.name %></a></li>
+                <li><a><%= @question.category.name %></a></li>
                 <!--カテゴリを表示-->
               </ul>
             </div>
           </div>
           <div class="number-of-views-and-answers">
             <div class="be-large-content-align">
-              <span><i class="fa fa-eye"></i><%= @post.view_count %></span>
-              <span><i class="fa fa-answer-o"></i><%= @post.answers.count %></span>
+              <span><i class="fa fa-eye"></i><%= @question.view_count %></span>
+              <span><i class="fa fa-answer-o"></i><%= @question.answers.count %></span>
             </div>
           </div>
         </div>
         <!--質問したユーザの質問一覧-->
         <div class="row">
-          <% @posts.each do |post| %>
+          <% @questions.each do |question| %>
           <div class="col-md-4">
-            <div class="be-post">
+            <div class="be-question">
               <div>
-                <%= link_to(post_path(post), {class: "be-img-block"}) %>
+                <%= link_to(question_path(question), {class: "be-img-block"}) %>
               </div>
               <div>
                 <!--質問イメージの1枚目をサムネイルとして表示(ある場合は)-->
                 <div class="image-block">
-                  <% if post.images? %>
-                  <%= link_to image_tag(post.images[0].url, alt: "質問したイメージ"), post_path(post), class: "be-img-block" %>
+                  <% if question.images? %>
+                  <%= link_to image_tag(question.images[0].url, alt: "質問したイメージ"), question_path(question), class: "be-img-block" %>
                   <% else %>
-                  <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), post_path(post), class: "be-img-block" %>
+                  <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(question), class: "be-img-block" %>
                   <% end %>
                 </div>
               </div>
               <div>
                 <!--質問のタイトルを表示-->
-                <%= link_to(post.title, post_path(post), {class: "be-post-title"}) %>
+                <%= link_to(question.title, question_path(question), {class: "be-question-title"}) %>
               </div>
               <span>
                 <!--質問のカテゴリを表示-->
-                <a class="be-post-tag"><%= post.category.name %></a>
+                <a class="be-question-tag"><%= question.category.name %></a>
               </span>
-              <div class="author-post">
+              <div class="author-question">
                 <!--プロフィール画像があったら表示-->
-                <% if post.user.avatar? %>
+                <% if question.user.avatar? %>
                 <p>
-                  <%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "ava-author", size: "70x70" %>
+                  <%= image_tag question.user.avatar.url, alt: "プロフィール画像", class: "ava-author", size: "70x70" %>
                 </p>
                 <% else %>
                 <p>
@@ -104,14 +104,14 @@
                 <% end %>
                 <!--質問したユーザのニックネームを呼び出して表示-->
                 <span>by
-                  <a><%= post.user.name %></a>
+                  <a><%= question.user.name %></a>
                 </span>
                 <!--質問のIDを保持する（Ajaxでanswers_controllerへ渡す）-->
-                <input type="hidden" id="current-post-id" value="<%= @post.id %>">
+                <input type="hidden" id="current-question-id" value="<%= @question.id %>">
               </div>
               <div class="number-of-views-and-answers2">
-                <span><i class="fa fa-eye"></i><%= @post.view_count %></span>
-                <span><i class="fa fa-answer-o"></i><%= @post.answers.count %></span>
+                <span><i class="fa fa-eye"></i><%= @question.view_count %></span>
+                <span><i class="fa fa-answer-o"></i><%= @question.answers.count %></span>
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@
 	          <p class="about-answer-block">
 	            回答するには<%= link_to "サインイン", new_user_registration_path %>してください。
 	          </p>
-	          <%= form_with model: [ @post, @post.answers.build ], local: true, html: { class: 'form-spacing' } do |form| %>
+	          <%= form_with model: [ @question, @question.answers.build ], local: true, html: { class: 'form-spacing' } do |form| %>
 	            <div class="form-group">
 	              <%= form.label :text, "回答", class: 'control-label' %>
 	              <%= form.text_area :text, id: 'answer_content', class: 'form-control-placeholder', placeholder: "回答を入力してください。", rows: 1 %>
@@ -158,23 +158,23 @@
       <div class="col-md-3 col-md-pull-9 left-feild">
         <div class="be-user-block">
           <div class="be-user-detail">
-            <% if @post.user.avatar? %>
+            <% if @question.user.avatar? %>
             <p>
-              <%= image_tag post.user.avatar.url, alt: "プロフィール画像", class: "be-ava-user", size: "70x70" %>
+              <%= image_tag question.user.avatar.url, alt: "プロフィール画像", class: "be-ava-user", size: "70x70" %>
             </p>
             <% else %>
             <p>
               <%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-ava-user", size: "70x70" %>
             </p>
             <% end %>
-            <p class="be-use-name"><%= @post.user.name %></p>
+            <p class="be-use-name"><%= @question.user.name %></p>
             <!--質問したユーザのニックネームを呼び出して表示-->
             <span class="be-user-info">
               ここにも何か入れる
             </span>
           </div>
           <div class="be-text-userblock">
-            <%= @post.user.self_introduction %>
+            <%= @question.user.self_introduction %>
           </div>
         </div>
       </div>

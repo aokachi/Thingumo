@@ -3,42 +3,42 @@ class AnswersController < ApplicationController
   before_action :authenticate_admin!, only: [:pending, :destroy, :approve]
   
   def create
-    @post = Post.find(params[:post_id])
+    @question = Question.find(params[:question_id])
     @answer = Answer.new(answer_params)
-    @answer.post = @post
+    @answer.question = @question
     @answer.user = current_user
 
     if check_answer(@answer.text)
       if @answer.save
-        redirect_to @post, notice: "回答を送信しました"
+        redirect_to @question, notice: "回答を送信しました"
       else
         flash[:alert] = "回答を送信できませんでした: " + @answer.errors.full_messages.join(", ")
-        redirect_to @post
+        redirect_to @question
       end
     else
       flash[:alert] = "回答内容が適切ではありません"
-      redirect_to @post
+      redirect_to @question
     end
   end
 
   def confirm
     ActiveRecord::Base.transaction do
-      post_id = params[:post_id]
-      @post = Post.find(post_id)
+      question_id = params[:question_id]
+      @question = Question.find(question_id)
       answer_id = params[:id]
       @answer = Answer.find(answer_id)
       @user = @answer.user
   
-      # 処理1: postsテーブルのconfirmed_atカラムに処理を実施した日時を保存する。
-      if @post.update(confirmed_at: Time.now)
+      # 処理1: questionsテーブルのconfirmed_atカラムに処理を実施した日時を保存する。
+      if @question.update(confirmed_at: Time.now)
         Rails.logger.info("処理実施日時の保存に成功。")
       else
         Rails.logger.error("処理実施日時の保存に失敗。")
         raise ActiveRecord::Rollback
       end
   
-      # 処理2: postsテーブルのis_resolvedカラムに"true"の値を入れる。
-      if @post.update(is_resolved: true)
+      # 処理2: questionsテーブルのis_resolvedカラムに"true"の値を入れる。
+      if @question.update(is_resolved: true)
         Rails.logger.info("is_resolvedカラムの値の変更に成功。")
       else
         Rails.logger.error("is_resolvedカラムの値の変更に失敗。")
@@ -53,8 +53,8 @@ class AnswersController < ApplicationController
         raise ActiveRecord::Rollback
       end
   
-      # 処理4: postsテーブルの"resolved_user_id"カラムに、対象のユーザーのusersテーブルのidを入れる。
-      if @post.update(resolved_user_id: @user.id)
+      # 処理4: questionsテーブルの"resolved_user_id"カラムに、対象のユーザーのusersテーブルのidを入れる。
+      if @question.update(resolved_user_id: @user.id)
         Rails.logger.info("resolved_user_idカラムの値の変更に成功。")
       else
         Rails.logger.error("resolved_user_idカラムの値の変更に失敗。")
@@ -87,10 +87,10 @@ class AnswersController < ApplicationController
 
   def pending
     # 保留中の回答を含む質問を取得する
-    @posts_with_pending_answers = Post.joins(:answers)
+    @questions_with_pending_answers = Question.joins(:answers)
                                   .where(answers: {pending: true})
-                                  .select("posts.*, MAX(answers.created_at) AS latest_answer_created_at")
-                                  .group("posts.id")
+                                  .select("questions.*, MAX(answers.created_at) AS latest_answer_created_at")
+                                  .group("questions.id")
                                   .order("latest_answer_created_at DESC")
                                   .page(params[:page])
     render :pending_answers
@@ -100,7 +100,7 @@ class AnswersController < ApplicationController
   def approve
     answer = Answer.find(params[:id])
     answer.update(pending: false)
-    redirect_to post_path(answer.post), notice: "回答を承認しました。"
+    redirect_to question_path(answer.question), notice: "回答を承認しました。"
   end
   
   # 保留中の回答を削除するアクション
@@ -108,10 +108,10 @@ class AnswersController < ApplicationController
     answer = Answer.find(params[:id])
     if answer.destroy
       flash[:notice] = "回答を削除しました。"
-      redirect_to request.referer || post_path
+      redirect_to request.referer || question_path
     else
       flash[:alert] = "削除に失敗しました。"
-      redirect_to request.referer || post_path
+      redirect_to request.referer || question_path
     end
   end
 

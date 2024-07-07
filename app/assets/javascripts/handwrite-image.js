@@ -36,7 +36,7 @@ window.onload = function() {
     modal.style.display = "block";
 
     // 背後の要素のpointer-eventsをnoneに設定
-    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-post-select, .button-1, .button-2');
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .button-1, .button-2');
     elementsToDisable.forEach(function(el) {
       el.style.pointerEvents = 'none';
     });
@@ -62,7 +62,7 @@ window.onload = function() {
     modal.style.display = "none";
 
     // 背後の要素のpointer-eventsを元に戻す
-    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-post-select, .button-1, .button-2');
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .button-1, .button-2');
     elementsToDisable.forEach(function(el) {
       el.style.pointerEvents = 'auto';
     });
@@ -169,9 +169,9 @@ window.onload = function() {
       var container = new DataTransfer();
       container.items.add(newFile);
 
-      var fileInput = document.getElementById('post_image');
+      var fileInput = document.getElementById('question_image');
       fileInput.files = container.files;
-      $('#post_image').trigger('change'); // 画像追加後にchangeイベントをトリガーする
+      $('#question_image').trigger('change'); // 画像追加後にchangeイベントをトリガーする
 
       // closeModal() 関数を呼び出してモーダルを閉じる
       closeModal();

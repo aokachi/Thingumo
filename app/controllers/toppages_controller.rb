@@ -5,9 +5,9 @@ class ToppagesController < ApplicationController
 
     if @selected_category_id
       @category = Category.find(@selected_category_id)
-      @posts = @category.posts.order(created_at: :desc).page(params[:page]).per(15)
+      @questions = @category.questions.order(created_at: :desc).page(params[:page]).per(15)
     else
-      @posts = Post.order(created_at: :desc).page(params[:page]).per(15)
+      @questions = Question.order(created_at: :desc).page(params[:page]).per(15)
     end
   end
 end

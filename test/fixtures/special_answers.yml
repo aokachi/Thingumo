@@ -5,7 +5,7 @@ one:
   user: one
   commentable: one
   commentable_type: Commentable
-  post: one
+  question: one
   approval: false
 
 two:
@@ -13,5 +13,5 @@ two:
   user: two
   commentable: two
   commentable_type: Commentable
-  post: two
+  question: two
   approval: false

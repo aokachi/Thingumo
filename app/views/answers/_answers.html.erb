@@ -27,20 +27,20 @@
     </div>
   </div>
   <div class="confirm-correct-answer-btn-container">
-    <% if current_user.id == @post.user_id && !answer.pending %>
-      <button class="confirm-correct-answer-btn" data-answer-id="<%= answer.id %>" data-post-id="<%= @post.id %>">これが正解</button>
+    <% if current_user.id == @question.user_id && !answer.pending %>
+      <button class="confirm-correct-answer-btn" data-answer-id="<%= answer.id %>" data-question-id="<%= @question.id %>">これが正解</button>
     <% end %>
     <% if admin? && answer.pending %>
-      <% if current_user.id == @post.user_id %>
+      <% if current_user.id == @question.user_id %>
         <button id="confirm-correct-answer-btn-<%= answer.id %>" class="confirm-correct-answer-btn">これが正解</button>
         <span style="width: 30px; display: inline-block;"></span>
       <% end %>
       <%= button_to "承認", approve_answer_path(answer), method: :patch, class: "approve-answer-btn", id: "approve-answer-btn-#{answer.id}" %>
       <span style="width: 30px; display: inline-block;"></span>
-      <%= button_to "削除", post_answer_path(post_id: answer.post_id, id: answer.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete-answer-btn", id: "delete-answer-btn-#{answer.id}" %>
+      <%= button_to "削除", question_answer_path(question_id: answer.question_id, id: answer.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "delete-answer-btn", id: "delete-answer-btn-#{answer.id}" %>
     <% end %>
   </div>
-  <div id="correct-answer-confirmation-modal-<%= answer.id %>" class="modal" data-post-id="<%= @post.id %>">
+  <div id="correct-answer-confirmation-modal-<%= answer.id %>" class="modal" data-question-id="<%= @question.id %>">
     <div class="correct-answer-confirmation-modal-inner">
       <div class="modal-content">
         <p>この回答を正解としてよろしいですか。</p>

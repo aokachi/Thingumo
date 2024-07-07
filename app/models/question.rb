@@ -1,16 +1,16 @@
-class Post < ApplicationRecord
+class Question < ApplicationRecord
   mount_uploaders :images, ImageUploader
   
   belongs_to :user
   belongs_to :category
 
-  # has_many :post_images, dependent: :destroy
-  # accepts_nested_attributes_for :post_images, allow_destroy: true
+  # has_many :question_images, dependent: :destroy
+  # accepts_nested_attributes_for :question_images, allow_destroy: true
 
   has_many :answers, dependent: :destroy
 
-  #has_many :post_files, dependent: :destroy
-  # accepts_nested_attributes_for :post_files
+  #has_many :question_files, dependent: :destroy
+  # accepts_nested_attributes_for :question_files
 
   validates :text, presence: true, length: { maximum: 300 }
 

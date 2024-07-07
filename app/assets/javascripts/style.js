@@ -1,21 +1,21 @@
 /*カテゴリ用ドロップダウンメニュー*/
-$('.post-dropdown').click(function () {
+$('.question-dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
-  $(this).find('.post-dropdown-menu').slideToggle(300);
+  $(this).find('.question-dropdown-menu').slideToggle(300);
 });
-$('.post-dropdown').focusout(function () {
+$('.question-dropdown').focusout(function () {
   $(this).removeClass('active');
-  $(this).find('.post-dropdown-menu').slideUp(300);
+  $(this).find('.question-dropdown-menu').slideUp(300);
 });
-$('.post-dropdown .post-dropdown-menu li').click(function () {
-  $(this).parents('.post-dropdown').find('span').text($(this).text());
-  $(this).parents('.post-dropdown').find('input').attr('value', $(this).attr('id'));
+$('.question-dropdown .question-dropdown-menu li').click(function () {
+  $(this).parents('.question-dropdown').find('span').text($(this).text());
+  $(this).parents('.question-dropdown').find('input').attr('value', $(this).attr('id'));
 });
 
 
-$('.post-dropdown-menu li').click(function () {
-var input = '<strong>' + $(this).parents('.post-dropdown').find('input').val() + '</strong>',
+$('.question-dropdown-menu li').click(function () {
+var input = '<strong>' + $(this).parents('.question-dropdown').find('input').val() + '</strong>',
 msg = '<span class="msg">Hidden input value: ';
 $('.msg').html(msg + input + '</span>');
 }); 
@@ -26,7 +26,7 @@ $(document).ready(function() {
   var currentImageIndex = 0;
   var images = [];
 
-  $('#post_image').on('change', function(event) {
+  $('#question_image').on('change', function(event) {
     // 既存の画像配列に新しく選択された画像を追加
     for (var i = 0; i < event.target.files.length; i++) {
       images.push(event.target.files[i]);
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
   // ページ離脱時に一時ファイルを削除するようリクエストを送信する
   window.addEventListener('beforeunload', function(event) {
-    navigator.sendBeacon('/posts/cleanup_temp_files');
+    navigator.sendBeacon('/questions/cleanup_temp_files');
   });  
 });
 
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
       modal.style.display = "flex";
 
       confirmBtn.addEventListener('click', function() {
-        fetch(`/posts/${modal.dataset.postId}/answers/${answerId}/confirm`, {
+        fetch(`/questions/${modal.dataset.questionId}/answers/${answerId}/confirm`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
