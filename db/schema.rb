@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_05_181541) do
+ActiveRecord::Schema.define(version: 2024_07_07_054356) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
+    t.bigint "question_id", null: false
     t.boolean "is_selected_correct_answer", default: false, null: false
     t.boolean "points_awarded", default: false, null: false
     t.datetime "created_at", null: false
@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 2024_07_05_181541) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "question_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_id"
-    t.index ["post_id"], name: "index_post_images_on_post_id"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_question_images_on_question_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.json "images"
