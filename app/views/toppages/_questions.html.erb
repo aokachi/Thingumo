@@ -1,7 +1,7 @@
 <% questions.each do |question| %>
   <div class="category-1 mix custom-column-5">
     <div class="be-question">
-      <!--質問画像を呼び出して表示(リンク付き)-->
+      <!--アップロードされた画像を呼び出して表示-->
       <% if question.images? %>
         <%= link_to image_tag(question.images[0].url, alt: "アップロードしたイメージ"), question_path(question), class: "be-img-block" %>
       <% else %>
@@ -14,19 +14,19 @@
         <a class="be-question-tag"><%= question.category.name %></a>
       </span>
       <div class="author-question">
-        <!--プロフィール画像を呼び出して表示-->
+        <!--質問したユーザーのプロフィール画像を呼び出して表示-->
         <% if question.user.avatar? %>
           <%= image_tag question.user.avatar.url, alt: "プロフィール画像", class: "rounded-circle", size: "150x150" %>
         <% else %>
           <%= image_tag "/default01.png", alt: "NO IMAGE", class: "rounded-circle", size: "150x150" %>
         <% end %>
-        <!--質問したユーザのニックネームを呼び出して表示-->
+        <!--質問したユーザーのニックネームを呼び出して表示-->
         <span>by <a><%= question.user.name %></a></span>
       </div>
       <div class="info-block">
-        <!--質問数-->
+        <!--質問の閲覧数-->
         <span><i class="fa fa-eye"></i><%= question.view_count %></span>
-        <!--リプライ数-->
+        <!--質問への回答数-->
         <span><i class="fa fa-answer-o"></i><%= question.answers.count %></span>
       </div>
     </div>

@@ -622,13 +622,13 @@ form.input-search { position: relative; margin-bottom: 50px; }
 	06 - QUESTION BLOCK
 ==================================
 */
-.be-question { border: 1px solid #edeff2; border-radius: 2px; width: 100%; margin-bottom: 30px !important; }
+.be-question { border: 1px solid #edeff2; border-radius: 2px; width: 300px; margin-bottom: 30px !important; }
 
 .be-img-block { overflow: hidden; display: block; }
 
 .be-question .be-img-block { margin-bottom: 15px; position: relative; }
 
-.be-question .be-img-block img { width: 100%; height: auto; position: relative; -webkit-transition: all ease-out 0.3s; transition: all 0.3s; }
+.be-question .be-img-block img { width: 100%; height: 240px; object-fit: cover; position: relative; -webkit-transition: all ease-out 0.3s; transition: all 0.3s; }
 
 .be-question .be-img-block img:hover { -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); }
 
