@@ -791,9 +791,19 @@ a.be-register {
 }
 
 
-/*
-  プロフィールページのポイント数表示部
+/* 
+==================================
+	ユーザー情報表示ページ
+==================================
 */
+
+/* 質問パネルの表示領域 */
+.question-panel-display-area {
+  width: 100%;
+  height: 100%;
+}
+
+/* ポイント数表示部 */
 .be-user-points {
   position: relative;
   padding: 20px 30px;

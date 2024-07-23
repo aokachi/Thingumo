@@ -10,13 +10,11 @@
 	</div>
 </div>
 
-<!-- ヘッダー -->
 
-<!-- MAIN CONTENT -->
 <div id="content-block">
 	<div class="container be-detail-container">
 		<div class="row">
-			<div class="col-xs-12 col-md-4 left-feild">
+			<div class="col-md-4 left-feild">
 				<div class="be-user-block style-3">
 					<div class="be-user-detail">
 						<div class="be-ava-user style-2">
@@ -27,11 +25,9 @@
 							</div>
 							<% else %>
 							<div>
-							<%#= image_tag( '/default03.jpg', size: '115x115' ) %>
-							<%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-img-block", size: "115x115" %>
+								<%= image_tag "/default03.jpg", alt: "NO IMAGE", class: "be-img-block", size: "115x115" %>
 							</div>
 							<% end %>
-							<%# <img src="/assets/ava_10.jpg" alt="">  %>
 						</div>
 						<!--ユーザーのニックネームを表示-->
 						<p><span class="be-use-name"><%= @user.name %></span></p>
@@ -90,7 +86,7 @@
 							<!--質問一覧のパネル-->
 							<div class="row">
 								<% @user.questions.each do |question| %>
-								<div class="col-ml-12 col-xs-6 col-sm-4">
+								<div class="question-panel-display-area">
 									<div class="be-question">
 										<!--質問の画像を表示(リンク付き)-->
 										<% if question.images? %>
@@ -131,13 +127,13 @@
 							<!--回答した質問の一覧のパネル-->
 							<div class="row">
 								<% @answers.each do |answer| %>
-								<div class="col-ml-12 col-xs-6 col-sm-4">
+								<div class="question-panel-display-area">
 									<div class="be-question">
 										<!--回答した質問の画像を表示(リンク付き)-->
 										<% if answer.question.images? %>
-										<%= link_to image_tag(answer.question.images[0].url, alt: "質問したイメージ"), question_path(answer.question), class: "be-img-block" %>
+											<%= link_to image_tag(answer.question.images[0].url, alt: "質問したイメージ"), question_path(answer.question), class: "be-img-block" %>
 										<% else %>
-										<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(answer.question), class: "be-img-block" %>
+											<%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(answer.question), class: "be-img-block" %>
 										<% end %>
 										<!--回答した質問のタイトルを表示-->
 										<a><%= link_to(answer.question.title, question_path(answer.question), class: "be-question-title") %></a>

@@ -400,19 +400,27 @@ $(function() {
 	});	
 
 
-    //Tabs
-	var tabFinish = 0;
-	$('.nav-tab-item').on('click',  function(){
-	    var $t = $(this);
-	    if(tabFinish || $t.hasClass('active')) return false;
-	    tabFinish = 1;
-	    $t.closest('.nav-tab').find('.nav-tab-item').removeClass('active');
-	    $t.addClass('active');
-	    var index = $t.parent().parent().find('.nav-tab-item').index(this);
-	    $t.closest('.tab-wrapper').find('.tab-info:visible').fadeOut(500, function(){
-	        $t.closest('.tab-wrapper').find('.tab-info').eq(index).fadeIn(500, function() {
-	            tabFinish = 0;
-	        });
+    //ユーザー情報表示ページのタブ
+    var tabFinish = 0;
+    
+    $('.nav-tab-item').on('click', function(){
+        var $t = $(this);
+        if(tabFinish || $t.hasClass('active')) return false;
+        
+        tabFinish = 1;
+        $('.nav-tab-item').css('pointer-events', 'none');
+        
+        $t.closest('.nav-tab').find('.nav-tab-item').removeClass('active');
+        $t.addClass('active');
+        
+        var index = $t.closest('.nav-tab').find('.nav-tab-item').index(this);
+        
+        $t.closest('.tab-wrapper').find('.tab-info:visible').fadeOut(500, function(){
+            $t.closest('.tab-wrapper').find('.tab-info').addClass('none');
+            $t.closest('.tab-wrapper').find('.tab-info').eq(index).removeClass('none').fadeIn(500, function() {
+                tabFinish = 0;
+                $('.nav-tab-item').css('pointer-events', 'auto');
+						});
 	    });
 	});
 
