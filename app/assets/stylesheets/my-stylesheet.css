@@ -808,7 +808,6 @@ a.be-register {
   position: relative;
   padding: 20px 30px;
   border: 1px solid #edeff2;
-  /* be-user-pointsとbe-desc-blockの間のスペース */
   margin-bottom: 20px;
   text-align: center;
 }
