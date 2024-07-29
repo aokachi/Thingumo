@@ -36,7 +36,7 @@ window.onload = function() {
     modal.style.display = "block";
 
     // 背後の要素のpointer-eventsをnoneに設定
-    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .button-1, .button-2');
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .btn3, .btn4');
     elementsToDisable.forEach(function(el) {
       el.style.pointerEvents = 'none';
     });
@@ -62,7 +62,7 @@ window.onload = function() {
     modal.style.display = "none";
 
     // 背後の要素のpointer-eventsを元に戻す
-    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .button-1, .button-2');
+    var elementsToDisable = document.querySelectorAll('.form-control, .upload-zone, .new-question-select, .btn3, .btn4');
     elementsToDisable.forEach(function(el) {
       el.style.pointerEvents = 'auto';
     });

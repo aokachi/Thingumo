@@ -8,29 +8,121 @@ body {
   height: 100%;
 }
 
-/* 質問が少ない状態でも、フッターが上に上がらないようにする*/
-#app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-#content-block {
-  flex-grow: 1;
-}
-
-span.msg,
-span.choose {
-  color: #555;
-  padding: 5px 0 10px;
-  display: inherit
-}
-
 
 /* 
-  ボタン
- */
-.button-1 {
+==================================
+	ボタン
+==================================
+*/
+.btn { 
+  display: inline-block; 
+  width: 110px;
+  height: 35px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  position: fixed;
+  right: 10px;
+  top: 19px;
+  border-radius: 3px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transform: translateY(2px);
+  box-shadow: 0 4px #0056b3;
+}
+
+.btn2 {
+  display: inline-block;
+  width: 180px;
+  height: 45px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  border-radius: 3px;
+}
+
+.btn.color-1 { background: #0d58c8; border: 1px solid #0d58c8; }
+
+.btn.color-1 .fa { color: #fff; }
+
+.btn.color-1:hover .fa { color: #fff !important; }
+
+.btn.color-2 { background: #383b43; color: #fff; }
+
+.btn.color-2 .fa { color: #7a8192; }
+
+.btn2.color-3 { background: #fff; color: #383b43; border: 1px solid #383b43; }
+
+.btn.color-3 .fa { color: #7a8192; }
+
+.btn.color-4 { background: #f6f6f7; color: #7a8192; border: 1px solid #edeff2; }
+
+.btn.color-4 .fa { color: #7a8192; }
+
+.btn.color-5 { background: transparent; border: 1px solid #edeff2; color: #b4b7c1; }
+
+.btn.color-6 { background: #7a8192; color: #fff; }
+
+.btn.color-7 { background: transparent; color: #9fa5b5; border: 1px solid #414856; }
+
+.btn2.size-1 { padding: 15px 28px; }
+
+.btn.size-2 { font-size: 10px; line-height: 10px; padding: 12px 19px 10px 19px; }
+
+.btn.size-3 {font-size: 9px; line-height: 9px; padding: 9px 10px; }
+
+.btn.size-4 { font-size: 10px; line-height: 10px; padding: 19px; }
+
+.site-map{padding-top: 50px;}
+
+.site-map h1{margin-bottom: 25px;}
+
+.site-map li li{margin-left: 15px;}
+
+.site-map li ul{margin-top: 15px;}
+
+.btn.active { box-shadow: none; }
+
+.btn.hover-1:hover, .btn.hover-1.active { background: transparent; border: 1px solid #0d58c8; color: #0d58c8; }
+
+.btn.hover-1:hover .fa, .btn.hover-1.active .fa { color: #0d58c8; }
+
+.btn.hover-2:hover, .btn.hover-2.active { background: transparent; border: 1px solid #0d58c8; color: #fff; }
+
+.btn.hover-3:hover, .btn.hover-3.active { background: transparent; border: 1px solid #383b43; color: #383b43; }
+
+.btn.hover-4:hover, .btn.hover-4.active { background: transparent; border: 1px solid #383b43; color: #fff; }
+
+.btn.hover-5:hover, .btn.hover-5.active { background: #7a8192; border: 1px solid #7a8192; color: #fff; }
+
+.btn2.hover-6:hover, .btn.hover-6.active { background: #d1d1d1; border: 1px solid #7a8192; color: #383b43; }
+
+.btn.hover-7:hover, .btn.hover-7.active { background: transparent; border: 1px solid #edeff2; color: #7a8192; }
+
+.btn.hover-8:hover, .btn.hover-8.active { background: transparent; border: 1px solid #edeff2; color: #fff; }
+
+.btn.hover-9:hover, .btn.hover-9.active { background: #0d58c8; border: 1px solid #0d58c8; color: #fff; }
+
+.btn.hover-9:hover .fa, .btn.hover-9.active .fa { color: #fff; }
+
+.btn.hover-10:hover, .btn.hover-10.active { background: transparent; border: 1px solid #7A8192; color: #7A8192; }
+
+.btn.hover-10:hover .fa, .btn.hover-10.active .fa { color: #7A8192; }
+
+.btn.full { width: 100%; margin-right: 0px; }
+
+.btn.btn-right { float: right; margin-right: 0px; margin-left: 20px; }
+
+.btn.btn-input { margin-top: 33px; }
+
+.btn .fa { margin-right: 10px; }
+
+.btn3 {
   appearance: button;
   background-color: #1652F0;
   border: 1px solid #1652F0;
@@ -54,25 +146,25 @@ span.choose {
 }
 
 /* キャンバスのデータ取り込み中は送信ボタンを無効 */
-.button-1:disabled {
+.btn3:disabled {
   opacity: .5;
 }
 
-.button-1:focus {
+.btn3:focus {
   outline: 0;
 }
 
-.button-1:hover {
+.btn3:hover {
   background-color: #0A46E4;
   border-color: #0A46E4;
 }
 
-.button-1:active {
+.btn3:active {
   background-color: #0039D7;
   border-color: #0039D7;
 }
 
-.button-2 {
+.btn4 {
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -98,38 +190,38 @@ span.choose {
   word-wrap: break-word;
 }
 
-.button-2:hover {
+.btn4:hover {
   background-color: #F3F4F6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-2:disabled {
+.btn4:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
 }
 
-.button-2:active {
+.btn4:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-2:focus {
+.btn4:focus {
   outline: 1px transparent;
 }
 
-.button-2:before {
+.btn4:before {
   display: none;
 }
 
-.button-2:-webkit-details-marker {
+.btn4:-webkit-details-marker {
   display: none;
 }
 
-.button-3 {
+.btn5 {
   width: 103px;
   height: 34px;
   appearance: none;
@@ -156,36 +248,36 @@ span.choose {
   word-wrap: break-word;
 }
 
-.button-3:hover {
+.btn5:hover {
   background-color: #0A46E4;
   border-color: #0A46E4;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-3:disabled {
+.btn5:disabled {
   opacity: .5;
 }
 
-.button-3:active {
+.btn5:active {
   background-color: #0039D7;
   border-color: #0039D7;
   transition: none 0s;
 }
 
-.button-3:focus {
+.btn5:focus {
   outline: 1px transparent;
 }
 
-.button-3:before {
+.btn5:before {
   display: none;
 }
 
-.button-3:-webkit-details-marker {
+.btn5:-webkit-details-marker {
   display: none;
 }
 
-.button-4 {
+.btn6 {
   width: 103px;
   height: 34px;
   appearance: none;
@@ -213,36 +305,68 @@ span.choose {
   word-wrap: break-word;
 }
 
-.button-4:hover {
+.btn6:hover {
   background-color: #F3F4F6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.button-4:disabled {
+.btn6:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
 }
 
-.button-4:active {
+.btn6:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.button-4:focus {
+.btn6:focus {
   outline: 1px transparent;
 }
 
-.button-4:before {
+.btn6:before {
   display: none;
 }
 
-.button-4:-webkit-details-marker {
+.btn6:-webkit-details-marker {
   display: none;
 }
+
+.btn7 { 
+  display: inline-block; 
+  width: 110px;
+  height: 35px;
+  padding: 12px 19px 10px 19px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  background-color: #0d58c8;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px #0056b3;
+}
+
+.btn7:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #003d99;
+}
+
+.btn7:hover .fa, .btn7:active .fa { color: #fff }
+.btn7:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
+/*.btn7:hover .fa, .btn7.active .fa { color: #0d58c8; }*/
+
+/*@media screen and (max-width:1200px) {
+  .btn7 {
+      border: none;
+      background: none;
+  }
+}*/
 
 .answer-submit-button {
   align-self: flex-end;
@@ -300,6 +424,25 @@ span.choose {
 
 .answer-submit-button:-webkit-details-marker {
   display: none;
+}
+
+
+/* 質問が少ない状態でも、フッターが上に上がらないようにする*/
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#content-block {
+  flex-grow: 1;
+}
+
+span.msg,
+span.choose {
+  color: #555;
+  padding: 5px 0 10px;
+  display: inherit
 }
 
 
