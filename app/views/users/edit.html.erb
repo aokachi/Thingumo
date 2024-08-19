@@ -16,96 +16,93 @@
 <div id="content-block">
 	<div class="container be-detail-container">
 		<div class="row">
-
-			<!--<div class="col-xs-12 col-md-9 _editor-content_ justify-content-center">-->
-			<div class="_editor-content_ justify-content-center">
-				<div class="sec" data-sec="basic-information">
-					<div class="be-large-question">
-						<div class="info-block style-2">
-							<div class="be-large-content-align ">
-								<h3 class="info-block-label">プロフィールを編集</h3>
-							</div>
-						</div>
-						<div class="be-large-content-align">
-							<!--プロフィール画像を小さく表示し、右のボタンから画像ファイルを選択して新しいプロフィール画像を設定する-->
-							<div class="be-change-ava">
-								<a class="be-ava-user style-2" href="blog-detail-2.html">
-									<img src="/assets/ava_10.jpg" alt="">
-								</a>
-								<a class="btn color-4 size-2 hover-7">画像を変更する</a>
-							</div>
-						</div>
-						<div class="be-large-content-align">
-							<div class="row">
-								<div class="input-col col-xs-12 col-sm-6">
-									<div class="form-group fg_icon focus-2">
-										<div class="form-label">ニックネーム</div>
-										<input class="form-input" type="text" value="">
-									</div>
-								</div>
-								<div class="input-col col-xs-12 col-sm-6">
-									<div class="form-label">地域</div>
-									<div class="be-drop-down icon-none">
-										<span class="be-dropdown-content"> 関東 </span>
-										<ul class="drop-down-list">
-											<li><a>北海道</a></li>
-											<li><a>東北</a></li>
-											<li><a>中部</a></li>
-											<li><a>近畿</a></a></li>
-											<li><a>中国・四国</a></li>
-											<li><a>九州</a></li>
-											<li><a>沖縄</a></li>
-										</ul>
-									</div>
+			<%= form_with(model: @user, url: profile_update_path, method: :patch, html: { multipart: true }, local: false) do |f| %>
+				<div class="_editor-content_1 justify-content-center">
+					<div class="sec" data-sec="basic-information">
+						<div class="be-large-question">
+							<div class="info-block style-2">
+								<div class="be-large-content-align ">
+									<h3 class="info-block-label">ユーザー情報を変更する</h3>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="sec" data-sec="edit-password">
-					<!--ここでパスワードを変更する-->
-					<div class="be-large-question">
-						<div class="info-block style-2">
 							<div class="be-large-content-align">
-								<h3 class="info-block-label">パスワード</h3>
+								<!--プロフィール画像を小さく表示し、右のボタンから画像ファイルを選択して新しいプロフィール画像を設定する-->
+								<div class="be-change-ava">
+									<%= image_tag @user.avatar.variant(resize: "115x115") if @user.avatar.attached? %>
+									<%= f.file_field :avatar, accept: "image/jpeg,image/png", class: "", id: "avatar-upload", style: "display:none;" %>
+									<button type="button" onclick="document.getElementById("avatar-upload").click();" class="btn8">画像を変更する</button>
+								</div>
+							</div>
+							<div class="be-large-content-align">
+								<div class="row">
+									<div class="input-col col-xs-12 col-sm-6">
+										<div class="form-group fg_icon focus-2">
+											<div class="form-label">ニックネーム</div>
+											<input class="form-input" type="text" value="">
+										</div>
+									</div>
+									<div class="input-col col-xs-12 col-sm-6">
+										<div class="form-label">職業</div>
+										<div class="be-drop-down icon-none">
+											<span class="be-dropdown-content"> 選択してください </span>
+											<ul class="drop-down-list">
+												<li><a>北海道</a></li>
+												<li><a>東北</a></li>
+												<li><a>中部</a></li>
+												<li><a>近畿</a></a></li>
+												<li><a>中国・四国</a></li>
+												<li><a>九州</a></li>
+												<li><a>沖縄</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="be-large-content-align">
-							<div class="row">
-								<div class="input-col col-xs-12 col-sm-4">
-									<div class="form-group focus-2">
-										<div class="form-label">現在のパスワード</div>
-										<input class="form-input" type="password" placeholder="">
-									</div>
+					</div>
+					<div class="sec" data-sec="edit-password">
+						<!--ここでパスワードを変更する-->
+						<div class="be-large-question">
+							<div class="info-block style-2">
+								<div class="be-large-content-align">
+									<h3 class="info-block-label">パスワードを変更する</h3>
 								</div>
-								<div class="input-col col-xs-12 col-sm-4">
-									<div class="form-group focus-2">
-										<div class="form-label">新しいパスワード</div>
-										<input class="form-input" type="password" placeholder="">
-									</div>
-								</div>
-								<div class="input-col col-xs-12 col-sm-4">
-									<div class="form-group focus-2">
-										<div class="form-label">新しいパスワードを再度入力</div>
-										<input class="form-input" type="password" placeholder="">
-									</div>
-								</div>
-								<div class="col-xs-12">
-									<a class="btn color-1 size-2 hover-1 btn-right">パスワードを変更する</a>
+							</div>
+							<div class="be-large-content-align">
+								<div class="row">
+									<%= form_with(url: user_password_path, method: :put) do |f| %>
+										<div class="input-col col-xs-12 col-sm-4">
+											<div class="form-group focus-2">
+												<%= f.label :current_password, '現在のパスワード', class: "form-label" %>
+												<%= f.password_field :current_password, required: true, class: "form-input", placeholder: "" %>
+											</div>
+										</div>
+										<div class="input-col col-xs-12 col-sm-4">
+											<div class="form-group focus-2">
+												<%= f.label :password, '新しいパスワード', class: "form-label" %>
+												<%= f.password_field :password, required: true, class: "form-input", placeholder: "" %>
+											</div>
+										</div>
+										<div class="input-col col-xs-12 col-sm-4">
+											<div class="form-group focus-2">
+												<%= f.label :password_confirmation, '新しいパスワードを再度入力', class: "form-label" %>
+												<%= f.password_field :password_confirmation, required: true, class: "form-input", placeholder: "" %>
+											</div>
+										</div>
+									<% end %>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--変更を保存するボタンを設置-->
-				<a class="btn full color-1 size-1 hover-1 add_section">変更を保存</a>
-			</div>
-			<div class="be-vidget back-block">
-				<!--マイページに戻るボタン-->
-				<%= link_to :back do %>
-				<button type="button" class="btn full color-1 size-1 hover-1">マイページに戻る</button>
-				<%# <a class="btn full color-1 size-1 hover-1" href="author.html"><i class="fa fa-chevron-left"></i>マイページに戻る</a> %>
-			</div>
+				<div class="user_edit_btn_block">
+					<!--変更を保存するボタンを設置-->
+					<a class="btn9">変更を保存</a>
+					<!--マイページに戻るボタン-->
+					<%= link_to :back do %>
+						<button type="button" class="btn10">戻る</button>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
 	</div>

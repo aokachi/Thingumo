@@ -156,3 +156,45 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+
+/*==========================*/
+/* XX - ユーザー情報編集ページ  */
+/*=========================*/
+document.getElementById('avatar-upload').addEventListener('change', function(event) {
+  var file = event.target.files[0];
+  
+  if (!file || (file.type !== 'image/jpeg' && file.type !== 'image/png')) {
+    alert('PNGまたはJPEGファイルのみアップロードできます。');
+    event.target.value = '';
+    return;
+  }
+
+  if (event.target.files.length > 1) {
+    alert('ファイルは１つだけアップロードできます。');
+    event.target.value = '';
+    return;
+  }
+
+  var formData = new FormData();
+  formData.append('avatar', file);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/path_to_your_avatar_update_route', true);
+  xhr.setRequestHeader('X-CSRF-Token', document.querySelector('[name=csrf-token]').content);
+
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      if (response.avatar_url) {
+        document.getElementById('avatar-preview').innerHTML = '<img src="' + response.avatar_url + '" alt="Avatar Preview">';
+      } else {
+        alert('画像のアップロードに失敗しました。');
+      }
+    } else {
+      alert('サーバーとの通信に失敗しました。');
+    }
+  };
+
+  xhr.send(formData);
+});

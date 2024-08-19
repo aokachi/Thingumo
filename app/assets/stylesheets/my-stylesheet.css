@@ -939,7 +939,6 @@ a.be-register {
 	ユーザー情報表示ページ
 ==================================
 */
-
 /* 質問パネルの表示領域 */
 .question-panel-display-area {
   width: 100%;
@@ -967,6 +966,136 @@ a.be-register {
   line-height: 20px;
   font-weight: 400;
 }
+
+
+/* 
+==================================
+	ユーザー情報編集ページ
+==================================
+*/
+.btn8 { 
+  display: inline-block;
+  width: 122px;
+  height: 35px;
+  margin-left: 60px;
+  padding: 12px 19px 10px 19px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  background-color: #0d58c8;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px #0056b3;
+}
+
+.btn8:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px #003d99;
+}
+
+.btn8:hover .fa, .btn7:active .fa { color: #fff }
+.btn8:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
+
+.btn9 { 
+  display: inline-block;
+  position: absolute;
+  right: 100px;
+  width: 99px;
+  height: 35px;
+  padding: 12px 19px 10px 19px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  background-color: #0d58c8;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 4px #0056b3;
+}
+
+.btn9:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px #003d99;
+}
+
+.btn9:hover .fa, .btn7:active .fa { color: #fff }
+.btn9:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
+
+.btn10 {
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.btn10:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.btn10:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.btn10:active {
+  transform: translateY(1px);
+  background-color: #EDEFF2;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.btn10:focus {
+  outline: 1px transparent;
+}
+
+.btn10:before {
+  display: none;
+}
+
+.btn10:-webkit-details-marker {
+  display: none;
+}
+
+.user_edit_btn_block {
+  position: relative;
+  height: 50px;
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .be-change-ava {
+      margin-left: 25px;
+  }
+}
+
 
 /*
 質問作成ページ
