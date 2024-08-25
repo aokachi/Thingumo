@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_19_091933) do
+ActiveRecord::Schema.define(version: 2024_08_19_112647) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -39,14 +39,8 @@ ActiveRecord::Schema.define(version: 2024_08_19_091933) do
     t.bigint "question_id", null: false
     t.boolean "is_selected_correct_answer", default: false, null: false
     t.boolean "points_awarded", default: false, null: false
-    t.text "text", null: false
-    t.bigint "user_id", null: false
-    t.bigint "question_id", null: false
-    t.boolean "is_selected_correct_answer", default: false, null: false
-    t.boolean "points_awarded", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "pending", default: false, null: false
     t.boolean "pending", default: false, null: false
   end
 
@@ -57,16 +51,12 @@ ActiveRecord::Schema.define(version: 2024_08_19_091933) do
   end
 
   create_table "question_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-  create_table "question_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "question_id"
     t.index ["question_id"], name: "index_question_images_on_question_id"
-    t.integer "question_id"
-    t.index ["question_id"], name: "index_question_images_on_question_id"
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -86,11 +76,6 @@ ActiveRecord::Schema.define(version: 2024_08_19_091933) do
     t.string "email", null: false
     t.integer "sex", null: false
     t.date "birthday", null: false
-    t.string "name", null: false
-    t.string "email", null: false
-    t.integer "sex", null: false
-    t.date "birthday", null: false
-    t.string "avatar"
     t.text "self_introduction"
     t.bigint "total_points", null: false
     t.string "encrypted_password", null: false
@@ -100,7 +85,7 @@ ActiveRecord::Schema.define(version: 2024_08_19_091933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", null: false
-    t.boolean "admin", null: false
+    t.string "region"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

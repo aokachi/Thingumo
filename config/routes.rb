@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   get 'static_pages/privacy_policy'
   get 'static_pages/term_of_service'
-  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
   root to: 'toppages#index'
+
+  # Devise
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+
+  devise_scope :user do
+    post 'users/update_avatar', to: 'registrations#update_avatar'
+  end
   
   # カテゴリ選択時
   get 'toppages', to: 'toppages#index'
@@ -15,7 +21,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, except: [:index, :new]
+  resources :users, except: [:index, :new, :edit]
   resources :categories, only: [:index]
 
   resources :questions, except: [:index] do

@@ -17,7 +17,7 @@
 			<div class="col-md-4 left-feild">
 				<div class="be-user-block style-3">
 					<div class="be-user-detail">
-						<div class="be-ava-user style-2">
+						<div class="avatar_area style-2">
 							<!--プロフィール画像-->
 							<% if @user.avatar? %>
 							<div>
@@ -33,8 +33,8 @@
 						<p><span class="be-use-name"><%= @user.name %></span></p>
 						<div class="be-user-info">
 							<!--アカウント設定ページに飛ぶボタンを設置(自分のアカウントの場合のみ表示)-->
-							<%= link_to edit_user_path, class: "btn7" do %>
-							<i class="fa fa-pencil"></i> 編集する
+							<%= link_to edit_user_registration_path, class: "btn7" do %>
+								<i class="fa fa-pencil"></i> 編集する
 							<% end %>
 						</div>
 						<!--ユーザーが得意なカテゴリを表示(余裕があれば)-->

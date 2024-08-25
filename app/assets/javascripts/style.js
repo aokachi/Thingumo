@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /*==========================*/
 /* XX - ユーザー情報編集ページ  */
 /*=========================*/
+// 画像選択フォームのファイルが変更されたときに実行されるイベントリスナー
 document.getElementById('avatar-upload').addEventListener('change', function(event) {
   var file = event.target.files[0];
   
@@ -176,17 +177,19 @@ document.getElementById('avatar-upload').addEventListener('change', function(eve
     return;
   }
 
+  // サーバーにアップロードするためのリクエストを作成
   var formData = new FormData();
   formData.append('avatar', file);
 
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/path_to_your_avatar_update_route', true);
+  xhr.open('POST', '/users/update_avatar', true);  // ルートは適切に設定してください
   xhr.setRequestHeader('X-CSRF-Token', document.querySelector('[name=csrf-token]').content);
 
   xhr.onload = function() {
     if (xhr.status === 200) {
       var response = JSON.parse(xhr.responseText);
       if (response.avatar_url) {
+        // プレビュー画像を更新
         document.getElementById('avatar-preview').innerHTML = '<img src="' + response.avatar_url + '" alt="Avatar Preview">';
       } else {
         alert('画像のアップロードに失敗しました。');

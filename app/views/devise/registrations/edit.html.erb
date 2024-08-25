@@ -16,7 +16,7 @@
 <div id="content-block">
 	<div class="container be-detail-container">
 		<div class="row">
-			<%= form_with(model: @user, url: profile_update_path, method: :patch, html: { multipart: true }, local: false) do |f| %>
+			<%= form_with(model: @user, url: registration_path(@user), method: :put, html: { multipart: true }, local: false) do |f| %>
 				<div class="_editor-content_1 justify-content-center">
 					<div class="sec" data-sec="basic-information">
 						<div class="be-large-question">
@@ -28,9 +28,13 @@
 							<div class="be-large-content-align">
 								<!--プロフィール画像を小さく表示し、右のボタンから画像ファイルを選択して新しいプロフィール画像を設定する-->
 								<div class="be-change-ava">
-									<%= image_tag @user.avatar.variant(resize: "115x115") if @user.avatar.attached? %>
-									<%= f.file_field :avatar, accept: "image/jpeg,image/png", class: "", id: "avatar-upload", style: "display:none;" %>
-									<button type="button" onclick="document.getElementById("avatar-upload").click();" class="btn8">画像を変更する</button>
+									<div class="avatar_area_2">
+										<%= image_tag(@user.avatar.attached? ? url_for(@user.avatar) : "/default03.png", alt: "アバター画像", class: "be-img-block", size: "115x115" ) %>
+									</div>
+									<div class="avatar_btn_area">
+										<%= f.file_field :avatar, accept: "image/jpeg,image/png", id: "avatar-upload", style: "display:none;" %>
+										<button type="button" onclick="document.getElementById('avatar-upload').click();" class="btn8">画像を変更する</button>
+									</div>
 								</div>
 							</div>
 							<div class="be-large-content-align">
@@ -42,19 +46,9 @@
 										</div>
 									</div>
 									<div class="input-col col-xs-12 col-sm-6">
-										<div class="form-label">職業</div>
-										<div class="be-drop-down icon-none">
-											<span class="be-dropdown-content"> 選択してください </span>
-											<ul class="drop-down-list">
-												<li><a>北海道</a></li>
-												<li><a>東北</a></li>
-												<li><a>中部</a></li>
-												<li><a>近畿</a></a></li>
-												<li><a>中国・四国</a></li>
-												<li><a>九州</a></li>
-												<li><a>沖縄</a></li>
-											</ul>
-										</div>
+										<div class="form-label">地域</div>
+											<%= f.select :region, options_for_select([['選択なし', '0'], ['北海道', '1'], ['東北', '2'], ['関東', '3'], ['中部', '4'], ['近畿', '5'], ['中国', '6'], ['四国', '7'], ['九州', '8'], ['九州（沖縄）', '9']]), { selected: f.object.region || '0' }, { class: "region_select_dropdown" } %>
+											<i class="fa-solid fa-angle-down"></i>
 									</div>
 								</div>
 							</div>
@@ -70,26 +64,24 @@
 							</div>
 							<div class="be-large-content-align">
 								<div class="row">
-									<%= form_with(url: user_password_path, method: :put) do |f| %>
-										<div class="input-col col-xs-12 col-sm-4">
-											<div class="form-group focus-2">
-												<%= f.label :current_password, '現在のパスワード', class: "form-label" %>
-												<%= f.password_field :current_password, required: true, class: "form-input", placeholder: "" %>
-											</div>
+									<div class="input-col col-xs-12 col-sm-4">
+										<div class="form-group focus-2">
+											<%= f.label :current_password, '現在のパスワード', class: "form-label" %>
+											<%= f.password_field :current_password, class: "form-input", placeholder: "" %>
 										</div>
-										<div class="input-col col-xs-12 col-sm-4">
-											<div class="form-group focus-2">
-												<%= f.label :password, '新しいパスワード', class: "form-label" %>
-												<%= f.password_field :password, required: true, class: "form-input", placeholder: "" %>
-											</div>
+									</div>
+									<div class="input-col col-xs-12 col-sm-4">
+										<div class="form-group focus-2">
+											<%= f.label :password, '新しいパスワード', class: "form-label" %>
+											<%= f.password_field :password, autocomplete: "new-password", class: "form-input", placeholder: "" %>
 										</div>
-										<div class="input-col col-xs-12 col-sm-4">
-											<div class="form-group focus-2">
-												<%= f.label :password_confirmation, '新しいパスワードを再度入力', class: "form-label" %>
-												<%= f.password_field :password_confirmation, required: true, class: "form-input", placeholder: "" %>
-											</div>
+									</div>
+									<div class="input-col col-xs-12 col-sm-4">
+										<div class="form-group focus-2">
+											<%= f.label :password_confirmation, '新しいパスワードを再度入力', class: "form-label" %>
+											<%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input", placeholder: "" %>
 										</div>
-									<% end %>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -97,7 +89,7 @@
 				</div>
 				<div class="user_edit_btn_block">
 					<!--変更を保存するボタンを設置-->
-					<a class="btn9">変更を保存</a>
+					<%= f.submit '変更を保存', class: "btn9" %>
 					<!--マイページに戻るボタン-->
 					<%= link_to :back do %>
 						<button type="button" class="btn10">戻る</button>

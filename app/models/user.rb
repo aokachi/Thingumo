@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
 
+  has_one_attached :avatar
+
   # 管理者かどうか返すメソッド
   class User < ApplicationRecord
     def admin?

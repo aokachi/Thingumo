@@ -336,38 +336,6 @@ body {
   display: none;
 }
 
-.btn7 { 
-  display: inline-block; 
-  width: 110px;
-  height: 35px;
-  padding: 12px 19px 10px 19px;
-  font-size: 12px;
-  line-height: 12px;
-  font-weight: 400;
-  background-color: #0d58c8;
-  color: #fff;
-  text-transform: uppercase;
-  border-radius: 3px;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  box-shadow: 0 4px #0056b3;
-}
-
-.btn7:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px #003d99;
-}
-
-.btn7:hover .fa, .btn7:active .fa { color: #fff }
-.btn7:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
-/*.btn7:hover .fa, .btn7.active .fa { color: #0d58c8; }*/
-
-/*@media screen and (max-width:1200px) {
-  .btn7 {
-      border: none;
-      background: none;
-  }
-}*/
-
 .answer-submit-button {
   align-self: flex-end;
   appearance: none;
@@ -466,7 +434,7 @@ span.choose {
 
 .new-question-select-block{position: relative;}
 .new-question-select-block:after{
-  content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
+  content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px; height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
 
@@ -569,7 +537,7 @@ span.choose {
 
 .new-inquiry-select-block{position: relative;}
 .new-inquiry-select-block:after{
-  content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px;height: 45px;
+  content: "\f107"; font-family: FontAwesome; font-size: 18px; line-height: 45px; height: 45px;
   position: absolute; right: 14px; cursor: pointer;
 }
 
@@ -967,6 +935,25 @@ a.be-register {
   font-weight: 400;
 }
 
+.btn7 { 
+  display: inline-block; 
+  width: 110px;
+  height: 40px;
+  padding: 14px 19px 10px 19px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  background-color: #0d58c8;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn7:hover {
+  color: #fff
+}
+
 
 /* 
 ==================================
@@ -974,11 +961,11 @@ a.be-register {
 ==================================
 */
 .btn8 { 
-  display: inline-block;
+  display: inline-block; 
   width: 122px;
-  height: 35px;
-  margin-left: 60px;
+  height: 40px;
   padding: 12px 19px 10px 19px;
+  margin-left: 100px;
   font-size: 12px;
   line-height: 12px;
   font-weight: 400;
@@ -987,23 +974,15 @@ a.be-register {
   text-transform: uppercase;
   border-radius: 3px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
-  box-shadow: 0 4px #0056b3;
+  border: none !important;
 }
-
-.btn8:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px #003d99;
-}
-
-.btn8:hover .fa, .btn7:active .fa { color: #fff }
-.btn8:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
 
 .btn9 { 
   display: inline-block;
-  position: absolute;
-  right: 100px;
+  position: absolute; 
   width: 99px;
-  height: 35px;
+  height: 40px;
+  right: 100px;
   padding: 12px 19px 10px 19px;
   font-size: 12px;
   line-height: 12px;
@@ -1013,75 +992,25 @@ a.be-register {
   text-transform: uppercase;
   border-radius: 3px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
-  box-shadow: 0 4px #0056b3;
+  border: none !important;
 }
 
-.btn9:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px #003d99;
-}
-
-.btn9:hover .fa, .btn7:active .fa { color: #fff }
-.btn9:hover, .btn7:active { background-color: #0d58c8; color: #fff; }
-
-.btn10 {
+.btn10 { 
   display: inline-block;
   position: absolute;
+  width: 70px;
+  height: 40px;
   right: 20px;
-  appearance: none;
+  padding: 12px 19px 10px 19px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
   background-color: #FAFBFC;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 6px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-  box-sizing: border-box;
   color: #24292E;
-  cursor: pointer;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  list-style: none;
-  padding: 6px 16px;
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  text-transform: uppercase;
+  border-radius: 3px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  white-space: nowrap;
-  word-wrap: break-word;
-}
-
-.btn10:hover {
-  background-color: #F3F4F6;
-  text-decoration: none;
-  transition-duration: 0.1s;
-}
-
-.btn10:disabled {
-  background-color: #FAFBFC;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
-  cursor: default;
-}
-
-.btn10:active {
-  transform: translateY(1px);
-  background-color: #EDEFF2;
-  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
-  transition: none 0s;
-}
-
-.btn10:focus {
-  outline: 1px transparent;
-}
-
-.btn10:before {
-  display: none;
-}
-
-.btn10:-webkit-details-marker {
-  display: none;
+  border: 1px solid rgba(27, 31, 35, 0.15);
 }
 
 .user_edit_btn_block {
@@ -1092,8 +1021,51 @@ a.be-register {
 
 @media (max-width: 767px) {
   .be-change-ava {
-      margin-left: 25px;
+    margin-left: 25px;
   }
+}
+
+.avatar_btn_area {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 400px;
+}
+
+.region_select_dropdown {
+  display: block;
+  position: relative;
+  width: 230px;
+  height: 50px;
+  border: 1px solid #edeff2;
+  font-size: 13px;
+  padding: 14px 88px 14px 20px;
+  transition: all 0.5s ease-out;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 3px;
+}
+
+.fa-angle-down {
+  position: absolute;
+  font-size: 18px;
+  right: 5px;
+  top: 50px;
+  transform: translateY(-50%);
+  color: #000;
+}
+
+.region_select_dropdown option[value="0"] {
+  color: #b4b7c1;
+}
+
+.region_select_dropdown option:not([value="0"]) {
+  color: #000;
+}
+
+.region_select_dropdown:focus option:not([value="0"]) {
+  color: #000;
 }
 
 
