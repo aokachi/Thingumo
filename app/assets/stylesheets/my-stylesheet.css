@@ -402,8 +402,20 @@ body {
   min-height: 100vh;
 }
 
+@media (max-width: 767px) {
+  #app-container {
+    width: 100vw !important;
+  }
+}
+
 #content-block {
   flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+  #content-block {
+    width: 100vw !important;
+  }
 }
 
 span.msg,
@@ -913,6 +925,12 @@ a.be-register {
   height: 100%;
 }
 
+@media (max-width: 767px) {
+  .question-panel-display-area {
+    text-align: center;
+  } 
+}
+
 /* ポイント数表示部 */
 .be-user-points {
   position: relative;
@@ -977,6 +995,18 @@ a.be-register {
   border: none !important;
 }
 
+@media (max-width: 479px) and (min-width: 360px) {
+  .btn8 {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 359px) {
+  .btn8 {
+    margin-left: unset;
+  }
+}
+
 .btn9 { 
   display: inline-block;
   position: absolute; 
@@ -1025,11 +1055,28 @@ a.be-register {
   }
 }
 
+@media (max-width: 359px) {
+  .be-change-ava {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .avatar_btn_area {
   display: flex;
   align-items: center;
   height: 100%;
   width: 400px;
+}
+
+@media (max-width: 359px) {
+  .avatar_btn_area {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+  }
 }
 
 .region_select_dropdown {
@@ -1049,9 +1096,9 @@ a.be-register {
 
 .fa-angle-down {
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
   right: 5px;
-  top: 50px;
+  top: 50%;
   transform: translateY(-50%);
   color: #000;
 }
