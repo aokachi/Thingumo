@@ -29,12 +29,13 @@
 								<!--プロフィール画像を小さく表示し、右のボタンから画像ファイルを選択して新しいプロフィール画像を設定する-->
 								<div class="be-change-ava">
 									<div class="avatar_area_2">
-										<%= image_tag(@user.avatar.attached? ? url_for(@user.avatar) : "/default03.png", alt: "アバター画像", class: "be-img-block", size: "115x115" ) %>
+										<%= image_tag(@user.avatar.attached? ? url_for(@user.avatar) : "/default03.png", id: "avatar-image", alt: "アバター画像", class: "be-img-block", size: "115x115", style: "display: block;" ) %>
 									</div>
 									<div class="avatar_btn_area">
-										<%= f.file_field :avatar, accept: "image/jpeg,image/png", id: "avatar-upload", style: "display:none;" %>
+										<%= f.file_field :avatar, accept: "image/jpeg,image/png,image/jpg", id: "avatar-upload", style: "display:none;" %>
 										<button type="button" onclick="document.getElementById('avatar-upload').click();" class="btn8">画像を変更する</button>
 									</div>
+									<div id="error-message" style="color: red; display: none;"></div>
 								</div>
 							</div>
 							<div class="be-large-content-align">
@@ -108,3 +109,4 @@
 <script src="/assets/isotope.pkgd.min.js"></script>
 <script src="/assets/jquery.viewportchecker.min.js"></script>
 <script src="/assets/global.js"></script>
+<script src="/assets/style.js"></script>

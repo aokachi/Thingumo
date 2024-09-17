@@ -30,14 +30,12 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+  <!-- Cropper.js CSS CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <!--ポップアップ用（保留）-->
-  <!--<div id="flash-popup" data-message="<%= flash[:notice] || flash[:alert] %>" data-message-type="<%= flash[:notice] ? 'notice' : 'alert' %>">
-    <span id="flash-popup-message"></span>
-    <span id="flash-popup-close">&times;</span>
-  </div>-->
 
   <%= render 'layouts/header' %>
 
@@ -46,6 +44,11 @@
   </div>
 
   <%= render 'layouts/footer' %>
+
+
+  <!-- Cropper.js JavaScript CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+  
 </body>
 
 </html>
