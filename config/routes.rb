@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
+  # アバター画像更新のためのルーティング
   devise_scope :user do
     post 'users/update_avatar', to: 'registrations#update_avatar'
   end

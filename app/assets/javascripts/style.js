@@ -162,8 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
 /* XX - ユーザー情報編集ページ  */
 /*=========================*/
 document.getElementById('avatar-upload').addEventListener('change', function(event) {
-  console.log('ファイル選択が行われました');
-
   var file = event.target.files[0];
   var errorMessage = document.getElementById('error-message');
   var previewImage = document.getElementById('avatar-image');
@@ -173,76 +171,42 @@ document.getElementById('avatar-upload').addEventListener('change', function(eve
 
   // ファイルのバリデーション
   if (!file) {
-    console.error('ファイルが選択されていません');
     return;
   }
-
-  console.log('ファイルタイプ: ', file.type);
 
   var validTypes = ['image/jpeg', 'image/png'];
   var validExtensions = ['.jpg', '.jpeg', '.png'];
   var fileExtension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
 
   if (!validTypes.includes(file.type) || !validExtensions.includes(fileExtension)) {
-    console.error('不正なファイルタイプまたは拡張子: ', file.type);
-    showErrorPopup('非対応のファイルです');
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = '非対応のファイルです';
     event.target.value = '';
     return;
   }
 
-  console.log('ファイルバリデーション成功');
-
-  // ファイルのプレビュー処理
+  // ファイルのプレビュー処理とクロップ処理
   var reader = new FileReader();
 
   reader.onload = function(e) {
-    console.log('ファイル読み込み成功');
-    // ポップアップで画像切り抜きダイアログを表示
     showCropPopup(e.target.result);
   };
 
-  reader.onerror = function() {
-    console.error('ファイル読み込み失敗');
-  };
-
   reader.readAsDataURL(file);
-  console.log('ファイル読み込み開始');
 });
-
-// エラーポップアップを表示する関数
-function showErrorPopup(message) {
-  var overlay = document.createElement('div');
-  overlay.classList.add('popup-overlay');
-  document.body.appendChild(overlay);
-
-  var popup = document.createElement('div');
-  popup.classList.add('popup');
-
-  var messageElem = document.createElement('p');
-  messageElem.textContent = message;
-
-  var closeButton = document.createElement('button');
-  closeButton.textContent = '閉じる';
-
-  closeButton.addEventListener('click', function() {
-    document.body.removeChild(popup);
-    document.body.removeChild(overlay);
-  });
-
-  popup.appendChild(messageElem);
-  popup.appendChild(closeButton);
-
-  document.body.appendChild(popup);
-}
 
 // 画像切り抜きポップアップを表示する関数
 function showCropPopup(imageSrc) {
   var overlay = document.createElement('div');
   overlay.classList.add('popup-overlay');
-  document.body.appendChild(overlay);
 
   var popup = document.createElement('div');
   popup.classList.add('popup');
+
+  // オーバーレイにポップアップを追加
+  overlay.appendChild(popup);
+  // ドキュメントにオーバーレイを追加
+  document.body.appendChild(overlay);
 
   var img = document.createElement('img');
   img.id = 'crop-image';
@@ -260,8 +224,6 @@ function showCropPopup(imageSrc) {
   popup.appendChild(img);
   popup.appendChild(cropOkButtonArea);
 
-  document.body.appendChild(popup);
-
   // Cropperを初期化
   var cropper = new Cropper(img, {
     aspectRatio: 1,
@@ -269,66 +231,46 @@ function showCropPopup(imageSrc) {
   });
 
   okButton.addEventListener('click', function() {
-    console.log('OKボタンがクリックされました');
-
     var canvas = cropper.getCroppedCanvas({
       width: 115,
-      height: 115
+      height: 115,
+      fillColor: '#fff',
     });
 
     if (!canvas) {
       console.error('キャンバスの作成に失敗しました');
       return;
     }
-    console.log('キャンバスの作成成功');
 
     // avatar-imageのsrcを更新
     var previewImage = document.getElementById('avatar-image');
     previewImage.src = canvas.toDataURL('image/jpeg');
-    console.log('切り抜かれた画像をアバター画像に表示しました');
 
-    // 送信処理
+    // クロップした画像をBlobに変換し、新しいFileオブジェクトとしてファイル入力にセット
     canvas.toBlob(function(blob) {
-      if (!blob) {
-        console.error('Blobの作成に失敗しました');
-        return;
-      }
-      console.log('Blobの作成成功');
+      var croppedFile = new File([blob], 'avatar.jpg', { type: 'image/jpeg' });
 
-      var formData = new FormData();
-      formData.append('avatar', blob, 'avatar.jpg');
-      console.log('FormData作成成功');
+      // 新しいDataTransferオブジェクトを作成し、クロップしたファイルを追加
+      var dataTransfer = new DataTransfer();
+      dataTransfer.items.add(croppedFile);
 
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/users/update_avatar', true);
-      xhr.setRequestHeader('X-CSRF-Token', document.querySelector('[name=csrf-token]').content);
-
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          console.log('サーバーへのリクエスト成功');
-          var response = JSON.parse(xhr.responseText);
-          if (response.avatar_url) {
-            console.log('画像URL取得成功: ', response.avatar_url);
-            previewImage.src = response.avatar_url;
-          } else {
-            console.error('サーバーからのレスポンスに画像URLが含まれていません');
-          }
-        } else {
-          console.error('サーバーとの通信に失敗しました。ステータスコード: ', xhr.status);
-        }
-      };
-
-      xhr.onerror = function() {
-        console.error('サーバーへのリクエスト中にエラーが発生しました');
-      };
-
-      xhr.send(formData);
-      console.log('FormDataをサーバーに送信しました');
+      // ファイル入力に新しいファイルをセット
+      var fileInput = document.getElementById('avatar-upload');
+      fileInput.files = dataTransfer.files;
     }, 'image/jpeg');
 
-    // Cropperとポップアップを削除
+    // Cropperとオーバーレイを削除
     cropper.destroy();
-    document.body.removeChild(popup);
     document.body.removeChild(overlay);
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var closeButton = document.getElementById('close-popup');
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      var popup = document.getElementById('error-popup');
+      popup.style.display = 'none';
+    });
+  }
+});

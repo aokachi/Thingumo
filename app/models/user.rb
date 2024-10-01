@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  mount_uploader :avatar, AvatarUploader
 
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
@@ -16,11 +15,11 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  attr_accessor :current_password
+
   # 管理者かどうか返すメソッド
-  class User < ApplicationRecord
-    def admin?
-      self.admin
-    end
+  def admin?
+    self.admin
   end
 
   # ユーザーの持ち点数を返すメソッド

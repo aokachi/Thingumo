@@ -90,7 +90,21 @@
 				<div class="user_edit_btn_block">
 					<!--変更を保存するボタンを設置-->
 					<%= f.submit '変更を保存', class: "btn9" %>
-					<!--マイページに戻るボタン-->
+					<!--更新処理に失敗した場合のエラーメッセージのポップアップ-->
+					<% if resource.errors.any? %>
+						<div id="error-popup" class="popup-overlay">
+							<div class="popup">
+								<p>ユーザー情報の変更に失敗しました</p>
+								<ul>
+									<% resource.errors.full_messages.each do |message| %>
+										<li><%= message %></li>
+									<% end %>
+								</ul>
+								<button id="close-popup">閉じる</button>
+							</div>
+						</div>
+					<% end %>
+					<!--ユーザー情報表示ページに戻るボタン-->
 					<%= link_to :back do %>
 						<button type="button" class="btn10">戻る</button>
 					<% end %>

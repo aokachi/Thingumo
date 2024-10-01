@@ -1,53 +1,58 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
+  before_action :configure_sign_up_params, only:[:create]
   before_action :configure_account_update_params, only: [:update]
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
 
-    # パスワードが空の場合はそれ以外を更新
-    if params[:user][:password].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
-
-    # ニックネームが空の場合はそれ以外を更新
-    # 職業が空の場合はそれ以外を更新
-    # アバター画像ファイルが変更ない場合はそれ以外を更新
-
-    if @user.update(account_update_params)
-      bypass_sign_in(@user)
-      redirect_to after_update_path_for(@user), notice: 'ユーザー情報は正常に変更されました。'
-    else
-      render "edit"
-    end
-  end
-
-  def update_avatar
-    if current_user.update(avatar: params[:avatar])
-      render json: { avatar_url: url_for(current_user.avatar.variant(resize: "115x115"))}
-    else
-      render json: { error: "アバター画像の更新に失敗しました。"}, status: :unprocessable_entity
-    end
+    super
   end
 
   private
 
+  # アカウント作成時の許可パラメータ
   def sign_up_params
-    customized_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex, :birthday)
-    customized_params.merge(total_points: 0, admin: false)    # アカウント作成フォームの入力内容に、total_pointsとadminのデフォルト値を加えて登録(NOT NULL制約のため)
+    customized_params = params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex, :birthday).merge(total_points: 0, admin: false)
   end
 
-  def resize_avatar(avatar)
-    image = MiniMagick::Image.read(avatar.download)
-    image.resize "115x115"
-    avatar.attach(io: StringIO.new(image.to_blob), filename: avatar.filename, content_type: avatar.content_type)
+  # ユーザ情報更新時の許可パラメータ
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :region, :avatar, :current_password, :password, :password_confirmation])
   end
 
   protected
 
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :region, :avatar])
+  def update_resource(resource, params)
+    success = true
+    begin
+      ActiveRecord::Base.transaction do
+        if params[:password].present?
+          # パスワードを更新
+          password_params = params.slice(:password, :password_confirmation, :current_password)
+          success = resource.update_with_password(password_params)
+
+          # 他の属性を更新
+          other_params = params.except(:current_password, :password, :password_confirmation)
+          success &= resource.update(other_params) if other_params.present?
+        else
+          other_params = params.except(:current_password, :password, :password_confirmation)
+          success = resource.update_without_password(other_params)
+        end
+
+        raise ActiveRecord::Rollback unless success
+      end
+    rescue ActiveRecord::RecordInvalid
+      success = false
+    end
+
+    success
+  end
+
+  protected
+
+  # 更新に成功したら/users/showに遷移する
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 end
-
