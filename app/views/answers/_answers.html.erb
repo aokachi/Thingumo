@@ -9,7 +9,11 @@
     <div class="be-answer">
       <div class="be-img-answer">
         <%= link_to user_path(answer.user) do %>
-          <%= image_tag answer.user.avatar_url, alt: "", class: "be-ava-answer" %>
+          <% if answer.user.avatar.attached? %>
+            <%= image_tag answer.user.avatar, alt: "アバター画像", class: "be-ava-answer" %>
+          <% else %>
+            <%= image_tag 'default_avatar.jpg', alt: "アバター画像", class: "be-ava-answer" %>
+          <% end %>
         <% end %>
       </div>
       <div class="be-answer-content">

@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'ffi', '~> 1.15.5'
+gem 'rake', '~> 13.0'
+
 # kaminari
 gem 'kaminari'
 
@@ -34,18 +37,7 @@ gem 'kaminari'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
-# carrierwave
-gem 'carrierwave'
-
-# fog
-gem 'fog-aws'
-
-# RMagick(ImageMagick)
-gem 'rmagick', '5.0.0'
-
-# refile
-gem 'refile', github: 'refile/refile', require: 'refile/rails'
-gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
+gem 'image_processing', '~> 1.2'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
@@ -80,18 +72,10 @@ gem 'webpacker'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# RSpec
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'
-end
-
-# FactoryBot
-group :development, :test do
   gem 'factory_bot_rails', '~> 5.2.0'
-end
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot', '~> 5.2.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

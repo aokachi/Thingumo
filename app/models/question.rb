@@ -1,5 +1,4 @@
 class Question < ApplicationRecord
-  mount_uploaders :images, ImageUploader
   
   belongs_to :user
   belongs_to :category
@@ -8,6 +7,8 @@ class Question < ApplicationRecord
   # accepts_nested_attributes_for :question_images, allow_destroy: true
 
   has_many :answers, dependent: :destroy
+
+  has_many_attached :images
 
   #has_many :question_files, dependent: :destroy
   # accepts_nested_attributes_for :question_files

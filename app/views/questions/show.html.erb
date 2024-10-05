@@ -35,7 +35,7 @@
               <div class="image-block">
                 <% if @question.images.present? %>
                 <% @question.images.each do |image| %>
-                <%= image_tag (image.url) %>
+                <%= image_tag (image) %>
                 <% end %>
                 <% else %>
                 <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(@question), class: "be-img-block" %>
@@ -76,8 +76,8 @@
               <div>
                 <!--質問イメージの1枚目をサムネイルとして表示(ある場合は)-->
                 <div class="image-block">
-                  <% if question.images? %>
-                  <%= link_to image_tag(question.images[0].url, alt: "質問したイメージ"), question_path(question), class: "be-img-block" %>
+                  <% if question.images.attached? %>
+                  <%= link_to image_tag(question.images.first, alt: "質問したイメージ"), question_path(question), class: "be-img-block" %>
                   <% else %>
                   <%= link_to image_tag("/default01.png", alt: "NO IMAGE"), question_path(question), class: "be-img-block" %>
                   <% end %>
@@ -93,9 +93,9 @@
               </span>
               <div class="author-question">
                 <!--プロフィール画像があったら表示-->
-                <% if question.user.avatar? %>
+                <% if question.user.avatar.attached? %>
                 <p>
-                  <%= image_tag question.user.avatar.url, alt: "プロフィール画像", class: "ava-author", size: "70x70" %>
+                  <%= image_tag question.user.avatar, alt: "プロフィール画像", class: "ava-author", size: "70x70" %>
                 </p>
                 <% else %>
                 <p>
@@ -158,9 +158,9 @@
       <div class="col-md-3 col-md-pull-9 left-feild">
         <div class="be-user-block">
           <div class="be-user-detail">
-            <% if @question.user.avatar? %>
+            <% if @question.user.avatar.attached? %>
             <p>
-              <%= image_tag question.user.avatar.url, alt: "プロフィール画像", class: "be-ava-user", size: "70x70" %>
+              <%= image_tag @question.user.avatar, alt: "プロフィール画像", class: "be-ava-user", size: "70x70" %>
             </p>
             <% else %>
             <p>
