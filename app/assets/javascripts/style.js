@@ -274,3 +274,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// 更新に失敗した際の処理（ポップアップ）
+document.addEventListener("DOMContentLoaded", function() {
+  // ポップアップの閉じるボタン
+  $('#close-popup').on('click', function() {
+    $('#update-error-popup').fadeOut();
+    // スクロールを再度有効化
+    $('body').css('overflow', 'auto');
+  });
+});

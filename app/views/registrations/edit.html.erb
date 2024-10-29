@@ -16,7 +16,7 @@
 <div id="content-block">
 	<div class="container be-detail-container">
 		<div class="row">
-			<%= form_with(model: @user, url: registration_path(@user), method: :put, html: { multipart: true }, local: false) do |f| %>
+			<%= form_with(model: @user, url: registration_path(@user), method: :put, html: { multipart: true }, local: false, id: 'account-update-form') do |f| %>
 				<div class="_editor-content_1 justify-content-center">
 					<div class="sec" data-sec="basic-information">
 						<div class="be-large-question">
@@ -43,12 +43,12 @@
 									<div class="input-col col-xs-12 col-sm-6">
 										<div class="form-group fg_icon focus-2">
 											<div class="form-label">ニックネーム</div>
-											<input class="form-input" type="text" value="">
+											  <%= f.text_field :name, class: "form-input" %>
 										</div>
 									</div>
 									<div class="input-col col-xs-12 col-sm-6">
 										<div class="form-label">地域</div>
-											<%= f.select :region, options_for_select([['選択なし', '0'], ['北海道', '1'], ['東北', '2'], ['関東', '3'], ['中部', '4'], ['近畿', '5'], ['中国', '6'], ['四国', '7'], ['九州', '8'], ['九州（沖縄）', '9']]), { selected: f.object.region || '0' }, { class: "region_select_dropdown" } %>
+											<%= f.select :region, options_for_select([['選択なし', '0'], ['北海道', '1'], ['東北', '2'], ['関東', '3'], ['中部', '4'], ['近畿', '5'], ['中国', '6'], ['四国', '7'], ['九州', '8'], ['九州（沖縄）', '9']], f.object.region || '0'), { selected: f.object.region || '0' }, { class: "region_select_dropdown" } %>
 									</div>
 								</div>
 							</div>
@@ -90,20 +90,6 @@
 				<div class="user_edit_btn_block">
 					<!--変更を保存するボタンを設置-->
 					<%= f.submit '変更を保存', class: "btn9" %>
-					<!--更新処理に失敗した場合のエラーメッセージのポップアップ-->
-					<% if resource.errors.any? %>
-						<div id="error-popup" class="popup-overlay">
-							<div class="popup">
-								<p>ユーザー情報の変更に失敗しました</p>
-								<ul>
-									<% resource.errors.full_messages.each do |message| %>
-										<li><%= message %></li>
-									<% end %>
-								</ul>
-								<button id="close-popup">閉じる</button>
-							</div>
-						</div>
-					<% end %>
 					<!--ユーザー情報表示ページに戻るボタン-->
 					<%= link_to :back do %>
 						<button type="button" class="btn10">戻る</button>
@@ -114,7 +100,17 @@
 	</div>
 </div>
 
-<!-- フッター -->
+<!-- 更新に失敗した際のポップアップ -->
+<div id="update-error-popup" class="popup-overlay" style="display: none;">
+	<div class="popup-content">
+		<div class="popup-message">
+			<ul id="error-messages">
+				<!-- エラーメッセージはここに挿入 -->
+			</ul>
+		</div>
+		<button id="close-popup" class="popup-close-button">OK</button>
+	</div>
+</div>
 
 <!-- SCRIPT	-->
 <script src="/assets/jquery-2.1.4.min.js"></script>

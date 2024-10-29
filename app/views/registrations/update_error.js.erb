@@ -1,0 +1,17 @@
+// デバッグ用のログ
+console.log('update_error.js.erb が実行されました');
+console.log('カスタムエラー:', <%= @custom_errors.to_json.html_safe %>);
+
+// エラーメッセージをクリア
+$("#error-messages").empty();
+
+// 新しいエラーメッセージを追加
+<% @custom_errors.each do |error| %>
+  $("#error-messages").append("<li><%= j error %></li>");
+<% end %>
+
+// ポップアップを表示
+$("#update-error-popup").fadeIn();
+
+// 背景を暗くし、スクロールを無効化
+$("body").css("overflow", "hidden");

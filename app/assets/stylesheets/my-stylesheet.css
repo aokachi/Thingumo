@@ -1094,6 +1094,12 @@ a.be-register {
   border-radius: 3px;
 }
 
+@media (max-width: 767px) {
+  .region_select_dropdown {
+    width: 100%;
+  }
+}
+
 .fa-angle-down {
   position: absolute;
   font-size: 16px;
@@ -1173,6 +1179,48 @@ a.be-register {
 #crop-image {
   max-width: 100%;
   max-height: 80vh;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 500px;
+  min-height: 400px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+}
+
+@media (max-width: 991px) {
+  .popup-content {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+/* ポップアップメッセージ */
+.popup-message {
+  margin-top: 120px;
+  height: 60px;
+  margin-bottom: 80px;
+}
+
+.popup-close-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.popup-close-button:hover {
+  background-color: #0056b3;
 }
 
 
