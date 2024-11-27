@@ -916,19 +916,128 @@ a.be-register {
 
 /* 
 ==================================
-	ユーザー情報表示ページ
+	01 ユーザー情報表示ページ
 ==================================
 */
+
 /* 質問パネルの表示領域 */
 .question-panel-display-area {
   width: 100%;
+  max-width: 320px;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+
+/* 共通のグリッド設定 */
+.tabs-content.answers-list .row,
+.tabs-content.questions-list .row {
+  display: grid;
+  grid-gap: 30px;
+  justify-content: center;
+}
+
+/* 画面幅が2400px以上の場合：３列表示 */
+@media (min-width: 2400px) {
+  .tabs-content.answers-list .row,
+  .tabs-content.questions-list .row {
+    grid-template-columns: repeat(3, 320px);
+  }
+
+  .tab-wrapper.style-1 .nav-tab {
+    margin-left: -3px;
+  }
+}
+
+/* 画面幅が1200px以上2399px以下の場合：２列表示 */
+@media (min-width: 1200px) and (max-width: 2399px) {
+  .tabs-content.answers-list .row,
+  .tabs-content.questions-list .row {
+    grid-template-columns: repeat(2, 320px);
+  }
+
+  .tab-wrapper.style-1 .nav-tab {
+    margin-left: -10px;
+    width: 640px;
+    position: relative;
+    left: 50px;
+  }
+}
+
+/* 画面幅が992px以上1199px以下の場合：2列表示 */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .question-panel-display-area {
+    max-width: 300px;
+    transform: scale(0.9);
+  }
+
+  .tabs-content.answers-list .row,
+  .tabs-content.questions-list .row {
+    grid-template-columns: 300px 300px;
+    column-gap: 11px; /* 列間の間隔を指定 */
+  }
+
+  /* 左側の列の質問パネルはrowの右に寄せて配置 */
+  .tabs-content.answers-list .row .question-panel-display-area:nth-child(odd),
+  .tabs-content.questions-list .row .question-panel-display-area:nth-child(odd) {
+    justify-self: end;
+  }
+
+    /* 右側の列の質問パネルはrowの左に寄せて配置 */
+    .tabs-content.answers-list .row .question-panel-display-area:nth-child(even),
+    .tabs-content.questions-list .row .question-panel-display-area:nth-child(even) {
+      justify-self: start;
+    }
+
+    .tab-wrapper.style-1 .nav-tab {
+    margin-left: 16px;
+    width: 580px;
+  }
+
+  .tab-wrapper.style-1 .tab-nav-wrapper {
+    margin-bottom: 15px !important;
+  }
+}
+
+/* 画面幅が768px以上991px以下の場合：2列表示 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .tabs-content.answers-list .row,
+  .tabs-content.questions-list .row {
+    grid-template-columns: 300px 300px;
+    column-gap: 35px; /* 列間の間隔を指定 */
+  }
+
+  /* 左側の列の質問パネルはrowの右に寄せて配置 */
+  .tabs-content.answers-list .row .question-panel-display-area:nth-child(odd),
+  .tabs-content.questions-list .row .question-panel-display-area:nth-child(odd) {
+    justify-self: end;
+  }
+
+    /* 右側の列の質問パネルはrowの左に寄せて配置 */
+    .tabs-content.answers-list .row .question-panel-display-area:nth-child(even),
+    .tabs-content.questions-list .row .question-panel-display-area:nth-child(even) {
+      justify-self: start;
+    }
+
+  .tab-wrapper.style-1 .nav-tab {
+    margin-left: 42px;
+    width: 635px;
+  }
+}
+
+/* 画面幅が768px未満の場合：１列表示 */
 @media (max-width: 767px) {
   .question-panel-display-area {
+    max-width: none;
+    width: 100%;
+  }
+
+  .tabs-content.answers-list .row,
+  .tabs-content.questions-list .row {
     text-align: center;
-  } 
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ポイント数表示部 */
@@ -972,6 +1081,14 @@ a.be-register {
   color: #fff
 }
 
+/* 疑似要素を無効化 */
+.tabs-content.questions-list .row::before,
+.tabs-content.questions-list .row::after,
+.tabs-content.answers-list .row::before,
+.tabs-content.answers-list .row::after {
+  content: none;
+  display: none;
+}
 
 /* 
 ==================================
