@@ -472,7 +472,7 @@ span.choose {
 
 @media (max-width: 767px) {
   .blog-list .question-desc { margin-right: 0px; padding-left: 20px; padding-right: 20px; }
-  .be-large-content-align, .number-of-views-and-answers .be-large-content-align { margin: 0 15px; padding-bottom: 30px; }
+  .be-large-content-align, .number-of-views-and-answers .be-large-content-align { margin: 0 15px; /*padding-bottom: 30px;*/ }
 }
 
 .number-of-views-and-answers2 { background: #F6F6F6; padding: 25px 15px; font-size: 10px; color: #b4b7c1 !important; }
@@ -1092,9 +1092,69 @@ a.be-register {
 
 /* 
 ==================================
-	ユーザー情報編集ページ
+	02 ユーザー情報編集ページ
 ==================================
 */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .be-detail-container {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .be-detail-container {
+    margin-top: 40px;
+  }
+}
+
+.avatar_area_2,
+.avatar_btn_area {
+  position:static;
+  left: auto;
+  margin-left: 0;
+  width: auto;
+}
+
+.avatar_btn_area {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 400px;
+}
+
+@media (max-width: 359px) {
+  .avatar_btn_area {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+  }
+}
+
+/* アバターと変更ボタンを左右方向の中央に表示する */
+@media (min-width: 460px) and (max-width: 767px) {
+  .be-large-content-align {
+    margin: auto;
+  }
+  .be-change-ava {
+    position: relative;
+  }
+  .avatar_area_2 {
+    position: absolute;
+    left: 50%;
+    margin-left: -155px;
+  }
+  .avatar_btn_area {
+    width: 130px;
+    position: absolute;
+    left: 50%;
+    margin-left: 40px;
+  }
+  .btn8 {
+    margin-left: 0 !important;
+  }
+}
+
 .btn8 { 
   display: inline-block; 
   width: 122px;
@@ -1166,7 +1226,7 @@ a.be-register {
   padding: 10px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 459px) {
   .be-change-ava {
     margin-left: 25px;
   }
@@ -1177,21 +1237,6 @@ a.be-register {
     height: 40px;
     width: 100%;
     display: flex;
-    justify-content: center;
-  }
-}
-
-.avatar_btn_area {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 400px;
-}
-
-@media (max-width: 359px) {
-  .avatar_btn_area {
-    width: 100%;
-    height: 40px;
     justify-content: center;
   }
 }

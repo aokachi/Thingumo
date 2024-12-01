@@ -668,9 +668,9 @@ a.be-question-title:hover { color: #0D58C8; }
 
 .info-block-label { font-size: 32px; line-height: 32px; font-family: 'Conv_helveticaneuecyr-bold'; color: #383b43; }
 
-@media (max-width: 479px) {
+@media (max-width: 412px) {
     .info-block-label {
-      font-size: 20px; line-height: 20px;
+      font-size: 24px; line-height: 24px;
     }
   }
 
