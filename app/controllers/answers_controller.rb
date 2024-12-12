@@ -125,13 +125,5 @@ class AnswersController < ApplicationController
     unless current_user&.admin?
       redirect_back(fallback_location: root_path)
     end
-  end
-
-  def check_answer(text)
-    checker1 = AnswersChecker_1.new
-    return true if checker1.included?(text)
-    
-    checker2 = AnswersChecker_2.new(text, @answer)
-    checker2.included?
-  end  
+  end 
 end

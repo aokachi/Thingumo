@@ -51,12 +51,6 @@ gem 'webpush'
 # Devise
 gem 'devise'
 
-# wikipedia-client
-gem 'wikipedia-client'
-
-# Mecab
-gem 'natto'
-
 #jQuery
 gem 'jquery-rails'
 
